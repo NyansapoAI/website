@@ -68,7 +68,7 @@ export default function Navbar() {
                       href='/'
                       className='w-full px-6 py-2 mt-4 text-center text-white bg-yellow-500 rounded-md lg:ml-5'
                     >
-                      <span className=''>Book Demo</span>
+                      <span className=''>Request Demo</span>
                     </Link>
                   </>
                 </Disclosure.Panel>
@@ -96,9 +96,9 @@ export default function Navbar() {
         <div className='hidden mr-3 space-x-4 lg:flex nav__item'>
           <Link
             href='/'
-            className='px-6 py-2 text-white bg-yellow-500 rounded-md md:ml-5'
+            className='px-6 py-2 text-dark font-semibold bg-yellow-500 rounded-md md:ml-5'
           >
-            <span className=''>Book Demo</span>
+            <span className=''>Request Demo</span>
           </Link>
           <ThemeSwitch />
         </div>
