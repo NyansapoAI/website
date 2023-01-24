@@ -27,10 +27,10 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className='dark:bg-dark bg-cyan-100'>
+      <body className='dark:bg-dark bg-cyan-100 duration-400 dark:text-cyan-100 text-cyan-900'>
         <RootProviders>
           <Navbar />
-          {children}
+          <div className=''>{children}</div>
         </RootProviders>
       </body>
     </html>

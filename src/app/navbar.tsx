@@ -8,8 +8,8 @@ export default function Navbar() {
   const navigation = ['About', 'Products', 'Projects', 'News']
 
   return (
-    <div className='w-full'>
-      <nav className='container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between dark:text-gray-100 xl:px-0'>
+    <div className='w-full mb-12'>
+      <nav className='container relative flex flex-wrap items-center justify-between py-8 lg:justify-between dark:text-gray-100 '>
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
@@ -79,7 +79,7 @@ export default function Navbar() {
 
         {/* menu  */}
         <div className='hidden text-center lg:flex lg:items-center'>
-          <ul className='items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex'>
+          <ul className='items-center justify-end flex-1  list-none lg:pt-0 lg:flex'>
             {navigation.map((menu, index) => (
               <li className='mr-3 nav__item' key={index}>
                 <Link
