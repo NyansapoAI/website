@@ -8,7 +8,7 @@ type Props = {
 export default function RootProviders({ children }: Props) {
   return (
     <ThemeProvider attribute='class'>
-      <div className='px-8 md:px-16 xl:px-32 2xl:px-96 mx-auto'>
+      <div className='px-8 md:px-16 xl:px-32 2xl:px-96 mx-auto max-w-[1920px]'>
         <div className='mx-auto'>{children}</div>
       </div>
     </ThemeProvider>
