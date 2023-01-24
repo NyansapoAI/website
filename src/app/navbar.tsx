@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <div className='w-full mb-12'>
-      <nav className='container relative flex flex-wrap items-center justify-between py-8 lg:justify-between dark:text-gray-100 '>
+      <nav className=' relative flex flex-wrap items-center justify-between py-8 lg:justify-between dark:text-gray-100 '>
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
@@ -66,7 +66,7 @@ export default function Navbar() {
                     ))}
                     <Link
                       href='/'
-                      className='w-full px-6 py-2 mt-4 text-center text-white bg-yellow-500 rounded-md lg:ml-5'
+                      className='w-full px-6 py-2 mt-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5'
                     >
                       <span className=''>Request Demo</span>
                     </Link>
