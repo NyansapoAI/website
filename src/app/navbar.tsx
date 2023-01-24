@@ -56,16 +56,19 @@ export default function Navbar() {
                 <Disclosure.Panel className='flex flex-wrap w-full my-5 lg:hidden'>
                   <>
                     {navigation.map((item, index) => (
-                      <Link key={index} href='/'>
-                        <a className='w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none dark:focus:bg-trueGray-700'>
-                          {item}
-                        </a>
+                      <Link
+                        key={index}
+                        className='w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none dark:focus:bg-trueGray-700'
+                        href='/'
+                      >
+                        <span className=''>{item}</span>
                       </Link>
                     ))}
-                    <Link href='/'>
-                      <span className='w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5'>
-                        Get Started
-                      </span>
+                    <Link
+                      href='/'
+                      className='w-full px-6 py-2 mt-4 text-center text-white bg-yellow-500 rounded-md lg:ml-5'
+                    >
+                      <span className=''>Book Demo</span>
                     </Link>
                   </>
                 </Disclosure.Panel>
@@ -90,10 +93,11 @@ export default function Navbar() {
         </div>
 
         <div className='hidden mr-3 space-x-4 lg:flex nav__item'>
-          <Link href='/'>
-            <span className='px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5'>
-              Get Started
-            </span>
+          <Link
+            href='/'
+            className='px-6 py-2 text-white bg-yellow-500 rounded-md md:ml-5'
+          >
+            <span className=''>Book Demo</span>
           </Link>
 
           {/* <ThemeChanger /> */}
