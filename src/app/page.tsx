@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import HeroGallery from './components/HeroGallery'
 
 export default function Home() {
   return (
@@ -59,6 +60,7 @@ export default function Home() {
               placeholder='blur'
             />
           </div> */}
+          <HeroGallery />
         </div>
       </div>
       <div>
