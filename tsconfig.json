@@ -32,7 +32,7 @@
         "./public/imgs/*"
       ],
       "@components/*": [
-        "./src/components/*"
+        "./src/app/components/*"
       ]
     }
   },

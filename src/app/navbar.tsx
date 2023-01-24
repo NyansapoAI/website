@@ -58,7 +58,7 @@ export default function Navbar() {
                     {navigation.map((item, index) => (
                       <Link
                         key={index}
-                        className='w-full px-4 py-2 -ml-4 rounded-md  hover:text-yellow-500 focus:text-cyan-500 focus:bg-cyan-100 dark:focus:bg-gray-800 focus:outline-none '
+                        className='w-full px-4 py-2 -ml-4 rounded-md  hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 dark:focus:bg-gray-800 focus:outline-none '
                         href='/'
                       >
                         <span className=''>{item}</span>
@@ -84,7 +84,7 @@ export default function Navbar() {
               <li className='mr-3 nav__item' key={index}>
                 <Link
                   href='/'
-                  className='inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md  hover:text-yellow-600 focus:text-yellow-600 focus:bg-cyan-100 focus:outline-none dark:focus:bg-gray-800'
+                  className='inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md  hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-gray-800'
                 >
                   <span className=''>{menu}</span>
                 </Link>
