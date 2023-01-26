@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SectionTitle(props: {
+export default function SectionHeader(props: {
   align?: string
   pretitle?: string
   title: string
@@ -16,7 +16,7 @@ export default function SectionTitle(props: {
       className={`flex w-full flex-col mt-4 ${
         props.align && props.align === 'left'
           ? ''
-          : 'items-center justify-center text-center'
+          : 'items-center justify-center text-center mb-4'
       }`}
     >
       {props.pretitle && (
