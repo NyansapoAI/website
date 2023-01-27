@@ -5,13 +5,8 @@ import React, { useEffect, useState } from 'react'
 type Props = {}
 
 export default function ThemeSwitch({}: Props) {
-  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return null
   return (
     <div className='flex items-center'>
       {theme === 'dark' ? (
