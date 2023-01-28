@@ -153,15 +153,15 @@
 
 @media screen and (min-width: 1536px) {
   #slider-span1:target ~ .image-slider {
-    left: 80%;
+    left: 40%;
   }
   #slider-span5:target ~ .image-slider {
-    left: -80%;
+    left: -60%;
   }
   #slider-span4:target ~ .image-slider {
-    left: -50%;
+    left: -40%;
   }
   #slider-span2:target ~ .image-slider {
-    left: 40%;
+    left: 20%;
   }
 }
