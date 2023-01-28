@@ -1,7 +1,6 @@
 import React from "react";
 import SectionHeader from "../components/SectionHeader";
 import Slider from "../components/Slider";
-import Slider2 from "../components/Slider2";
 
 type Props = {};
 
