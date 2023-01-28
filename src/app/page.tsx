@@ -1,13 +1,16 @@
-import About from './sections/about'
+import Services from './sections/services'
 import Hero from './sections/hero'
 import Products from './sections/products'
+import About from './sections/about'
 
 export default function Home() {
   return (
     <main className='container'>
       <Hero />
-      <About />
+      <Services />
       <Products />
+      <About/>
     </main>
+
   )
 }
