@@ -1,5 +1,5 @@
-import './globals.css'
 import Navbar from './navbar'
+import './globals.css'
 import { Raleway, Alegreya_Sans } from '@next/font/google'
 import RootProviders from './providers'
 const raleway = Raleway({
@@ -27,10 +27,10 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className='dark:bg-dark bg-cyan-100 duration-400 dark:text-cyan-100 text-cyan-900'>
+      <body className=' bg-cyan-100 dark:bg-dark duration-400 dark:text-cyan-100 text-cyan-900'>
         <RootProviders>
           <Navbar />
-          <div className=''>{children}</div>
+          <main className=''>{children}</main>
         </RootProviders>
       </body>
     </html>

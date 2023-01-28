@@ -18,7 +18,7 @@ export default function Hero({}: Props) {
 
             <div className='flex flex-wrap gap-4  items-center'>
               <Link
-                href='/book'
+                href='/'
                 className='px-8 py-4 text-lg font-medium text-center text-slate-800 bg-yellow-500 rounded-md inine '
               >
                 Request Demo

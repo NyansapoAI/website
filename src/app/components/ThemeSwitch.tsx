@@ -1,17 +1,24 @@
-'use client'
 import { useTheme } from 'next-themes'
-import React, { useEffect, useState } from 'react'
-
+import { useEffect, useState } from 'react'
 type Props = {}
 
 export default function ThemeSwitch({}: Props) {
   const { theme, setTheme } = useTheme()
+const [mounted, setMounted] = useState(false)
 
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
   return (
     <div className='flex items-center'>
       {theme === 'dark' ? (
         <button
-          onClick={() => setTheme('light')}
+          onClick={()=>setTheme('light')}
           className='text-gray-300 rounded-full outline-none focus:outline-none'
         >
           <span className='sr-only'>Light Mode</span>
