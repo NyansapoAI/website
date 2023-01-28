@@ -1,4 +1,4 @@
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
   .image-slider {
     width: 100%;
     height: 100%;
@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 16px;
+    padding: 24px;
   }
   .slides-div {
     position: relative;
@@ -18,24 +18,19 @@
     align-items: center;
     justify-content: center;
   }
-
-  
-  
-  
 }
 
 @media screen and (min-width: 1280px) {
   .slide-container {
     width: 100%;
     position: relative;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    
+
     overflow: hidden;
   }
-  
+
   .image-slider {
     width: 100%;
     height: 100%;
@@ -46,16 +41,16 @@
     align-items: center;
     transition: 1s;
   }
-  
+
   .slides-div {
     position: relative;
     display: flex;
-    min-width: 400px;
+    min-width: 300px;
     /* height: 50%; */
     align-items: center;
     justify-content: center;
   }
-  
+
   .img {
     position: relative;
     width: 100%;
@@ -72,7 +67,7 @@
     transition: 0.5s;
     background-color: rgba(7, 6, 1, 0.9);
   }
-  
+
   #slider-span1:target ~ .image-slider #button-1 {
     height: 100%;
     z-index: 40;
@@ -84,24 +79,24 @@
     z-index: 40;
     scale: 1.5;
     height: 100%;
-    
+
     background-color: transparent;
   }
-  
+
   #slider-span3:target ~ .image-slider #button-3 {
     z-index: 40;
     height: 100%;
     background-color: transparent;
     scale: 1.5;
   }
-  
+
   #slider-span4:target ~ .image-slider #button-4 {
     z-index: 40;
     height: 100%;
     background-color: transparent;
     scale: 1.5;
   }
-  
+
   #slider-span5:target ~ .image-slider #button-5 {
     z-index: 40;
     height: 100%;
@@ -109,27 +104,27 @@
     /* background-color:transparent; */
     scale: 1.5;
   }
-  
+
   #slider-span1:target ~ .image-slider #img1 {
     z-index: 50;
     scale: 1.5;
   }
-  
+
   #slider-span2:target ~ .image-slider #img2 {
     z-index: 50;
     scale: 1.5;
   }
-  
+
   #slider-span3:target ~ .image-slider #img3 {
     z-index: 50;
     scale: 1.5;
   }
-  
+
   #slider-span4:target ~ .image-slider #img4 {
     z-index: 50;
     scale: 1.5;
   }
-  
+
   #slider-span5:target ~ .image-slider #img5 {
     z-index: 50;
     scale: 1.5;
@@ -138,24 +133,23 @@
   #slider-span1:target ~ .image-slider {
     left: 40%;
   }
-  
+
   #slider-span2:target ~ .image-slider {
     left: 20%;
   }
-  
+
   #slider-span3:target ~ .image-slider {
     left: 0%;
   }
-  
+
   #slider-span4:target ~ .image-slider {
     left: -20%;
   }
-  
+
   #slider-span5:target ~ .image-slider {
     left: -40%;
   }
 }
-
 
 @media screen and (min-width: 1536px) {
   #slider-span1:target ~ .image-slider {
@@ -170,5 +164,4 @@
   #slider-span2:target ~ .image-slider {
     left: 40%;
   }
-  
 }

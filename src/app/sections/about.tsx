@@ -6,7 +6,7 @@ type Props = {};
 
 export default function About({}: Props) {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col gap-4 items-center ">
       <SectionHeader pretitle="Who we are" title="About Us">
         <span className="w-full">
           Our company is committed to leveraging technology to improve literacy
