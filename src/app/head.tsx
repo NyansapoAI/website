@@ -2,12 +2,23 @@ export default function Head() {
   return (
     <>
       <title>NyansapoAI</title>
-      <meta content='width=device-width, initial-scale=1' name='viewport' />
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta
-        name='description'
-        content='nyansapoAI is a company that utilises Artificial intelligence to improve literacy and numeracy  competencies of learners in marginalised areas'
+        name="description"
+        content="supporting literacy and numeracy catch-up interventions using AI"
       />
-      <link rel='icon' href='/favicon.ico' />
+      <meta
+        name="keywords"
+        content="nyansapoAI,literacy bootcamps, teaching at the right level,digital assesments,literacy interventions,artificial intelligence,data analytics"
+      />
+      <meta property="og:title" content="nyansapoAI" />
+      <meta
+        property="og:description"
+        content="NyansapoAI offers digital literacy and numeracy assessments to support  teaching at the right level"
+      />
+      <link rel="canonical" href="https://nyansapoai.net" />
+      <link rel="canonical" href="https://nyansapotechnologies.com" />
+      <link rel="icon" href="/favicon.ico" />
     </>
-  )
+  );
 }
