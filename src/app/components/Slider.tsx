@@ -26,7 +26,7 @@ const pictures = [
 ];
 export default function Slider({}: Props) {
   return (
-    <div className="slide-container">
+    <div className="slide-container flex-col">
       {pictures.map((pic, i) => (
         <span key={i} className="slider-span" id={`slider-span${i + 1}`}></span>
       ))}
