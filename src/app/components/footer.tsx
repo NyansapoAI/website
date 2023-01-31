@@ -64,7 +64,7 @@ export default function Footer() {
               <Twitter />
             </a>
             <a
-              href="https://facebook.com/"
+              href="https://www.facebook.com/twivamwe?mibextid=ZbWKwL"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,7 +80,7 @@ export default function Footer() {
               <Instagram />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/showcase/nyansapo/"
               target="_blank"
               rel="noopener noreferrer"
             >

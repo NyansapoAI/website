@@ -84,7 +84,7 @@ export default function Navbar() {
                   href={`/${menu}`}
                   className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md  hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-gray-800"
                 >
-                  <span className="">{menu}</span>
+                  <span className="capitalize">{menu}</span>
                 </Link>
               </li>
             ))}
