@@ -1,8 +1,8 @@
-import React from "react";
-import HeroGallery from "@components/HeroGallery";
-import Link from "next/link";
+import React from "react"
+import HeroGallery from "@components/HeroGallery"
+import Link from "next/link"
 
-type Props = {};
+type Props = {}
 
 export default function Hero({}: Props) {
   return (
@@ -20,7 +20,7 @@ export default function Hero({}: Props) {
 
             <div className="flex flex-wrap gap-4  items-center">
               <Link
-                href="/"
+                href="/book"
                 className="px-8 py-4 text-lg font-medium text-center text-slate-800 bg-yellow-500 rounded-md inine "
               >
                 Request Demo
@@ -83,5 +83,5 @@ export default function Hero({}: Props) {
         </div> */}
       </div>
     </section>
-  );
+  )
 }

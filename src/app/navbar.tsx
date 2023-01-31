@@ -1,12 +1,12 @@
-"use client";
-import Link from "next/link";
-import { Disclosure } from "@headlessui/react";
-import Image from "next/image";
-import ThemeSwitch from "./components/ThemeSwitch";
-import { navigationLinks } from "@/constants/links";
+"use client"
+import Link from "next/link"
+import { Disclosure } from "@headlessui/react"
+import Image from "next/image"
+import ThemeSwitch from "./components/ThemeSwitch"
+import { navigationLinks } from "@/constants/links"
 export default function Navbar() {
   return (
-    <div className="w-full mb-12">
+    <div className="w-full relative z-50 mb-12">
       <nav className=" relative flex flex-wrap items-center justify-between py-8 lg:justify-between dark:text-gray-100 ">
         {/* Logo  */}
         <Disclosure>
@@ -73,7 +73,7 @@ export default function Navbar() {
                       )
                     )}
                     <Link
-                      href="#"
+                      href="/book"
                       className="w-full px-6 py-2 mt-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
                     >
                       <span className="">Request Demo</span>
@@ -114,7 +114,7 @@ export default function Navbar() {
 
         <div className="hidden mr-3 space-x-4 lg:flex">
           <Link
-            href="#"
+            href="/book"
             className="px-6 py-2 text-dark font-semibold bg-yellow-500 rounded-md md:ml-5"
           >
             <span className="">Request Demo</span>
@@ -123,5 +123,5 @@ export default function Navbar() {
         </div>
       </nav>
     </div>
-  );
+  )
 }

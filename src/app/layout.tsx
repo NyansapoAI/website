@@ -1,5 +1,6 @@
 import Navbar from "./navbar";
 import "./globals.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Raleway, Alegreya_Sans } from "@next/font/google";
 import RootProviders from "./providers";
 import Footer from "./components/footer";
@@ -28,7 +29,7 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className=" bg-cyan-100 dark:bg-dark duration-400 dark:text-cyan-100 text-cyan-900">
+      <body className="relative bg-cyan-100 dark:bg-dark duration-400 dark:text-cyan-100 text-slate-800">
         <RootProviders>
           <Navbar />
           <main className="">{children}</main>
