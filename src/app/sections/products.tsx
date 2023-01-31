@@ -7,7 +7,7 @@ type Props = {};
 
 export default function Products({}: Props) {
   return (
-    <div>
+    <div id="products">
       <SectionTitle pretitle="what we offer" title="Our Products" />
       <div className="flex flex-wrap gap-6 justify-between py-8">
         <aside className=" w-full sm:flex-1 ">

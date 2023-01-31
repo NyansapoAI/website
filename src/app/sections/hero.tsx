@@ -6,7 +6,7 @@ type Props = {};
 
 export default function Hero({}: Props) {
   return (
-    <section id="#">
+    <section>
       <div className="flex flex-wrap container ">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
