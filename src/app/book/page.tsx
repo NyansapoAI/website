@@ -5,17 +5,17 @@ type Props = {}
 function page({}: Props) {
   return (
     <div>
-      <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
+      <section className="relative block  py-16 lg:pt-0 ">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+          <div className="flex flex-wrap justify-center">
             <div className="w-full lg:w-6/12 px-4">
-              <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg">
+              <div className="relative flex flex-col min-w-0 break-words w-full mb-6">
                 <div className="flex-auto p-5 lg:p-10">
                   <h4 className="text-2xl font-semibold">
                     Want to work with us?
                   </h4>
-                  <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                    Complete this form and we will get back to you in 24 hours.
+                  <p className="leading-relaxed mt-1 mb-4 ">
+                    Complete this form and we will get back to you.
                   </p>
                   <div className="relative w-full mb-3 mt-8">
                     <label
@@ -26,7 +26,7 @@ function page({}: Props) {
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 py-3bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 px-3 py-3  rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Full Name"
                     />
                   </div>
