@@ -1,0 +1,94 @@
+{
+    "team": [
+      {
+        "name": "Edward Amoah",
+        "role": "Co-Founder",
+        "imageUrl": "https://unsplash.com/photos/random4",
+        "socialLinks": [
+          {
+            "link": "https://linkedin.com/in/edwardamoah",
+            "type": "twitter"
+          },
+          {
+            "link": "https://angel.co/edwardamoah",
+            "type": "linkedin"
+          }
+        ]
+      },
+      {
+        "name": "Winfred Mumbe",
+        "role": "Co-Founder",
+        "imageUrl": "https://unsplash.com/photos/random5",
+        "socialLinks": [
+          {
+            "link": "https://linkedin.com/in/winfredmumbe",
+            "type": "linkedin"
+          },
+          {
+            "link": "https://twitter.com/winfredmumbe",
+            "type": "twitter"
+          }
+        ]
+      },
+    {
+      "name": "Justice Eli",
+      "role": "Lead Android and Backend Developer",
+      "imageUrl": "https://unsplash.com/photos/random1",
+      "socialLinks": [
+        {
+          "link": "https://linkedin.com/in/justiceeli",
+          "type": "linkedin"
+        },
+        {
+          "link": "https://twitter.com/justiceeli",
+          "type": "twitter"
+        }
+      ]
+    },
+    {
+      "name": "Alex Magwe",
+      "role": "Lead Designer and Web Developer",
+      "imageUrl": "https://unsplash.com/photos/random2",
+      "socialLinks": [
+        {
+          "link": "https://linkedin.com/in/alexmagwe",
+          "type": "linkedin"
+        },
+        {
+          "link": "https://twitter.com/alexmagwe",
+          "type": "twitter"
+        }
+      ]
+    },
+    {
+      "name": "Angela Kaviti",
+      "role": "Program Coordinator",
+      "imageUrl": "https://unsplash.com/photos/random3",
+      "socialLinks": [
+        {
+          "link": "https://linkedin.com/in/angelakaviti",
+          "type": "linkedin"
+        },
+        {
+          "link": "https://twitter.com/angelakaviti",
+          "type": "twitter"
+        }
+      ]
+    },
+    {
+        "name": "Albright Mbia",
+        "role": "Communications Lead",
+        "imageUrl": "https://unsplash.com/photos/random5",
+        "socialLinks": [
+          {
+            "link": "https://linkedin.com/in/winfredmumbe",
+            "type": "linkedin"
+          },
+          {
+            "link": "https://twitter.com/winfredmumbe",
+            "type": "twitter"
+          }
+        ]
+    }
+  ]
+}

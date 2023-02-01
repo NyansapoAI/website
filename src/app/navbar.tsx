@@ -1,12 +1,12 @@
-"use client";
-import Link from "next/link";
-import { Disclosure } from "@headlessui/react";
-import Image from "next/image";
-import ThemeSwitch from "./components/ThemeSwitch";
-import { navigationLinks } from "@/constants/links";
+"use client"
+import Link from "next/link"
+import { Disclosure } from "@headlessui/react"
+import Image from "next/image"
+import ThemeSwitch from "./components/ThemeSwitch"
+import { navigationLinks } from "@/constants/links"
 export default function Navbar() {
   return (
-    <div className="w-full mb-12">
+    <div className="w-full relative z-50 mb-12">
       <nav className=" relative flex flex-wrap items-center justify-between py-8 lg:justify-between dark:text-gray-100 ">
         {/* Logo  */}
         <Disclosure>
@@ -28,7 +28,7 @@ export default function Navbar() {
 
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-cyan-700"
+                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:text-gray-300 dark:focus:bg-cyan-700"
                 >
                   <svg
                     className="w-6 h-6 fill-current"
@@ -53,17 +53,27 @@ export default function Navbar() {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    {navigationLinks.map((item, index) => (
-                      <Link
-                        key={index}
-                        className="w-full px-4 py-2 -ml-4 rounded-md  hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 dark:focus:bg-gray-800 focus:outline-none "
-                        href={`/${item}`}
-                      >
-                        <span className="">{item}</span>
-                      </Link>
-                    ))}
+                    {navigationLinks.map((item, index) =>
+                      item.type == "page" ? (
+                        <Link
+                          className="w-full capitalize px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700"
+                          key={index}
+                          href={`/${item.name}`}
+                        >
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <a
+                          className="w-full px-4 capitalize py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700"
+                          key={index}
+                          href={`/#${item.name}`}
+                        >
+                          {item.name}
+                        </a>
+                      )
+                    )}
                     <Link
-                      href="#"
+                      href="/book"
                       className="w-full px-6 py-2 mt-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
                     >
                       <span className="">Request Demo</span>
@@ -78,14 +88,25 @@ export default function Navbar() {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1  list-none lg:pt-0 lg:flex">
-            {navigationLinks.map((menu, index) => (
+            {navigationLinks.map((item, index) => (
               <li className="mr-3" key={index}>
-                <Link
-                  href={`/${menu}`}
-                  className="inline-block px-4 py-2 text-lg font-normal  no-underline rounded-md  hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-gray-800"
-                >
-                  <span className="">{menu}</span>
-                </Link>
+                {item.type == "page" ? (
+                  <Link
+                    className="w-full capitalize px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:dark:bg-cyan-500 focus:outline-none dark:focus:bg-trueGray-700"
+                    key={index}
+                    href={`/${item.name}`}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    className="w-full capitalize px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:dark:bg-cyan-500 focus:outline-none dark:focus:bg-trueGray-700"
+                    key={index}
+                    href={`/#${item.name}`}
+                  >
+                    {item.name}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -93,7 +114,7 @@ export default function Navbar() {
 
         <div className="hidden mr-3 space-x-4 lg:flex">
           <Link
-            href="#"
+            href="/book"
             className="px-6 py-2 text-dark font-semibold bg-yellow-500 rounded-md md:ml-5"
           >
             <span className="">Request Demo</span>
@@ -102,5 +123,5 @@ export default function Navbar() {
         </div>
       </nav>
     </div>
-  );
+  )
 }

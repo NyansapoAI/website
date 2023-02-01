@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <div>
             <Link href="/" className="flex gap-4 items-center">
-              <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+              <span className="flex items-center space-x-2 text-2xl font-medium text-cyan-500 dark:text-gray-100">
                 <Image
                   src="/logo.png"
                   alt="NyansapoAI"
@@ -32,20 +32,32 @@ export default function Footer() {
 
         <div>
           <div className="flex  md:flex-col  gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-            {navigationLinks.map((item, index) => (
-              <Link key={index} href={`/${item}`}>
-                <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">
-                  {item}
-                </span>
-              </Link>
-            ))}
+            {navigationLinks.map((item, index) =>
+              item.type == "page" ? (
+                <Link
+                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500  focus:outline-none dark:focus:bg-trueGray-700"
+                  key={index}
+                  href={`/${item.name}`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500  focus:outline-none dark:focus:bg-trueGray-700"
+                  key={index}
+                  href={`/#${item.name}`}
+                >
+                  {item.name}
+                </a>
+              )
+            )}
           </div>
         </div>
         <div>
           <div className="flex md:flex-col gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
             {legal.map((item, index) => (
               <Link key={index} href="/products">
-                <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700">
+                <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700">
                   {item}
                 </span>
               </Link>
@@ -64,7 +76,7 @@ export default function Footer() {
               <Twitter />
             </a>
             <a
-              href="https://facebook.com/"
+              href="https://www.facebook.com/twivamwe?mibextid=ZbWKwL"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,7 +92,7 @@ export default function Footer() {
               <Instagram />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/showcase/nyansapo/"
               target="_blank"
               rel="noopener noreferrer"
             >
