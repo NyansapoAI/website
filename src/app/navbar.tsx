@@ -73,7 +73,7 @@ export default function Navbar() {
                       )
                     )}
                     <Link
-                      href="/book"
+                      href="/contact"
                       className="w-full px-6 py-2 mt-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
                     >
                       <span className="">Request Demo</span>
@@ -114,7 +114,7 @@ export default function Navbar() {
 
         <div className="hidden mr-3 space-x-4 lg:flex">
           <Link
-            href="/book"
+            href="/contact"
             className="px-6 py-2 text-dark font-semibold bg-yellow-500 rounded-md md:ml-5"
           >
             <span className="">Request Demo</span>
