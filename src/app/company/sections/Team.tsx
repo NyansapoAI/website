@@ -13,7 +13,7 @@ export default function Team({}: Props) {
             <p className="text-lg leading-relaxed m-4 text-blueGray-500"></p>
           </div>
         </div>
-        <div className="flex justify-center gap-6 flex-wrap items-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8">
           {data.team.map((member) => (
             <TeamMember
               key={member.name}
@@ -51,7 +51,7 @@ const TeamMember = ({
   socialLinks,
 }: TeamMemberProps) => {
   return (
-    <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+    <div className="px-4">
       <div className="px-6">
         <Image
           width={56}
