@@ -1,4 +1,5 @@
-import React from "react";
+import Link from "next/link"
+import React from "react"
 
 export default function Cta() {
   return (
@@ -11,13 +12,13 @@ export default function Cta() {
         <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl"></p>
       </div>
       <div className="flex-shrink-0 relative z-20 w-full text-center lg:w-auto">
-        <a
-          href="#"
+        <Link
+          href="/book"
           className="inline-block py-3 mx-auto text-xl  text-center font-semibold text-dark bg-yellow-500 rounded-md px-7 lg:px-10 lg:py-5 "
         >
           Request Demo
-        </a>
+        </Link>
       </div>
     </div>
-  );
+  )
 }
