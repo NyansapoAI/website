@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fortawesome/fontawesome-free': ^6.2.1
+  '@graywolfai/react-heroicons': ^2.0.1
   '@headlessui/react': ^1.7.7
   '@next/font': ^13.0.6
   '@types/node': 18.11.12
@@ -21,6 +22,7 @@ specifiers:
 
 dependencies:
   '@fortawesome/fontawesome-free': 6.2.1
+  '@graywolfai/react-heroicons': 2.0.1_react@18.2.0
   '@headlessui/react': 1.7.7_biqbaboplfbrettd7655fr4n2y
   '@next/font': 13.1.0
   '@types/node': 18.11.12
@@ -74,6 +76,14 @@ packages:
     resolution: {integrity: sha512-viouXhegu/TjkvYQoiRZK3aax69dGXxgEjpvZW81wIJdxm5Fnvp3VVIP4VHKqX4SvFw6qpmkILkD4RJWAdrt7A==}
     engines: {node: '>=6'}
     requiresBuild: true
+    dev: false
+
+  /@graywolfai/react-heroicons/2.0.1_react@18.2.0:
+    resolution: {integrity: sha512-yzvWWHJQ/s7klcNo+vjrArKW5rK0IsG+IAH9KwS35pjLJO5ZOkhHbwcd6qxCVjL/6CzQXE2/0U60u6C+a7eG8w==}
+    peerDependencies:
+      react: ^16.13.1 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@headlessui/react/1.7.7_biqbaboplfbrettd7655fr4n2y:
