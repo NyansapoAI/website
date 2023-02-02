@@ -43,7 +43,7 @@ const numbers: NumberType[] = [
 ]
 function Numbers() {
   return (
-    <div className="grid grid-cols-2 items-center justify-center gap-6">
+    <div className="grid grid-cols-2 items-center  justify-center gap-6">
       {numbers.map((number, i) => (
         <Stat
           key={i}
@@ -58,7 +58,7 @@ function Numbers() {
 
 function Stat({ value, text, suffix }: NumberType) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex items-center justify-center flex-col gap-3">
       <div className="flex items-center gap-2">
         <h1 className="font-bold text-4xl">{value}</h1>
         {suffix && <span className="text-2xl font-bold">{suffix}</span>}

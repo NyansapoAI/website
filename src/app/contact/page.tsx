@@ -22,12 +22,12 @@ function page({}: Props) {
                       className="block uppercase text-xs font-bold mb-2"
                       htmlFor="full-name"
                     >
-                      Full Name
+                      Organization Name
                     </label>
                     <input
                       type="text"
                       className="border-0 px-3 py-3  rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Full Name"
+                      placeholder="Organization Name"
                     />
                   </div>
 
