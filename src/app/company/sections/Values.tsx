@@ -4,9 +4,10 @@ type Props = {}
 
 function Values({}: Props) {
   return (
-    <section className="pb-20 text-cyan-800 dark:text-cyan-800 bg-blueGray-200 -mt-24">
+    <section className="pb-20bg-blueGray-200 -mt-24">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap">
+        <h1 className="text-3xl text-center">Our Values</h1>
+        <div className="flex  text-cyan-800 dark:text-cyan-800  flex-wrap">
           <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
               <div className="px-4 py-5 flex-auto">
