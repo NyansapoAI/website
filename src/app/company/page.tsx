@@ -2,6 +2,7 @@ import React from "react"
 import CompanyLanding from "./sections/landing"
 import Locations from "./sections/Locations"
 import NewsLetter from "./sections/NewsLetter"
+import Partners from "./sections/partners"
 import Story from "./sections/Story"
 import Team from "./sections/Team"
 import Values from "./sections/Values"
@@ -16,6 +17,7 @@ export default function page({}: Props) {
       <Story />
       <Team />
       <Locations />
+      <Partners />
       <NewsLetter />
     </div>
   )
