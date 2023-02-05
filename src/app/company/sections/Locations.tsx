@@ -5,12 +5,6 @@ const locationsData = [
   {
     name: "Kitui",
   },
-  {
-    name: "Kitui",
-  },
-  {
-    name: "Kitui",
-  },
 ]
 export default function Locations({}: Props) {
   return (
@@ -38,7 +32,7 @@ type LocationProps = {
 function Location({ location: { name, address, mapLink } }: LocationProps) {
   return (
     <div className="flex flex-col gap-3">
-      <h1 className="">{name}</h1>
+      <h1 className="text-3xl font-semibold text-cyan-500">{name}</h1>
       {address && <h4>{address}</h4>}
       {mapLink && (
         <a href={mapLink} target="_blank" rel="noreferrer">
