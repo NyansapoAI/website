@@ -9,12 +9,17 @@ export default function CompanyLanding({}: Props) {
         <div className="items-center flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
             <div className="pr-12">
-              <h1 className="font-semibold text-5xl">Our company motto</h1>
+              <h1 className="font-semibold text-4xl lg:text-5xl">
+                Helping children build proper foundation skills
+              </h1>
               <p className="mt-4 text-lg text-blueGray-200">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse varius enim in eros elementum tristique. Duis
-                cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                commodo diam libero vitae erat.Lorem ipsum dolor sit amet,
+                UNESCO estimates that 250 million children cannot read, write or
+                count well. Without these basic  foundational skills, students
+                are unable to progress with their education. We partner with
+                NGOs and other actors who provide education programs to equip as
+                many children as possible to  have the foundational skills to
+                learn well by offering co -creating custom digital educational
+                tools
               </p>
             </div>
           </div>

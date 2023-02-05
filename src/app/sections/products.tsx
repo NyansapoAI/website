@@ -1,9 +1,9 @@
-import Image from "next/image";
-import React from "react";
-import SectionTitle from "../components/SectionHeader";
-import app from "@imgs/products/app.png";
-import dashboard from "@imgs/products/dashboard.png";
-type Props = {};
+import Image from "next/image"
+import React from "react"
+import SectionTitle from "../components/SectionHeader"
+import app from "@imgs/products/app.png"
+import dashboard from "@imgs/products/dashboard.png"
+type Props = {}
 
 export default function Products({}: Props) {
   return (
@@ -25,6 +25,9 @@ export default function Products({}: Props) {
             collect important data on your learners&apos; progress, helping you
             to deliver the best possible education to them.
           </p>
+          <button className="bg-yellow-500 mt-4 text-dark py-2 px-4 rounded-md ">
+            See it in action
+          </button>
         </aside>
         <div className="flex-1">
           <Image
@@ -55,8 +58,11 @@ export default function Products({}: Props) {
             high value decisions and impact actions to improve literacy and
             numeracy competencies of children.
           </p>
+          <button className="bg-yellow-500 mt-4 text-dark py-2 px-4 rounded-md ">
+            See it in action
+          </button>
         </aside>
       </div>
     </div>
-  );
+  )
 }

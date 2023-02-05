@@ -12,16 +12,18 @@ export default function Story({}: Props) {
 
         <h1 className=" text-4xl xl:text-5xl mb-6">Our story</h1>
         <p className="text-lg font-light leading-relaxed mt-4 mb-4 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          alias molestiae repellat molestias at eaque reprehenderit vitae
-          facilis. Eius optio deserunt assumenda sunt saepe perspiciatis quas
-          quam magni placeat ut?
+          Nyansapo was founded by Mumbe Mwangangi and Edward Amoah in 2019 in
+          Kenya. It was based on the premise of bringing “technology into
+          education” to improve learning  outcomes while being a tool for
+          students and instructors. Based on her lived experienced inequality in
+          access to education, the organization served as product of years of
+          ideating about how to confront the issues of  educational inequality
+          at a larger scale for Mumbe Mwangangi .
         </p>
         <p className="text-lg font-light leading-relaxed mt-0 mb-4 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-          deserunt optio doloremque nulla facere quae corrupti quis eos quod
-          officiis. Excepturi porro modi dolor soluta cupiditate accusamus
-          aperiam vero magni.
+          Likewise, Edward Amoah, a computer engineer, was concerned about issue
+          as well and brought a technological perspective to  the conversation,
+          building Nyansapo which has been operation since then.
         </p>
       </div>
       <div className="">
@@ -37,9 +39,9 @@ type NumberType = {
 }
 const numbers: NumberType[] = [
   { value: 2019, text: "Founded" },
-  { value: 300, text: "Learners Reached", suffix: "+" },
-  { value: 3, text: "School partners" },
-  { value: 16, text: "Bootcamps conducted" },
+  { value: 1000, text: "Learners Reached", suffix: "+" },
+  { value: 13, text: "School partners" },
+  { value: 36, text: "Bootcamps conducted" },
 ]
 function Numbers() {
   return (
