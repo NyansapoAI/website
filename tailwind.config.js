@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         dark: '#222A35',
       },
+      zIndex:{
+        '100':'100'
+      }
     },
   },
   plugins: [],

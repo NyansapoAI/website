@@ -1,14 +1,19 @@
-import React from "react"
+"use client"
+import React, { useState } from "react"
 import HeroGallery from "@components/HeroGallery"
 import Link from "next/link"
+import HeroVideo from "../components/HeroVideo"
 
 type Props = {}
 
 export default function Hero({}: Props) {
+  let [isOpen, setIsOpen] = useState(false)
+
   return (
     <section>
       <div className="flex flex-wrap container ">
         <div className="flex items-center w-full lg:w-1/2">
+          <HeroVideo isOpen={isOpen} setIsOpen={setIsOpen} />
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-5xl 2xl:text-6xl xl:leading-tight 2xl:leading-tight">
               Supporting Literacy and Numeracy Catch-Up Interventions
@@ -25,7 +30,10 @@ export default function Hero({}: Props) {
               >
                 Request Demo
               </Link>
-              <button className="text-cyan-600 dark:text-cyan-400 flex gap-x-3 items-center ">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="text-cyan-600 dark:text-cyan-400 flex gap-x-3 items-center "
+              >
                 <svg
                   role="img"
                   width="60"
@@ -38,7 +46,7 @@ export default function Hero({}: Props) {
                   <g>
                     <path
                       d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30
-		c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15
+                      c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15
 		C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"
                     />
                     <path
