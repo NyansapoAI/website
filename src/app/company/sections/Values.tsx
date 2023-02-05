@@ -16,8 +16,10 @@ function Values({}: Props) {
                 </div>
                 <h6 className="text-xl font-semibold">People centered</h6>
                 <p className="mt-2 mb-4 text-blueGray-500">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Pariatur doloremque saepe illo quos maiores quo.
+                  Treating individuals with dignity and respect, helping
+                  individuals become empowered to set and reach their personal
+                  goals and recognizing the right of individuals to make
+                  informed choices.
                 </p>
               </div>
             </div>
@@ -31,8 +33,8 @@ function Values({}: Props) {
                 </div>
                 <h6 className="text-xl font-semibold">Innovative</h6>
                 <p className="mt-2 mb-4 ">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Eius, itaque sapiente officiis dignissimos doloribus sunt?
+                  As a team, we always try to figure out the best way to solve a
+                  challenge by adopting new ideas and creative thinking.
                 </p>
               </div>
             </div>
@@ -46,9 +48,8 @@ function Values({}: Props) {
                 </div>
                 <h6 className="text-xl font-semibold">Collaboration</h6>
                 <p className="mt-2 mb-4 ">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Iusto quos ut eligendi eveniet suscipit officia eius fuga
-                  accusantium.
+                  By the standards of the rest of the world, we overtrust. We’re
+                  okay with that.
                 </p>
               </div>
             </div>
