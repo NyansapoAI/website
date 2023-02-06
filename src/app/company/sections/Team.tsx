@@ -53,7 +53,7 @@ const TeamMember = ({
   return (
     <div className="px-4">
       <div className="px-6">
-        <div className="rounded-full w-[250px] mx-auto h-[250px] overflow-clip border-2">
+        <div className="rounded-full w-[250px] mx-auto shadow-md h-[250px] overflow-clip ">
           <Image
             width={250}
             height={250}
