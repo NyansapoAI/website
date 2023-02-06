@@ -53,13 +53,15 @@ const TeamMember = ({
   return (
     <div className="px-4">
       <div className="px-6">
-        <Image
-          width={56}
-          height={56}
-          alt="..."
-          src={imageUrl}
-          className="shadow-lg rounded-full mx-auto max-w-120-px"
-        />
+        <div className="rounded-full w-[250px] mx-auto h-[250px] overflow-clip border-2">
+          <Image
+            width={250}
+            height={250}
+            alt="..."
+            src={imageUrl}
+            className="shadow-lg apsect-square w-full h-full"
+          />
+        </div>
         <div className="pt-6 text-center">
           <h5 className="text-xl font-bold">{name}</h5>
           <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">

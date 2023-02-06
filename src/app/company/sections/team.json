@@ -1,9 +1,10 @@
+
 {
     "team": [
       {
         "name": "Edward Amoah",
         "role": "Co-Founder",
-        "imageUrl": "https://unsplash.com/photos/random4",
+        "imageUrl": "/imgs/team/edward.jpg",
         "socialLinks": [
           {
             "link": "https://linkedin.com/in/edwardamoah",
@@ -18,7 +19,7 @@
       {
         "name": "Winfred Mumbe",
         "role": "Co-Founder",
-        "imageUrl": "https://unsplash.com/photos/random5",
+        "imageUrl": "/imgs/team/mumbe.jpg",
         "socialLinks": [
           {
             "link": "https://linkedin.com/in/winfredmumbe",
@@ -33,7 +34,7 @@
     {
       "name": "Justice Eli",
       "role": "Lead Android and Backend Developer",
-      "imageUrl": "https://unsplash.com/photos/random1",
+      "imageUrl": "/imgs/team/justice.jpg",
       "socialLinks": [
         {
           "link": "https://linkedin.com/in/justiceeli",
@@ -48,7 +49,7 @@
     {
       "name": "Alex Magwe",
       "role": "Lead Designer and Web Developer",
-      "imageUrl": "https://unsplash.com/photos/random2",
+      "imageUrl": "/imgs/team/alex.jpg",
       "socialLinks": [
         {
           "link": "https://linkedin.com/in/alexmagwe",
@@ -63,7 +64,7 @@
     {
       "name": "Angela Kaviti",
       "role": "Program Coordinator",
-      "imageUrl": "https://unsplash.com/photos/random3",
+      "imageUrl": "/imgs/team/angela.jpg",
       "socialLinks": [
         {
           "link": "https://linkedin.com/in/angelakaviti",
@@ -78,7 +79,7 @@
     {
         "name": "Albright Mbia",
         "role": "Communications Lead",
-        "imageUrl": "https://unsplash.com/photos/random5",
+        "imageUrl": "/imgs/team/albright.jpg",
         "socialLinks": [
           {
             "link": "https://linkedin.com/in/winfredmumbe",
