@@ -64,8 +64,9 @@ export default function Services({}: Props) {
   return (
     <section id="#about" className="py-16">
       <SectionTitle title="Why Us" pretitle="Our Benefits">
-        Nyansapo AI improves literacy and numeracy in marginalized communities
-        through AI-based assessments, grouping, and activities.
+        Amplifies the role of the teachers and program managers where teachers
+        are well-equipped with tools to support effective teaching, and program
+        managers data points for effective management of education interventions
       </SectionTitle>
       {benefits.map((benefit, i) => (
         <Benefits

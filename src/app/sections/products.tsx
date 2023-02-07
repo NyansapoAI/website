@@ -13,17 +13,12 @@ export default function Products({}: Props) {
         <aside className=" w-full sm:flex-1 ">
           <h1 className="text-xl  mb-4 font-semibold">NyansapoAI app</h1>
           <p className="tracking-wide">
-            Offers an excellent way to independently assess learners from the
-            available formative assessments. Its built-in classroom features
-            optimizes instructors efficiency closing the gap to see which
-            learners need help, when and how through formative insights which
-            track learners progress, students participation and tasks conducted
-            during the interventions. Nyansapo AI tools offer an Android mobile
-            application that allows you to independently assess learners&apos;
-            on an Android device. With this tool, you can easily view learners
-            assessments and learning levels. This tool also enables you to
-            collect important data on your learners&apos; progress, helping you
-            to deliver the best possible education to them.
+            The Nyansapo App is a mobile app developed to improve the efficiency
+            of teaching and learning. The app can accurately detect words
+            mispronounced by learners as they read passages on the mobile
+            screen. Detailed insights into learners&apos; reading are recorded
+            and shared with instructors to develop effective learning
+            activities.
           </p>
           <button className="bg-yellow-500 mt-4 text-dark py-2 px-4 rounded-md ">
             See it in action

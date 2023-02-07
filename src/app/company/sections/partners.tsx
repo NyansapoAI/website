@@ -13,7 +13,7 @@ export default function Partners({}: Props) {
   return (
     <div className="">
       <h1 className="text-3xl  mb-6">Our Partners</h1>
-      <div className="flex gap-3 flew-wrap">
+      <div className="flex gap-3 flex-wrap">
         {partners.map((partner, i) => (
           <h1
             key={i}

@@ -55,8 +55,8 @@ const TeamMember = ({
       <div className="px-6">
         <div className="rounded-full w-[250px] mx-auto shadow-md h-[250px] overflow-clip ">
           <Image
-            width={250}
-            height={250}
+            width={200}
+            height={200}
             alt="..."
             src={imageUrl}
             className="shadow-lg apsect-square w-full h-full"

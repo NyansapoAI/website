@@ -1,8 +1,9 @@
-import Image from "next/image";
-import React, { ReactNode } from "react";
-import SectionHeader from "../components/SectionHeader";
+import Image from "next/image"
+import React, { ReactNode } from "react"
+import SectionHeader from "../components/SectionHeader"
 
-import userOneImg from "@imgs/testimonial/avatar.png";
+import userOneImg from "@imgs/testimonial/avatar.png"
+import { Mark } from "./Mark"
 
 export default function Testimonials() {
   return (
@@ -44,19 +45,19 @@ export default function Testimonials() {
         </Testimonial>
       </div>
     </section>
-  );
+  )
 }
 type AvatarProps = {
-  imageUrl: string;
-  name: string;
-  title: string;
-};
+  imageUrl: string
+  name: string
+  title: string
+}
 type TestimonialProps = {
-  imageUrl: string;
-  children: string | ReactNode;
-  name: string;
-  title: string;
-};
+  imageUrl: string
+  children: string | ReactNode
+  name: string
+  title: string
+}
 function Testimonial({ children, name, title }: TestimonialProps) {
   return (
     <div className="">
@@ -65,7 +66,7 @@ function Testimonial({ children, name, title }: TestimonialProps) {
         <Avatar imageUrl={userOneImg.src} name={name} title={title} />
       </div>
     </div>
-  );
+  )
 }
 
 function Avatar({ imageUrl, name, title }: AvatarProps) {
@@ -79,18 +80,5 @@ function Avatar({ imageUrl, name, title }: AvatarProps) {
         <div className="text-gray-600 dark:text-gray-400">{title}</div>
       </div>
     </div>
-  );
-}
-type MarkProps = {
-  children: string | ReactNode;
-};
-function Mark({ children }: MarkProps) {
-  return (
-    <>
-      <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
-        {" "}
-        {children}
-      </mark>{" "}
-    </>
-  );
+  )
 }

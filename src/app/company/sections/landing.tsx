@@ -4,11 +4,11 @@ type Props = {}
 
 export default function CompanyLanding({}: Props) {
   return (
-    <div className="  w-full h-full pt-16 pb-32 flex flex-col content-center items-center justify-center min-h-screen-75">
+    <div className="  w-full h-full py-8 pb-32 flex flex-col content-center items-center justify-center min-h-screen-75">
       <div className="container relative mx-auto">
         <div className="items-center flex flex-wrap">
           <div className="w-full lg:w-4/5 px-4 ml-auto mr-auto text-center">
-            <div className="pr-12">
+            <div className="">
               <h1 className="font-semibold text-4xl lg:text-5xl">
                 Helping children build proper foundation skills
               </h1>
@@ -18,8 +18,8 @@ export default function CompanyLanding({}: Props) {
                 are unable to progress with their education. We partner with
                 NGOs and other actors who provide education programs to equip as
                 many children as possible to  have the foundational skills to
-                learn well by offering co -creating custom digital educational
-                tools
+                learn well by offering and co -creating custom digital
+                educational tools
               </p>
             </div>
           </div>

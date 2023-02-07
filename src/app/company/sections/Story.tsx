@@ -14,15 +14,15 @@ export default function Story({}: Props) {
         <p className="text-lg font-light leading-relaxed mt-4 mb-4 ">
           Nyansapo was founded by Mumbe Mwangangi and Edward Amoah in 2019 in
           Kenya. It was based on the premise of bringing “technology into
-          education” to improve learning  outcomes while being a tool for
-          students and instructors. Based on her lived experienced inequality in
-          access to education, the organization served as product of years of
-          ideating about how to confront the issues of  educational inequality
-          at a larger scale for Mumbe Mwangangi .
+          education” to improve learning outcomes while being a tool for
+          students and instructors. Based on her life experience about
+          inequality in access to education, the organization serves as a
+          product of years of ideating about how to confront the issues of
+          educational inequality at a larger scale for Mumbe Mwangangi .
         </p>
         <p className="text-lg font-light leading-relaxed mt-0 mb-4 ">
           Likewise, Edward Amoah, a computer engineer, was concerned about issue
-          as well and brought a technological perspective to  the conversation,
+          as well and brought a technological perspective to the conversation,
           building Nyansapo which has been operation since then.
         </p>
       </div>

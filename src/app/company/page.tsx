@@ -3,6 +3,7 @@ import CompanyLanding from "./sections/landing"
 import Locations from "./sections/Locations"
 import NewsLetter from "./sections/NewsLetter"
 import Partners from "./sections/partners"
+import Research from "./sections/Research"
 import Story from "./sections/Story"
 import Team from "./sections/Team"
 import Values from "./sections/Values"
@@ -15,6 +16,7 @@ export default function page({}: Props) {
       <CompanyLanding />
       <Values />
       <Story />
+      <Research />
       <Team />
       <Locations />
       <Partners />

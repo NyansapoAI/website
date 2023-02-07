@@ -1,8 +1,8 @@
-import React from "react";
-import SectionHeader from "../components/SectionHeader";
-import Slider from "../components/Slider";
-
-type Props = {};
+import React from "react"
+import SectionHeader from "../components/SectionHeader"
+import Slider from "../components/Slider"
+import Link from "next/link"
+type Props = {}
 
 export default function About({}: Props) {
   return (
@@ -17,11 +17,14 @@ export default function About({}: Props) {
           communication abilities.
         </span>
       </SectionHeader>
-      <button className="px-6 py-3 rounded-full border-2 border-yellow-500">
+      <Link
+        href="/company"
+        className="px-6 py-3 rounded-full border-2 border-yellow-500"
+      >
         Learn more
-      </button>
+      </Link>
       <Slider />
       {/* <Slider2 /> */}
     </div>
-  );
+  )
 }
