@@ -17,8 +17,6 @@ export default function Head() {
         content="NyansapoAI offers digital literacy and numeracy assessments to support  teaching at the right level"
       />
       <link rel="canonical" href="https://nyansapoai.net" />
-      <link rel="canonical" href="https://nyansapotechnologies.com" />
-      <link rel="icon" href="/favicon.ico" />
     </>
-  );
+  )
 }
