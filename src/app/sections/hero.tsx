@@ -19,7 +19,7 @@ export default function Hero({}: Props) {
               Leveraging AI in Literacy and Numeracy Interventions
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
-              NyansapoAI offers artificial digital assessments to support and
+              Nyansapo AI offers artificial digital assessments to support and
               scale literacy and numeracy intervention programs
             </p>
 

@@ -9,12 +9,14 @@ export default function About({}: Props) {
     <div id="company" className="flex flex-col gap-4 items-center ">
       <SectionHeader pretitle="Who we are" title="About Us">
         <span className="w-full">
-          Our company is committed to leveraging technology to improve literacy
-          and numeracy competencies for primary school learners in Africa. Our
-          team, consisting of educators, technologists, and learning experts,
-          has created a variety of innovative products that have successfully
-          assisted numerous learners in improving their reading, writing, and
-          communication abilities.
+          Our name, Nyansapo, means “wisdom knot” and this embodies the mission
+          of our venture. We believe that if we help a  student build the proper
+          foundation of skills, that “strong knot” of wisdom will carry them 
+          throughout their future education. Nyansapo AI creates custom
+          educational tools to  instructors to optimize their workflow. By
+          saving instructors’ time and energy, they can maximize outcomes for
+          their students, who are then more equipped to jump back into their 
+          education.
         </span>
       </SectionHeader>
       <Link
