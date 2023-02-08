@@ -74,10 +74,11 @@ export default function Navbar() {
                     )}
                     <Link
                       href="/contact"
-                      className="w-full px-6 py-2 mt-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
+                      className="w-full px-6 py-2 mt-4 mb-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
                     >
                       <span className="">Request Demo</span>
                     </Link>
+                    <ThemeSwitch />
                   </>
                 </Disclosure.Panel>
               </div>
