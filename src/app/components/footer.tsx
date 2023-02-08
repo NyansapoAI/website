@@ -1,10 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
-import React from "react";
-import { navigationLinks } from "@/constants/links";
-import { Twitter, Facebook, Instagram, Linkedin } from "./SocialIcons";
+import Link from "next/link"
+import Image from "next/image"
+import React from "react"
+import { navigationLinks } from "@/constants/links"
+import { Twitter, Facebook, Instagram, Linkedin } from "./SocialIcons"
 export default function Footer() {
-  const legal = ["Terms", "Privacy", "Legal"];
+  const legal = ["Terms", "Privacy", "Legal"]
   return (
     <div className="relative px-8 py-16">
       <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-500 dark:border-trueGray-700 lg:grid-cols-5">
@@ -25,8 +25,8 @@ export default function Footer() {
           </div>
 
           <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-            Our company is committed to using technology to improve literacy for
-            learners of all ages.
+            Our compnay is committed to create custom AI powered EdTech tools to
+            support and scale literacy and numeracy intervention programs
           </div>
         </div>
 
@@ -103,5 +103,5 @@ export default function Footer() {
         </div>
       </div>
     </div>
-  );
+  )
 }
