@@ -66,14 +66,7 @@ export default function Services({}: Props) {
       <SectionTitle
         pretitle="Built for Educators"
         title="Key Benefits of our Nyansapo AI platform"
-      >
-        AI has an unquestionable future in education, and at Nyansapo AI our
-        mission is to develop AI powered technologies Nyansapo AI works with
-        partners to co - create AI powered innovative and effective custom
-        education technology tools support and scale literacy and numeracy
-        interventions across Africa. Nyansapo AI is the future of literacy and
-        numeracy catch-up programs.
-      </SectionTitle>
+      ></SectionTitle>
       {benefits.map((benefit, i) => (
         <Benefits
           key={i}
