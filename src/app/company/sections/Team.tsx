@@ -67,14 +67,14 @@ const TeamMember = ({
           <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
             {title}
           </p>
-          <div className="mt-6">
+          <div className="mt-6 flex gap-3 justify-center">
             {socialLinks.map((social, i) => (
               <a
                 href={social.link}
                 target="_blank"
                 rel="noreferrer"
                 key={i}
-                className="bg-cyan-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                className="bg-cyan-600 flex items-center justify-center text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
                 type="button"
               >
                 <i className={`fab fa-${social.type}`}></i>
