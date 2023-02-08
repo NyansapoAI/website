@@ -7,7 +7,7 @@ import Image from "next/image"
 import {
   ChartBarSquareOutline,
   UsersSolid,
-  HandRaisedSolid,
+  StarSolid,
   ClockSolid,
   StopSolid,
 } from "@graywolfai/react-heroicons"
@@ -20,20 +20,35 @@ const benefits = [
     image: designer,
     bullets: [
       {
-        title: "Digital Literacy and Numeracy Assesments",
-        desc: " Our solution is unique in that it uses artificial intelligence and speech recognition technology to assess the literacy levels of children on a mobile phone.",
+        title: "Increase instructors efficiency",
+        desc: " Accurate and fast assessments of children with Artificial Intelligence to support and increase the efficiency of instructors.",
         icon: <ChartBarSquareOutline />,
       },
       {
-        title: "Dynamic Grouping",
-        desc: "The students who are assessed are dynamically grouped which allows for students to be reassessed and regrouped as they improve their reading skills.",
-        icon: <UsersSolid />,
+        title: "Reliable bootcamp data gathering",
+        desc: "Reliable and quality data gathering from learning camps to inform planning and critical decision-making.",
+        icon: <StarSolid />,
       },
       {
-        title: "Attendance Collection",
-        desc: "The teachers can collect attendance in an efficient way.",
-        icon: <HandRaisedSolid />,
+        title: " Monitor and guide bootcamps in realtime",
+        desc: " Monitor and supervise boot camps effectively from anywhere in the world.",
+        icon: <ClockSolid />,
       },
+      // {
+      //   title: "Digital Literacy and Numeracy Assesments",
+      //   desc: " Our solution is unique in that it uses artificial intelligence and speech recognition technology to assess the literacy levels of children on a mobile phone.",
+      //   icon: <ChartBarSquareOutline />,
+      // },
+      // {
+      //   title: "Dynamic Grouping",
+      //   desc: "The students who are assessed are dynamically grouped which allows for students to be reassessed and regrouped as they improve their reading skills.",
+      //   icon: <UsersSolid />,
+      // },
+      // {
+      //   title: "Attendance Collection",
+      //   desc: "The teachers can collect attendance in an efficient way.",
+      //   icon: <HandRaisedSolid />,
+      // },
     ],
   },
   {
