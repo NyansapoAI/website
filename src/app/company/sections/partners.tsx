@@ -11,7 +11,7 @@ const partners = [
 ]
 export default function Partners({}: Props) {
   return (
-    <div className="">
+    <div className="py-8">
       <h1 className="text-3xl  mb-6">Our Partners</h1>
       <div className="flex gap-3 flex-wrap">
         {partners.map((partner, i) => (
