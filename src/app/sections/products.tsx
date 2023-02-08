@@ -20,9 +20,14 @@ export default function Products({}: Props) {
             and shared with instructors to develop effective learning
             activities.
           </p>
-          <button className="bg-yellow-500 mt-4 text-dark py-2 px-4 rounded-md ">
+          <a
+            href="https://youtu.be/hsQdHlByfzc"
+            target="_blank"
+            rel="help noreferrer"
+            className="bg-yellow-500 mt-4 inline-block text-dark py-2 px-4 rounded-md "
+          >
             See it in action
-          </button>
+          </a>
         </aside>
         <div className="flex-1">
           <Image

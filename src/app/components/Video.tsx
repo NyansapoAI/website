@@ -6,7 +6,7 @@ type Props = {
   setIsOpen: Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function HeroVideo({ isOpen, setIsOpen }: Props) {
+export default function Video({ isOpen, setIsOpen }: Props) {
   return (
     <Transition
       show={isOpen}

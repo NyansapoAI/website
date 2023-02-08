@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import HeroGallery from "@components/HeroGallery"
 import Link from "next/link"
-import HeroVideo from "../components/HeroVideo"
+import Video from "../components/Video"
 
 type Props = {}
 
@@ -13,7 +13,7 @@ export default function Hero({}: Props) {
     <section>
       <div className="flex flex-wrap container ">
         <div className="flex items-center w-full lg:w-1/2">
-          <HeroVideo isOpen={isOpen} setIsOpen={setIsOpen} />
+          <Video isOpen={isOpen} setIsOpen={setIsOpen} />
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-5xl 2xl:text-6xl xl:leading-tight 2xl:leading-tight">
               Leveraging AI in Literacy and Numeracy Interventions
