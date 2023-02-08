@@ -42,7 +42,7 @@ const benefits = [
     image: insights,
     bullets: [
       {
-        title: "Real time data",
+        title: " Increase instructors efficiency",
         desc: "Stakeholders can view asssesment data in real time while the students are being assessed.",
         icon: <ClockSolid />,
       },

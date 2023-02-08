@@ -56,7 +56,7 @@ export default function Footer() {
         <div>
           <div className="flex md:flex-col gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
             {legal.map((item, index) => (
-              <Link key={index} href="/products">
+              <Link key={index} href="#">
                 <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700">
                   {item}
                 </span>
