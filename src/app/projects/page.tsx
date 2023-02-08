@@ -9,7 +9,7 @@ const projects = [
     videoLink: "",
   },
   {
-    title: "Lorem Bootcamp",
+    title: "Nitanny AI Alliance Bootcamp",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta at, quo soluta accusamus odio adipisci commodi deserunt cumque consectetur aut necessitatibus fuga omnis dignissimos neque quibusdam ipsam asperiores tempora similique.",
     videoLink: "",
