@@ -63,7 +63,10 @@ const benefits = [
 export default function Services({}: Props) {
   return (
     <section id="#about" className="py-16">
-      <SectionTitle title="Why Us" pretitle="Our Benefits">
+      <SectionTitle
+        pretitle="Built for Educators"
+        title="Key Benefits of our Nyansapo AI platform"
+      >
         AI has an unquestionable future in education, and at Nyansapo AI our
         mission is to develop AI powered technologies Nyansapo AI works with
         partners to co - create AI powered innovative and effective custom
