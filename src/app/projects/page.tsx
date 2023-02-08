@@ -6,13 +6,13 @@ const projects = [
     title: "Korando Bootcamp",
     description:
       "Over 200 literacy assessments were conducted and 40 children aged between 9 to 15 years old we involved in a learning camp. ",
-    videoLink: "",
+    videoLink: "https://www.youtube.com/embed/HFg6NXFJPiE",
   },
   {
-    title: "Nitanny AI Alliance Bootcamp",
+    title: "Kitui Bootcamp",
     description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta at, quo soluta accusamus odio adipisci commodi deserunt cumque consectetur aut necessitatibus fuga omnis dignissimos neque quibusdam ipsam asperiores tempora similique.",
-    videoLink: "",
+      "We conductred a 10 day learning camp in Voo in Kitui county usingthe TARL methodology.",
+    videoLink: "https://www.youtube.com/embed/5ncU3xrg18c",
   },
 ]
 export default function page({}: Props) {
@@ -31,9 +31,14 @@ type ProjectProps = {
 
 function Project({ project: { title, description, videoLink } }: ProjectProps) {
   return (
-    <div className="shadow-lg rounded-md p-4">
-      <video className="w-full h-96 aspect-video" src={videoLink}></video>
-      <h1 className="text-3xl font-bold lg:text-4xl">{title}</h1>
+    <div className=" flex flex-col gap-3 shadow-lg rounded-md p-4">
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="w-full rounded-md h-96 aspect-video"
+        src={videoLink}
+      ></iframe>
+      <h1 className="text-3xl font-bold ">{title}</h1>
       <p className="text-lg text-gray-500">{description}</p>
     </div>
   )
