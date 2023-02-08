@@ -10,7 +10,7 @@ export default function CompanyLanding({}: Props) {
           <div className="w-full lg:w-4/5 px-4 ml-auto mr-auto text-center">
             <div className="">
               <h1 className="font-semibold text-4xl lg:text-5xl">
-                Helping children build proper foundation skills
+                Helping children build foundation skills
               </h1>
               <p className="mt-4 text-lg text-blueGray-200">
                 UNESCO estimates that 250 million children cannot read, write or
