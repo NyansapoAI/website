@@ -10,7 +10,7 @@ export default function About({}: Props) {
       <SectionHeader pretitle="Who we are" title="About Us">
         <span className="w-full">
           Our company is committed to leveraging technology to improve literacy
-          and numeracy competencies for primary school learners in Kenya. Our
+          and numeracy competencies for primary school learners in Africa. Our
           team, consisting of educators, technologists, and learning experts,
           has created a variety of innovative products that have successfully
           assisted numerous learners in improving their reading, writing, and

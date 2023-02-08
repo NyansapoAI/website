@@ -64,9 +64,12 @@ export default function Services({}: Props) {
   return (
     <section id="#about" className="py-16">
       <SectionTitle title="Why Us" pretitle="Our Benefits">
-        Amplifies the role of the teachers and program managers where teachers
-        are well-equipped with tools to support effective teaching, and program
-        managers data points for effective management of education interventions
+        AI has an unquestionable future in education, and at Nyansapo AI our
+        mission is to develop AI powered technologies Nyansapo AI works with
+        partners to co - create AI powered innovative and effective custom
+        education technology tools support and scale literacy and numeracy
+        interventions across Africa. Nyansapo AI is the future of literacy and
+        numeracy catch-up programs.
       </SectionTitle>
       {benefits.map((benefit, i) => (
         <Benefits
