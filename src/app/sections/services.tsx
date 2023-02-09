@@ -7,6 +7,7 @@ import Image from "next/image"
 import {
   ChartBarSquareOutline,
   UsersSolid,
+  HandRaisedSolid,
   StarSolid,
   ClockSolid,
   StopSolid,
@@ -34,43 +35,43 @@ const benefits = [
         desc: " Monitor and supervise boot camps effectively from anywhere in the world.",
         icon: <ClockSolid />,
       },
-      // {
-      //   title: "Digital Literacy and Numeracy Assesments",
-      //   desc: " Our solution is unique in that it uses artificial intelligence and speech recognition technology to assess the literacy levels of children on a mobile phone.",
-      //   icon: <ChartBarSquareOutline />,
-      // },
-      // {
-      //   title: "Dynamic Grouping",
-      //   desc: "The students who are assessed are dynamically grouped which allows for students to be reassessed and regrouped as they improve their reading skills.",
-      //   icon: <UsersSolid />,
-      // },
-      // {
-      //   title: "Attendance Collection",
-      //   desc: "The teachers can collect attendance in an efficient way.",
-      //   icon: <HandRaisedSolid />,
-      // },
     ],
   },
   {
-    title: "Find key insights from your programs",
+    title: "",
     desc: "You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.",
     image: insights,
     bullets: [
       {
-        title: " Increase instructors efficiency",
-        desc: "Stakeholders can view asssesment data in real time while the students are being assessed.",
-        icon: <ClockSolid />,
-      },
-      {
-        title: "Gain data driven Insights",
-        desc: "Pinpoint areas of improvement or strength by data visualization ",
+        title: "Digital Literacy and Numeracy Assesments",
+        desc: " Our solution is unique in that it uses artificial intelligence and speech recognition technology to assess the literacy levels of children on a mobile phone.",
         icon: <ChartBarSquareOutline />,
       },
       {
-        title: "Intervene when neccesary",
-        desc: "You dont have to take our word for it that our technology works,you can intevene at any point of the assessments and make corrections or changes",
-        icon: <StopSolid />,
+        title: "Dynamic Grouping",
+        desc: "The students who are assessed are dynamically grouped which allows for students to be reassessed and regrouped as they improve their reading skills.",
+        icon: <UsersSolid />,
       },
+      {
+        title: "Attendance Collection",
+        desc: "The teachers can collect attendance in an efficient way.",
+        icon: <HandRaisedSolid />,
+      },
+      // {
+      //   title: " Increase instructors efficiency",
+      //   desc: "Stakeholders can view asssesment data in real time while the students are being assessed.",
+      //   icon: <ClockSolid />,
+      // },
+      // {
+      //   title: "Gain data driven Insights",
+      //   desc: "Pinpoint areas of improvement or strength by data visualization ",
+      //   icon: <ChartBarSquareOutline />,
+      // },
+      // {
+      //   title: "Intervene when neccesary",
+      //   desc: "You dont have to take our word for it that our technology works,you can intevene at any point of the assessments and make corrections or changes",
+      //   icon: <StopSolid />,
+      // },
     ],
   },
 ]
