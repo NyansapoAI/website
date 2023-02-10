@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
 
           <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-            Our compnay is committed to create custom AI powered EdTech tools to
+            Our company is committed to create custom AI powered EdTech tools to
             support and scale literacy and numeracy intervention programs
           </div>
         </div>
