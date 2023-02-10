@@ -20,7 +20,7 @@ export default function Footer() {
                   className="w-8"
                 />
               </span>
-              <span>NyansapoAI</span>
+              <span>Nyansapo AI</span>
             </Link>
           </div>
 

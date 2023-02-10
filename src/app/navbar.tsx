@@ -23,7 +23,7 @@ export default function Navbar() {
                       className="w-8"
                     />
                   </span>
-                  <span className="font-semibold">NyansapoAI</span>
+                  <span className="font-semibold">Nyansapo AI</span>
                 </Link>
 
                 <Disclosure.Button
