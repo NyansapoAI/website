@@ -62,21 +62,6 @@
       ]
     },
     {
-      "name": "Angela Kaviti",
-      "role": "Program Coordinator",
-      "imageUrl": "/imgs/team/angela.jpg",
-      "socialLinks": [
-        {
-          "link": "https://linkedin.com/in/angelakaviti",
-          "type": "linkedin"
-        },
-        {
-          "link": "https://twitter.com/angelakaviti",
-          "type": "twitter"
-        }
-      ]
-    },
-    {
         "name": "Albright Mbia",
         "role": "Communications Lead",
         "imageUrl": "/imgs/team/albright.jpg",
