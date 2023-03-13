@@ -13,17 +13,14 @@ export default function Navbar() {
           {({ open }) => (
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
-                <Link href="/" className="flex gap-3 items-center">
-                  <span className="flex items-center space-x-2 text-2xl ">
-                    <Image
-                      src="/logo.png"
-                      alt="N"
-                      width="32"
-                      height="32"
-                      className="w-8"
-                    />
-                  </span>
-                  <span className="font-semibold">Nyansapo AI</span>
+                <Link href="/" className=" ">
+                  <Image
+                    src="/logo.png"
+                    alt="N"
+                    width="150"
+                    height="150"
+                    className="rounded-sm"
+                  />
                 </Link>
 
                 <Disclosure.Button

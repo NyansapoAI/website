@@ -15,12 +15,10 @@ export default function Footer() {
                 <Image
                   src="/logo.png"
                   alt="NyansapoAI"
-                  width="24"
-                  height="24"
-                  className="w-8"
+                  width="150"
+                  height="150"
                 />
               </span>
-              <span>Nyansapo AI</span>
             </Link>
           </div>
 
