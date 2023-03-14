@@ -53,8 +53,8 @@ const benefits = [
         icon: <UsersSolid />,
       },
       {
-        title: "Attendance Collection",
-        desc: "The teachers can collect attendance in an efficient way.",
+        title: "Targeted Activities ",
+        desc: "The app provides a large customizable library of activities tailored for each learning group to help the groups rapidly improve their learning levels ",
         icon: <HandRaisedSolid />,
       },
       // {
