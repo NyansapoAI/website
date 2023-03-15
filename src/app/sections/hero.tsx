@@ -16,8 +16,9 @@ export default function Hero({}: Props) {
           <Video isOpen={isOpen} setIsOpen={setIsOpen} />
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-5xl  xl:leading-tight 2xl:leading-tight">
-              Leveraging Artificial Intelligence in improving foundational
-              Literacy and Numeracy skills
+              Leveraging <span className="text-cyan-500">A</span>rtificial&nbsp;
+              <span className="text-yellow-500">I</span>ntelligence in improving
+              foundational Literacy and Numeracy skills
             </h1>
             <p className="py-5 text-lg leading-normal text-gray-500 lg:text-xl dark:text-gray-300">
               Nyansapo AI partners with organizations to create custom AI
