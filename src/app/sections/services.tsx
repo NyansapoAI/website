@@ -43,7 +43,7 @@ const benefits = [
     image: insights,
     bullets: [
       {
-        title: "Digital Literacy and Numeracy Assesments",
+        title: "AI powered Literacy and Numeracy Assesments",
         desc: " Our solution is unique in that it uses artificial intelligence and speech recognition technology to assess the literacy levels of children on a mobile phone.",
         icon: <ChartBarSquareOutline />,
       },
