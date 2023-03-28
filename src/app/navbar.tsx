@@ -7,7 +7,7 @@ import { navigationLinks } from "@/constants/links"
 export default function Navbar() {
   return (
     <div className="w-full relative z-50 mb-12">
-      <nav className=" relative flex flex-wrap items-center justify-between py-8 lg:justify-between dark:text-gray-100 ">
+      <nav className=" relative flex flex-wrap gap-2 items-center justify-between py-8 lg:justify-between dark:text-gray-100 ">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (

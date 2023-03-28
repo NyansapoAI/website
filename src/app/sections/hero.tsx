@@ -14,7 +14,7 @@ export default function Hero({}: Props) {
       <div className="flex flex-wrap container ">
         <div className="flex items-center w-full lg:w-1/2">
           <Video isOpen={isOpen} setIsOpen={setIsOpen} />
-          <div className="max-w-2xl mb-8">
+          <div className="mr-4 mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-5xl  xl:leading-tight 2xl:leading-tight">
               Leveraging <span className="text-cyan-500">A</span>rtificial&nbsp;
               <span className="text-yellow-500">I</span>ntelligence in improving
