@@ -17,7 +17,7 @@ export default function Partners({}: Props) {
         {partners.map((partner, i) => (
           <h1
             key={i}
-            className=" text-3xl shadow-md rounded-md p-4 font-semibold text-cyan-500"
+            className=" text-3xl shadow-md rounded-md p-4 font-semibold text-accent2"
           >
             {partner.name}
           </h1>
