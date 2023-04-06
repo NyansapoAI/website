@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         dark: "#142848",
+        accent2: "#5aa2ce",
       },
       zIndex: {
         100: "100",

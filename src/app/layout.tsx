@@ -1,14 +1,14 @@
-import Navbar from "./navbar";
-import "./globals.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Raleway, Alegreya_Sans } from "@next/font/google";
-import RootProviders from "./providers";
-import Footer from "./components/footer";
+import Navbar from "./navbar"
+import "./globals.css"
+import "@fortawesome/fontawesome-free/css/all.min.css"
+import { Raleway, Alegreya_Sans } from "@next/font/google"
+import RootProviders from "./providers"
+import Footer from "./components/footer"
 const raleway = Raleway({
   subsets: ["latin"],
   // default, can also use "swap" to ensure custom font always shows
   display: "optional",
-});
+})
 // const alegreya = Alegreya_Sans({
 //   subsets: ['latin'],
 //   // default, can also use "swap" to ensure custom font always shows
@@ -19,7 +19,7 @@ const raleway = Raleway({
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" className={`${raleway.className} `}>
@@ -37,5 +37,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  );
+  )
 }

@@ -35,7 +35,7 @@ export default function Hero({}: Props) {
               </Link>
               <button
                 onClick={() => setIsOpen(true)}
-                className="text-cyan-600 dark:text-cyan-400 flex gap-x-3 items-center "
+                className="text-accent2 flex gap-x-3 items-center "
               >
                 <svg
                   role="img"

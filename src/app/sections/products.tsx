@@ -11,7 +11,9 @@ export default function Products({}: Props) {
       <SectionTitle pretitle="what we offer" title="Our Products" />
       <div className="flex flex-wrap gap-6 justify-between py-8">
         <aside className=" w-full sm:flex-1 ">
-          <h1 className="text-xl  mb-4 font-semibold">NyansapoAI app</h1>
+          <h1 className="text-xl  mb-4 font-semibold dark:text-slate-100">
+            NyansapoAI app
+          </h1>
           <p className="tracking-wide">
             The Nyansapo App is a mobile app developed to improve the efficiency
             of teaching and learning. The app can accurately detect words
@@ -50,7 +52,9 @@ export default function Products({}: Props) {
           />
         </div>
         <aside className="w-full sm:w-auto sm:flex-1">
-          <h1 className="text-xl font-semibold mb-4">Analytics Dashboard</h1>
+          <h1 className="text-xl font-semibold mb-4 text-dark dark:text-slate-100">
+            Analytics Dashboard
+          </h1>
           <p className=" tracking-wide">
             The actionable dashboard provides understanding on actual learner
             engagement, disparities across various interventions, providing
