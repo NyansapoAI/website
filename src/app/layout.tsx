@@ -1,7 +1,7 @@
 import Navbar from "./navbar"
 import "./globals.css"
 import "@fortawesome/fontawesome-free/css/all.min.css"
-import { Raleway } from "@next/font/google"
+import { Raleway } from "next/font/google"
 import RootProviders from "./providers"
 import Footer from "./components/footer"
 import { Metadata } from "next"
