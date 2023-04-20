@@ -1,0 +1,54 @@
+import { defineType } from "sanity"
+
+export default defineType({
+  name: "news",
+  type: "document",
+  title: "News",
+
+  fields: [
+    {
+      name: "title",
+      type: "string",
+      title: "Title",
+    },
+    {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
+      name: "mainImage",
+      type: "image",
+      title: "Main image",
+    },
+
+    {
+      name: "publishedAt",
+      type: "datetime",
+      title: "Published at",
+    },
+    {
+      name: "body",
+      type: "array",
+      title: "Body",
+      of: [
+        {
+          type: "block",
+        },
+        {
+          type: "image",
+        },
+      ],
+    },
+  ],
+  preview: {
+    select: {
+      title: "title",
+      media: "mainImage",
+    },
+  },
+})

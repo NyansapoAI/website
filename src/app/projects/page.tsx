@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import React from "react"
 
 type Props = {}
@@ -28,7 +29,9 @@ export default function page({}: Props) {
 type ProjectProps = {
   project: typeof projects[number]
 }
-
+export const metadata: Metadata = {
+  title: "Projects",
+}
 function Project({ project: { title, description, videoLink } }: ProjectProps) {
   return (
     <div className=" flex flex-col gap-3 shadow-lg rounded-md p-4">

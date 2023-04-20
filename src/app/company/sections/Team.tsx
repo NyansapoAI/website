@@ -55,11 +55,11 @@ const TeamMember = ({
       <div className="px-6">
         <div className="rounded-full w-[250px] mx-auto shadow-md h-[250px] overflow-clip ">
           <Image
-            width={200}
-            height={200}
+            width={600}
+            height={600}
             alt="..."
             src={imageUrl}
-            className="shadow-lg apsect-square w-full h-full"
+            className=" w-96 shadow-lg bg-cover  h-auto"
           />
         </div>
         <div className="pt-6 text-center">
