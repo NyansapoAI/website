@@ -4,7 +4,7 @@ import React from "react"
 import { navigationLinks } from "@/constants/links"
 import { Twitter, Facebook, Instagram, Linkedin } from "./SocialIcons"
 export default function Footer() {
-  const legal = ["Terms", "Privacy", "Legal"]
+  const legal = ["Terms", "Privacy", "Legal", "studio"]
   return (
     <div className="relative px-8 py-16">
       <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-500 dark:border-trueGray-700 lg:grid-cols-5">
@@ -54,7 +54,7 @@ export default function Footer() {
         <div>
           <div className="flex md:flex-col gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
             {legal.map((item, index) => (
-              <Link key={index} href="#">
+              <Link key={index} href={`/${item}`}>
                 <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700">
                   {item}
                 </span>
