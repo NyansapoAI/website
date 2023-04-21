@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import HeroGallery from "@components/HeroGallery"
 import Link from "next/link"
 import Video from "../components/Video"
+import { CTA_TEXT } from "@/constants"
 
 type Props = {}
 
@@ -31,7 +32,7 @@ export default function Hero({}: Props) {
                 href="/contact"
                 className="px-8 py-4 text-lg font-medium text-center text-slate-800 bg-yellow-500 rounded-md inine "
               >
-                Request Demo
+                {CTA_TEXT}
               </Link>
               <button
                 onClick={() => setIsOpen(true)}
