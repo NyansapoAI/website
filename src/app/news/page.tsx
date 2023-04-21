@@ -3,6 +3,7 @@ import { cache } from "react"
 import { groq } from "next-sanity"
 import type { Metadata } from "next"
 import Preview from "./Preview"
+import NewsLetter from "../company/sections/NewsLetter"
 
 export const metadata: Metadata = {
   title: "News",
@@ -43,15 +44,18 @@ export interface NewsInterface {
 export default async function IndexPage() {
   const data = await clientFetch<NewsInterface[]>(query)
   return (
-    <div className="md:min-h-[600px]">
-      {data &&
-        data.map((item) => {
-          return (
-            <div className="flex gap-4" key={item._id}>
-              <Preview data={item} />
-            </div>
-          )
-        })}
+    <div>
+      <div className="md:min-h-[500px]">
+        {data &&
+          data.map((item) => {
+            return (
+              <div className="flex gap-4" key={item._id}>
+                <Preview data={item} />
+              </div>
+            )
+          })}
+      </div>
+      <NewsLetter />
     </div>
   )
 }

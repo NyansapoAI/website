@@ -5,6 +5,7 @@ import { Raleway } from "next/font/google"
 import RootProviders from "./providers"
 import Footer from "./components/footer"
 import { Metadata } from "next"
+import Alert from "./components/Alert"
 const raleway = Raleway({
   subsets: ["latin"],
   // default, can also use "swap" to ensure custom font always shows
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="relative bg-cyan-100 dark:bg-dark duration-400 dark:text-cyan-100 text-slate-800">
         <RootProviders>
           <Navbar />
+          <Alert />
           <main className="">{children}</main>
         </RootProviders>
         <Footer />

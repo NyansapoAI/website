@@ -31,7 +31,7 @@ const components = {
             .fit("max")
             .auto("format")
             .url()}
-          className="w-96 md:w-[600px] h-auto bg-cover"
+          className="w-96 mx-auto md:w-[600px] h-auto bg-cover"
         />
       )
     },
@@ -78,11 +78,11 @@ export default async function page({ params }: Props) {
 }}}}`
   const data = await clientFetch<NewsInterface[]>(query)
   return (
-    <div className="px-8 flex flex-col gap-4">
+    <div className="px-12 lg:px-32 2xl:px-64 flex flex-col gap-4">
       <h1 className="text-3xl lg:text-5xl font-bold text-center mb-8">
         {data[0].title}
       </h1>
-      <MainImage data={data[0]} />
+      {data[0].mainImage && <MainImage data={data[0]} />}
       <div>
         {data && <PortableText value={data[0].body} components={components} />}
       </div>

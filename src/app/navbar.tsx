@@ -4,6 +4,7 @@ import { Disclosure } from "@headlessui/react"
 import Image from "next/image"
 import ThemeSwitch from "./components/ThemeSwitch"
 import { navigationLinks } from "@/constants/links"
+import { CTA_TEXT } from "@/constants"
 export default function Navbar() {
   return (
     <div className="w-full relative z-50 mb-12">
@@ -73,7 +74,7 @@ export default function Navbar() {
                       href="/contact"
                       className="w-full px-6 py-2 mt-4 mb-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
                     >
-                      <span className="">Request Demo</span>
+                      <span className="">{CTA_TEXT}</span>
                     </Link>
                     <ThemeSwitch />
                   </>
@@ -115,7 +116,7 @@ export default function Navbar() {
             href="/contact"
             className="px-6 py-2 text-dark font-semibold bg-yellow-500 rounded-md md:ml-5"
           >
-            <span className="">Request Demo</span>
+            <span className="">{CTA_TEXT}</span>
           </Link>
           <ThemeSwitch />
         </div>

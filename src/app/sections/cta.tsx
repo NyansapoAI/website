@@ -1,3 +1,4 @@
+import { CTA_TEXT } from "@/constants"
 import Link from "next/link"
 import React from "react"
 
@@ -16,7 +17,7 @@ export default function Cta() {
           href="/contact"
           className="inline-block py-3 mx-auto text-xl  text-center font-semibold text-dark bg-yellow-500 rounded-md px-7 lg:px-10 lg:py-5 "
         >
-          Request Demo
+          {CTA_TEXT}
         </Link>
       </div>
     </div>
