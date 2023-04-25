@@ -25,9 +25,8 @@ export default function NewsLetter({}: Props) {
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl">Join Our NewsLetter</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          nobis, corporis verpo neque impedit libero in cupiditate cumque sed
-          saepe consectetur et explicabo sit delectus,
+          Stay up to date with the latest projects, announcements and research,
+          feel free to sign up with your email.
         </p>
       </div>
       <form
