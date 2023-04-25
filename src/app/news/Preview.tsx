@@ -15,7 +15,10 @@ export default function Preview({ data }: Props) {
 
   return (
     <div className="">
-      <Link className="flex  flex-col gap-4" href={`/news/${data._id}`}>
+      <Link
+        className="flex flex-col justify-start items-start gap-4"
+        href={`/news/${data._id}`}
+      >
         {data.mainImage && (
           <div className="overflow-clip">
             <Image
@@ -27,7 +30,7 @@ export default function Preview({ data }: Props) {
             />
           </div>
         )}
-        <h1 className="text-3xl text-center  hover:text-slate-600 duration-300">
+        <h1 className="text-2xl w-80 text-center lg:text-left hover:text-slate-600 duration-300">
           {data.title}
         </h1>
       </Link>
