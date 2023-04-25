@@ -45,7 +45,7 @@ export default async function IndexPage() {
   const data = await clientFetch<NewsInterface[]>(query)
   return (
     <div>
-      <div className="md:min-h-[500px]">
+      <div className=" flex gap-16 md:min-h-[500px]">
         {data &&
           data.map((item) => {
             return (
