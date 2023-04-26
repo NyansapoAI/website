@@ -1,9 +1,10 @@
-import Services from "./sections/services";
-import Hero from "./sections/hero";
-import Products from "./sections/products";
-import About from "./sections/about";
-import Testimonials from "./sections/testimonials";
-import Cta from "./sections/cta";
+import Services from "./sections/services"
+import Hero from "./sections/hero"
+import Products from "./sections/products"
+import About from "./sections/about"
+import Testimonials from "./sections/testimonials"
+import Cta from "./sections/cta"
+import NewsLetter from "./company/sections/NewsLetter"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       {/* <Testimonials /> */}
       <Cta />
+      <NewsLetter />
     </main>
-  );
+  )
 }
