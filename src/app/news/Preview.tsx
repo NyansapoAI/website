@@ -14,7 +14,7 @@ export default function Preview({ data }: Props) {
   const imageProps = useNextSanityImage(sanityClient, data.mainImage)
 
   return (
-    <div className="">
+    <div className="w-full">
       <Link
         className="group flex flex-col justify-start items-start gap-4"
         href={`/news/${data._id}`}
