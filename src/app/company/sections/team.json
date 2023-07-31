@@ -1,36 +1,35 @@
-
 {
-    "team": [
-      {
-        "name": "Edward Amoah",
-        "role": "Co-Founder and AI lead",
-        "imageUrl": "/imgs/team/edward.jpg",
-        "socialLinks": [
-          {
-            "link": "https://linkedin.com/in/edwardamoah",
-            "type": "twitter"
-          },
-          {
-            "link": "https://angel.co/edwardamoah",
-            "type": "linkedin"
-          }
-        ]
-      },
-      {
-        "name": "Winfred Mumbe",
-        "role": "Co-Founder",
-        "imageUrl": "/imgs/team/mumbe.jpg",
-        "socialLinks": [
-          {
-            "link": "https://linkedin.com/in/winfredmumbe",
-            "type": "linkedin"
-          },
-          {
-            "link": "https://twitter.com/winfredmumbe",
-            "type": "twitter"
-          }
-        ]
-      },
+  "team": [
+    {
+      "name": "Edward Amoah",
+      "role": "Co-Founder and AI lead",
+      "imageUrl": "/imgs/team/edward.jpg",
+      "socialLinks": [
+        {
+          "link": "https://linkedin.com/in/edwardamoah",
+          "type": "twitter"
+        },
+        {
+          "link": "https://angel.co/edwardamoah",
+          "type": "linkedin"
+        }
+      ]
+    },
+    {
+      "name": "Winfred Mumbe",
+      "role": "Co-Founder",
+      "imageUrl": "/imgs/team/mumbe.jpg",
+      "socialLinks": [
+        {
+          "link": "https://linkedin.com/in/winfredmumbe",
+          "type": "linkedin"
+        },
+        {
+          "link": "https://twitter.com/winfredmumbe",
+          "type": "twitter"
+        }
+      ]
+    },
     {
       "name": "Justice Eli",
       "role": "Lead Android and Backend Developer",
@@ -49,7 +48,7 @@
     {
       "name": "Alex Magwe",
       "role": "Lead Designer and Web Developer",
-      "imageUrl": "/imgs/team/alex.jpg",
+      "imageUrl": "/imgs/team/alex.png",
       "socialLinks": [
         {
           "link": "https://linkedin.com/in/alexmagwe",
@@ -62,19 +61,19 @@
       ]
     },
     {
-        "name": "Albright Mbia",
-        "role": "Communications Lead",
-        "imageUrl": "/imgs/team/albright.jpg",
-        "socialLinks": [
-          {
-            "link": "https://www.linkedin.com/in/albright-mbia-743308246",
-            "type": "linkedin"
-          },
-          {
-            "link": "https://twitter.com/AlbrightMbia",
-            "type": "twitter"
-          }
-        ]
+      "name": "Albright Mbia",
+      "role": "Communications Lead",
+      "imageUrl": "/imgs/team/albright.jpg",
+      "socialLinks": [
+        {
+          "link": "https://www.linkedin.com/in/albright-mbia-743308246",
+          "type": "linkedin"
+        },
+        {
+          "link": "https://twitter.com/AlbrightMbia",
+          "type": "twitter"
+        }
+      ]
     }
   ]
 }
