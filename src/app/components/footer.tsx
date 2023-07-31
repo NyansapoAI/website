@@ -28,8 +28,7 @@ export default function Footer() {
           </div>
 
           <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-            Our company is committed to improving foundational literacy and
-            numeracy skills using AI .
+            AI For Childen:Read,Count & Shine
           </div>
         </div>
 

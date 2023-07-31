@@ -68,7 +68,7 @@ export default function Contact() {
           />
         </svg>
       ),
-      contact: "nyansapoai@gmail.com",
+      contact: "info@nyansapoai.net",
       title: "Email",
     },
   ]
@@ -94,7 +94,7 @@ export default function Contact() {
                 <div className="mt-3 flex items-center gap-x-3">
                   <div className="flex-none text-gray-400">{item.icon}</div>
                   {item.title == "Email" ? (
-                    <a href="mailto:nyansapoai@gmail.com">{item.contact}</a>
+                    <a href="mailto:info@nyansapoai@.net">{item.contact}</a>
                   ) : (
                     <span>{item.contact}</span>
                   )}
