@@ -46,10 +46,10 @@ export default function Products({}: Props) {
             <div className="w-96 h-96 rounded-full z-0 bg-yellow-300 absolute -right-12 top-24"></div>
           </div>
         </div>
-        <div className="flex flex-row md:flex-row-reverse  gap-12 items-center justify-center py-12">
+        <div className="flex flex-col  lg:flex-row-reverse  gap-12 items-center justify-center py-12">
           <aside>
             <h1 className="text-xl font-semibold mb-4 ">Analytics Dashboard</h1>
-            <p className=" tracking-wide max-w-md">
+            <p className=" tracking-wide md:max-w-md">
               The actionable dashboard provides understanding on actual learner
               engagement, disparities across various interventions, providing
               critical information for program managers and other actors to make
