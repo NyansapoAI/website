@@ -7,7 +7,7 @@ import { navigationLinks } from "@/constants/links"
 import { CTA_TEXT } from "@/constants"
 export default function Navbar() {
   return (
-    <div className="w-full fixed bg-gradient-to-b from-background text-foreground   backdrop-blur-sm via-50% top-0 left-0 z-50 ">
+    <div className="w-full fixed bg-gradient-to-b from-black/90 text-white   backdrop-blur-sm via-50% top-0 left-0 z-50 ">
       <nav className=" relative flex flex-wrap py-3 px-4 gap-2 items-center justify-between  lg:justify-between ">
         {/* Logo  */}
         <Disclosure>
@@ -26,7 +26,7 @@ export default function Navbar() {
 
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:text-gray-300 dark:focus:bg-cyan-700"
+                  className="px-2 py-1 ml-auto  rounded-md lg:hidden hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none  dark:focus:bg-cyan-700"
                 >
                   <svg
                     className="w-6 h-6 fill-current"
