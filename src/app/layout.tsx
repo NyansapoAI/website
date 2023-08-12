@@ -2,10 +2,11 @@ import Navbar from "./navbar"
 import "./globals.css"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import { Raleway } from "next/font/google"
-import RootProviders from "./providers"
 import Footer from "./components/footer"
 import { Metadata } from "next"
 import Alert from "./components/Alert"
+import { Separator } from "@/components/ui/separator"
+import RootProviders from "./providers"
 const raleway = Raleway({
   subsets: ["latin"],
   // default, can also use "swap" to ensure custom font always shows
@@ -52,14 +53,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${raleway.className} `}>
-      <body className="relative bg-cyan-100 dark:bg-dark duration-400 dark:text-cyan-100 text-slate-800">
+    <html lang="en" className={`${raleway.className} dark `}>
+      <body className="relative bg-background duration-400">
         <RootProviders>
           <Navbar />
           <Alert />
-          <main className="">{children}</main>
+          {children}
+          <Separator />
+          <Footer />
         </RootProviders>
-        <Footer />
       </body>
     </html>
   )

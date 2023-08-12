@@ -11,8 +11,8 @@ export default function Footer() {
     { name: "studio", link: "studio" },
   ]
   return (
-    <div className="relative px-8 py-16">
-      <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-500 dark:border-trueGray-700 lg:grid-cols-5">
+    <div className="relative px-8 py-12">
+      <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <div>
             <Link href="/" className="flex gap-4 items-center">

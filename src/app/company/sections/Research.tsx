@@ -1,5 +1,5 @@
-import RocketLaunchIcon from "@/app/components/icons/RocketLaunchIcon"
 import { Mark } from "@/app/sections/Mark"
+import { Rocket } from "lucide-react"
 import Image from "next/image"
 import React from "react"
 
@@ -19,7 +19,7 @@ export default function Research({}: Props) {
       </div>
       <div className="w-full px-4 md:w-1/2">
         <div className="w-8 h-8 mb-4">
-          <RocketLaunchIcon />
+          <Rocket size={25} />
         </div>
 
         <h1 className=" text-4xl xl:text-4xl mb-6">Research and Development</h1>

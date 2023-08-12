@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 export default function page({}: Props) {
   return (
-    <div className="text-dark dark:text-white">
+    <div className="text-dark dark:text-white py-12 2xl:py-16 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       <CompanyLanding />
       <Values />
       <Story />

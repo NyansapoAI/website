@@ -5,17 +5,29 @@ import About from "./sections/about"
 import Testimonials from "./sections/testimonials"
 import Cta from "./sections/cta"
 import NewsLetter from "./company/sections/NewsLetter"
+import RootProviders from "./providers"
+import Impact from "./sections/impact"
+import { Separator } from "@/components/ui/separator"
 
 export default function Home() {
   return (
-    <main className="container">
+    <main className="">
       <Hero />
-      <Services />
+      <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+        <Impact />
+        <Separator />
+        <About />
+        <Separator />
+        <Services />
+        <Separator />
+      </div>
       <Products />
-      <About />
+      <Separator />
+      <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+        <Cta />
+        <NewsLetter />
+      </div>
       {/* <Testimonials /> */}
-      <Cta />
-      <NewsLetter />
     </main>
   )
 }
