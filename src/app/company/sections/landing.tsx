@@ -5,15 +5,15 @@ type Props = {}
 export default function CompanyLanding({}: Props) {
   return (
     <div className="  w-full h-full py-8 pb-32 flex flex-col content-center items-center justify-center min-h-screen-75">
-      <div className="container relative mx-auto">
+      <div className="relative mx-auto">
         <div className="items-center flex flex-wrap">
-          <div className="w-full lg:w-4/5 px-4 ml-auto mr-auto text-center">
+          <div className="w-full lg:w-4/5 px-4 ml-auto mr-auto md:text-center">
             <div className="">
               <h1 className="font-semibold text-4xl lg:text-5xl">
                 Leveraging Artificial Intelligence in improving foundational
                 Literacy and Numeracy skills
               </h1>
-              <p className="mt-4 text-lg text-blueGray-200">
+              <p className="mt-4 text-lg">
                 UNESCO estimates that 250 million children cannot read, write or
                 count well. Without these basic  foundational skills, students
                 are unable to progress with their education. We partner with

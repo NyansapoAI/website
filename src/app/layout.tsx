@@ -53,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${raleway.className} dark `}>
-      <body className="relative bg-background duration-400">
+    <html lang="en" className={`${raleway.className}`}>
+      <body className=" dark relative bg-background duration-400">
         <RootProviders>
           <Navbar />
           <Alert />
