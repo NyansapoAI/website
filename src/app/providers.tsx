@@ -29,9 +29,7 @@ export default function RootProviders({ children }: Props) {
       <AlertContext.Provider
         value={{ showAlert, setShowAlert, alertMessage, setAlertMessage }}
       >
-        <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
-          <div className="mx-auto">{children}</div>
-        </div>
+        {children}
       </AlertContext.Provider>
     </ThemeProvider>
   )

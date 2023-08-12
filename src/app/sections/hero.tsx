@@ -4,6 +4,7 @@ import HeroGallery from "@components/HeroGallery"
 import Link from "next/link"
 import Video from "../components/Video"
 import { CTA_TEXT } from "@/constants"
+import Image from "next/image"
 
 type Props = {}
 
@@ -11,88 +12,48 @@ export default function Hero({}: Props) {
   let [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section>
-      <div className="flex flex-wrap container ">
-        <div className="flex items-center w-full lg:w-1/2">
-          <Video isOpen={isOpen} setIsOpen={setIsOpen} />
-          <div className="mr-4 mb-8">
-            <h1 className="text-4xl font-bold leading-snug tracking-tight  lg:text-4xl lg:leading-tight xl:text-5xl  xl:leading-tight 2xl:leading-tight">
-              Leveraging <span className="text-cyan-500">A</span>rtificial&nbsp;
-              <span className="text-yellow-500">I</span>ntelligence in improving
-              foundational Literacy and Numeracy skills
-            </h1>
-            <p className="py-5 text-lg leading-normal text-gray-500 lg:text-xl dark:text-gray-300">
-              Nyansapo AI partners with organizations to create custom AI
-              powered EdTech tools to support and scale literacy and numeracy
-              intervention programs
-            </p>
-
-            <div className="flex flex-wrap gap-4  items-center">
-              <Link
-                href="/contact"
-                className="px-8 py-4 text-lg font-medium text-center text-slate-800 bg-yellow-500 rounded-md inine "
-              >
-                {CTA_TEXT}
-              </Link>
-              <button
-                onClick={() => setIsOpen(true)}
-                className="text-accent2 flex gap-x-3 items-center "
-              >
-                <svg
-                  role="img"
-                  width="60"
-                  height="60"
-                  className="w-12 h-12"
-                  viewBox="0 0 60 60"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g>
-                    <path
-                      d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30
-                      c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15
-		C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"
-                    />
-                    <path
-                      d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30
-		S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"
-                    />
-                  </g>
-                </svg>
-                <span> Watch Video</span>
-              </button>
+    <section className="relative min-h-screen  text-white  bg-no-repeat bg-cover w-full">
+      <Video isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Image
+        width={1920}
+        height={1080}
+        className="absolute object-cover w-full h-full top-0 left-0 z-0 "
+        alt="children doing activities"
+        src="/hero.png"
+      ></Image>
+      <div className="relative z-30 flex w-full h-screen bg-gradient-to-t from-black items-center justify-center">
+        <div className=" flex-col gap-8 items-center justify-end  relative translate-y-24  text-center">
+          <div className="max-w-xl">
+            <div className="text-4xl lg:text-5xl font-bold leading-snug tracking-tight lg:leading-tight xl:text-6xl  xl:leading-tight 2xl:leading-tight">
+              <div className="flex flex-col gap-2">
+                <p>
+                  <span className="text-cyan-500">A</span>
+                  <span className="text-yellow-500">I</span>&nbsp;for children
+                </p>
+                <span>read,count & shine</span>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-center w-full lg:w-1/2">
-          {/* <div className=''>
-            <Image
-              src={heroImg}
-              width='616'
-              height='617'
-              alt='Hero Illustration'
-              layout='intrinsic'
-              loading='eager'
-              placeholder='blur'
-            />
-          </div> */}
-          <HeroGallery />
-        </div>
-      </div>
-      <div>
-        {/* <div className='flex flex-col justify-center'>
-          <div className='text-xl text-center text-gray-700 dark:text-white'>
-            <span>
-              
-            </span>
-            Trusted by <span className='text-indigo-600'>2000+</span> customers
-            worldwide
+            <p className="py-4 text-lg leading-normal  max-w-lg text-gray-300">
+              We partner with organizations to support and scale literacy and
+              numeracy interventions by leveraging AI
+            </p>
           </div>
 
-          <div className='flex flex-wrap justify-center gap-5 mt-10 md:justify-around'>
-            <div className='pt-2 text-gray-400 dark:text-gray-400'></div>
+          <div className="flex flex-wrap gap-4 justify-center items-center">
+            <Link
+              href="/contact"
+              className="px-4 py-2 text-lg font-medium text-center text-accent-foreground bg-accent rounded-md inine "
+            >
+              {CTA_TEXT}
+            </Link>
+            <button
+              onClick={() => setIsOpen(true)}
+              className="text-accent2 border-2 px-4 py-2 rounded-md border-accent2 flex gap-x-3 items-center "
+            >
+              <span>Learn More</span>
+            </button>
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   )

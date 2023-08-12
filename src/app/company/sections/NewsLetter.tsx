@@ -44,7 +44,7 @@ export default function NewsLetter({}: Props) {
         </div>
         <div className="flex-2">
           <button
-            className="bg-yellow-500 text-dark text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
+            className="bg-yellow-500 text-gray-800 text-sm uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
             type="submit"
           >
             Sign Up

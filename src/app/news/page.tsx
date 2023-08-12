@@ -44,8 +44,8 @@ export interface NewsInterface {
 export default async function IndexPage() {
   const data = await clientFetch<NewsInterface[]>(query)
   return (
-    <div>
-      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center  gap-12 ">
+    <div className="py-12 2xl:py-16 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-12 ">
         {data &&
           data.map((item) => {
             return <Preview key={item._id} data={item} />

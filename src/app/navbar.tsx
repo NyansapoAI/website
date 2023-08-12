@@ -7,13 +7,13 @@ import { navigationLinks } from "@/constants/links"
 import { CTA_TEXT } from "@/constants"
 export default function Navbar() {
   return (
-    <div className="w-full relative z-50 mb-12">
-      <nav className=" relative flex flex-wrap gap-2 items-center justify-between py-8 lg:justify-between dark:text-gray-100 ">
+    <div className="w-full fixed bg-gradient-to-b from-background text-foreground   backdrop-blur-sm via-50% top-0 left-0 z-50 ">
+      <nav className=" relative flex flex-wrap py-3 px-4 gap-2 items-center justify-between  lg:justify-between ">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
             <>
-              <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
+              <div className="flex flex-wrap items-center  justify-between w-full lg:w-auto">
                 <Link href="/" className=" ">
                   <Image
                     src="/logo.png"
@@ -54,7 +54,7 @@ export default function Navbar() {
                     {navigationLinks.map((item, index) =>
                       item.type == "page" ? (
                         <Link
-                          className="w-full capitalize px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700"
+                          className="w-full capitalize px-4 py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
                           href={`/${item.name}`}
                         >
@@ -62,7 +62,7 @@ export default function Navbar() {
                         </Link>
                       ) : (
                         <a
-                          className="w-full px-4 capitalize py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700"
+                          className="w-full px-4 capitalize py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
                           href={`/#${item.name}`}
                         >
@@ -72,7 +72,7 @@ export default function Navbar() {
                     )}
                     <Link
                       href="/contact"
-                      className="w-full px-6 py-2 mt-4 mb-4 text-center text-dark bg-yellow-500 rounded-md lg:ml-5"
+                      className="w-full px-6 py-2 mt-4 mb-4 text-center text-accent-foreground bg-accent rounded-md lg:ml-5"
                     >
                       <span className="">{CTA_TEXT}</span>
                     </Link>
@@ -91,7 +91,7 @@ export default function Navbar() {
               <li className="mr-3" key={index}>
                 {item.type == "page" ? (
                   <Link
-                    className="w-full capitalize px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:dark:bg-cyan-500 focus:outline-none dark:focus:bg-trueGray-700"
+                    className="w-full capitalize px-4 py-2 font-semibold rounded-md hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
                     key={index}
                     href={`/${item.name}`}
                   >
@@ -99,7 +99,7 @@ export default function Navbar() {
                   </Link>
                 ) : (
                   <a
-                    className="w-full capitalize px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:dark:bg-cyan-500 focus:outline-none dark:focus:bg-trueGray-700"
+                    className="w-full capitalize px-4 py-2 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
                     key={index}
                     href={`/#${item.name}`}
                   >
@@ -114,7 +114,7 @@ export default function Navbar() {
         <div className="hidden mr-3 space-x-4 lg:flex">
           <Link
             href="/contact"
-            className="px-6 py-2 text-dark font-semibold bg-yellow-500 rounded-md md:ml-5"
+            className="px-4 py-2 text-accent-foreground  bg-accent rounded-md md:ml-5"
           >
             <span className="">{CTA_TEXT}</span>
           </Link>

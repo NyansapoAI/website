@@ -78,12 +78,12 @@ export default async function page({ params }: Props) {
 }}}}`
   const data = await clientFetch<NewsInterface[]>(query)
   return (
-    <div className="px-2 md:px-12 lg:px-28  flex flex-col gap-4">
+    <div className="lg:px-28 flex flex-col gap-4 py-12 2xl:py-16 mt-20 px-4 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       <h1 className=" text-3xl lg:text-5xl font-bold text-center mb-8">
         {data[0].title}
       </h1>
       {data[0].mainImage && <MainImage data={data[0]} />}
-      <div className="leading-7 dark:text-slate-100 ">
+      <div className="leading-7 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
         {data && <PortableText value={data[0].body} components={components} />}
       </div>
     </div>

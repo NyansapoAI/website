@@ -18,7 +18,7 @@ const projects = [
 ]
 export default function page({}: Props) {
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className="grid md:grid-cols-2 gap-4 py-12 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       {projects.map((project, i) => (
         <Project key={i} project={project} />
       ))}
@@ -27,14 +27,14 @@ export default function page({}: Props) {
 }
 
 type ProjectProps = {
-  project: typeof projects[number]
+  project: (typeof projects)[number]
 }
 export const metadata: Metadata = {
   title: "Projects",
 }
 function Project({ project: { title, description, videoLink } }: ProjectProps) {
   return (
-    <div className=" flex flex-col gap-3 shadow-lg rounded-md p-4">
+    <div className=" flex flex-col gap-3 shadow-lg rounded-md p-4 ">
       <iframe
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
