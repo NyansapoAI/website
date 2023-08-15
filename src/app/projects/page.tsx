@@ -1,5 +1,11 @@
+import { Button } from "@/components/ui/button"
+import { sanityClient } from "@/lib/sanity.client"
 import { Metadata } from "next"
-import React from "react"
+import { groq } from "next-sanity"
+import Image from "next/image"
+import Link from "next/link"
+import React, { cache } from "react"
+import ProjectPreview from "./Preview"
 
 type Props = {}
 const projects = [
@@ -16,33 +22,40 @@ const projects = [
     videoLink: "https://www.youtube.com/embed/5ncU3xrg18c",
   },
 ]
-export default function page({}: Props) {
+export type ProjectInterface = {
+  title: string
+  description: string
+  mainImage: {
+    asset: {
+      metadata: {
+        lqip: string
+      }
+    }
+  }
+  _id: string
+  slug: {
+    current: string
+  }
+}
+
+const projectQuery = groq`*[_type=='projects']{title,description,mainImage{asset->{...,metadata{
+  lqip}}},_id,slug}`
+const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
+
+export default async function page({}: Props) {
+  const data = await clientFetch<ProjectInterface[]>(projectQuery)
+
   return (
-    <div className="grid md:grid-cols-2 gap-4 py-12 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
-      {projects.map((project, i) => (
-        <Project key={i} project={project} />
-      ))}
+    <div className="flex flex-wrap justify-center  gap-4 py-12 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+      {data &&
+        data.map((project, i) => <ProjectPreview key={i} project={project} />)}
     </div>
   )
 }
 
 type ProjectProps = {
-  project: (typeof projects)[number]
+  project: ProjectInterface
 }
 export const metadata: Metadata = {
   title: "Projects",
-}
-function Project({ project: { title, description, videoLink } }: ProjectProps) {
-  return (
-    <div className=" flex flex-col gap-3 shadow-lg rounded-md p-4 ">
-      <iframe
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="w-full rounded-md h-96 aspect-video"
-        src={videoLink}
-      ></iframe>
-      <h1 className="text-3xl font-bold ">{title}</h1>
-      <p className="text-lg text-gray-500">{description}</p>
-    </div>
-  )
 }

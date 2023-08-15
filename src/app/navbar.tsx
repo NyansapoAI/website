@@ -5,9 +5,25 @@ import Image from "next/image"
 import ThemeSwitch from "./components/ThemeSwitch"
 import { navigationLinks } from "@/constants/links"
 import { CTA_TEXT } from "@/constants"
+import { useWindowScroll } from "@uidotdev/usehooks"
+import { useEffect, useState } from "react"
+
 export default function Navbar() {
+  const [{ x, y }, scrollTo] = useWindowScroll()
+  const [addBg, setAddBg] = useState(false)
+  useEffect(() => {
+    if (y && y > 500) {
+      setAddBg(true)
+    } else if (y && y < 500) {
+      setAddBg(false)
+    }
+  }, [y])
   return (
-    <div className="w-full fixed bg-gradient-to-b from-black/90 text-white   backdrop-blur-sm via-50% top-0 left-0 z-50 ">
+    <div
+      className={`w-full fixed ${
+        addBg ? "bg-background" : "bg-gradient-to-b from-black/90"
+      } text-white duration-200  backdrop-blur- via-50% top-0 left-0 z-50 `}
+    >
       <nav className=" relative flex flex-wrap py-3 px-4 gap-2 items-center justify-between  lg:justify-between ">
         {/* Logo  */}
         <Disclosure>

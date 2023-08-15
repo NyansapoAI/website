@@ -74,7 +74,7 @@ export default function Contact() {
   ]
 
   return (
-    <main className="py-14">
+    <div className="py-12 2xl:py-20 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="max-w-xl space-y-3">
           <h3 className=" font-semibold">Contact</h3>
@@ -104,6 +104,6 @@ export default function Contact() {
           </ul>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

@@ -7,6 +7,8 @@ import { Metadata } from "next"
 import Alert from "./components/Alert"
 import { Separator } from "@/components/ui/separator"
 import RootProviders from "./providers"
+import { Toaster } from "react-hot-toast"
+
 const raleway = Raleway({
   subsets: ["latin"],
   // default, can also use "swap" to ensure custom font always shows
@@ -53,9 +55,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${raleway.className}`}>
+    <html lang="en" className={`scroll-smooth ${raleway.className}`}>
       <body className=" dark relative bg-background duration-400">
         <RootProviders>
+          <Toaster />
           <Navbar />
           <Alert />
           {children}

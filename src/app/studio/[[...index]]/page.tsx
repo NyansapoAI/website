@@ -6,5 +6,9 @@ import config from "@/sanity.config"
 
 export default function StudioPage() {
   //  Supports the same props as `import {Studio} from 'sanity'`, `config` is required
-  return <NextStudio config={config} />
+  return (
+    <div className="mt-24 mx-auto">
+      <NextStudio config={config} />
+    </div>
+  )
 }
