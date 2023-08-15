@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 // Enable NextJS to cache and dedupe queries
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
-const query = groq`*[_type=='news']{body, title, _createdAt, publishedAt, _rev, _type, _id, _updatedAt, slug, mainImage{asset->{...,metadata{
+const query = groq`*[_type=='news']{body, title,link, _createdAt, publishedAt, _rev, _type, _id, _updatedAt, slug, mainImage{asset->{...,metadata{
   lqip
 }}}}`
 export interface NewsInterface {
@@ -19,6 +19,7 @@ export interface NewsInterface {
   title: string
   _createdAt: string
   publishedAt: string
+  link: string
   _rev: string
   _type: string
   _id: string
@@ -45,7 +46,7 @@ export default async function IndexPage() {
   const data = await clientFetch<NewsInterface[]>(query)
   return (
     <div className="py-12 2xl:py-16 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
-      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-12 ">
+      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8 ">
         {data &&
           data.map((item) => {
             return <Preview key={item._id} data={item} />

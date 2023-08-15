@@ -15,25 +15,51 @@ export default function Preview({ data }: Props) {
 
   return (
     <div className="w-full">
-      <Link
-        className="group flex flex-col justify-start items-start gap-4"
-        href={`/news/${data._id}`}
-      >
-        {data.mainImage && (
+      {data.link ? (
+        <a
+          className="group flex flex-col justify-start items-start gap-4"
+          href={data.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="overflow-clip">
             <Image
               alt={data.slug.current}
               {...imageProps}
-              className="w-80  bg-cover aspect-auto group-hover:scale-125 duration-300" // layout="responsive" prior to Next 13.0.0
+              width={400}
+              height={500}
+              className=" object-contain aspect-auto group-hover:scale-105 duration-200" // layout="responsive" prior to Next 13.0.0
               placeholder="blur"
               blurDataURL={data.mainImage.asset.metadata.lqip}
             />
           </div>
-        )}
-        <h1 className="text-2xl w-80 text-center lg:text-left group-hover:text-slate-500 duration-300">
-          {data.title}
-        </h1>
-      </Link>
+          <h1 className="text-2xl  text-center lg:text-left group-hover:text-slate-500 duration-300">
+            {data.title}
+          </h1>
+        </a>
+      ) : (
+        <Link
+          className="group flex flex-col justify-start items-start gap-4"
+          href={`/news/${data._id}`}
+        >
+          {data.mainImage && (
+            <div className="overflow-clip">
+              <Image
+                alt={data.slug.current}
+                {...imageProps}
+                width={400}
+                height={500}
+                className=" object-contain aspect-auto group-hover:scale-105 duration-300" // layout="responsive" prior to Next 13.0.0
+                placeholder="blur"
+                blurDataURL={data.mainImage.asset.metadata.lqip}
+              />
+            </div>
+          )}
+          <h1 className="text-2xl  text-center lg:text-left group-hover:text-slate-500 duration-300">
+            {data.title}
+          </h1>
+        </Link>
+      )}
     </div>
   )
 }

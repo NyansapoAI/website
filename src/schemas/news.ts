@@ -12,6 +12,11 @@ export default defineType({
       title: "Title",
     },
     {
+      name: "link",
+      type: "link",
+      title: "Link",
+    },
+    {
       name: "slug",
       type: "slug",
       title: "Slug",
