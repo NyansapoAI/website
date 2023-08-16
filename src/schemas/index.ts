@@ -1,4 +1,5 @@
 import news from "./news"
 import subscribers from "./subscribers"
 import projects from "./projects"
-export const schemaTypes = [news, subscribers, projects]
+import team from "./team"
+export const schemaTypes = [news, subscribers, projects, team]

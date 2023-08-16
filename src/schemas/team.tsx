@@ -12,28 +12,19 @@ export default defineType({
       title: "Name",
     },
     {
-      name: "slug",
-      type: "slug",
-      title: "Slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
+      name: "title",
+      type: "string",
+      title: "Title",
     },
     {
-      name: "description",
+      name: "about",
       type: "text",
-      title: "Description",
+      title: "About",
     },
     {
-      name: "mainImage",
+      name: "photo",
       type: "image",
-      title: "Main image",
-    },
-    {
-      name: "video",
-      type: "url",
-      title: "Video Link",
+      title: "Photo",
     },
 
     {
@@ -41,24 +32,11 @@ export default defineType({
       type: "datetime",
       title: "Published at",
     },
-    {
-      name: "body",
-      type: "array",
-      title: "Body",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-        },
-      ],
-    },
   ],
   preview: {
     select: {
       title: "title",
-      media: "mainImage",
+      media: "photo",
     },
   },
 })
