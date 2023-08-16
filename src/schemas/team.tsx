@@ -22,6 +22,16 @@ export default defineType({
       title: "About",
     },
     {
+      name: "twitter",
+      type: "url",
+      title: "X Profile",
+    },
+    {
+      name: "linkedin",
+      type: "url",
+      title: "Linkedin Profile",
+    },
+    {
       name: "photo",
       type: "image",
       title: "Photo",

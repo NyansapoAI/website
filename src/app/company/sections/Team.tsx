@@ -1,9 +1,32 @@
+import { sanityClient } from "@/lib/sanity.client"
+import { groq } from "next-sanity"
 import Image from "next/image"
-import React from "react"
+import React, { cache } from "react"
 import data from "./team.json"
 type Props = {}
-
-export default function Team({}: Props) {
+const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
+type TeamMember = {
+  name: string
+  title: string
+  photo: {
+    asset: {
+      metadata: {
+        lqip: string
+      }
+    }
+  }
+  twitter: string
+  linkedin: string
+}
+const teamQuery = groq`*[_type=="team"]{
+  name,
+  title,
+  photo,
+  twitter,
+  linkedin,
+  }`
+export default async function Team({}: Props) {
+  const data = await clientFetch<TeamMember[]>(teamQuery)
   return (
     <section className=" flex flex-col items-center justify-center py-8 md:py-16 2xl:py-32">
       <div className="container mx-auto px-4">
@@ -14,13 +37,16 @@ export default function Team({}: Props) {
           </div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8">
-          {data.team.map((member) => (
+          {data.map((member) => (
             <TeamMember
               key={member.name}
-              imageUrl={member.imageUrl}
+              imageUrl={member.photo.asset.metadata.lqip}
               name={member.name}
-              title={member.role}
-              socialLinks={member.socialLinks}
+              title={member.title}
+              socialLinks={[
+                { link: member.twitter, type: "twitter" },
+                { link: member.linkedin, type: "linkedin" },
+              ]}
             />
           ))}
         </div>
@@ -34,7 +60,7 @@ type TeamMemberProps = {
   title: string
   socialLinks: {
     link: string
-    type: typeof SocialLinkVariants[number] | string
+    type: (typeof SocialLinkVariants)[number] | string
   }[]
 }
 const SocialLinkVariants = [
