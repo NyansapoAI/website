@@ -26,12 +26,6 @@ export default defineType({
       type: "image",
       title: "Photo",
     },
-
-    {
-      name: "publishedAt",
-      type: "datetime",
-      title: "Published at",
-    },
   ],
   preview: {
     select: {
