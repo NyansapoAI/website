@@ -31,7 +31,7 @@ type ProjectInterface = {
   }
 }
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const query = groq`*[_type=='projects' && _id=='${params.id}']{body, title, _createdAt, publishedAt, _id, _updatedAt, slug,video,description, mainImage{asset->{...,metadata{lqip
+  const query = groq`*[_type=='projects' && _id=='${params.id}']{ title, _createdAt, publishedAt, _id, _updatedAt, slug,description, mainImage{asset->{...,metadata{lqip
 }}}}`
   const data = await clientFetch<ProjectInterface[]>(query)
   if (data.length > 0) return { title: data[0].title }
@@ -93,7 +93,7 @@ const components = {
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
 
 export default async function page({ params }: Props) {
-  const query = groq`*[_type=='projects' && slug.current=='${params.slug}']{body, title, _createdAt, publishedAt, _id, _updatedAt, slug,video,description, mainImage{asset->{...,metadata{lqip
+  const query = groq`*[_type=='projects' && slug.current=='${params.slug}']{body,video, title, _createdAt, publishedAt, _id, _updatedAt, slug,video,description, mainImage{asset->{...,metadata{lqip
 }}}}`
   const data = await clientFetch<ProjectInterface[]>(query)
   return (
@@ -115,12 +115,12 @@ export default async function page({ params }: Props) {
               src={data[0].video}
             ></iframe>
           )}
-          <div className="leading-7 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
+          {/* <div className="leading-7 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
             {data &&
               data[0].body(
                 <PortableText value={data[0].body} components={components} />
               )}
-          </div>
+          </div> */}
         </div>
       ) : (
         <div className="text-5xl">Not found</div>
