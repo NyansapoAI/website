@@ -32,7 +32,6 @@ export interface NewsInterface {
     asset: {
       _id: string
       _type: string
-      url: string
       metadata: {
         lqip: string
       }
