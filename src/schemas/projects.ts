@@ -30,6 +30,11 @@ export default defineType({
       type: "url",
       title: "LinkedIn Url",
     },
+    {
+      name: "video",
+      type: "url",
+      title: "Video Url",
+    },
 
     {
       name: "mainImage",
