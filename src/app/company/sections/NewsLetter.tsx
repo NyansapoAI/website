@@ -40,19 +40,19 @@ export default function NewsLetter({}: Props) {
     }
   }
   return (
-    <div className="grid py-8 lg:py-16 md:grid-cols-2 gap-6 ">
+    <div className="flex items-end justify-center py-8 lg:py-16  gap-4 ">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl">Join Our NewsLetter</h1>
-        <p>
+        <p className="max-w-lg">
           Stay up to date with the latest projects, announcements and research,
           feel free to sign up with your email.
         </p>
       </div>
-      <form
+      {/* <form
         onSubmit={handleSubmit}
         className="flex gap-3 items-center w-full justify-center"
-      >
-        <div className="relative flex-1 ">
+      > */}
+      {/* <div className="relative flex-1 ">
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -60,16 +60,19 @@ export default function NewsLetter({}: Props) {
             className="border-2 border-cyan-500"
             placeholder="Enter your Email"
           />
-        </div>
-        <div className="flex-2">
-          <button
-            className="bg-yellow-500 text-gray-800 text-sm uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
-            type="submit"
-          >
-            {loading ? <Loader2 className="animate-spin" /> : " Sign Up"}
-          </button>
-        </div>
-      </form>
+        </div> */}
+      <div className="flex-2">
+        <a
+          href="https://www.linkedin.com/newsletters/nyansapo-ai-newsletter-7095764602776432640/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-yellow-500 text-gray-800 text-center text-sm min-w-[150px] uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
+          type="submit"
+        >
+          {loading ? <Loader2 className="animate-spin" /> : " Sign Up"}
+        </a>
+      </div>
+      {/* </form> */}
     </div>
   )
 }
