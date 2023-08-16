@@ -31,7 +31,6 @@ const teamQuery = groq`*[_type=="team"]{
   }`
 export default async function Team({}: Props) {
   const data = await clientFetch<TeamMemberType[]>(teamQuery)
-  console.log(data)
   return (
     <section className=" flex flex-col items-center justify-center py-8 md:py-16 2xl:py-32">
       <div className="container mx-auto px-4">
