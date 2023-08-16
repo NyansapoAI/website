@@ -8,6 +8,7 @@ import NewsLetter from "./company/sections/NewsLetter"
 import RootProviders from "./providers"
 import Impact from "./sections/impact"
 import { Separator } from "@/components/ui/separator"
+import News from "./news/News"
 
 export default function Home() {
   return (
@@ -22,12 +23,16 @@ export default function Home() {
         <Separator />
       </div>
       <Products />
+      <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+        <Testimonials />
+        <Separator />
+        <News />
+      </div>
       <Separator />
       <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
         <Cta />
         <NewsLetter />
       </div>
-      {/* <Testimonials /> */}
     </main>
   )
 }

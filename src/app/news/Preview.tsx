@@ -2,9 +2,9 @@
 import React from "react"
 import { useNextSanityImage } from "next-sanity-image"
 import { sanityClient } from "@/lib/sanity.client"
-import { NewsInterface } from "./page"
 import Image from "next/image"
 import Link from "next/link"
+import { NewsInterface } from "./News"
 
 type Props = {
   data: NewsInterface

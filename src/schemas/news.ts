@@ -13,7 +13,7 @@ export default defineType({
     },
     {
       name: "link",
-      type: "link",
+      type: "url",
       title: "Link",
     },
     {

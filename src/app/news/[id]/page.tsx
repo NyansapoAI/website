@@ -5,9 +5,9 @@ import { sanityClient } from "@/lib/sanity.client"
 import urlBuilder from "@sanity/image-url"
 import { cache } from "react"
 import type { Metadata } from "next"
-import { NewsInterface } from "../page"
 import Image from "next/image"
 import MainImage from "./MainImage"
+import { NewsInterface } from "../News"
 type Props = {
   params: { id: string }
 }

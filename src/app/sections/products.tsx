@@ -11,7 +11,7 @@ export default function Products({}: Props) {
       id="products"
       className="py-12 px-8 md:px-16 xl:px-32 2xl:px-64 bg-yellow-200 text-gray-800"
     >
-      <h1 className="text-3xl font-bold w-full text-center">Our Tools </h1>
+      <h1 className="text-4xl font-bold w-full text-center">Our Tools </h1>
       <div className="flex flex-col gap-12">
         <div className="flex flex-wrap gap-12 items-center justify-center py-12">
           <aside className="">

@@ -7,7 +7,7 @@ import { Mark } from "./Mark"
 
 export default function Testimonials() {
   return (
-    <section className="py-8">
+    <section className="py-8 lg:py-16">
       <SectionHeader
         pretitle="Testimonials"
         title="Here's what our customers said"
