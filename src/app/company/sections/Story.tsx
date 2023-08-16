@@ -5,8 +5,8 @@ type Props = {}
 
 export default function Story({}: Props) {
   return (
-    <div className="flex flex-wrap gap-6 items-center justify-between ">
-      <div className="w-full px-4 md:w-1/2">
+    <div className="flex py-12 flex-wrap gap-6 items-center justify-between ">
+      <div className="md:max-w-2xl px-4 ">
         <div className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-6 shadow-lg rounded-full "></div>
         <div className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-6 shadow-lg rounded-full "></div>
 
@@ -65,7 +65,7 @@ function Stat({ value, text, suffix }: NumberType) {
         <h1 className="font-bold text-4xl">{value}</h1>
         {suffix && <span className="text-2xl font-bold">{suffix}</span>}
       </div>
-      <span className="text-gray-500 text-lg">{text}</span>
+      <span className="text-muted-foreground text-lg">{text}</span>
     </div>
   )
 }

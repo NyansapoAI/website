@@ -8,7 +8,9 @@ import img4 from "@imgs/gallery/4.png"
 import img5 from "@imgs/gallery/5.png"
 import ImageGallery from "react-image-gallery"
 
-type Props = {}
+type Props = {
+  autoPlay?: boolean
+}
 const pictures = [
   {
     original: img1.src,
@@ -31,6 +33,14 @@ const pictures = [
     thumbnail: img5.src,
   },
 ]
-export default function Gallery({}: Props) {
-  return <ImageGallery showNav={true} showThumbnails={false} items={pictures} />
+export default function Gallery({ autoPlay }: Props) {
+  return (
+    <ImageGallery
+      slideDuration={3000}
+      autoPlay={autoPlay ?? false}
+      showNav={true}
+      showThumbnails={false}
+      items={pictures}
+    />
+  )
 }

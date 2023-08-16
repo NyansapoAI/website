@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator"
 import { Metadata } from "next"
 import React from "react"
 import CompanyLanding from "./sections/landing"
@@ -16,14 +17,20 @@ export const metadata: Metadata = {
 }
 export default function page({}: Props) {
   return (
-    <div className="text-dark dark:text-white py-12 2xl:py-16 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+    <div className="text-dark dark:text-white px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       <CompanyLanding />
       <Values />
+      <Separator />
       <Story />
+      <Separator />
       <Research />
+      <Separator />
       <Team />
+      <Separator />
       <Locations />
+      <Separator />
       <Partners />
+      <Separator />
       <NewsLetter />
     </div>
   )

@@ -40,12 +40,11 @@ export default function NewsLetter({}: Props) {
     }
   }
   return (
-    <div className="flex items-end justify-center py-8 lg:py-16  gap-4 ">
+    <div className="flex py-12 items-center justify-center   gap-4 ">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl">Join Our NewsLetter</h1>
+        <h1 className="text-3xl">Join Our LinkedIn NewsLetter</h1>
         <p className="max-w-lg">
           Stay up to date with the latest projects, announcements and research,
-          feel free to sign up with your email.
         </p>
       </div>
       {/* <form
@@ -69,7 +68,7 @@ export default function NewsLetter({}: Props) {
           className="bg-yellow-500 text-gray-800 text-center text-sm min-w-[150px] uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
           type="submit"
         >
-          {loading ? <Loader2 className="animate-spin" /> : " Sign Up"}
+          {loading ? <Loader2 className="animate-spin" /> : " Join Newsletter"}
         </a>
       </div>
       {/* </form> */}

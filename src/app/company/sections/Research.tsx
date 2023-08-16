@@ -7,7 +7,7 @@ type Props = {}
 
 export default function Research({}: Props) {
   return (
-    <div className="flex py-8 flex-wrap gap-12 items-center justify-between ">
+    <div className="flex py-12 flex-wrap gap-12 items-center justify-between ">
       <div className=" flex-1 items-end">
         <Image
           width={600}

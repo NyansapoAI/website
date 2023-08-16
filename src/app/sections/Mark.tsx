@@ -6,7 +6,7 @@ export type MarkProps = {
 export function Mark({ children }: MarkProps) {
   return (
     <>
-      <mark className="text-indigo-800 m-2 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
+      <mark className="text-cyan-800 m-2 bg-cyan-100 rounded-md ring-cyan-100 ring-4 dark:ring-cyan-900 dark:bg-cyan-900 dark:text-cyan-200">
         {children}
       </mark>
     </>
