@@ -47,7 +47,7 @@ export default async function page({}: Props) {
   const data = await clientFetch<ProjectInterface[]>(projectQuery)
 
   return (
-    <div className="flex flex-wrap justify-center  gap-4 py-12 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center  gap-4 py-12 mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       {data &&
         data.map((project, i) => <ProjectPreview key={i} project={project} />)}
     </div>
