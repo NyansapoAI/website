@@ -26,33 +26,21 @@ export default defineType({
       title: "Description",
     },
     {
+      name: "link",
+      type: "url",
+      title: "LinkedIn Url",
+    },
+
+    {
       name: "mainImage",
       type: "image",
       title: "Main image",
-    },
-    {
-      name: "video",
-      type: "url",
-      title: "Video Link",
     },
 
     {
       name: "publishedAt",
       type: "datetime",
       title: "Published at",
-    },
-    {
-      name: "body",
-      type: "array",
-      title: "Body",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-        },
-      ],
     },
   ],
   preview: {
