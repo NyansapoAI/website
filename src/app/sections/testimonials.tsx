@@ -10,9 +10,9 @@ export default function Testimonials() {
     <section className="py-8 lg:py-16">
       <SectionHeader
         pretitle="Testimonials"
-        title="Here's what our customers said"
+        title="Here's what our partners said"
       ></SectionHeader>
-      <div className="flex gap-6">
+      <div className="flex flex-wrap gap-6">
         <Testimonial
           imageUrl={userOneImg.src}
           name={"Alice"}
