@@ -116,9 +116,10 @@ export default async function page({ params }: Props) {
             ></iframe>
           )}
           <div className="leading-7 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
-            {data && (
-              <PortableText value={data[0].body} components={components} />
-            )}
+            {data &&
+              data[0].body(
+                <PortableText value={data[0].body} components={components} />
+              )}
           </div>
         </div>
       ) : (
