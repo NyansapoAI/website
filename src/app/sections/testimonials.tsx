@@ -60,7 +60,7 @@ type TestimonialProps = {
 }
 function Testimonial({ children, name, title }: TestimonialProps) {
   return (
-    <div className="">
+    <div className="max-w-lg">
       <div className="flex flex-col justify-between w-full h-full px-14 rounded-2xl py-14 dark:bg-trueGray-800">
         {children}
         <Avatar imageUrl={userOneImg.src} name={name} title={title} />
