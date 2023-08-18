@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const revalidate = 86400
 export default function page({}: Props) {
   return (
-    <div className="text-dark dark:text-white px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+    <div className="text-dark dark:text-white mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       <CompanyLanding />
       <Values />
       <Separator />
