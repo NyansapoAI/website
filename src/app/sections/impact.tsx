@@ -8,16 +8,20 @@ export default function Impact({}: Props) {
       <h1 className="text-3xl font-bold text-left">Impact</h1>
       <div className="flex gap-4 lg:gap-8 flex-wrap items-center py-16">
         <Stat
-          title="1000+"
+          title="1300"
           description="Reached over a thousand students with assessments"
         />
         <Stat
-          title="30+"
-          description="Over 30 learning camps conducted in marginalized areas"
+          title="35"
+          description="35 learning camps conducted in marginalized areas"
         />
         <Stat
-          title="10+"
+          title="10"
           description="Partnered with 10 Organizations to empower intervention programs"
+        />
+        <Stat
+          title="45"
+          description="Worked with 45 teachers in the learning programs"
         />
       </div>
     </div>
