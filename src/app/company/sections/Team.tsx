@@ -20,7 +20,7 @@ export type TeamMemberType = {
   twitter: string
   linkedin: string
 }
-const teamQuery = groq`*[_type=="team"]{
+const teamQuery = groq`*[_type=="team"]|order(order asc){
   name,
   title,
   photo{asset->{...,metadata{

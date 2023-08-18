@@ -12,6 +12,11 @@ export default defineType({
       title: "Name",
     },
     {
+      name: "order",
+      type: "number",
+      title: "Order",
+    },
+    {
       name: "title",
       type: "string",
       title: "Title",
