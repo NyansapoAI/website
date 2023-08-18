@@ -24,7 +24,7 @@ const projects = [
 ]
 export type ProjectInterface = {
   title: string
-  description: string
+  summary: string
   link: string
   mainImage: {
     asset: {
@@ -39,7 +39,7 @@ export type ProjectInterface = {
   }
 }
 
-const projectQuery = groq`*[_type=='projects']{title,description,link,mainImage{asset->{...,metadata{
+const projectQuery = groq`*[_type=='projects']{title,summary,link,mainImage{asset->{...,metadata{
   lqip}}},_id,slug}`
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
 

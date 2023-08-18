@@ -10,8 +10,8 @@ type Props = {
   params: { slug: string }
 }
 type ProjectInterface = {
-  body: any
   title: string
+  summary: string
   _createdAt: string
   publishedAt: string
   description: string
@@ -31,7 +31,7 @@ type ProjectInterface = {
   }
 }
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const query = groq`*[_type=='projects' && _id=='${params.id}']{ title, _createdAt, publishedAt, _id, _updatedAt, slug,description, mainImage{asset->{...,metadata{lqip
+  const query = groq`*[_type=='projects' && _id=='${params.id}']{ title,summary, _createdAt, publishedAt, _id, _updatedAt, slug,description, mainImage{asset->{...,metadata{lqip
 }}}}`
   const data = await clientFetch<ProjectInterface[]>(query)
   if (data.length > 0) return { title: data[0].title }
@@ -93,7 +93,7 @@ const components = {
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
 
 export default async function page({ params }: Props) {
-  const query = groq`*[_type=='projects' && slug.current=='${params.slug}']{body,video, title, _createdAt, publishedAt, _id, _updatedAt, slug,video,description, mainImage{asset->{...,metadata{lqip
+  const query = groq`*[_type=='projects' && slug.current=='${params.slug}']{video, title, _createdAt, publishedAt, _id, _updatedAt, slug,video,description, mainImage{asset->{...,metadata{lqip
 }}}}`
   const data = await clientFetch<ProjectInterface[]>(query)
   return (

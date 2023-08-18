@@ -21,10 +21,16 @@ export default defineType({
       },
     },
     {
+      name: "summary",
+      type: "text",
+      title: "Summary",
+    },
+    {
       name: "description",
       type: "text",
       title: "Description",
     },
+
     {
       name: "link",
       type: "url",
