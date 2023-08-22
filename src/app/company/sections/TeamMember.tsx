@@ -26,13 +26,13 @@ export const TeamMember = ({
   return (
     <div className="px-4">
       <div className="px-6">
-        <div className="rounded-full w-[250px] mx-auto shadow-md h-[250px] overflow-clip ">
+        <div className="rounded-full w-72 h-72 shadow-md  overflow-clip ">
           <Image
             {...imageProps}
             width={600}
             height={600}
             alt="..."
-            className=" w-96 shadow-lg bg-cover  h-auto"
+            className="object-cover shadow-lg "
           />
         </div>
         <div className="pt-6 text-center">
