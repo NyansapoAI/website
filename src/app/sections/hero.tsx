@@ -13,14 +13,21 @@ export default function Hero({}: Props) {
 
   return (
     <section className="relative min-h-screen  text-white  bg-no-repeat bg-cover w-full">
-      <Video isOpen={isOpen} setIsOpen={setIsOpen} />
-      <Image
-        width={1920}
-        height={1080}
+      {/* <Video isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+      <video
+        autoPlay={true}
+        loop
+        muted
+        width="320"
+        controls
+        height="180"
         className="absolute object-cover w-full h-full top-0 left-0 z-0 "
-        alt="children doing activities"
-        src="/hero.png"
-      ></Image>
+      >
+        <source
+          src="https://res.cloudinary.com/dkhw5zfzf/video/upload/v1692707107/5410154f-642b-4165-9548-9e3906aa6ad4_mczi1q.mp4"
+          type="video/mp4"
+        />
+      </video>
       <div className="relative z-30 flex w-full h-screen bg-gradient-to-t from-black items-center justify-center">
         <div className=" flex-col gap-8 items-center justify-end  relative translate-y-24  text-center">
           <div className="max-w-xl">
