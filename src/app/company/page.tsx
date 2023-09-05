@@ -14,6 +14,16 @@ type Props = {}
 export const metadata: Metadata = {
   title: "Company",
   description: "about Nyansapo AI",
+  keywords: [
+    "nyansapoAI",
+    "nyansapo AI",
+    "Nyansapo AI",
+    "Nyansapo",
+    "nyansapo",
+    "Nyansapo Artificial Intelligence",
+    "literacy and numeracy bootcamps",
+    "teaching at the right level",
+  ],
 }
 export const revalidate = 86400
 export default function page({}: Props) {

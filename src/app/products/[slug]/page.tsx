@@ -32,7 +32,19 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   title
 }}`
   const data = await clientFetch<ProductInterface[]>(query)
-  if (data.length > 0) return { title: data[0].title }
+  if (data.length > 0)
+    return {
+      title: data[0].title,
+      keywords: [
+        data[0].title,
+        "nyansapo AI products",
+        "NyansapoAI products",
+        "nyansapo AI",
+        "Nyansapo AI",
+        "nyansapoAI",
+      ],
+      description: data[0].summary,
+    }
   return {}
 }
 const components = {
