@@ -37,7 +37,7 @@ export default function Hero({}: Props) {
                   <span className="text-cyan-500">A</span>
                   <span className="text-yellow-500">I</span>&nbsp;for children
                 </p>
-                <span>read,count & shine</span>
+                <span>read, count & shine</span>
               </div>
             </div>
             <p className="py-4 text-lg leading-normal  max-w-lg text-gray-300">
