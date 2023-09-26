@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
-import "../styles/slider.css";
-import img1 from "@imgs/gallery/1.png";
-import img2 from "@imgs/gallery/2.png";
-import img3 from "@imgs/gallery/3.png";
-import img4 from "@imgs/gallery/4.png";
-import img5 from "@imgs/gallery/5.png";
-type Props = {};
+import React from "react"
+import Image from "next/image"
+import "@/app/styles/slider.css"
+import img1 from "@imgs/gallery/1.png"
+import img2 from "@imgs/gallery/2.png"
+import img3 from "@imgs/gallery/3.png"
+import img4 from "@imgs/gallery/4.png"
+import img5 from "@imgs/gallery/5.png"
+type Props = {}
 const pictures = [
   {
     src: img1.src,
@@ -23,7 +23,7 @@ const pictures = [
   {
     src: img5.src,
   },
-];
+]
 export default function Slider({}: Props) {
   return (
     <div className="slide-container flex-col">
@@ -37,12 +37,12 @@ export default function Slider({}: Props) {
         ))}
       </div>
     </div>
-  );
+  )
 
   type pictureProps = {
-    imageSrc: string;
-    index: number;
-  };
+    imageSrc: string
+    index: number
+  }
   function Picture({ imageSrc, index }: pictureProps) {
     return (
       <div className="slides-div" id={`slide-${index + 1}`}>
@@ -60,6 +60,6 @@ export default function Slider({}: Props) {
           id={`button-${index + 1}`}
         ></a>
       </div>
-    );
+    )
   }
 }

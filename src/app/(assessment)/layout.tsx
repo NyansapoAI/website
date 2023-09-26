@@ -1,13 +1,10 @@
-import Navbar from "./navbar"
-import "./globals.css"
+import "../globals.css"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import { Raleway } from "next/font/google"
-import Footer from "./components/footer"
 import { Metadata } from "next"
-import Alert from "./components/Alert"
-import { Separator } from "@/components/ui/separator"
-import RootProviders from "./providers"
 import { Toaster } from "react-hot-toast"
+import RootProviders from "../providers"
+import AssessmentsNavbar from "../(main)/assesmentsNavbar"
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -28,6 +25,8 @@ export const metadata: Metadata = {
   keywords: [
     "nyansapoAI",
     "nyansapo AI",
+    "nyansapo assessments",
+    "Assess your literacy skills",
     "Nyansapo AI",
     "Nyansapo",
     "nyansapo",
@@ -57,14 +56,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`scroll-smooth ${raleway.className}`}>
-      <body className=" dark relative bg-background duration-400">
+      <body className="  relative bg-card duration-400">
         <RootProviders>
           <Toaster />
-          <Navbar />
-          <Alert />
+          <AssessmentsNavbar />
           {children}
-          <Separator />
-          <Footer />
         </RootProviders>
       </body>
     </html>

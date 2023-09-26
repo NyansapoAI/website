@@ -130,7 +130,7 @@ export default function Navbar() {
         <div className="hidden mr-3 space-x-4 lg:flex">
           <Link
             href="/contact"
-            className="px-4 py-2 text-accent-foreground  bg-accent rounded-md md:ml-5"
+            className="px-3 py-2 text-primary-foreground  bg-primary rounded-md md:ml-5"
           >
             <span className="">{CTA_TEXT}</span>
           </Link>
