@@ -27,6 +27,7 @@ export const StoryQuestions = ({
     if (currentQuestion < storyQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
+      setCurrentAssessment(assessmentVariants.results)
       //
     }
   }
@@ -73,7 +74,7 @@ export const StoryQuestions = ({
         {currentQuestion < storyQuestions.length - 1 ? (
           <Button onClick={handleNext}>Next</Button>
         ) : (
-          <Button onClick={handleFinish}>Finish</Button>
+          <Button onClick={handleNext}>Finish</Button>
         )}
       </CardFooter>
     </Card>

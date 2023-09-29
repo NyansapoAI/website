@@ -8,6 +8,7 @@ import { WordAssessments } from "./WordAssessment"
 import { ParagraphAssessments } from "./ParagraphAssessment"
 import { StoryAssessments } from "./StoryAssessment"
 import { StoryQuestions } from "./StoryQuestions"
+import AssessmentResults from "./AssessmentResults"
 
 type Props = {
   literacyAssessment: LiteracyAssessment
@@ -18,6 +19,7 @@ export const assessmentVariants = {
   paragraph: 2,
   story: 3,
   storyQuestions: 4,
+  results: 5,
 } as const
 
 export function Assessment({ literacyAssessment }: Props) {
@@ -25,7 +27,7 @@ export function Assessment({ literacyAssessment }: Props) {
     assessmentVariants.letter
   )
   return (
-    <Card className="max-w-fit bg-transparent mx-auto ">
+    <Card className="max-w-fit mt-8 bg-transparent mx-auto ">
       <CardContent>
         {currentAssessment == assessmentVariants.letter ? (
           <LetterAssessments
@@ -65,6 +67,9 @@ export function Assessment({ literacyAssessment }: Props) {
             }
             setCurrentAssessment={setCurrentAssessment}
           />
+        ) : null}
+        {currentAssessment == assessmentVariants.results ? (
+          <AssessmentResults literacy_assessment_id={literacyAssessment.id} />
         ) : null}
       </CardContent>
     </Card>
