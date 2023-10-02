@@ -9,10 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CircleDot, Mic } from "lucide-react"
-import { Letter } from "./[id]/types"
 import { assessmentVariants } from "./Assessment"
-import toast from "react-hot-toast"
+import { Letter, WhisperApiResponse } from "./start/types"
+import { AssessmentContext } from "./AssessmentContext"
+import { RecordButton } from "./RecordButton"
 
 type LetterAssessmentProps = {
   letterAssessment: Letter[]
@@ -23,8 +23,30 @@ export const LetterAssessments = ({
   setCurrentAssessment,
 }: LetterAssessmentProps) => {
   const [currentLetter, setCurrentLetter] = React.useState<number>(0)
+  const { setAssessmentInput } = React.useContext(AssessmentContext)
+  const handleSave = (data: WhisperApiResponse) => {
+    setAssessmentInput((prev) => {
+      return {
+        ...prev,
+        letterAssessmentResults: {
+          create: [
+            ...prev.letterAssessmentResults.create,
+            {
+              answerFromOriginalModelPrediction: data.response,
+              durationTheModelTakesToAnalzeEachLetterInMilliseconds:
+                data.duration,
+              expectedAnswer: letterAssessment[currentLetter].letter,
+              localAbsolutePathOfRecordedVoiceFile: data.url,
+              urlOfRecordedVoice: data.url,
+            },
+          ],
+        },
+      }
+    })
+    handleNext()
+  }
   const handleNext = () => {
-    if (currentLetter < letterAssessment.length - 1) {
+    if (currentLetter < 6) {
       setCurrentLetter(currentLetter + 1)
     } else {
       setCurrentAssessment(assessmentVariants.word)
@@ -54,86 +76,14 @@ export const LetterAssessments = ({
         <Button variant="outline" onClick={handleBack}>
           Back
         </Button>
-        <RecordButton setCurrentAssessment={setCurrentAssessment} />
+        <RecordButton
+          callback={handleSave}
+          setCurrentAssessment={setCurrentAssessment}
+        />
         <Button variant="outline" onClick={handleNext}>
           Next
         </Button>
       </CardFooter>
     </Card>
-  )
-}
-type RecordButtonProps = {
-  setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
-}
-const RecordButton = ({ setCurrentAssessment }: RecordButtonProps) => {
-  const [startRecording, setStartRecording] = React.useState<boolean>(false)
-  const [prediction, setPrediction] = React.useState<string>("")
-  const [recording, setRecording] = React.useState<MediaRecorder | null>(null)
-  const [audioUrl, setAudioUrl] = React.useState<string>("")
-  const onRecordingComplete = async (blob: Blob) => {
-    setStartRecording(false)
-    const formData = new FormData()
-    formData.append("uploaded_file", blob)
-    const audioUrl = URL.createObjectURL(blob)
-    setAudioUrl(audioUrl)
-    try {
-      const resp = await fetch(
-        `${process.env.NEXT_PUBLIC_WHISPER_API_URL}/recognize/base_custom`,
-        {
-          method: "POST",
-          body: formData,
-          mode: "no-cors",
-        }
-      )
-      console.log(resp)
-      const data = await resp.json()
-      console.log(data)
-    } catch (err) {
-      console.log(err)
-      toast.error("Error in recognizing the audio")
-    }
-  }
-
-  const handleClick = () => {
-    setStartRecording(true)
-    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-      const recorder = new MediaRecorder(stream)
-      const chunks: Blob[] = []
-
-      recorder.addEventListener("dataavailable", (event: BlobEvent) => {
-        chunks.push(event.data)
-      })
-
-      recorder.addEventListener("stop", () => {
-        const blob = new Blob(chunks, { type: "audio/wav" })
-        onRecordingComplete(blob)
-      })
-
-      recorder.start()
-      setRecording(recorder)
-    })
-
-    setCurrentAssessment(assessmentVariants.letter)
-  }
-  const stopRecording = () => {
-    if (recording) {
-      recording.stop()
-      setRecording(null)
-    }
-  }
-  return (
-    <>
-      {!startRecording ? (
-        <Button onClick={handleClick}>
-          <Mic />
-          &nbsp; Start Recording
-        </Button>
-      ) : (
-        <Button variant="destructive" onClick={stopRecording}>
-          <CircleDot className="animate-pulse" />
-          &nbsp; Stop Recording
-        </Button>
-      )}
-    </>
   )
 }

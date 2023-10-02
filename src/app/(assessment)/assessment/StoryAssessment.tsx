@@ -10,8 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Mic } from "lucide-react"
-import { Story } from "./[id]/types"
+import { Story, WhisperApiResponse } from "./start/types"
 import { assessmentVariants } from "./Assessment"
+import { AssessmentContext } from "./AssessmentContext"
+import { RecordButton } from "./RecordButton"
 
 type StoryAssessmentProps = {
   storyAssessment: Story[]
@@ -22,6 +24,28 @@ export const StoryAssessments = ({
   setCurrentAssessment,
 }: StoryAssessmentProps) => {
   const [currentStory, setCurrentStory] = React.useState<number>(0)
+  const { setAssessmentInput } = React.useContext(AssessmentContext)
+  const handleSave = (data: WhisperApiResponse) => {
+    setAssessmentInput((prev) => {
+      return {
+        ...prev,
+        storySentenceResults: {
+          create: [
+            ...prev.storySentenceResults.create,
+            {
+              answerFromOriginalModelPrediction: data.response,
+              durationTheModelTakesToAnalzeEachSentenceInMilliseconds:
+                data.duration,
+              expectedAnswer: storyAssessment[currentStory].story,
+              localAbsolutePathOfRecordedVoiceFile: data.url,
+              urlOfRecordedVoice: data.url,
+            },
+          ],
+        },
+      }
+    })
+    handleNext()
+  }
   const handleNext = () => {
     if (currentStory < storyAssessment.length - 1) {
       setCurrentStory(currentStory + 1)
@@ -53,10 +77,10 @@ export const StoryAssessments = ({
         <Button variant="outline" onClick={handleBack}>
           Back
         </Button>
-        <Button onClick={handleNext}>
-          <Mic />
-          &nbsp; Start Recording
-        </Button>
+        <RecordButton
+          setCurrentAssessment={setCurrentAssessment}
+          callback={handleSave}
+        />
         <Button variant="outline" onClick={handleNext}>
           Next
         </Button>

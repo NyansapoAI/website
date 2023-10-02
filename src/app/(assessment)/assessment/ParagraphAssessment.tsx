@@ -10,8 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Mic } from "lucide-react"
-import { Paragraph } from "./[id]/types"
+import { Paragraph, WhisperApiResponse } from "./start/types"
 import { assessmentVariants } from "./Assessment"
+import { AssessmentContext } from "./AssessmentContext"
+import { RecordButton } from "./RecordButton"
 
 type ParagraphAssessmentProps = {
   paragraphAssessment: Paragraph[]
@@ -22,6 +24,29 @@ export const ParagraphAssessments = ({
   setCurrentAssessment,
 }: ParagraphAssessmentProps) => {
   const [currentParagraph, setCurrentParagraph] = React.useState<number>(0)
+  const { setAssessmentInput } = React.useContext(AssessmentContext)
+  const handleSave = (data: WhisperApiResponse) => {
+    setAssessmentInput((prev) => {
+      return {
+        ...prev,
+        paragraphSentenceResults: {
+          create: [
+            ...prev.paragraphSentenceResults.create,
+            {
+              answerFromOriginalModelPrediction: data.response,
+              durationTheModelTakesToAnalzeEachSentenceInMilliseconds:
+                data.duration,
+              index: currentParagraph,
+              expectedAnswer: paragraphAssessment[currentParagraph].paragraph,
+              localAbsolutePathOfRecordedVoiceFile: data.url,
+              urlOfRecordedVoice: data.url,
+            },
+          ],
+        },
+      }
+    })
+    handleNext()
+  }
   const handleNext = () => {
     if (currentParagraph < paragraphAssessment.length - 1) {
       setCurrentParagraph(currentParagraph + 1)
@@ -53,10 +78,10 @@ export const ParagraphAssessments = ({
         <Button variant="outline" onClick={handleBack}>
           Back
         </Button>
-        <Button onClick={handleNext}>
-          <Mic />
-          &nbsp; Start Recording
-        </Button>
+        <RecordButton
+          setCurrentAssessment={setCurrentAssessment}
+          callback={handleSave}
+        />
         <Button variant="outline" onClick={handleNext}>
           Next
         </Button>

@@ -8,7 +8,7 @@ import {
   CardFooter,
 } from "@/components/ui/card"
 import React from "react"
-import { LiteracyAssessment } from "./[id]/types"
+import { LiteracyAssessment } from "./start/types"
 
 type Props = {
   literacy_assessment_id: number

@@ -7,7 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import React from "react"
-import GetStartedButton from "./GetStartedButton"
+import Link from "next/link"
+import Spinner from "@/components/ui/spinner"
+import { buttonVariants } from "@/components/ui/button"
 
 type Props = {}
 
@@ -43,7 +45,12 @@ export default function page({}: Props) {
               </div>
             </CardContent>
             <CardFooter>
-              <GetStartedButton />
+              <Link
+                className={buttonVariants({ variant: "default" })}
+                href="/assessment/start"
+              >
+                Start Assessment
+              </Link>
             </CardFooter>
           </CardHeader>
         </Card>
