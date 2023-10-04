@@ -28,7 +28,7 @@ export default function Preview({ data }: Props) {
               {...imageProps}
               width={400}
               height={500}
-              className=" object-contain aspect-auto group-hover:scale-105 duration-200" // layout="responsive" prior to Next 13.0.0
+              className=" object-contain aspect-auto group-hover:scale-105 max-h-[225px] duration-200" // layout="responsive" prior to Next 13.0.0
               placeholder="blur"
               blurDataURL={data.mainImage.asset.metadata.lqip}
             />
@@ -43,13 +43,13 @@ export default function Preview({ data }: Props) {
           href={`/news/${data._id}`}
         >
           {data.mainImage && (
-            <div className="overflow-clip">
+            <div className="overflow-clip flex-1  max-h-[225px]">
               <Image
                 alt={data.slug.current}
                 {...imageProps}
-                width={400}
-                height={500}
-                className=" object-contain aspect-auto group-hover:scale-105 duration-300" // layout="responsive" prior to Next 13.0.0
+                width={800}
+                height={600}
+                className="object-contain aspect-auto   group-hover:scale-105 duration-300" // layout="responsive" prior to Next 13.0.0
                 placeholder="blur"
                 blurDataURL={data.mainImage.asset.metadata.lqip}
               />

@@ -40,9 +40,9 @@ export default function NewsLetter({}: Props) {
     }
   }
   return (
-    <div className="flex py-12 items-center justify-center   gap-4 ">
+    <div className="flex bg-cyan-700 rounded-lg p-8 mx-auto items-center max-w-fit justify-center   gap-4 ">
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl">Join Our LinkedIn NewsLetter</h1>
+        <h1 className="text-3xl">Join Our NewsLetter</h1>
         <p className="max-w-lg">
           Stay up to date with the latest projects, announcements and research,
         </p>
@@ -62,7 +62,7 @@ export default function NewsLetter({}: Props) {
         </div> */}
       <div className="flex-2">
         <a
-          href="https://www.linkedin.com/newsletters/nyansapo-ai-newsletter-7095764602776432640/"
+          href="https://nyansapo-ai-newsletter.ck.page/10c8163d77"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-yellow-500 text-gray-800 text-center text-sm min-w-[150px] uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  ease-linear transition-all duration-150"
