@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import "../styles/slider.css"
+import "@/app/styles/slider.css"
 import img1 from "@imgs/gallery/1.png"
 import img2 from "@imgs/gallery/2.png"
 import img3 from "@imgs/gallery/3.png"

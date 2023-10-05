@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import { AlertContext } from "../providers"
+import { AlertContext } from "../../providers"
 
 export default function Alert() {
   const { showAlert, setShowAlert, setAlertMessage, alertMessage } =

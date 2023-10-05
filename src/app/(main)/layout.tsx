@@ -1,12 +1,12 @@
 import Navbar from "./navbar"
-import "./globals.css"
+import "@/app/globals.css"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import { Raleway } from "next/font/google"
 import Footer from "./components/footer"
 import { Metadata } from "next"
 import Alert from "./components/Alert"
 import { Separator } from "@/components/ui/separator"
-import RootProviders from "./providers"
+import RootProviders from "../providers"
 import { Toaster } from "react-hot-toast"
 
 const raleway = Raleway({
@@ -28,9 +28,12 @@ export const metadata: Metadata = {
   keywords: [
     "nyansapoAI",
     "nyansapo AI",
+    "Assessments",
+    "Personalized learning",
     "Nyansapo AI",
     "Nyansapo",
     "nyansapo",
+    "nyansapo ai",
     "Nyansapo Artificial Intelligence",
     "literacy and numeracy bootcamps",
     "teaching at the right level",

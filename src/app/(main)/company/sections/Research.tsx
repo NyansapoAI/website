@@ -1,7 +1,7 @@
-import { Mark } from "@/app/sections/Mark"
 import { Rocket } from "lucide-react"
 import Image from "next/image"
 import React from "react"
+import { Mark } from "../../sections/Mark"
 
 type Props = {}
 

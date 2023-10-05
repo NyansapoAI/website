@@ -1,6 +1,6 @@
 import React from "react"
-import { Mark } from "@/app/sections/Mark"
-import Gallery from "@/app/components/ImageGallery"
+import { Mark } from "../../sections/Mark"
+import Gallery from "../../components/ImageGallery"
 
 type Props = {}
 

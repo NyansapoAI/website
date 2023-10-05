@@ -1,6 +1,8 @@
 "use client"
 import React, { ReactNode } from "react"
 import { ThemeProvider } from "next-themes"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { Analytics } from "@vercel/analytics/react"
 type Props = {
   children: ReactNode
 }
@@ -18,6 +20,7 @@ export const AlertContext = React.createContext<AlertContextTypes>({
   alertMessage: { message: "", type: "" },
   setShowAlert: () => {},
 })
+const queryClient = new QueryClient()
 export default function RootProviders({ children }: Props) {
   const [showAlert, setShowAlert] = React.useState(false)
   const [alertMessage, setAlertMessage] = React.useState({
@@ -26,11 +29,14 @@ export default function RootProviders({ children }: Props) {
   })
   return (
     <ThemeProvider attribute="class">
-      <AlertContext.Provider
-        value={{ showAlert, setShowAlert, alertMessage, setAlertMessage }}
-      >
-        {children}
-      </AlertContext.Provider>
+      <QueryClientProvider client={queryClient}>
+        <AlertContext.Provider
+          value={{ showAlert, setShowAlert, alertMessage, setAlertMessage }}
+        >
+          {children}
+          <Analytics />;
+        </AlertContext.Provider>
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }
