@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     "Nyansapo AI",
     "Nyansapo",
     "nyansapo",
+    "nyansapo ai",
     "Nyansapo Artificial Intelligence",
     "literacy and numeracy bootcamps",
     "teaching at the right level",

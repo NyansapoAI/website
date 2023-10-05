@@ -28,7 +28,7 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Nyansapo AI",
   description:
-    "Supporting literacy and numeracy catch-up interventions using AI",
+    "Supporting literacy and numeracy catch-up interventions using AI,assess yourself using our online literacy assessment tool",
   keywords: [
     "nyansapoAI",
     "nyansapo AI",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Assess your literacy skills",
     "Nyansapo AI",
     "Nyansapo",
-    "nyansapo",
+    "nyansapo ai assessments",
     "Nyansapo Artificial Intelligence",
     "literacy and numeracy bootcamps",
     "teaching at the right level",
