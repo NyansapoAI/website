@@ -42,7 +42,7 @@ export type ProjectInterface = {
 const projectQuery = groq`*[_type=='projects']{title,summary,link,mainImage{asset->{...,metadata{
   lqip}}},_id,slug}`
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
-
+export const revalidate = 60 * 60 * 24 //24 hours
 export default async function page({}: Props) {
   const data = await clientFetch<ProjectInterface[]>(projectQuery)
 
