@@ -61,7 +61,6 @@ const fetchAssessment = async (id: string) => {
 
 export default async function page({}: Props) {
   const resp = await fetchAssessment("1")
-  console.log(resp)
 
   return (
     <div className="px-8 md:px-16 py-8   mx-auto max-w-[1920px]">

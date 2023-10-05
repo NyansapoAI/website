@@ -1,10 +1,11 @@
 "use client"
 import React, { useState } from "react"
-import HeroGallery from "@components/HeroGallery"
+import HeroGallery from "@/app/(main)/components/HeroGallery"
 import Link from "next/link"
 import Video from "../components/Video"
 import { CTA_TEXT } from "@/constants"
 import Image from "next/image"
+import { buttonVariants } from "@/components/ui/button"
 
 type Props = {}
 
@@ -49,7 +50,7 @@ export default function Hero({}: Props) {
           <div className="flex flex-wrap gap-4 justify-center items-center">
             <Link
               href="/contact"
-              className="px-4 py-2 text-lg font-medium text-center text-accent-foreground bg-accent rounded-md inine "
+              className={buttonVariants({ variant: "default" })}
             >
               {CTA_TEXT}
             </Link>

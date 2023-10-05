@@ -47,7 +47,7 @@ export const WordAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentWord < wordAssessment.length - 1) {
+    if (currentWord < 6) {
       setCurrentWord(currentWord + 1)
     } else {
       setCurrentAssessment(assessmentVariants.paragraph)

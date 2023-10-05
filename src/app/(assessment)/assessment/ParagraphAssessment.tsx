@@ -14,6 +14,7 @@ import { Paragraph, WhisperApiResponse } from "./start/types"
 import { assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
+import { splitIntoTwoSentencesEach } from "@/lib/utils"
 
 type ParagraphAssessmentProps = {
   paragraphAssessment: Paragraph[]
@@ -25,6 +26,10 @@ export const ParagraphAssessments = ({
 }: ParagraphAssessmentProps) => {
   const [currentParagraph, setCurrentParagraph] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
+  const paragraphs = React.useMemo(
+    () => splitIntoTwoSentencesEach<Paragraph>(paragraphAssessment),
+    [paragraphAssessment]
+  )
   const handleSave = (data: WhisperApiResponse) => {
     setAssessmentInput((prev) => {
       return {
@@ -36,8 +41,8 @@ export const ParagraphAssessments = ({
               answerFromOriginalModelPrediction: data.response,
               durationTheModelTakesToAnalzeEachSentenceInMilliseconds:
                 data.duration,
-              index: currentParagraph,
-              expectedAnswer: paragraphAssessment[currentParagraph].paragraph,
+              index: paragraphs[currentParagraph].index ?? currentParagraph,
+              expectedAnswer: paragraphs[currentParagraph].paragraph,
               localAbsolutePathOfRecordedVoiceFile: data.url,
               urlOfRecordedVoice: data.url,
             },
@@ -48,7 +53,7 @@ export const ParagraphAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentParagraph < paragraphAssessment.length - 1) {
+    if (currentParagraph < paragraphs.length - 1) {
       setCurrentParagraph(currentParagraph + 1)
     } else {
       setCurrentAssessment(assessmentVariants.story)
@@ -69,9 +74,9 @@ export const ParagraphAssessments = ({
           Click the start recording button and read the paragraph in the card
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-6 md:py-12">
-        <p className="text-xl text-center bg-secondary rounded-md font-semibold max-w-[500px] p-8 md:p-16 mx-auto">
-          {paragraphAssessment[currentParagraph].paragraph}
+      <CardContent className="py-6 ">
+        <p className="text-xl text-center bg-secondary rounded-md font-semibold max-w-[500px] min-h-[200px] p-8 md:p-16 mx-auto">
+          {paragraphs[currentParagraph].paragraph}
         </p>
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">

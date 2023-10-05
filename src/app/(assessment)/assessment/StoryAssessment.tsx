@@ -9,11 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Mic } from "lucide-react"
 import { Story, WhisperApiResponse } from "./start/types"
 import { assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
+import { splitIntoTwoSentencesEach } from "@/lib/utils"
 
 type StoryAssessmentProps = {
   storyAssessment: Story[]
@@ -25,6 +25,10 @@ export const StoryAssessments = ({
 }: StoryAssessmentProps) => {
   const [currentStory, setCurrentStory] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
+  const stories = React.useMemo(
+    () => splitIntoTwoSentencesEach<Story>(storyAssessment),
+    [storyAssessment]
+  )
   const handleSave = (data: WhisperApiResponse) => {
     setAssessmentInput((prev) => {
       return {
@@ -36,7 +40,8 @@ export const StoryAssessments = ({
               answerFromOriginalModelPrediction: data.response,
               durationTheModelTakesToAnalzeEachSentenceInMilliseconds:
                 data.duration,
-              expectedAnswer: storyAssessment[currentStory].story,
+              expectedAnswer: stories[currentStory].story,
+              index: stories[currentStory].index ?? currentStory,
               localAbsolutePathOfRecordedVoiceFile: data.url,
               urlOfRecordedVoice: data.url,
             },
@@ -47,7 +52,7 @@ export const StoryAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentStory < storyAssessment.length - 1) {
+    if (currentStory < stories.length - 1) {
       setCurrentStory(currentStory + 1)
     } else {
       setCurrentAssessment(assessmentVariants.storyQuestions)
@@ -69,8 +74,8 @@ export const StoryAssessments = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="py-6 ">
-        <p className="text-xl lg:text-2xl text-center bg-secondary rounded-md font-semibold  p-8 md:p-12 mx-auto">
-          {storyAssessment[currentStory].story}
+        <p className="text-xl text-center bg-secondary rounded-md font-semibold max-w-[500px] min-h-[200px]  p-8 md:p-12 mx-auto">
+          {stories[currentStory].story}
         </p>
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">

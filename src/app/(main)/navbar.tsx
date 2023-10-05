@@ -7,6 +7,7 @@ import { navigationLinks } from "@/constants/links"
 import { CTA_TEXT } from "@/constants"
 import { useWindowScroll } from "@uidotdev/usehooks"
 import { useEffect, useState } from "react"
+import { buttonVariants } from "@/components/ui/button"
 
 export default function Navbar() {
   const [{ x, y }, scrollTo] = useWindowScroll()
@@ -88,7 +89,7 @@ export default function Navbar() {
                     )}
                     <Link
                       href="/contact"
-                      className="w-full px-6 py-2 mt-4 mb-4 text-center text-accent-foreground bg-accent rounded-md lg:ml-5"
+                      className={buttonVariants({ variant: "default" })}
                     >
                       <span className="">{CTA_TEXT}</span>
                     </Link>

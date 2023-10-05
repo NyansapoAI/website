@@ -1,4 +1,10 @@
+"use client"
+import { generateRandomName } from "@/lib/utils"
 import React from "react"
+export enum Gender {
+  MALE = "MALE",
+  FEMALE = "FEMALE",
+}
 export interface AssessmentInput {
   letterAssessmentResults: {
     create: AssessmentData[]
@@ -23,6 +29,13 @@ export interface AssessmentInput {
       id: number | null
     }
   }
+  literacyAssessmentContent: {
+    connect: {
+      id: number
+    }
+  }
+  choosenParagraph: number
+  assessmentType: string
 }
 
 interface AssessmentData {
@@ -60,6 +73,7 @@ export interface StorySentenceData {
   answerFromOriginalModelPrediction: null | string
   expectedAnswer: null | string
   localAbsolutePathOfRecordedVoiceFile: null | string
+  index: number | null
   urlOfRecordedVoice: null | string
   durationTheModelTakesToAnalzeEachSentenceInMilliseconds: null | number
 }
@@ -79,12 +93,13 @@ export interface StudentData {
       id: number | null
     }
   }
-  gender: null | "MALE" | "FEMALE"
+  gender: null | Gender
   lastName: null | string
   grade: null | number
   firstName: null | string
 }
-export const initialAssessmentInput = {
+const { firstName, lastName } = generateRandomName()
+export const initialAssessmentInput: AssessmentInput = {
   letterAssessmentResults: {
     create: [],
   },
@@ -102,23 +117,30 @@ export const initialAssessmentInput = {
   },
   student: {
     create: {
-      age: null,
+      age: 10,
       camp: {
         connect: {
-          id: null,
+          id: parseInt(process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!),
         },
       },
-      gender: null,
-      lastName: null,
-      grade: null,
-      firstName: null,
+      gender: Gender.MALE,
+      lastName: lastName,
+      firstName: firstName,
+      grade: 4,
     },
   },
   camp: {
     connect: {
-      id: null,
+      id: parseInt(process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!),
     },
   },
+  assessmentType: "BASELINE",
+  literacyAssessmentContent: {
+    connect: {
+      id: 1,
+    },
+  },
+  choosenParagraph: 1,
 }
 type ContextType = {
   assessmentInput: AssessmentInput

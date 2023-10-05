@@ -6,6 +6,7 @@ export interface Word {
 export interface Story {
   id: number
   story: string
+  index?: number
 }
 export interface Letter {
   id: number
@@ -27,6 +28,7 @@ export interface Question {
 export interface Paragraph {
   id: number
   paragraph: string
+  index?: number
 }
 
 export interface LiteracyAssessmentContent {

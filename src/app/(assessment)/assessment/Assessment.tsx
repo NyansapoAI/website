@@ -2,7 +2,7 @@
 import * as React from "react"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { LiteracyAssessment } from "./start/types"
+import { LiteracyAssessment, Paragraph, Story } from "./start/types"
 import { LetterAssessments } from "./LetterAssessments"
 import { WordAssessments } from "./WordAssessment"
 import { ParagraphAssessments } from "./ParagraphAssessment"
@@ -34,9 +34,7 @@ export function Assessment({ literacyAssessment }: Props) {
   const [assessmentData, setAssessmentData] = React.useState<AssessmentInput>(
     initialAssessmentInput
   )
-  React.useEffect(() => {
-    console.log(assessmentData)
-  }, [assessmentData])
+
   return (
     <AssessmentContext.Provider
       value={{
