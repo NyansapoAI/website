@@ -19,7 +19,7 @@ export default function AssessmentsNavbar() {
     }
   }, [y])
   return (
-    <div className="border-2">
+    <div>
       <nav className=" relative flex flex-wrap py-3 px-4 gap-2 items-center justify-between  lg:justify-between ">
         {/* Logo  */}
         <Disclosure>
@@ -99,7 +99,7 @@ export default function AssessmentsNavbar() {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1  list-none lg:pt-0 lg:flex">
-            {navigationLinks.map((item, index) => (
+            {/* {navigationLinks.map((item, index) => (
               <li className="mr-3" key={index}>
                 {item.type == "page" ? (
                   <Link
@@ -119,7 +119,7 @@ export default function AssessmentsNavbar() {
                   </a>
                 )}
               </li>
-            ))}
+            ))} */}
           </ul>
         </div>
 

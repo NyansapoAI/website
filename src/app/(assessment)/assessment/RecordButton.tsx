@@ -88,7 +88,7 @@ export const RecordButton = ({
           ) : (
             <p className="flex gap-1 items-center">
               <Mic size={25} />
-              <span>Start Recording</span>
+              <span className="hidden sm:flex">Start Recording</span>
             </p>
           )}
         </Button>
