@@ -2,7 +2,6 @@
 import React, { ReactNode } from "react"
 import { ThemeProvider } from "next-themes"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-;("use client")
 import { Analytics } from "@vercel/analytics/react"
 type Props = {
   children: ReactNode
