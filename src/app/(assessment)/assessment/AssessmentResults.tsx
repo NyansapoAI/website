@@ -12,6 +12,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { useWindowSize } from "@uidotdev/usehooks"
 import Confetti from "react-confetti"
+import { useRouter } from "next/navigation"
 
 type Props = {
   learningLevel: string
@@ -19,6 +20,7 @@ type Props = {
 
 const AssessmentResults = (props: Props) => {
   const { width, height } = useWindowSize()
+  const router = useRouter()
 
   return (
     <>
@@ -37,16 +39,13 @@ const AssessmentResults = (props: Props) => {
           </CardDescription>
         </CardHeader>
         <CardContent className="">
-          <Link
-            className={cn(
-              buttonVariants({ variant: "outline" }),
-              "max-w-fit mx-auto block"
-            )}
-            onClick={() => {}}
-            href="/assessment/start"
+          <Button
+            className="mx-auto block"
+            variant="outline"
+            onClick={() => location.reload()}
           >
             Start Again
-          </Link>
+          </Button>
         </CardContent>
       </Card>
     </>

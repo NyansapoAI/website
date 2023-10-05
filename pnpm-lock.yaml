@@ -28,6 +28,7 @@ specifiers:
   easymde: '2'
   eslint: 8.40.0
   eslint-config-next: 13.4.2
+  lottie-react: ^2.4.0
   lucide-react: ^0.265.0
   next: 13.5.3
   next-sanity: ^4.1.7
@@ -74,6 +75,7 @@ dependencies:
   easymde: 2.18.0
   eslint: 8.40.0
   eslint-config-next: 13.4.2_uci2wugtwpizkleuwbfwoxrp4q
+  lottie-react: 2.4.0_biqbaboplfbrettd7655fr4n2y
   lucide-react: 0.265.0_react@18.2.0
   next: 13.5.3_biqbaboplfbrettd7655fr4n2y
   next-sanity: 4.1.7_bnsnhhp3hjnfhv5qcaihwq4m7q
@@ -4875,6 +4877,21 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
+
+  /lottie-react/2.4.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      lottie-web: 5.12.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /lottie-web/5.12.2:
+    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
     dev: false
 
   /lru-cache/5.1.1:

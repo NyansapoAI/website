@@ -6,7 +6,8 @@ import { assessmentVariants } from "./Assessment"
 import toast from "react-hot-toast"
 import { WhisperApiResponse } from "./start/types"
 import Spinner from "@/components/ui/spinner"
-
+import Lottie from "lottie-react"
+import vocals from "@/lottie/vocals.json"
 type RecordButtonProps = {
   setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
   callback: (response: WhisperApiResponse) => void
@@ -77,27 +78,27 @@ export const RecordButton = ({
     }
   }
   return (
-    <>
+    <div>
       {!startRecording ? (
         <Button disabled={processing} onClick={handleClick}>
           {processing ? (
             <>
               <Spinner />
-              &nbsp;processing
             </>
           ) : (
             <p className="flex gap-1 items-center">
-              <Mic />
+              <Mic size={25} />
               <span>Start Recording</span>
             </p>
           )}
         </Button>
       ) : (
         <Button variant="destructive" onClick={stopRecording}>
-          <CircleDot className="animate-pulse" />
-          &nbsp; Stop Recording
+          {/* <CircleDot className="animate-pulse" /> */}
+          <Lottie className="w-10 h-8  " animationData={vocals} loop={true} />
+          &nbsp;Stop
         </Button>
       )}
-    </>
+    </div>
   )
 }
