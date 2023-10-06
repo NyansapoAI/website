@@ -96,7 +96,7 @@ export const RecordButton = ({
         <Button variant="destructive" onClick={stopRecording}>
           {/* <CircleDot className="animate-pulse" /> */}
           <Lottie className="w-10 h-8  " animationData={vocals} loop={true} />
-          &nbsp;Stop
+          &nbsp;Stop Recording
         </Button>
       )}
     </div>

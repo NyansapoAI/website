@@ -14,6 +14,7 @@ import { assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
 import { splitIntoTwoSentencesEach } from "@/lib/utils"
+import { AssessmentContent } from "./AssessmentContent"
 
 type StoryAssessmentProps = {
   storyAssessment: Story[]
@@ -66,7 +67,7 @@ export const StoryAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit border-none mx-auto px-4 md:px-8">
+    <Card className="max-w-fit bg-transparent border-none mx-auto px-4 md:px-8">
       <CardHeader>
         <CardTitle>Story Assessment</CardTitle>
         <CardDescription>
@@ -74,14 +75,15 @@ export const StoryAssessments = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="py-6 ">
-        <p className="text-xl text-center bg-secondary rounded-md font-semibold max-w-[500px] min-h-[200px]  p-8 md:p-12 mx-auto">
-          {stories[currentStory].story}
-        </p>
+        <AssessmentContent
+          className="text-xl px-6 py-16"
+          content={stories[currentStory].story}
+        />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">
-        <Button variant="outline" onClick={handleBack}>
+        {/* <Button variant="outline" onClick={handleBack}>
           Back
-        </Button>
+        </Button> */}
         <RecordButton
           setCurrentAssessment={setCurrentAssessment}
           callback={handleSave}

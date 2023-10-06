@@ -9,11 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Mic } from "lucide-react"
 import { WhisperApiResponse, Word } from "./start/types"
 import { assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
+import { AssessmentContent } from "./AssessmentContent"
 
 type LetterAssessmentProps = {
   wordAssessment: Word[]
@@ -61,7 +61,7 @@ export const WordAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit  border-none mx-auto px-12">
+    <Card className="max-w-fit bg-transparent border-none mx-auto px-12">
       <CardHeader>
         <CardTitle>Word Assessment</CardTitle>
         <CardDescription>
@@ -69,21 +69,19 @@ export const WordAssessments = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="py-12">
-        <p className="text-4xl text-center bg-secondary rounded-md font-bold w-80 p-16 mx-auto">
-          {wordAssessment[currentWord].word}
-        </p>
+        <AssessmentContent content={wordAssessment[currentWord].word} />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">
-        <Button variant="outline" onClick={handleBack}>
+        {/* <Button variant="outline" onClick={handleBack}>
           Back
-        </Button>
+        </Button> */}
         <RecordButton
           setCurrentAssessment={setCurrentAssessment}
           callback={handleSave}
         />
-        <Button variant="outline" onClick={handleNext}>
+        {/* <Button variant="outline" onClick={handleNext}>
           Next
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   )

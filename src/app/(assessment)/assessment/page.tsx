@@ -17,7 +17,7 @@ export default function page({}: Props) {
   return (
     <div className=" p-4 md:p-8">
       <div className="max-w-fit mx-auto">
-        <Card className="border-none bg-transparent">
+        <Card className="border-none shadow-none bg-transparent">
           <CardHeader>
             <CardTitle>Assess Yourself</CardTitle>
             <CardDescription>

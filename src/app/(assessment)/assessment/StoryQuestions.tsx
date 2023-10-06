@@ -23,6 +23,15 @@ type StoryQuestionProps = {
   storyQuestions: Question[]
   setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
 }
+const randomizeAnswers = (
+  answers: Question["multipleChoiceQuestionAnswers"]
+) => {
+  const otherAnswers = answers.filter((item) => !item.correct)
+  const correctAnswer = answers.find((item) => item.correct)
+  const randomizedAnswers = [correctAnswer!, ...otherAnswers.slice(0, 3)]
+  const shuffled = randomizedAnswers.sort(() => 0.5 - Math.random())
+  return shuffled
+}
 export const StoryQuestions = ({
   storyQuestions,
   setCurrentAssessment,
@@ -33,6 +42,13 @@ export const StoryQuestions = ({
   const { setAssessmentInput, assessmentInput } =
     React.useContext(AssessmentContext)
   const { firstName, lastName } = generateRandomName()
+  const randomizedAnswers = React.useMemo(
+    () =>
+      randomizeAnswers(
+        storyQuestions[currentQuestion].multipleChoiceQuestionAnswers
+      ),
+    [storyQuestions, currentQuestion]
+  )
 
   const { mutate, isLoading } = useMutation({
     mutationFn: async (data: typeof assessmentInput) => {
@@ -133,7 +149,7 @@ export const StoryQuestions = ({
   return success ? (
     <AssessmentResults learningLevel={learningLevel} />
   ) : (
-    <Card className="max-w-fit border-none mx-auto px-4 m:px-8">
+    <Card className="max-w-fit bg-transparent border-none mx-auto px-4 m:px-8">
       <CardHeader>
         <CardTitle>Story Questions</CardTitle>
         <CardDescription>
@@ -146,21 +162,19 @@ export const StoryQuestions = ({
             {storyQuestions[currentQuestion].question}
           </p>
           <RadioGroup onValueChange={handleChange} defaultValue="option-one">
-            {storyQuestions[currentQuestion].multipleChoiceQuestionAnswers.map(
-              (answer, i) => {
-                return (
-                  <div key={i} className="flex items-center space-x-2">
-                    <RadioGroupItem
-                      value={answer.id.toString()}
-                      id={answer.id.toString()}
-                    />
-                    <Label className="text-md" htmlFor={answer.answer}>
-                      {answer.answer}
-                    </Label>
-                  </div>
-                )
-              }
-            )}
+            {randomizedAnswers.map((answer, i) => {
+              return (
+                <div key={i} className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value={answer.id.toString()}
+                    id={answer.id.toString()}
+                  />
+                  <Label className="text-md" htmlFor={answer.answer}>
+                    {answer.answer}
+                  </Label>
+                </div>
+              )
+            })}
           </RadioGroup>
         </div>
       </CardContent>

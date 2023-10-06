@@ -15,6 +15,7 @@ import { assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
 import { splitIntoTwoSentencesEach } from "@/lib/utils"
+import { AssessmentContent } from "./AssessmentContent"
 
 type ParagraphAssessmentProps = {
   paragraphAssessment: Paragraph[]
@@ -53,7 +54,7 @@ export const ParagraphAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentParagraph < paragraphs.length - 1) {
+    if (currentParagraph < 1) {
       setCurrentParagraph(currentParagraph + 1)
     } else {
       setCurrentAssessment(assessmentVariants.story)
@@ -67,7 +68,7 @@ export const ParagraphAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit border-none mx-auto px-4 md:px-12">
+    <Card className="max-w-fit bg-transparent border-none mx-auto px-4 md:px-12">
       <CardHeader>
         <CardTitle>Paragraph Assessment</CardTitle>
         <CardDescription>
@@ -75,21 +76,22 @@ export const ParagraphAssessments = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="py-6 ">
-        <p className="text-xl text-center bg-secondary rounded-md font-semibold max-w-[500px] min-h-[200px] p-8 md:p-16 mx-auto">
-          {paragraphs[currentParagraph].paragraph}
-        </p>
+        <AssessmentContent
+          className="text-xl px-8 py-16"
+          content={paragraphs[currentParagraph].paragraph}
+        />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">
-        <Button variant="outline" onClick={handleBack}>
+        {/* <Button variant="outline" onClick={handleBack}>
           Back
-        </Button>
+        </Button> */}
         <RecordButton
           setCurrentAssessment={setCurrentAssessment}
           callback={handleSave}
         />
-        <Button variant="outline" onClick={handleNext}>
+        {/* <Button variant="outline" onClick={handleNext}>
           Next
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   )

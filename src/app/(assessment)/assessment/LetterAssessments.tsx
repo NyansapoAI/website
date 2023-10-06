@@ -13,6 +13,7 @@ import { assessmentVariants } from "./Assessment"
 import { Letter, WhisperApiResponse } from "./start/types"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
+import { AssessmentContent } from "./AssessmentContent"
 
 type LetterAssessmentProps = {
   letterAssessment: Letter[]
@@ -60,29 +61,27 @@ export const LetterAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit border-none mx-auto px-12">
+    <Card className="max-w-fit shadow-none border-none bg-transparent mx-auto px-12">
       <CardHeader>
         <CardTitle>Letter Assessment</CardTitle>
         <CardDescription>
           Click the start recording button and read the letter in the card
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-12">
-        <p className="text-4xl text-center bg-secondary rounded-md font-bold w-80 p-16 mx-auto">
-          {letterAssessment[currentLetter].letter}
-        </p>
+      <CardContent className="py-12 ">
+        <AssessmentContent content={letterAssessment[currentLetter].letter} />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">
-        <Button variant="outline" onClick={handleBack}>
+        {/* <Button variant="outline" onClick={handleBack}>
           Back
-        </Button>
+        </Button> */}
         <RecordButton
           callback={handleSave}
           setCurrentAssessment={setCurrentAssessment}
         />
-        <Button variant="outline" onClick={handleNext}>
+        {/* <Button variant="outline" onClick={handleNext}>
           Next
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   )

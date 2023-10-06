@@ -52,7 +52,7 @@ export function Assessment({ literacyAssessment }: Props) {
         setAssessmentInput: setAssessmentData,
       }}
     >
-      <Card className="max-w-fit w-full h-full  mt-8  bg-transparent mx-auto ">
+      <Card className="max-w-fit w-full border-none h-full  mt-8  bg-transparent mx-auto ">
         {loading ? (
           <Lottie
             className=" max-w-[625px] max-h-[550px] "

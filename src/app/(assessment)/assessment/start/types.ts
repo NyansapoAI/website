@@ -17,6 +17,7 @@ export interface Letter {
 export interface MultipleChoiceQuestionAnswer {
   id: number
   answer: string
+  correct: boolean
 }
 
 export interface Question {

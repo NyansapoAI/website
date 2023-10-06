@@ -29,7 +29,7 @@ const AssessmentResults = (props: Props) => {
         width={width ?? 600}
         height={height ?? 600}
       />
-      <Card className="z-50 max-w-fit border-none mx-auto ">
+      <Card className="z-50 max-w-fit bg-transapent border-none mx-auto ">
         <CardHeader className="text-center">
           <CardTitle className="">
             🎉&nbsp;Congratulations on Completing your Assessment
@@ -43,11 +43,7 @@ const AssessmentResults = (props: Props) => {
           </CardDescription>
         </CardHeader>
         <CardContent className="">
-          <Button
-            className="mx-auto block"
-            variant="outline"
-            onClick={() => location.reload()}
-          >
+          <Button className="mx-auto block" onClick={() => location.reload()}>
             Start Again
           </Button>
         </CardContent>

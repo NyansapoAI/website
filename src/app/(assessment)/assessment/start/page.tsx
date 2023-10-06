@@ -40,6 +40,7 @@ const fetchAssessment = async (id: string) => {
             multipleChoiceQuestionAnswers {
               answer
               id
+              correct
             }
           }
           id
