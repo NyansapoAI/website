@@ -24,7 +24,11 @@ const AssessmentResults = (props: Props) => {
 
   return (
     <>
-      <Confetti className="" width={width ?? 600} height={height ?? 600} />
+      <Confetti
+        className="absolute"
+        width={width ?? 600}
+        height={height ?? 600}
+      />
       <Card className="z-50 max-w-fit border-none mx-auto ">
         <CardHeader className="text-center">
           <CardTitle className="">
