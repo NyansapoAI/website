@@ -19,9 +19,10 @@ import axios from "axios"
 import Spinner from "@/components/ui/spinner"
 import AssessmentResults from "./AssessmentResults"
 import { generateRandomName } from "@/lib/utils"
+import { Questionnaire } from "./Questionnaire"
 type StoryQuestionProps = {
   storyQuestions: Question[]
-  setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
 }
 const randomizeAnswers = (
   answers: Question["multipleChoiceQuestionAnswers"]
@@ -34,12 +35,11 @@ const randomizeAnswers = (
 }
 export const StoryQuestions = ({
   storyQuestions,
-  setCurrentAssessment,
+  setCurrentItem,
 }: StoryQuestionProps) => {
   const [success, setSetSuccess] = React.useState<boolean>(false)
-  const [learningLevel, setLearningLevel] = React.useState<string>("")
   const [currentQuestion, setCurrentQuestion] = React.useState<number>(0)
-  const { setAssessmentInput, assessmentInput } =
+  const { setAssessmentInput, setAssessmentId, assessmentInput } =
     React.useContext(AssessmentContext)
   const { firstName, lastName } = generateRandomName()
   const randomizedAnswers = React.useMemo(
@@ -57,7 +57,7 @@ export const StoryQuestions = ({
           process.env.NEXT_PUBLIC_API_URL!,
           {
             query:
-              "mutation CreateOneLiteracyAssessment($data: LiteracyAssessmentCreateInput!, $literacyAssessmentConfigInput: LiteracyAssessmentConfigInput!) {\r\n  createOneLiteracyAssessment(data: $data) {\r\n    dynamicallyGeneratedLearningLevel(literacyAssessmentConfigInput: $literacyAssessmentConfigInput) {\r\n      dynamicallyGeneratedLearningLevel\r\n    }\r\n  }\r\n}",
+              "mutation CreateOneLiteracyAssessment($data: LiteracyAssessmentCreateInput!, $literacyAssessmentConfigInput: LiteracyAssessmentConfigInput!) {\r\n  createOneLiteracyAssessment(data: $data) {\r\n id\r\n     dynamicallyGeneratedLearningLevel(literacyAssessmentConfigInput: $literacyAssessmentConfigInput) {\r\n      dynamicallyGeneratedLearningLevel\r\n  }\r\n  }\r\n}",
             variables: {
               data: {
                 ...data,
@@ -92,11 +92,12 @@ export const StoryQuestions = ({
     onSuccess: (data) => {
       console.log("data", data.data.createOneLiteracyAssessment)
       setSetSuccess(true)
-      setLearningLevel(
-        data.data.createOneLiteracyAssessment.dynamicallyGeneratedLearningLevel
-          .dynamicallyGeneratedLearningLevel
-      )
-      // setCurrentAssessment(assessmentVariants.results)
+      setAssessmentId(data.data.createOneLiteracyAssessment.id)
+      // setLearningLevel(
+      //   data.data.createOneLiteracyAssessment.dynamicallyGeneratedLearningLevel
+      //     .dynamicallyGeneratedLearningLevel
+      // )
+      setCurrentItem(assessmentVariants.questionnaire)
     },
     onError: (error) => {
       console.log("error", error)
@@ -132,12 +133,12 @@ export const StoryQuestions = ({
     if (currentQuestion < storyQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      setCurrentAssessment(assessmentVariants.results)
+      setCurrentItem(assessmentVariants.results)
       //
     }
   }
   const handleBack = () => {
-    if (currentQuestion == 0) setCurrentAssessment(assessmentVariants.story)
+    if (currentQuestion == 0) setCurrentItem(assessmentVariants.story)
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1)
     }
@@ -147,7 +148,7 @@ export const StoryQuestions = ({
     mutate(assessmentInput)
   }
   return success ? (
-    <AssessmentResults learningLevel={learningLevel} />
+    <Questionnaire setCurrentItem={setCurrentItem} />
   ) : (
     <Card className="max-w-fit bg-transparent border-none mx-auto px-4 m:px-8">
       <CardHeader>

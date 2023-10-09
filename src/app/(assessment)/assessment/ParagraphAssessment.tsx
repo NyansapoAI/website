@@ -19,11 +19,11 @@ import { AssessmentContent } from "./AssessmentContent"
 
 type ParagraphAssessmentProps = {
   paragraphAssessment: Paragraph[]
-  setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
 }
 export const ParagraphAssessments = ({
   paragraphAssessment,
-  setCurrentAssessment,
+  setCurrentItem,
 }: ParagraphAssessmentProps) => {
   const [currentParagraph, setCurrentParagraph] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
@@ -57,11 +57,11 @@ export const ParagraphAssessments = ({
     if (currentParagraph < 1) {
       setCurrentParagraph(currentParagraph + 1)
     } else {
-      setCurrentAssessment(assessmentVariants.story)
+      setCurrentItem(assessmentVariants.story)
     }
   }
   const handleBack = () => {
-    if (currentParagraph == 0) setCurrentAssessment(assessmentVariants.word)
+    if (currentParagraph == 0) setCurrentItem(assessmentVariants.word)
     if (currentParagraph > 0) {
       setCurrentParagraph(currentParagraph - 1)
     }
@@ -85,10 +85,7 @@ export const ParagraphAssessments = ({
         {/* <Button variant="outline" onClick={handleBack}>
           Back
         </Button> */}
-        <RecordButton
-          setCurrentAssessment={setCurrentAssessment}
-          callback={handleSave}
-        />
+        <RecordButton setCurrentItem={setCurrentItem} callback={handleSave} />
         {/* <Button variant="outline" onClick={handleNext}>
           Next
         </Button> */}

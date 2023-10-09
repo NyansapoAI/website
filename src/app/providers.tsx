@@ -34,7 +34,7 @@ export default function RootProviders({ children }: Props) {
           value={{ showAlert, setShowAlert, alertMessage, setAlertMessage }}
         >
           {children}
-          <Analytics />;
+          <Analytics />
         </AlertContext.Provider>
       </QueryClientProvider>
     </ThemeProvider>

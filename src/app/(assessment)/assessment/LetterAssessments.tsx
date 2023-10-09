@@ -17,11 +17,11 @@ import { AssessmentContent } from "./AssessmentContent"
 
 type LetterAssessmentProps = {
   letterAssessment: Letter[]
-  setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
 }
 export const LetterAssessments = ({
   letterAssessment,
-  setCurrentAssessment,
+  setCurrentItem,
 }: LetterAssessmentProps) => {
   const [currentLetter, setCurrentLetter] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
@@ -50,7 +50,7 @@ export const LetterAssessments = ({
     if (currentLetter < 6) {
       setCurrentLetter(currentLetter + 1)
     } else {
-      setCurrentAssessment(assessmentVariants.word)
+      setCurrentItem(assessmentVariants.word)
     }
   }
   const handleBack = () => {
@@ -75,13 +75,10 @@ export const LetterAssessments = ({
         {/* <Button variant="outline" onClick={handleBack}>
           Back
         </Button> */}
-        <RecordButton
-          callback={handleSave}
-          setCurrentAssessment={setCurrentAssessment}
-        />
-        {/* <Button variant="outline" onClick={handleNext}>
+        <RecordButton callback={handleSave} setCurrentItem={setCurrentItem} />
+        <Button variant="outline" onClick={handleNext}>
           Next
-        </Button> */}
+        </Button>
       </CardFooter>
     </Card>
   )

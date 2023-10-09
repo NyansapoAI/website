@@ -17,11 +17,11 @@ import { AssessmentContent } from "./AssessmentContent"
 
 type LetterAssessmentProps = {
   wordAssessment: Word[]
-  setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
 }
 export const WordAssessments = ({
   wordAssessment,
-  setCurrentAssessment,
+  setCurrentItem,
 }: LetterAssessmentProps) => {
   const [currentWord, setCurrentWord] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
@@ -50,11 +50,11 @@ export const WordAssessments = ({
     if (currentWord < 6) {
       setCurrentWord(currentWord + 1)
     } else {
-      setCurrentAssessment(assessmentVariants.paragraph)
+      setCurrentItem(assessmentVariants.paragraph)
     }
   }
   const handleBack = () => {
-    if (currentWord == 0) setCurrentAssessment(assessmentVariants.letter)
+    if (currentWord == 0) setCurrentItem(assessmentVariants.letter)
     if (currentWord > 0) {
       setCurrentWord(currentWord - 1)
     }
@@ -75,13 +75,10 @@ export const WordAssessments = ({
         {/* <Button variant="outline" onClick={handleBack}>
           Back
         </Button> */}
-        <RecordButton
-          setCurrentAssessment={setCurrentAssessment}
-          callback={handleSave}
-        />
-        {/* <Button variant="outline" onClick={handleNext}>
+        <RecordButton setCurrentItem={setCurrentItem} callback={handleSave} />
+        <Button variant="outline" onClick={handleNext}>
           Next
-        </Button> */}
+        </Button>
       </CardFooter>
     </Card>
   )

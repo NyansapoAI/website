@@ -9,11 +9,11 @@ import Spinner from "@/components/ui/spinner"
 import Lottie from "lottie-react"
 import vocals from "@/lottie/vocals.json"
 type RecordButtonProps = {
-  setCurrentAssessment: React.Dispatch<React.SetStateAction<number>>
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
   callback: (response: WhisperApiResponse) => void
 }
 export const RecordButton = ({
-  setCurrentAssessment,
+  setCurrentItem,
   callback,
 }: RecordButtonProps) => {
   const [startRecording, setStartRecording] = React.useState<boolean>(false)

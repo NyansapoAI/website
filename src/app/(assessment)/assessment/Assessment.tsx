@@ -16,6 +16,7 @@ import {
 } from "./AssessmentContext"
 import Lottie from "lottie-react"
 import transition from "@/lottie/transition.json"
+import { Questionnaire } from "./Questionnaire"
 type Props = {
   literacyAssessment: LiteracyAssessment["literacyAssessmentContent"]
 }
@@ -25,29 +26,33 @@ export const assessmentVariants = {
   paragraph: 2,
   story: 3,
   storyQuestions: 4,
-  results: 5,
+  questionnaire: 5,
+  results: 6,
 } as const
 
 export function Assessment({ literacyAssessment }: Props) {
   const [loading, setLoading] = React.useState<boolean>(false)
-  const [currentAssessment, setCurrentAssessment] = React.useState<number>(
+  const [assessmentId, setAssessmentId] = React.useState<number | undefined>()
+  const [currentItem, setCurrentItem] = React.useState<number>(
     assessmentVariants.letter
   )
   const [assessmentData, setAssessmentData] = React.useState<AssessmentInput>(
     initialAssessmentInput
   )
   React.useEffect(() => {
-    if (currentAssessment > 0) {
+    if (currentItem > 0) {
       setLoading(true)
       setTimeout(() => {
         setLoading(false)
       }, 1700)
     }
-  }, [currentAssessment])
+  }, [currentItem])
 
   return (
     <AssessmentContext.Provider
       value={{
+        assessmentId: assessmentId,
+        setAssessmentId: setAssessmentId,
         assessmentInput: assessmentData,
         setAssessmentInput: setAssessmentData,
       }}
@@ -61,35 +66,41 @@ export function Assessment({ literacyAssessment }: Props) {
           />
         ) : (
           <CardContent>
-            {currentAssessment == assessmentVariants.letter ? (
+            {currentItem == assessmentVariants.letter ? (
               <LetterAssessments
                 letterAssessment={literacyAssessment.letters}
-                setCurrentAssessment={setCurrentAssessment}
+                setCurrentItem={setCurrentItem}
               />
             ) : null}
-            {currentAssessment == assessmentVariants.word ? (
+            {currentItem == assessmentVariants.word ? (
               <WordAssessments
                 wordAssessment={literacyAssessment.words}
-                setCurrentAssessment={setCurrentAssessment}
+                setCurrentItem={setCurrentItem}
               />
             ) : null}
-            {currentAssessment == assessmentVariants.paragraph ? (
+            {currentItem == assessmentVariants.paragraph ? (
               <ParagraphAssessments
                 paragraphAssessment={literacyAssessment.paragraphs}
-                setCurrentAssessment={setCurrentAssessment}
+                setCurrentItem={setCurrentItem}
               />
             ) : null}
-            {currentAssessment == assessmentVariants.story ? (
+            {currentItem == assessmentVariants.story ? (
               <StoryAssessments
                 storyAssessment={literacyAssessment.stories}
-                setCurrentAssessment={setCurrentAssessment}
+                setCurrentItem={setCurrentItem}
               />
             ) : null}
-            {currentAssessment == assessmentVariants.storyQuestions ? (
+            {currentItem == assessmentVariants.storyQuestions ? (
               <StoryQuestions
                 storyQuestions={literacyAssessment.multipleChoiceQuestions}
-                setCurrentAssessment={setCurrentAssessment}
+                setCurrentItem={setCurrentItem}
               />
+            ) : null}
+            {currentItem == assessmentVariants.questionnaire ? (
+              <Questionnaire setCurrentItem={setCurrentItem} />
+            ) : null}
+            {currentItem == assessmentVariants.results ? (
+              <AssessmentResults assessment_id="1" />
             ) : null}
           </CardContent>
         )}
