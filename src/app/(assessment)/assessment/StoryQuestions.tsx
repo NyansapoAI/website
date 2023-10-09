@@ -90,13 +90,8 @@ export const StoryQuestions = ({
         .then((response) => response.data)
     },
     onSuccess: (data) => {
-      console.log("data", data.data.createOneLiteracyAssessment)
       setSetSuccess(true)
       setAssessmentId(data.data.createOneLiteracyAssessment.id)
-      // setLearningLevel(
-      //   data.data.createOneLiteracyAssessment.dynamicallyGeneratedLearningLevel
-      //     .dynamicallyGeneratedLearningLevel
-      // )
       setCurrentItem(assessmentVariants.questionnaire)
     },
     onError: (error) => {

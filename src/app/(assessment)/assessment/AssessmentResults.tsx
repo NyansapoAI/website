@@ -85,7 +85,6 @@ type LiteracyAssessmentResult = {
 const AssessmentResults = (props: Props) => {
   const { width, height } = useWindowSize()
   const { assessmentId } = useContext(AssessmentContext)
-  console.log("assessment id:", assessmentId)
   const { isLoading, data, error } = useQuery<{
     data: LiteracyAssessmentResult
   }>(["literacyAssessment"], async () => {
@@ -176,8 +175,6 @@ const AssessmentResults = (props: Props) => {
   if (error) {
     return <div>Error: {(error as Error).message}</div>
   }
-  console.log(data)
-
   return (
     <>
       <Confetti

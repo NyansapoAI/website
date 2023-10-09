@@ -76,9 +76,9 @@ export const LetterAssessments = ({
           Back
         </Button> */}
         <RecordButton callback={handleSave} setCurrentItem={setCurrentItem} />
-        <Button variant="outline" onClick={handleNext}>
+        {/* <Button variant="outline" onClick={handleNext}>
           Next
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   )
