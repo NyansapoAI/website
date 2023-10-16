@@ -65,7 +65,8 @@ export const LetterAssessments = ({
       <CardHeader>
         <CardTitle>Letter Assessment</CardTitle>
         <CardDescription>
-          Click the start recording button and read the letter in the card
+          Click the start recording button and read the letter in the card, once
+          you are done reading, click stop recording
         </CardDescription>
       </CardHeader>
       <CardContent className="py-12 ">

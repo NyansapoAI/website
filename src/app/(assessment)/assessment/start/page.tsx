@@ -68,7 +68,9 @@ export default async function page({}: Props) {
       {resp && resp.data.literacyAssessmentContent ? (
         <Assessment literacyAssessment={resp.data.literacyAssessmentContent} />
       ) : (
-        <p className="text-lg p-4 text-destructive">Assessment not found</p>
+        <p className="text-xl p-4 text-destructive">
+          Something went wrong, please refresh the page
+        </p>
       )}
     </div>
   )

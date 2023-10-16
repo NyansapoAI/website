@@ -14,73 +14,15 @@ import { useWindowSize } from "@uidotdev/usehooks"
 import Confetti from "react-confetti"
 import { AssessmentContext } from "./AssessmentContext"
 import { useQuery } from "@tanstack/react-query"
+import { LiteracyAssessmentResult } from "./start/types"
+import LetterResult from "./results/LetterResult"
+import ParagraphResult from "./results/ParagraphResult"
+import StoryResult from "./results/StoryResult"
+import WordResult from "./results/WordResult"
+import StoryQuestionResults from "./results/StoryQuestionResults"
 
 type Props = {
   assessment_id: string
-}
-type LiteracyAssessmentResult = {
-  literacyAssessment: {
-    id: string
-    dynamicallyGeneratedLearningLevel: {
-      dynamicallyGeneratedLearningLevel: string
-    }
-    letterAssessmentResults: {
-      correctAccordingToModelPrediction: {
-        correct: boolean
-      }
-      answerFromOriginalModelPrediction: string
-      id: string
-      index: number
-      urlOfRecordedVoice: string
-      answerFromModifiedModelPrediction: string
-    }[]
-    wordAssessmentResults: {
-      answerFromOriginalModelPrediction: string
-      answerFromModifiedModelPrediction: string
-      expectedAnswer: string
-      id: string
-      index: number
-    }[]
-    paragraphSentenceResults: {
-      answerFromModifiedModelPrediction: string
-      answerFromOriginalModelPrediction: string
-      id: string
-      index: number
-      urlOfRecordedVoice: string
-      wordsRightOrWrongAccordingToModelPrediction: {
-        wordsRightOrWrongAccordingToOriginalModelPrediction: {
-          correct: boolean
-          word: string
-        }[]
-      }[]
-    }[]
-    storySentenceResults: {
-      answerFromModifiedModelPrediction: string
-      answerFromOriginalModelPrediction: string
-      expectedAnswer: string
-      id: string
-      index: number
-      wordsRightOrWrongAccordingToModelPrediction: {
-        wordsRightOrWrongAccordingToOriginalModelPrediction: {
-          correct: boolean
-          word: string
-        }[]
-        wordsRightOrWrongAccordingToModifiedModelPrediction: {
-          correct: boolean
-          word: string
-        }[]
-      }[]
-      urlOfRecordedVoice: string
-    }[]
-    questionAssessmentResults: {
-      answerFromUser: string
-      correct: boolean
-      multipleChoiceQuestion: {
-        question: string
-        id: string
-      }
-    }[]
-  }
 }
 const AssessmentResults = (props: Props) => {
   const { width, height } = useWindowSize()
@@ -104,6 +46,7 @@ const AssessmentResults = (props: Props) => {
               correctAccordingToModelPrediction {
                 correct
               }
+              expectedAnswer
               answerFromOriginalModelPrediction
               id
               index
@@ -114,8 +57,12 @@ const AssessmentResults = (props: Props) => {
               answerFromOriginalModelPrediction
               answerFromModifiedModelPrediction
               expectedAnswer
+              urlOfRecordedVoice
               id
               index
+              correctAccordingToModelPrediction {
+              correct
+              }
             }
             paragraphSentenceResults {
               answerFromModifiedModelPrediction
@@ -124,6 +71,10 @@ const AssessmentResults = (props: Props) => {
               index
               urlOfRecordedVoice
               wordsRightOrWrongAccordingToModelPrediction {
+                   wordsRightOrWrongModelPrediction {
+          correct
+          word
+        }
                 wordsRightOrWrongAccordingToOriginalModelPrediction {
                   correct
                   word
@@ -137,11 +88,11 @@ const AssessmentResults = (props: Props) => {
               id
               index
               wordsRightOrWrongAccordingToModelPrediction {
+                 wordsRightOrWrongModelPrediction {
+                    correct
+                    word
+                  }
                 wordsRightOrWrongAccordingToOriginalModelPrediction {
-                  correct
-                  word
-                }
-                wordsRightOrWrongAccordingToModifiedModelPrediction {
                   correct
                   word
                 }
@@ -154,6 +105,10 @@ const AssessmentResults = (props: Props) => {
               multipleChoiceQuestion {
                 question
                 id
+              }
+              multipleChoiceQuestionAnswer {
+              answer
+              correct
               }
             }
           }
@@ -169,39 +124,91 @@ const AssessmentResults = (props: Props) => {
   })
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <h1>Preparing results...</h1>
   }
 
   if (error) {
     return <div>Error: {(error as Error).message}</div>
   }
+
   return (
-    <>
-      <Confetti
-        className="absolute"
-        width={width ?? 600}
-        height={height ?? 600}
-      />
-      <Card className="z-50 max-w-fit bg-transapent border-none mx-auto ">
-        <CardHeader className="text-center">
-          <CardTitle className="">
-            🎉&nbsp;Congratulations on Completing your Assessment
-          </CardTitle>
-          <CardDescription className="pt-4 text-md">
-            <span>you have been placed at&nbsp;</span>
-            <span className="capitalize bold text-primary">
-              {data?.data.literacyAssessment?.dynamicallyGeneratedLearningLevel?.dynamicallyGeneratedLearningLevel.toLowerCase()}
-            </span>
-            &nbsp;Level
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="">
-          <Button className="mx-auto block" onClick={() => location.reload()}>
-            Start Again
-          </Button>
-        </CardContent>
-      </Card>
-    </>
+    data && (
+      <>
+        <Confetti
+          recycle={false}
+          className="absolute"
+          width={width ?? 600}
+          height={height ?? 600}
+        />
+        <Card className="z-50 max-w-fit bg-transapent border-none mx-auto ">
+          <CardHeader className="text-center">
+            <CardTitle className="">
+              🎉&nbsp;Congratulations on Completing your Assessment
+            </CardTitle>
+            <CardDescription className="pt-4 text-md">
+              <span>you have been placed at&nbsp;</span>
+              <span className="capitalize bold text-primary">
+                {data?.data?.literacyAssessment?.dynamicallyGeneratedLearningLevel?.dynamicallyGeneratedLearningLevel.toLowerCase()}
+              </span>
+              &nbsp;Level
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-4 justify-center">
+            <div className="space-y-4 rounded-md p-6 max-h-screen overflow-y-auto">
+              {data.data?.literacyAssessment &&
+                data.data?.literacyAssessment.letterAssessmentResults.length >
+                  0 && (
+                  <LetterResult
+                    title="Letter results"
+                    data={data.data?.literacyAssessment.letterAssessmentResults}
+                  />
+                )}
+
+              {data.data?.literacyAssessment &&
+                data.data?.literacyAssessment?.wordAssessmentResults.length >
+                  0 && (
+                  <WordResult
+                    title="Word results"
+                    data={data.data?.literacyAssessment.wordAssessmentResults}
+                  />
+                )}
+              {data.data?.literacyAssessment &&
+                data.data?.literacyAssessment?.paragraphSentenceResults.length >
+                  0 && (
+                  <ParagraphResult
+                    title="Paragraph results"
+                    data={
+                      data.data?.literacyAssessment.paragraphSentenceResults
+                    }
+                  />
+                )}
+              {data.data?.literacyAssessment &&
+                data.data?.literacyAssessment?.storySentenceResults.length >
+                  0 && (
+                  <StoryResult
+                    title="Story results"
+                    data={data.data?.literacyAssessment.storySentenceResults}
+                  />
+                )}
+              {data.data?.literacyAssessment &&
+                data.data?.literacyAssessment?.questionAssessmentResults
+                  .length > 0 && (
+                  <StoryQuestionResults
+                    title="Question results"
+                    data={
+                      data.data?.literacyAssessment.questionAssessmentResults
+                    }
+                  />
+                )}
+            </div>
+
+            <Button className="mx-auto block" onClick={() => location.reload()}>
+              Start Again
+            </Button>
+          </CardContent>
+        </Card>
+      </>
+    )
   )
 }
 

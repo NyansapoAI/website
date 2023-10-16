@@ -56,3 +56,80 @@ export type WhisperApiResponse = {
 } & {
   duration: number
 }
+export type LiteracyAssessmentResult = {
+  literacyAssessment: {
+    id: string
+    dynamicallyGeneratedLearningLevel: {
+      dynamicallyGeneratedLearningLevel: string
+    }
+    letterAssessmentResults: {
+      correctAccordingToModelPrediction: {
+        correct: boolean
+      }
+      expectedAnswer: string
+      answerFromOriginalModelPrediction: string
+      id: string
+      index: number
+      urlOfRecordedVoice: string
+      answerFromModifiedModelPrediction: string
+    }[]
+    wordAssessmentResults: {
+      answerFromOriginalModelPrediction: string
+      answerFromModifiedModelPrediction: string
+      expectedAnswer: string
+      urlOfRecordedVoice: string
+      correctAccordingToModelPrediction: {
+        correct: boolean
+      }
+      id: string
+      index: number
+    }[]
+    paragraphSentenceResults: {
+      answerFromModifiedModelPrediction: string
+      answerFromOriginalModelPrediction: string
+      id: string
+      index: number
+      urlOfRecordedVoice: string
+      wordsRightOrWrongAccordingToModelPrediction: {
+        wordsRightOrWrongModelPrediction: {
+          correct: boolean
+          word: string
+        }[]
+        wordsRightOrWrongAccordingToOriginalModelPrediction: {
+          correct: boolean
+          word: string
+        }[]
+      }
+    }[]
+    storySentenceResults: {
+      answerFromModifiedModelPrediction: string
+      answerFromOriginalModelPrediction: string
+      expectedAnswer: string
+      id: string
+      index: number
+      wordsRightOrWrongAccordingToModelPrediction: {
+        wordsRightOrWrongModelPrediction: {
+          correct: boolean
+          word: string
+        }[]
+        wordsRightOrWrongAccordingToOriginalModelPrediction: {
+          correct: boolean
+          word: string
+        }[]
+      }
+      urlOfRecordedVoice: string
+    }[]
+    questionAssessmentResults: {
+      answerFromUser: string
+      correct: boolean
+      multipleChoiceQuestionAnswer: {
+        answer: string
+        correct: boolean
+      }
+      multipleChoiceQuestion: {
+        question: string
+        id: string
+      }
+    }[]
+  }
+}
