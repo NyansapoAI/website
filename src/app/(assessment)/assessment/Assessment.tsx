@@ -66,7 +66,7 @@ export function Assessment({ literacyAssessment }: Props) {
           />
         ) : (
           <CardContent>
-            {currentItem == assessmentVariants.story ? (
+            {currentItem == assessmentVariants.letter ? (
               <LetterAssessments
                 letterAssessment={literacyAssessment.letters}
                 setCurrentItem={setCurrentItem}
@@ -84,7 +84,7 @@ export function Assessment({ literacyAssessment }: Props) {
                 setCurrentItem={setCurrentItem}
               />
             ) : null}
-            {currentItem == assessmentVariants.letter ? (
+            {currentItem == assessmentVariants.story ? (
               <StoryAssessments
                 storyAssessment={literacyAssessment.stories}
                 setCurrentItem={setCurrentItem}
