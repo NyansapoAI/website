@@ -85,9 +85,9 @@ export const StoryAssessments = ({
           Back
         </Button> */}
         <RecordButton setCurrentItem={setCurrentItem} callback={handleSave} />
-        <Button variant="outline" onClick={handleNext}>
+        {/* <Button variant="outline" onClick={handleNext}>
           Next
-        </Button>
+        </Button> */}
       </CardFooter>
     </Card>
   )
