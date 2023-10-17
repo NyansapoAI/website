@@ -77,6 +77,7 @@ export const ParagraphAssessments = ({
       </CardHeader>
       <CardContent className="py-6 ">
         <AssessmentContent
+          suffix="."
           className="text-xl px-8 py-16"
           content={paragraphs[currentParagraph].paragraph}
         />

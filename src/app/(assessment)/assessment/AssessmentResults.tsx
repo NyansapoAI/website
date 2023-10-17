@@ -114,7 +114,7 @@ const AssessmentResults = (props: Props) => {
           }
         }`,
         variables: {
-          where: { id: assessmentId },
+          where: { id: 1682 },
           literacyAssessmentConfigInput: {},
         },
       }),
@@ -154,7 +154,7 @@ const AssessmentResults = (props: Props) => {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-4 justify-center">
-            <div className="space-y-4 rounded-md p-6 max-h-screen overflow-y-auto">
+            <div className="space-y-4 rounded-md p-6 max-h-screen scrollbar-thin scrollbar-track-rounded-sm scrollbar-thumb-blue-900 scrollbar-track-transparent overflow-y-auto">
               {data.data?.literacyAssessment &&
                 data.data?.literacyAssessment.letterAssessmentResults.length >
                   0 && (

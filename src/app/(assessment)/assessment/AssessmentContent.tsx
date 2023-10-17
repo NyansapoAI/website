@@ -5,8 +5,13 @@ import * as React from "react"
 type ContentProps = {
   content: string
   className?: string
+  suffix?: string
 }
-export const AssessmentContent = ({ content, className }: ContentProps) => {
+export const AssessmentContent = ({
+  content,
+  className,
+  suffix,
+}: ContentProps) => {
   return (
     <p
       className={cn(
@@ -15,6 +20,7 @@ export const AssessmentContent = ({ content, className }: ContentProps) => {
       )}
     >
       {content}
+      {suffix ? suffix : null}
     </p>
   )
 }

@@ -76,7 +76,8 @@ export const StoryAssessments = ({
       </CardHeader>
       <CardContent className="py-6 ">
         <AssessmentContent
-          className="text-xl px-6 py-16"
+          suffix="."
+          className="text-xl px-4 py-16"
           content={stories[currentStory].story}
         />
       </CardContent>
