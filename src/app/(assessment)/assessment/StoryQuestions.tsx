@@ -160,7 +160,7 @@ export const StoryQuestions = ({
           <RadioGroup onValueChange={handleChange} defaultValue="option-one">
             {randomizedAnswers.map((answer, i) => {
               return (
-                <div key={i} className="flex items-center space-x-2">
+                <div key={i} className="flex items-center space-x-2 space-y-2">
                   <RadioGroupItem
                     value={answer.id.toString()}
                     id={answer.id.toString()}

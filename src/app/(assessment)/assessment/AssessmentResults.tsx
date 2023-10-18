@@ -114,7 +114,7 @@ const AssessmentResults = (props: Props) => {
           }
         }`,
         variables: {
-          where: { id: 1682 },
+          where: { id: assessmentId },
           literacyAssessmentConfigInput: {},
         },
       }),
