@@ -31,7 +31,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
-  email: z.string().nullable(),
+  email: z.string().optional(),
   experience: z.string(),
   // recommend: z.string().email(),
   feedback: z.string().optional(),
