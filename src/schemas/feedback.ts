@@ -16,7 +16,7 @@ export default defineType({
     },
     {
       name: "feedback",
-      type: "string",
+      type: "text",
       title: "Feedback",
     },
   ],

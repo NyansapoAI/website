@@ -70,7 +70,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
       email: "",
       feedback: "",
       // recommend: "someone@example.com",
-      subscribe: false,
+      subscribe: true,
     },
   })
   const { mutate, isLoading } = useMutation({
@@ -99,7 +99,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
       } else {
         await sanityClient.create({
           _type: "feedback",
-          email: "Anonymous",
+          email: data.email,
           experience: data.experience,
           feedback: data.feedback,
         })
