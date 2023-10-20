@@ -64,7 +64,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`scroll-smooth ${raleway.className}`}>
-      <body className="  relative dark bg-background duration-400">
+      <body className="dark relative  bg-background duration-400">
         <RootProviders>
           <Toaster />
           <AssessmentsNavbar />
