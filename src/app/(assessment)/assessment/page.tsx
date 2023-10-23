@@ -27,10 +27,9 @@ export default function page({}: Props) {
               It is a digital rapid assessment tool that uses Artificial
               Intelligence (AI) to diagnose the literacy learning gaps of
               children in lower primary. The current Nyansapo AI Assessments
-              follow the Teaching at the Right Level (TaRL) assessment protocol
-              and classify children in the beginner, letter, word, paragraph,
-              story, and above learning levels according to their reading
-              performance.
+              follow the Uwezo assessment protocol and classify children in the
+              beginner, letter, word, paragraph, story, and above learning
+              levels according to their reading performance.
             </CardDescription>
             <Link
               className={cn(
@@ -47,16 +46,16 @@ export default function page({}: Props) {
             <CardDescription className="text-md py-2">
               The Nyansapo AI mobile assessments help parents, teachers, and
               Education institutions monitor children&apos;s literacy learning
-              gaps and progress. For teachers implementing accelerated learning
-              programs (ALP) or TaRL literacy intervention, the Nyansapo AI
-              mobile application provides a holistic digital platform to manage
-              your remedial class. The Nyansapo AI assessments allow you to
-              assess your children quickly and reliably from anywhere to
-              identify their learning gaps. You can track the details of
-              children’s learning gaps—information like the words mispronounced
-              by children, etc. The mobile application also provides a library
-              of teaching guides and activities to deliver targeted lessons to
-              address children&apos;s specific learning gaps.
+              gaps and progress. For teachers implementing literacy and
+              accelerated learning programs (ALP), the Nyansapo AI mobile
+              application provides a holistic digital platform to manage your
+              remedial class. The Nyansapo AI assessments allow you to assess
+              your children quickly and reliably from anywhere to identify their
+              learning gaps. You can track the details of children’s learning
+              gaps—information like the words mispronounced by children, etc.
+              The mobile application also provides a library of teaching guides
+              and activities to deliver targeted lessons to address
+              children&apos;s specific learning gaps.
             </CardDescription>
             <AppGallery />
           </div>
