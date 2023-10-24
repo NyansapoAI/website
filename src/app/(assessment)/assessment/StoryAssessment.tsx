@@ -72,7 +72,7 @@ export const StoryAssessments = ({
       <CardHeader>
         <CardTitle>Story Assessment</CardTitle>
         <CardDescription>
-          Click the start recording button and read the story in the card
+          Read the story, you will be asked questions about it in the next step.
         </CardDescription>
       </CardHeader>
       <CardContent>
