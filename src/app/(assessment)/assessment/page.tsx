@@ -63,9 +63,9 @@ export default function page({}: Props) {
             <CardTitle>How to get Nyansapo AI mobile app? </CardTitle>
             <CardDescription className="text-md py-2">
               The Nyansapo AI mobile application is coming soon. Share your
-              email with us after testing the demonstration web version of the
-              Nyansapo AI literacy assessments, and you will be among the first
-              lucky people to know when we launch.
+              feedbackId with us after testing the demonstration web version of
+              the Nyansapo AI literacy assessments, and you will be among the
+              first lucky people to know when we launch.
             </CardDescription>
           </div>
           <div>

@@ -33,11 +33,10 @@ import { useContext } from "react"
 import { AssessmentContext } from "./AssessmentContext"
 
 const formSchema = z.object({
-  email: z.string().optional(),
-  experience: z.string(),
-  // recommend: z.string().email(),
-  feedback: z.string().optional(),
-  subscribe: z.boolean().default(true).optional(),
+  // recommend: z.string().feedbackId(),
+  postAssessmentFeedback: z.string().optional(),
+  agree: z.boolean().default(true),
+  adopt: z.string(),
 })
 type Props = {
   setCurrentItem: React.Dispatch<React.SetStateAction<number>>
@@ -64,49 +63,58 @@ const experience = [
     label: "Very Bad",
   },
 ]
-export function Questionnaire({ setCurrentItem }: Props) {
-  const { setFeedbackId } = useContext(AssessmentContext)
+const adoption = [
+  {
+    value: "Strongly agree",
+    label: "Strongly Agree",
+  },
+  {
+    value: "Agree",
+    label: "Agree",
+  },
+  {
+    value: "disagree",
+    label: "Disagree",
+  },
+  {
+    value: "Strongly disagree",
+    label: "Strongly Disagree",
+  },
+]
+const agree = [
+  {
+    value: "yes",
+    label: "Yes",
+  },
+  {
+    value: "no",
+    label: "No",
+  },
+]
+export function ResultsQuestionnaire({ setCurrentItem }: Props) {
+  const { feedbackId, setFeedbackId } = useContext(AssessmentContext)
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      feedback: "",
+      postAssessmentFeedback: "",
+      adopt: "",
       // recommend: "someone@example.com",
-      subscribe: true,
+      agree: true,
     },
   })
   const { mutate, isLoading } = useMutation({
     mutationFn: async (data: z.infer<typeof formSchema>) => {
-      if (data.subscribe) {
-        const users = await sanityClient.fetch(
-          `*[_type == "subscribers" && email == $email]`,
-          {
-            email: data.email,
-          }
-        )
-        if (users.length > 0) {
-          return
-        }
-
-        await sanityClient.create({
-          _type: "subscribers",
-          email: data.email,
-        })
-        await sanityClient.create({
+      await sanityClient
+        .patch(feedbackId)
+        .set({
           _type: "feedback",
-          email: data.email,
-          experience: data.experience,
-          feedback: data.feedback,
+          agree: data.agree ? "yes" : "No",
+          adopt: data.adopt,
+          postAssessmentFeedback: data.postAssessmentFeedback,
         })
-      } else {
-        await sanityClient.create({
-          _type: "feedback",
-          email: data.email,
-          experience: data.experience,
-          feedback: data.feedback,
-        })
-      }
+        .commit()
     },
     onSuccess: () => {
       setCurrentItem(assessmentVariants.results)
@@ -122,18 +130,13 @@ export function Questionnaire({ setCurrentItem }: Props) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values)
-    if (values?.email) {
-      setFeedbackId(values.email)
-    }
     mutate(values)
   }
   return (
     <Card className="bg-transparent shadow-none border-none">
       <CardHeader>
-        <CardTitle>Finishing up</CardTitle>
-        <CardDescription>
-          please fill the form below to view your results
-        </CardDescription>
+        <CardTitle>Assessment Survey</CardTitle>
+        <CardDescription>please fill the form below</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -143,80 +146,77 @@ export function Questionnaire({ setCurrentItem }: Props) {
           >
             <FormField
               control={form.control}
-              name="email"
+              name="agree"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      className="bg-blue-500/10 border-blue-800 max-w-[250px]"
-                      placeholder="email"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    We will only keep your email if you allow us to send you
-                    news and updates
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="subscribe"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 ">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormDescription>
-                      Send me News and Important Updates
-                    </FormDescription>
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="experience"
-              render={({ field }) => (
-                <FormItem className="space-y-3">
-                  <FormLabel className="text-md">
-                    What was your overall experience with assessment...
+                <FormItem className="space-x-3 space-y-2 ">
+                  <FormLabel className="text-md ">
+                    Do you agree with the assessment results...
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      className="flex gap-4 items-center space-y-1 space-x-2"
+                      className="flex gap-4 items-center space-y-0 space-x-2"
                     >
-                      {experience.map((expectation) => (
+                      {agree.map((item) => (
                         <FormItem
-                          key={expectation.value}
+                          key={item.value}
                           className="flex items-center space-x-3 space-y-0"
                         >
                           <FormControl>
-                            <RadioGroupItem value={expectation.value} />
+                            <RadioGroupItem value={item.value} />
                           </FormControl>
                           <FormLabel className="font-normal">
-                            {expectation.label}
+                            {item.label}
+                          </FormLabel>
+                        </FormItem>
+                      ))}
+                    </RadioGroup>
+                    {/* <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    /> */}
+                  </FormControl>
+                  <div className="space-y-1 leading-none"></div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="adopt"
+              render={({ field }) => (
+                <FormItem className="space-x-3 space-y-2 ">
+                  <FormLabel className="text-md ">
+                    Would you consider adopting this platform for your
+                    accelerated learning programs?
+                  </FormLabel>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      className="flex gap-4 items-center space-y-0 space-x-2"
+                    >
+                      {adoption.map((item) => (
+                        <FormItem
+                          key={item.value}
+                          className="flex items-center space-x-3 space-y-0"
+                        >
+                          <FormControl>
+                            <RadioGroupItem value={item.value} />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {item.label}
                           </FormLabel>
                         </FormItem>
                       ))}
                     </RadioGroup>
                   </FormControl>
-                  <FormMessage />
+                  <div className="space-y-1 leading-none"></div>
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
-              name="feedback"
+              name="postAssessmentFeedback"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-md">
@@ -249,7 +249,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
               )}
             /> */}
             <Button type="submit" className="max-w-fit" disabled={isLoading}>
-              {isLoading ? <Spinner /> : "View Results"}
+              {isLoading ? <Spinner /> : "Submit"}
             </Button>
           </form>
         </Form>

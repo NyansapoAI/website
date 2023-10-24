@@ -145,12 +145,16 @@ export const initialAssessmentInput: AssessmentInput = {
 type ContextType = {
   setAssessmentId: React.Dispatch<React.SetStateAction<number | undefined>>
   assessmentId: number | undefined
+  feedbackId: string
+  setFeedbackId: React.Dispatch<React.SetStateAction<string>>
   assessmentInput: AssessmentInput
   setAssessmentInput: React.Dispatch<React.SetStateAction<AssessmentInput>>
 }
 const AssessmentContext = React.createContext<ContextType>({
   assessmentInput: initialAssessmentInput,
   setAssessmentInput: () => {},
+  feedbackId: "",
+  setFeedbackId: () => {},
   setAssessmentId: () => {},
   assessmentId: undefined,
 })

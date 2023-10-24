@@ -20,9 +20,11 @@ import ParagraphResult from "./results/ParagraphResult"
 import StoryResult from "./results/StoryResult"
 import WordResult from "./results/WordResult"
 import StoryQuestionResults from "./results/StoryQuestionResults"
+import { assessmentVariants } from "./Assessment"
 
 type Props = {
   assessment_id: string
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
 }
 const AssessmentResults = (props: Props) => {
   const { width, height } = useWindowSize()
@@ -204,6 +206,12 @@ const AssessmentResults = (props: Props) => {
 
             <Button className="mx-auto block" onClick={() => location.reload()}>
               Start Again
+            </Button>
+            <Button
+              className="mx-auto block"
+              onClick={() => props.setCurrentItem(assessmentVariants.feedback)}
+            >
+              Give feedback
             </Button>
           </CardContent>
         </Card>

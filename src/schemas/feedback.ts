@@ -19,5 +19,21 @@ export default defineType({
       type: "text",
       title: "Feedback",
     },
+    {
+      name: "postAssessmentFeeback",
+      type: "string",
+      title: "Post Assessment Feeback",
+    },
+    {
+      name: "agree",
+      type: "text",
+      title: "Do you agree with the Assessment results",
+    },
+    {
+      name: "adopt",
+      type: "text",
+      title:
+        "  Would you consider adopting this platform for your accelerated learning programs? ",
+    },
   ],
 })

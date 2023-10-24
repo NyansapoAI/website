@@ -17,6 +17,7 @@ import {
 import Lottie from "lottie-react"
 import transition from "@/lottie/transition.json"
 import { Questionnaire } from "./Questionnaire"
+import { ResultsQuestionnaire } from "./ResultsQuestionnaire"
 type Props = {
   literacyAssessment: LiteracyAssessment["literacyAssessmentContent"]
 }
@@ -28,6 +29,7 @@ export const assessmentVariants = {
   storyQuestions: 4,
   questionnaire: 5,
   results: 6,
+  feedback: 7,
 } as const
 
 export function Assessment({ literacyAssessment }: Props) {
@@ -36,6 +38,7 @@ export function Assessment({ literacyAssessment }: Props) {
   const [currentItem, setCurrentItem] = React.useState<number>(
     assessmentVariants.letter
   )
+  const [feedbackId, setFeedbackId] = React.useState<string>("")
   const [assessmentData, setAssessmentData] = React.useState<AssessmentInput>(
     initialAssessmentInput
   )
@@ -52,6 +55,8 @@ export function Assessment({ literacyAssessment }: Props) {
     <AssessmentContext.Provider
       value={{
         assessmentId: assessmentId,
+        feedbackId: feedbackId,
+        setFeedbackId: setFeedbackId,
         setAssessmentId: setAssessmentId,
         assessmentInput: assessmentData,
         setAssessmentInput: setAssessmentData,
@@ -100,7 +105,19 @@ export function Assessment({ literacyAssessment }: Props) {
               <Questionnaire setCurrentItem={setCurrentItem} />
             ) : null}
             {currentItem == assessmentVariants.results ? (
-              <AssessmentResults assessment_id="1" />
+              <AssessmentResults
+                setCurrentItem={setCurrentItem}
+                assessment_id="1"
+              />
+            ) : null}
+            {currentItem == assessmentVariants.results ? (
+              <AssessmentResults
+                setCurrentItem={setCurrentItem}
+                assessment_id="1"
+              />
+            ) : null}
+            {currentItem == assessmentVariants.feedback ? (
+              <ResultsQuestionnaire setCurrentItem={setCurrentItem} />
             ) : null}
           </CardContent>
         )}
