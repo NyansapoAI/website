@@ -99,30 +99,91 @@ export const StoryQuestions = ({
     },
   })
   const handleChange = (value: string) => {
-    setAssessmentInput((prev) => {
-      return {
-        ...prev,
-        questionAssessmentResults: {
-          create: [
-            ...prev.questionAssessmentResults.create,
-            {
-              answerFromUser:
-                storyQuestions[
-                  currentQuestion
-                ].multipleChoiceQuestionAnswers.find(
-                  (item) => item.id == parseInt(value)
-                )?.answer ?? "",
-              multipleChoiceQuestion: {
-                connect: { id: storyQuestions[currentQuestion].id },
+    //check if the current question is already added
+    //if it is, update the answer
+    //if not, add the question
+
+    console.log("value", value)
+    if (
+      !assessmentInput.questionAssessmentResults.create.some(
+        (item) =>
+          item.multipleChoiceQuestion.connect.id ==
+          storyQuestions[currentQuestion].id
+      )
+    ) {
+      setAssessmentInput((prev) => {
+        return {
+          ...prev,
+          questionAssessmentResults: {
+            create: [
+              ...prev.questionAssessmentResults.create,
+              {
+                answerFromUser:
+                  storyQuestions[
+                    currentQuestion
+                  ].multipleChoiceQuestionAnswers.find(
+                    (item) => item.id == parseInt(value)
+                  )?.answer ?? "",
+                multipleChoiceQuestion: {
+                  connect: { id: storyQuestions[currentQuestion].id },
+                },
+                multipleChoiceQuestionAnswer: {
+                  connect: { id: parseInt(value) },
+                },
               },
-              multipleChoiceQuestionAnswer: {
-                connect: { id: parseInt(value) },
-              },
-            },
-          ],
-        },
-      }
-    })
+            ],
+          },
+        }
+      })
+    } else {
+      setAssessmentInput((prev) => {
+        return {
+          ...prev,
+          questionAssessmentResults: {
+            create: prev.questionAssessmentResults.create.map((item) => {
+              if (
+                item.multipleChoiceQuestion.connect.id ==
+                storyQuestions[currentQuestion].id
+              ) {
+                return {
+                  ...item,
+                  multipleChoiceQuestionAnswer: {
+                    connect: { id: parseInt(value) },
+                  },
+                }
+              } else {
+                return item
+              }
+            }),
+          },
+        }
+      })
+    }
+
+    // setAssessmentInput((prev) => {
+    //   return {
+    //     ...prev,
+    //     questionAssessmentResults: {
+    //       create: [
+    //         ...prev.questionAssessmentResults.create,
+    //         {
+    //           answerFromUser:
+    //             storyQuestions[
+    //               currentQuestion
+    //             ].multipleChoiceQuestionAnswers.find(
+    //               (item) => item.id == parseInt(value)
+    //             )?.answer ?? "",
+    //           multipleChoiceQuestion: {
+    //             connect: { id: storyQuestions[currentQuestion].id },
+    //           },
+    //           multipleChoiceQuestionAnswer: {
+    //             connect: { id: parseInt(value) },
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   }
+    // })
   }
   const handleNext = () => {
     if (currentQuestion < storyQuestions.length - 1) {

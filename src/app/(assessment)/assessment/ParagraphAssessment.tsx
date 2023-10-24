@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { Mic } from "lucide-react"
 import { Paragraph, WhisperApiResponse } from "./start/types"
-import { assessmentVariants } from "./Assessment"
+import { AssessmentConfig, assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
 import { splitIntoTwoSentencesEach } from "@/lib/utils"
@@ -54,7 +54,7 @@ export const ParagraphAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentParagraph < 1) {
+    if (currentParagraph < AssessmentConfig.totalParagraphs) {
       setCurrentParagraph(currentParagraph + 1)
     } else {
       setCurrentItem(assessmentVariants.story)
@@ -68,17 +68,17 @@ export const ParagraphAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit bg-transparent border-none mx-auto px-4 md:px-12">
+    <Card className="md:max-w-fit w-full bg-transparent border-none mx-auto  lg:px-12">
       <CardHeader>
         <CardTitle>Paragraph Assessment</CardTitle>
         <CardDescription>
           Click the start recording button and read the paragraph in the card
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-6 ">
+      <CardContent>
         <AssessmentContent
           suffix="."
-          className="text-xl px-8 py-16"
+          className="text-xl w-full p-6 sm:p-8 lg:p-12"
           content={paragraphs[currentParagraph].paragraph}
         />
       </CardContent>

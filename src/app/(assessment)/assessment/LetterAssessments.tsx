@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { assessmentVariants } from "./Assessment"
+import { AssessmentConfig, assessmentVariants } from "./Assessment"
 import { Letter, WhisperApiResponse } from "./start/types"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
@@ -47,7 +47,7 @@ export const LetterAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentLetter < 6) {
+    if (currentLetter < AssessmentConfig.totalLetters) {
       setCurrentLetter(currentLetter + 1)
     } else {
       setCurrentItem(assessmentVariants.word)
@@ -61,15 +61,15 @@ export const LetterAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit shadow-none border-none bg-transparent mx-auto px-12">
+    <Card className="max-w-fit shadow-none border-none bg-transparent mx-auto lg:px-12">
       <CardHeader>
         <CardTitle>Letter Assessment</CardTitle>
-        <CardDescription>
+        <CardDescription className="max-w-2xl">
           Click the start recording button and read the letter in the card, once
           you are done reading, click stop recording
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-12 ">
+      <CardContent>
         <AssessmentContent content={letterAssessment[currentLetter].letter} />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">

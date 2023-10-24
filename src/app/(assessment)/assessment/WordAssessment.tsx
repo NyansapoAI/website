@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { WhisperApiResponse, Word } from "./start/types"
-import { assessmentVariants } from "./Assessment"
+import { AssessmentConfig, assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
 import { AssessmentContent } from "./AssessmentContent"
@@ -47,7 +47,7 @@ export const WordAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentWord < 6) {
+    if (currentWord < AssessmentConfig.totalWords) {
       setCurrentWord(currentWord + 1)
     } else {
       setCurrentItem(assessmentVariants.paragraph)
@@ -61,14 +61,14 @@ export const WordAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit bg-transparent border-none mx-auto px-12">
+    <Card className="max-w-fit bg-transparent border-none mx-auto lg:px-12">
       <CardHeader>
         <CardTitle>Word Assessment</CardTitle>
         <CardDescription>
           Click the start recording button and read the word in the card
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-12">
+      <CardContent>
         <AssessmentContent content={wordAssessment[currentWord].word} />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">

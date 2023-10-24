@@ -31,7 +31,11 @@ export const assessmentVariants = {
   results: 6,
   feedback: 7,
 } as const
-
+export const AssessmentConfig = {
+  totalLetters: 2,
+  totalWords: 2,
+  totalParagraphs: 1,
+} as const
 export function Assessment({ literacyAssessment }: Props) {
   const [loading, setLoading] = React.useState<boolean>(false)
   const [assessmentId, setAssessmentId] = React.useState<number | undefined>()
@@ -62,10 +66,10 @@ export function Assessment({ literacyAssessment }: Props) {
         setAssessmentInput: setAssessmentData,
       }}
     >
-      <Card className="max-w-fit w-full border-none h-full  mt-8  bg-transparent mx-auto ">
+      <Card className="sm:max-w-fit w-full border-none h-full  mt-8  bg-transparent mx-auto ">
         {loading ? (
           <Lottie
-            className=" max-w-[625px] max-h-[550px] "
+            className=" max-w-[625px] max-h-[600px] "
             animationData={transition}
             loop={false}
           />
@@ -110,12 +114,7 @@ export function Assessment({ literacyAssessment }: Props) {
                 assessment_id="1"
               />
             ) : null}
-            {currentItem == assessmentVariants.results ? (
-              <AssessmentResults
-                setCurrentItem={setCurrentItem}
-                assessment_id="1"
-              />
-            ) : null}
+
             {currentItem == assessmentVariants.feedback ? (
               <ResultsQuestionnaire setCurrentItem={setCurrentItem} />
             ) : null}

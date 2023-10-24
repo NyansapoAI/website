@@ -85,34 +85,35 @@ export function Questionnaire({ setCurrentItem }: Props) {
             email: data.email,
           }
         )
-        if (users.length > 0) {
-          return
+        if (users.length < 1) {
+          await sanityClient.create({
+            _type: "subscribers",
+            email: data.email,
+          })
         }
 
-        await sanityClient.create({
-          _type: "subscribers",
-          email: data.email,
-        })
-        await sanityClient.create({
+        const feedback = await sanityClient.create({
           _type: "feedback",
           email: data.email,
           experience: data.experience,
           feedback: data.feedback,
         })
+        return feedback
       } else {
-        await sanityClient.create({
+        const feedback = await sanityClient.create({
           _type: "feedback",
           email: data.email,
           experience: data.experience,
           feedback: data.feedback,
         })
+        return feedback
       }
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      setFeedbackId(data?._id ?? "")
       setCurrentItem(assessmentVariants.results)
     },
     onError: (err: Error) => {
-      console.log(err)
       toast.error(err.message)
     },
   })
@@ -121,10 +122,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
-    if (values?.email) {
-      setFeedbackId(values.email)
-    }
+
     mutate(values)
   }
   return (
@@ -193,7 +191,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="flex gap-4 items-center space-y-1 space-x-2"
+                      className="flex flex-wrap gap-4 items-center space-y-1 space-x-2"
                     >
                       {experience.map((expectation) => (
                         <FormItem

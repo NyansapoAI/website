@@ -26,10 +26,11 @@ export const StoryAssessments = ({
 }: StoryAssessmentProps) => {
   const [currentStory, setCurrentStory] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
-  const stories = React.useMemo(
-    () => splitIntoTwoSentencesEach<Story>(storyAssessment),
-    [storyAssessment]
-  )
+  // const stories = React.useMemo(
+  //   () => splitIntoTwoSentencesEach<Story>(storyAssessment),
+  //   [storyAssessment]
+  // )
+  const stories = storyAssessment
   const handleSave = (data: WhisperApiResponse) => {
     setAssessmentInput((prev) => {
       return {
@@ -67,17 +68,18 @@ export const StoryAssessments = ({
   }
 
   return (
-    <Card className="max-w-fit bg-transparent border-none mx-auto px-4 md:px-8">
+    <Card className="max-w-fit border-none bg-transparent  mx-auto  lg:px-12">
       <CardHeader>
         <CardTitle>Story Assessment</CardTitle>
         <CardDescription>
           Click the start recording button and read the story in the card
         </CardDescription>
       </CardHeader>
-      <CardContent className="py-6 ">
+      <CardContent>
         <AssessmentContent
           suffix="."
-          className="text-xl px-4 py-16"
+          className="text-lg sm:text-xl font-normal px-2 text-left sm:px-4  sm:w-full lg:w-[675px] flex-wrap 
+        md:px-8"
           content={stories[currentStory].story}
         />
       </CardContent>
@@ -85,10 +87,8 @@ export const StoryAssessments = ({
         {/* <Button variant="outline" onClick={handleBack}>
           Back
         </Button> */}
-        <RecordButton setCurrentItem={setCurrentItem} callback={handleSave} />
-        {/* <Button variant="outline" onClick={handleNext}>
-          Next
-        </Button> */}
+        {/* <RecordButton setCurrentItem={setCurrentItem} callback={handleSave} /> */}
+        <Button onClick={handleNext}>Next</Button>
       </CardFooter>
     </Card>
   )

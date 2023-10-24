@@ -20,7 +20,7 @@ export default defineType({
       title: "Feedback",
     },
     {
-      name: "postAssessmentFeeback",
+      name: "postAssessmentFeedback",
       type: "string",
       title: "Post Assessment Feeback",
     },

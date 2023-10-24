@@ -20,7 +20,7 @@ import ParagraphResult from "./results/ParagraphResult"
 import StoryResult from "./results/StoryResult"
 import WordResult from "./results/WordResult"
 import StoryQuestionResults from "./results/StoryQuestionResults"
-import { assessmentVariants } from "./Assessment"
+import { AssessmentConfig, assessmentVariants } from "./Assessment"
 
 type Props = {
   assessment_id: string
@@ -117,7 +117,16 @@ const AssessmentResults = (props: Props) => {
         }`,
         variables: {
           where: { id: assessmentId },
-          literacyAssessmentConfigInput: {},
+          literacyAssessmentConfigInput: {
+            numberOfLettersThatShouldBeWrongOrAboveToFailLetterAssessment:
+              AssessmentConfig.totalLetters,
+            numberOfWordsThatShouldBeWrongOrAboveToFailWordAssessment:
+              AssessmentConfig.totalWords,
+            numberOfWordsThatShouldBeWrongOrAboveToFailParagraphAssessment:
+              AssessmentConfig.totalParagraphs,
+            numberOfWordsThatShouldBeWrongOrAboveToFailStoryAssessment: 0,
+            numberOfQuestionsThatShouldBeWrongOrAboveToFailAboveAssessment: 2,
+          },
         },
       }),
     })
@@ -139,10 +148,10 @@ const AssessmentResults = (props: Props) => {
         <Confetti
           recycle={false}
           className="absolute"
-          width={width ?? 600}
-          height={height ?? 600}
+          width={width ? width - 100 : 600}
+          height={height ? height - 100 : 600}
         />
-        <Card className="z-50 max-w-fit bg-transapent border-none mx-auto ">
+        <Card className="z-50 max-w-fit border-none lg:max-w-5xl bg-transparent mx-auto ">
           <CardHeader className="text-center">
             <CardTitle className="">
               🎉&nbsp;Congratulations on Completing your Assessment
@@ -155,8 +164,8 @@ const AssessmentResults = (props: Props) => {
               &nbsp;Level
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-4 justify-center">
-            <div className="space-y-4 rounded-md p-6 max-h-screen scrollbar-thin scrollbar-track-rounded-sm scrollbar-thumb-blue-900 scrollbar-track-transparent overflow-y-auto">
+          <CardContent className="flex dark:bg-slate-900 rounded-md flex-col gap-4 lg:mt-6 justify-center">
+            <div className="space-y-4 rounded-md p-6 max-h-screen scrollbar-thin scrollbar-track-rounded-sm scrollbar-thumb-rounded-sm scrollbar-thumb-slate-800 scrollbar-track-transparent overflow-y-auto">
               {data.data?.literacyAssessment &&
                 data.data?.literacyAssessment.letterAssessmentResults.length >
                   0 && (
@@ -203,17 +212,15 @@ const AssessmentResults = (props: Props) => {
                   />
                 )}
             </div>
-
-            <Button className="mx-auto block" onClick={() => location.reload()}>
-              Start Again
-            </Button>
+          </CardContent>
+          <CardFooter className="flex py-3 justify-center items-center gap-6">
+            {/* <Button onClick={() => location.reload()}>Start Again</Button> */}
             <Button
-              className="mx-auto block"
               onClick={() => props.setCurrentItem(assessmentVariants.feedback)}
             >
               Give feedback
             </Button>
-          </CardContent>
+          </CardFooter>
         </Card>
       </>
     )

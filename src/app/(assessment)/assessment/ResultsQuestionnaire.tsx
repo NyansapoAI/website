@@ -35,7 +35,7 @@ import { AssessmentContext } from "./AssessmentContext"
 const formSchema = z.object({
   // recommend: z.string().feedbackId(),
   postAssessmentFeedback: z.string().optional(),
-  agree: z.boolean().default(true),
+  agree: z.string(),
   adopt: z.string(),
 })
 type Props = {
@@ -101,7 +101,6 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
       postAssessmentFeedback: "",
       adopt: "",
       // recommend: "someone@example.com",
-      agree: true,
     },
   })
   const { mutate, isLoading } = useMutation({
@@ -117,19 +116,20 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
         .commit()
     },
     onSuccess: () => {
-      setCurrentItem(assessmentVariants.results)
+      toast.success("Thank you for your feedback")
     },
     onError: (err: Error) => {
       console.log(err)
       toast.error(err.message)
     },
   })
-
+  const handleBack = () => {
+    setCurrentItem(assessmentVariants.results)
+  }
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
     mutate(values)
   }
   return (
@@ -148,18 +148,18 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
               control={form.control}
               name="agree"
               render={({ field }) => (
-                <FormItem className="space-x-3 space-y-2 ">
+                <FormItem className="md:space-x-3 space-y-2 ">
                   <FormLabel className="text-md ">
-                    Do you agree with the assessment results...
+                    Do you agree with the assessment results?
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
                       className="flex gap-4 items-center space-y-0 space-x-2"
                     >
-                      {agree.map((item) => (
+                      {agree.map((item, i) => (
                         <FormItem
-                          key={item.value}
+                          key={i}
                           className="flex items-center space-x-3 space-y-0"
                         >
                           <FormControl>
@@ -184,7 +184,7 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
               control={form.control}
               name="adopt"
               render={({ field }) => (
-                <FormItem className="space-x-3 space-y-2 ">
+                <FormItem className="md:space-x-3 space-y-4 ">
                   <FormLabel className="text-md ">
                     Would you consider adopting this platform for your
                     accelerated learning programs?
@@ -192,7 +192,7 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
-                      className="flex gap-4 items-center space-y-0 space-x-2"
+                      className="flex flex-wrap gap-6 lg:items-center space-y-0 md:space-x-2"
                     >
                       {adoption.map((item) => (
                         <FormItem
@@ -248,9 +248,14 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
                 </FormItem>
               )}
             /> */}
-            <Button type="submit" className="max-w-fit" disabled={isLoading}>
-              {isLoading ? <Spinner /> : "Submit"}
-            </Button>
+            <div className="flex items-center gap-6">
+              <Button variant="outline" onClick={handleBack}>
+                Back to Results
+              </Button>
+              <Button type="submit" className="max-w-fit" disabled={isLoading}>
+                {isLoading ? <Spinner /> : "Submit"}
+              </Button>
+            </div>
           </form>
         </Form>
       </CardContent>

@@ -78,22 +78,30 @@ export const RecordButton = ({
     }
   }
   return (
-    <div>
+    <div className="mt-6 md:mt-2">
       {!startRecording ? (
-        <Button disabled={processing} onClick={handleClick}>
+        <Button
+          className="p-6 md:py-4"
+          disabled={processing}
+          onClick={handleClick}
+        >
           {processing ? (
             <>
               <Spinner />
             </>
           ) : (
             <p className="flex gap-1 items-center">
-              <Mic size={25} />
+              <Mic size={30} className="" />
               <span className="hidden sm:flex">Start Recording</span>
             </p>
           )}
         </Button>
       ) : (
-        <Button variant="destructive" onClick={stopRecording}>
+        <Button
+          className="p-6 md:py-4"
+          variant="destructive"
+          onClick={stopRecording}
+        >
           {/* <CircleDot className="animate-pulse" /> */}
           <Lottie className="w-10 h-8  " animationData={vocals} loop={true} />
           &nbsp;Stop Recording
