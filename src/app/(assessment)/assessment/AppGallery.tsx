@@ -5,7 +5,7 @@ type Props = {}
 export default function AppGallery({}: Props) {
   return (
     <div className=" py-6">
-      <div className="grid md:grid-cols-2  gap-8 lg:grid-cols-3">
+      <div className="grid md:grid-cols-2 items-center justify-center  gap-8 lg:grid-cols-3">
         <div>
           <Image
             width={300}

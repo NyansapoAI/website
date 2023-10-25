@@ -64,7 +64,7 @@ export default async function page({}: Props) {
   const resp = await fetchAssessment("1")
 
   return (
-    <div className="px-8 md:px-16 py-8   mx-auto max-w-[1920px]">
+    <div className="sm:px-8 md:px-16 py-6 md:py-8 mx-auto max-w-[1920px]">
       {resp && resp.data.literacyAssessmentContent ? (
         <Assessment literacyAssessment={resp.data.literacyAssessmentContent} />
       ) : (
