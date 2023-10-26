@@ -122,8 +122,7 @@ const AssessmentResults = (props: Props) => {
               AssessmentConfig.totalLetters,
             numberOfWordsThatShouldBeWrongOrAboveToFailWordAssessment:
               AssessmentConfig.totalWords,
-            numberOfWordsThatShouldBeWrongOrAboveToFailParagraphAssessment:
-              AssessmentConfig.totalParagraphs,
+            numberOfWordsThatShouldBeWrongOrAboveToFailParagraphAssessment: 5,
             numberOfWordsThatShouldBeWrongOrAboveToFailStoryAssessment: 0,
             numberOfQuestionsThatShouldBeWrongOrAboveToFailAboveAssessment: 2,
           },
