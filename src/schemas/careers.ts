@@ -14,7 +14,7 @@ export default defineType({
     {
       name: "formUrl",
       type: "url",
-      title: "Application form Url",
+      title: "Application Form Link",
     },
     {
       name: "type",
