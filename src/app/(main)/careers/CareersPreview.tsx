@@ -21,7 +21,10 @@ export default function CareersPreview({ data }: Props) {
     <div className="bg-slate-900 w-full">
       <CardHeader>
         <CardTitle className="flex justify-between items-center w-full">
-          <Link className="group flex-1" href={`/careers/${data.slug.current}`}>
+          <Link
+            className="group flex-1"
+            href={`/careers/${data?.slug?.current}`}
+          >
             <h1 className="text-2xl font-bold  text-center lg:text-left group-hover:text-slate-500 duration-300">
               {data.title}
             </h1>
@@ -29,13 +32,13 @@ export default function CareersPreview({ data }: Props) {
           <a
             target="_blank"
             rel="noreferrer"
-            href={data.formUrl}
+            href={data?.formUrl}
             className={buttonVariants({ variant: "link" })}
           >
             Apply
           </a>
         </CardTitle>
-        <CardDescription>{data.duration}</CardDescription>
+        <CardDescription>{data?.location}</CardDescription>
       </CardHeader>
     </div>
   )

@@ -2,6 +2,8 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { faker } from "@faker-js/faker"
 import { Paragraph, Story } from "@/app/(assessment)/assessment/start/types"
+import { format, formatDistance, parseISO } from "date-fns"
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -40,4 +42,13 @@ export const splitIntoTwoSentencesEach = <T>(text: Text[]) => {
     }
   })
   return splitSentences.flatMap((item) => item)
+}
+export const friendlyDate = (date: string) => {
+  const d = new Date(date)
+  return format(d, "EEE, PPP")
+}
+export const friendlyLastUpdatedDate = (date: string) => {
+  return formatDistance(parseISO(date), Date.now(), {
+    addSuffix: true,
+  })
 }

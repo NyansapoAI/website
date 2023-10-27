@@ -21,21 +21,22 @@ type Props = {}
 // ]
 export type CareersInterface = {
   title: string
-  formUrl: string
+  formUrl?: string
   open?: boolean
   _updatedAt?: string
   _createdAt?: string
+  deadline?: string
   location?: string
   department?: string
-  duration?: string
+  role?: string
   body?: any[]
   _id: string
-  slug: {
+  slug?: {
     current: string
   }
 }
 export const revalidate = 0
-const careersQuery = groq`*[_type=='careers'&& open==true]{title,formUrl,_id,department,duration,location,slug}`
+const careersQuery = groq`*[_type=='careers'&& open==true]{title,location,_id,slug}`
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
 export default async function page({}: Props) {
   const careers = await clientFetch<CareersInterface[]>(careersQuery)

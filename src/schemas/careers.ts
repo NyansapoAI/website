@@ -36,9 +36,9 @@ export default defineType({
       title: "Applications Open",
     },
     {
-      name: "type",
+      name: "role",
       type: "string",
-      title: "Duration",
+      title: "Role Type",
     },
     {
       name: "location",

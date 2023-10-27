@@ -17,16 +17,16 @@ import {
   Users2,
 } from "lucide-react"
 import { Button, buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { cn, friendlyDate } from "@/lib/utils"
 type Props = {
   params: { slug: string }
 }
-// export async function generateMetadata({ params }: any): Promise<Metadata> {
-//   const query = groq`*[_type=='careers' && slug.current=='${params.slug}']{body, title, _createdAt,formUrl, publishedAt, _rev, _type, _id, _updatedAt, slug,status}`
-//   const data = await clientFetch<CareersInterface[]>(query)
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const query = groq`*[_type=='careers' && slug.current=='${params.slug}']{ title}`
+  const data = await clientFetch<CareersInterface[]>(query)
 
-//   return { title: data[0].title }
-// }
+  return { title: data[0].title }
+}
 
 const components = {
   types: {
@@ -46,16 +46,24 @@ const components = {
       )
     },
   },
+  listItem: {
+    bullet: ({ children }: { children?: any }) => (
+      <li className="ml-6 my-1 text-muted-foreground">{children}</li>
+    ),
+    number: ({ children }: { children?: any }) => (
+      <li className="ml-6 my-1 text-muted-foreground">{children}</li>
+    ),
+  },
   block: {
     // Ex. 1: customizing common block types
     h1: ({ children }: { children?: any }) => (
-      <h1 className="text-4xl font-bold">{children}</h1>
+      <h1 className="text-4xl my-2 font-bold">{children}</h1>
     ),
     h2: ({ children }: { children?: any }) => (
-      <h1 className="text-3xl font-bold">{children}</h1>
+      <h3 className="text-3xl my-2 font-bold">{children}</h3>
     ),
     h3: ({ children }: { children?: any }) => (
-      <h1 className="text-2xl font-bold">{children}</h1>
+      <h3 className="text-2xl my-2  font-bold">{children}</h3>
     ),
     normal: ({ children }: { children?: any }) => (
       <p className="text-muted-foreground">{children}</p>
@@ -86,9 +94,9 @@ const components = {
   },
 }
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
-export const revalidate = 3000
+export const revalidate = 0
 export default async function page({ params }: Props) {
-  const query = groq`*[_type=='careers' && slug.current=='${params.slug}']{body, title, _createdAt, _id,department,duration,location, _updatedAt, slug,status}`
+  const query = groq`*[_type=='careers' && slug.current=='${params.slug}']{body, title, _createdAt,formUrl, _id,department,role,location,deadline, _updatedAt, slug}`
   const data = await clientFetch<CareersInterface[]>(query)
   const career = data[0]
   return (
@@ -111,15 +119,20 @@ export default async function page({ params }: Props) {
                 <span>{career?.location ?? ""}</span>
               </p>
             )}
-            {career?.duration && (
+            {career?.role && (
               <p className="flex items-center gap-2">
                 <Timer className="text-muted-foreground" />
-                <span>{career?.duration ?? ""}</span>
+                <span>{career?.role ?? ""}</span>
               </p>
             )}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div className="md:col-span-2 md:col-start-11 self-end ">
+          <div className="grid md:pt-12 grid-cols-1 justify-start md:grid-cols-12 gap-6">
+            <div className="leading-7 row-start-2 md:row-start-1  md:col-span-10 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
+              {career && career?.body && (
+                <PortableText value={career.body} components={components} />
+              )}
+            </div>
+            <div className="md:col-span-2 row-start-1  md:col-start-11 ">
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -131,10 +144,12 @@ export default async function page({ params }: Props) {
               >
                 Apply
               </a>
-            </div>
-            <div className="leading-7 md:col-span-10 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
-              {career && career?.body && (
-                <PortableText value={career.body} components={components} />
+
+              {career.deadline && (
+                <p className="flex flex-col">
+                  <span className="text-destructive">Deadline</span>
+                  <span>{friendlyDate(career.deadline)}</span>
+                </p>
               )}
             </div>
           </div>
