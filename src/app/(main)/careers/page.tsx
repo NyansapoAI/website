@@ -47,7 +47,7 @@ export default async function page({}: Props) {
           We are currently looking for help in the following areas
         </p>
       </div>
-      <div className="flex border-t md:w-3/4 lg:w-1/2 border-slate-500 flex-col w-full items-center justify-center divide-y-2 divide-slate-500 ">
+      <div className="flex border-t md:w-3/4 lg:w-1/2 border-slate-500 flex-col gap-6 w-full items-center justify-center divide-y-2 divide-slate-500 ">
         {careers && careers.length > 0 ? (
           careers.map((career) => (
             <CareersPreview key={career._id} data={career} />
