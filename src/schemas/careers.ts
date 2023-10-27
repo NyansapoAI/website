@@ -17,9 +17,14 @@ export default defineType({
       title: "Application Form Link",
     },
     {
+      name: "deadline",
+      type: "datetime",
+      title: "Application Deadline",
+    },
+    {
       name: "type",
       type: "string",
-      title: "duration",
+      title: "Duration",
     },
     {
       name: "location",
@@ -66,7 +71,6 @@ export default defineType({
   preview: {
     select: {
       title: "title",
-      media: "mainImage",
     },
   },
 })
