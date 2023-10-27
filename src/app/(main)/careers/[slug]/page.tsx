@@ -119,17 +119,19 @@ export default async function page({ params }: Props) {
             )}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={career.formUrl}
-              className={cn(
-                buttonVariants({ variant: "default" }),
-                "self-end w-full my-3 py-6 px-8 md:max-w-fit md:col-span-2 md:col-start-11"
-              )}
-            >
-              Apply
-            </a>
+            <div className="md:col-span-2 md:col-start-11 self-end ">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={career.formUrl}
+                className={cn(
+                  buttonVariants({ variant: "default" }),
+                  "w-full my-3 py-6 px-8 md:max-w-fit "
+                )}
+              >
+                Apply
+              </a>
+            </div>
             <div className="leading-7 md:col-span-10 text-lg max-w-2xl mx-auto dark:text-slate-100 ">
               {career && career?.body && (
                 <PortableText value={career.body} components={components} />

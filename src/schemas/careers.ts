@@ -12,6 +12,15 @@ export default defineType({
       title: "Title",
     },
     {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: {
+        source: "title",
+        maxLength: 96,
+      },
+    },
+    {
       name: "formUrl",
       type: "url",
       title: "Application Form Link",
@@ -20,6 +29,11 @@ export default defineType({
       name: "deadline",
       type: "datetime",
       title: "Application Deadline",
+    },
+    {
+      name: "open",
+      type: "boolean",
+      title: "Applications Open",
     },
     {
       name: "type",
@@ -36,22 +50,6 @@ export default defineType({
       type: "string",
       title: "Department",
     },
-    {
-      name: "open",
-      type: "boolean",
-      title: "Applications Open",
-    },
-
-    {
-      name: "slug",
-      type: "slug",
-      title: "Slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
-    },
-
     {
       name: "publishedAt",
       type: "datetime",
