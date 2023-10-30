@@ -8,6 +8,7 @@ import { WhisperApiResponse } from "./start/types"
 import Spinner from "@/components/ui/spinner"
 import Lottie from "lottie-react"
 import vocals from "@/lottie/vocals.json"
+import EnablePermissions from "./EnablePermissions"
 type RecordButtonProps = {
   setCurrentItem: React.Dispatch<React.SetStateAction<number>>
   callback: (response: WhisperApiResponse) => void
@@ -18,6 +19,7 @@ export const RecordButton = ({
 }: RecordButtonProps) => {
   const [startRecording, setStartRecording] = React.useState<boolean>(false)
   const [processing, setProcessing] = React.useState<boolean>(false)
+  const [open, setOpen] = React.useState<boolean>(false)
   const [recording, setRecording] = React.useState<MediaRecorder | null>(null)
   const [audioUrl, setAudioUrl] = React.useState<string>("")
   const onRecordingComplete = async (blob: Blob) => {
@@ -75,10 +77,13 @@ export const RecordButton = ({
     if (recording) {
       recording.stop()
       setRecording(null)
+    } else {
+      setOpen(true)
     }
   }
   return (
     <div className="mt-6 md:mt-2">
+      <EnablePermissions open={open} setOpen={setOpen} />
       {!startRecording ? (
         <Button
           className="p-6 md:py-4"
