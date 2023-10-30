@@ -37,7 +37,6 @@ export const StoryQuestions = ({
   storyQuestions,
   setCurrentItem,
 }: StoryQuestionProps) => {
-  const [success, setSetSuccess] = React.useState<boolean>(false)
   const [currentQuestion, setCurrentQuestion] = React.useState<number>(0)
   const { setAssessmentInput, setAssessmentId, assessmentInput } =
     React.useContext(AssessmentContext)
@@ -50,54 +49,6 @@ export const StoryQuestions = ({
     [storyQuestions, currentQuestion]
   )
 
-  const { mutate, isLoading } = useMutation({
-    mutationFn: async (data: typeof assessmentInput) => {
-      return axios
-        .post(
-          process.env.NEXT_PUBLIC_API_URL!,
-          {
-            query:
-              "mutation CreateOneLiteracyAssessment($data: LiteracyAssessmentCreateInput!, $literacyAssessmentConfigInput: LiteracyAssessmentConfigInput!) {\r\n  createOneLiteracyAssessment(data: $data) {\r\n id\r\n     dynamicallyGeneratedLearningLevel(literacyAssessmentConfigInput: $literacyAssessmentConfigInput) {\r\n      dynamicallyGeneratedLearningLevel\r\n  }\r\n  }\r\n}",
-            variables: {
-              data: {
-                ...data,
-                student: {
-                  create: {
-                    age: 10,
-                    camp: {
-                      connect: {
-                        id: parseInt(
-                          process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!
-                        ),
-                      },
-                    },
-                    gender: Gender.MALE,
-                    lastName: lastName,
-                    firstName: firstName,
-                    grade: 4,
-                  },
-                },
-              },
-              literacyAssessmentConfigInput: {},
-            },
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => response.data)
-    },
-    onSuccess: (data) => {
-      setSetSuccess(true)
-      setAssessmentId(data.data.createOneLiteracyAssessment.id)
-      setCurrentItem(assessmentVariants.questionnaire)
-    },
-    onError: (error) => {
-      console.log("error", error)
-    },
-  })
   const handleChange = (value: string) => {
     //check if the current question is already added
     //if it is, update the answer
@@ -159,31 +110,6 @@ export const StoryQuestions = ({
         }
       })
     }
-
-    // setAssessmentInput((prev) => {
-    //   return {
-    //     ...prev,
-    //     questionAssessmentResults: {
-    //       create: [
-    //         ...prev.questionAssessmentResults.create,
-    //         {
-    //           answerFromUser:
-    //             storyQuestions[
-    //               currentQuestion
-    //             ].multipleChoiceQuestionAnswers.find(
-    //               (item) => item.id == parseInt(value)
-    //             )?.answer ?? "",
-    //           multipleChoiceQuestion: {
-    //             connect: { id: storyQuestions[currentQuestion].id },
-    //           },
-    //           multipleChoiceQuestionAnswer: {
-    //             connect: { id: parseInt(value) },
-    //           },
-    //         },
-    //       ],
-    //     },
-    //   }
-    // })
   }
   const handleNext = () => {
     if (currentQuestion < storyQuestions.length - 1) {
@@ -201,11 +127,10 @@ export const StoryQuestions = ({
   }
   const handleFinish = () => {
     console.log("final data", assessmentInput)
-    mutate(assessmentInput)
+    // mutate(assessmentInput)
+    setCurrentItem(assessmentVariants.questionnaire)
   }
-  return success ? (
-    <Questionnaire setCurrentItem={setCurrentItem} />
-  ) : (
+  return (
     <Card className="max-w-fit bg-transparent border-none mx-auto px-4 m:px-8">
       <CardHeader>
         <CardTitle>Story Questions</CardTitle>
@@ -242,9 +167,7 @@ export const StoryQuestions = ({
         {currentQuestion < storyQuestions.length - 1 ? (
           <Button onClick={handleNext}>Next</Button>
         ) : (
-          <Button onClick={handleFinish}>
-            {isLoading ? <Spinner /> : "Finish"}
-          </Button>
+          <Button onClick={handleFinish}>Finish</Button>
         )}
       </CardFooter>
     </Card>

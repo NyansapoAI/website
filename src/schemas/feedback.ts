@@ -10,6 +10,11 @@ export default defineType({
       title: "Email",
     },
     {
+      name: "studentLink",
+      type: "url",
+      title: "Assessment link",
+    },
+    {
       name: "experience",
       type: "string",
       title: "Experience",

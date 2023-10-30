@@ -25,8 +25,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { useContext } from "react"
@@ -213,7 +211,6 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
                 </FormItem>
               )}
             />
-
             <FormField
               control={form.control}
               name="postAssessmentFeedback"

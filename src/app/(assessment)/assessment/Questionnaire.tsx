@@ -1,5 +1,4 @@
 "use client"
-
 import {
   Form,
   FormControl,
@@ -30,11 +29,13 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { useContext } from "react"
-import { AssessmentContext } from "./AssessmentContext"
+import { AssessmentContext, Gender } from "./AssessmentContext"
+import axios from "axios"
 
 const formSchema = z.object({
   email: z.string().optional(),
   experience: z.string(),
+  studentLink: z.string().optional(),
   // recommend: z.string().email(),
   feedback: z.string().optional(),
   subscribe: z.boolean().default(true).optional(),
@@ -65,7 +66,8 @@ const experience = [
   },
 ]
 export function Questionnaire({ setCurrentItem }: Props) {
-  const { setFeedbackId } = useContext(AssessmentContext)
+  const { setAssessmentId, setFeedbackId, assessmentInput } =
+    useContext(AssessmentContext)
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -76,9 +78,60 @@ export function Questionnaire({ setCurrentItem }: Props) {
       subscribe: true,
     },
   })
-  const { mutate, isLoading } = useMutation({
+  const { mutate: saveAssessment, isLoading: processing } = useMutation({
+    mutationFn: async (data: typeof assessmentInput) => {
+      return axios
+        .post(
+          process.env.NEXT_PUBLIC_API_URL!,
+          {
+            query:
+              "mutation CreateOneLiteracyAssessment($data: LiteracyAssessmentCreateInput!, $literacyAssessmentConfigInput: LiteracyAssessmentConfigInput!) {\r\n  createOneLiteracyAssessment(data: $data) {\r\n id\r\n     dynamicallyGeneratedLearningLevel(literacyAssessmentConfigInput: $literacyAssessmentConfigInput) {\r\n      dynamicallyGeneratedLearningLevel\r\n  }\r\n studentId \r\n  }\r\n}",
+            variables: {
+              data: {
+                ...data,
+                student: {
+                  create: {
+                    age: 10,
+                    camp: {
+                      connect: {
+                        id: parseInt(
+                          process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!
+                        ),
+                      },
+                    },
+                    gender: Gender.MALE,
+                    lastName: "",
+                    firstName: form.getValues("email") ?? "Anonymous",
+                    grade: 4,
+                  },
+                },
+              },
+              literacyAssessmentConfigInput: {},
+            },
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => response.data)
+    },
+    onSuccess: (data) => {
+      console.log(data.data.createOneLiteracyAssessment)
+      setAssessmentId(data.data.createOneLiteracyAssessment.id)
+      saveQuestionnaire({
+        ...form.getValues(),
+        studentLink: `https://dashboard.nyansapoai.net/Test%20Organization%20For%20Training/camps/Web%20Assessments/students/${data.data.createOneLiteracyAssessment.studentId}?campId=51`,
+      })
+    },
+    onError: (error) => {
+      console.log("error", error)
+    },
+  })
+  const { mutate: saveQuestionnaire, isLoading } = useMutation({
     mutationFn: async (data: z.infer<typeof formSchema>) => {
-      if (data.subscribe) {
+      if (data.subscribe && data.email) {
         const users = await sanityClient.fetch(
           `*[_type == "subscribers" && email == $email]`,
           {
@@ -95,6 +148,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
         const feedback = await sanityClient.create({
           _type: "feedback",
           email: data.email,
+          studentLink: data.studentLink,
           experience: data.experience,
           feedback: data.feedback,
         })
@@ -102,7 +156,8 @@ export function Questionnaire({ setCurrentItem }: Props) {
       } else {
         const feedback = await sanityClient.create({
           _type: "feedback",
-          email: data.email,
+          email: data.email ?? "Anonymous",
+          studentLink: data.studentLink,
           experience: data.experience,
           feedback: data.feedback,
         })
@@ -118,12 +173,8 @@ export function Questionnaire({ setCurrentItem }: Props) {
     },
   })
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-
-    mutate(values)
+    saveAssessment(assessmentInput)
   }
   return (
     <Card className="bg-transparent shadow-none border-none">
@@ -247,7 +298,7 @@ export function Questionnaire({ setCurrentItem }: Props) {
               )}
             /> */}
             <Button type="submit" className="max-w-fit" disabled={isLoading}>
-              {isLoading ? <Spinner /> : "View Results"}
+              {isLoading || processing ? <Spinner /> : "View Results"}
             </Button>
           </form>
         </Form>
