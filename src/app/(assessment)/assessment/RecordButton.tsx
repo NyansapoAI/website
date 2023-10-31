@@ -50,9 +50,27 @@ export const RecordButton = ({
       setProcessing(false)
     }
   }
-
+  function isBrowserSupported() {
+    const majorBrowsers = [
+      "Chrome",
+      "Firefox",
+      "Safari",
+      "Edge",
+      "Opera",
+      "Chromium",
+    ]
+    const userAgent = navigator.userAgent
+    return majorBrowsers.some((browser) => userAgent.includes(browser))
+  }
   const handleClick = () => {
     setStartRecording(true)
+    if (!isBrowserSupported()) {
+      toast.error(
+        "Your browser is not supported. Please use Chrome, Firefox, Safari, Edge, Opera, Internet Explorer, Brave, Vivaldi, Tor or Chromium.",
+        { duration: 10000 }
+      )
+      return
+    }
     navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
       const recorder = new MediaRecorder(stream)
       const chunks: Blob[] = []
