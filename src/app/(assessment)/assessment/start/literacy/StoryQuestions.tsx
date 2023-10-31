@@ -1,6 +1,6 @@
 "use client"
 import * as React from "react"
-import { Question } from "./start/types"
+import { Question } from "../types"
 import { Button } from "@/components/ui/button"
 import {
   Card,

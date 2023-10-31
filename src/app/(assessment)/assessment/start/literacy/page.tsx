@@ -1,7 +1,6 @@
 import React from "react"
-import { Assessment } from "./literacy/Assessment"
-import { LiteracyAssessment } from "./types"
-import Link from "next/link"
+import { Assessment } from "./Assessment"
+import { LiteracyAssessment } from "../types"
 
 type Props = {}
 
@@ -66,27 +65,13 @@ export default async function page({}: Props) {
 
   return (
     <div className="sm:px-8 md:px-16 py-6 md:py-8 mx-auto max-w-[1920px]">
-      <div className="flex gap-6 justify-center items-center pt-8 md:pt-16 flex-wrap">
-        <Link
-          className="p-8 rounded-md bg-card "
-          href="/assessment/start/literacy"
-        >
-          Literacy Assessment
-        </Link>
-        <Link
-          className="p-8 rounded-md bg-card"
-          href="/assessment/start/numeracy"
-        >
-          Numeracy Assessment
-        </Link>
-      </div>
-      {/* {resp && resp.data.literacyAssessmentContent ? (
+      {resp && resp.data.literacyAssessmentContent ? (
         <Assessment literacyAssessment={resp.data.literacyAssessmentContent} />
       ) : (
         <p className="text-xl p-4 text-destructive">
           Something went wrong, please refresh the page
         </p>
-      )} */}
+      )}
     </div>
   )
 }

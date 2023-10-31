@@ -2,7 +2,7 @@
 import * as React from "react"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { LiteracyAssessment, Paragraph, Story } from "./start/types"
+import { LiteracyAssessment, Paragraph, Story } from "../types"
 import { LetterAssessments } from "./LetterAssessments"
 import { WordAssessments } from "./WordAssessment"
 import { ParagraphAssessments } from "./ParagraphAssessment"

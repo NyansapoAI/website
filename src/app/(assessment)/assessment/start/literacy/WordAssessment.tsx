@@ -9,41 +9,34 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Mic } from "lucide-react"
-import { Paragraph, WhisperApiResponse } from "./start/types"
+import { WhisperApiResponse, Word } from "../types"
 import { AssessmentConfig, assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
-import { splitIntoTwoSentencesEach } from "@/lib/utils"
 import { AssessmentContent } from "./AssessmentContent"
 
-type ParagraphAssessmentProps = {
-  paragraphAssessment: Paragraph[]
+type LetterAssessmentProps = {
+  wordAssessment: Word[]
   setCurrentItem: React.Dispatch<React.SetStateAction<number>>
 }
-export const ParagraphAssessments = ({
-  paragraphAssessment,
+export const WordAssessments = ({
+  wordAssessment,
   setCurrentItem,
-}: ParagraphAssessmentProps) => {
-  const [currentParagraph, setCurrentParagraph] = React.useState<number>(0)
+}: LetterAssessmentProps) => {
+  const [currentWord, setCurrentWord] = React.useState<number>(0)
   const { setAssessmentInput } = React.useContext(AssessmentContext)
-  const paragraphs = React.useMemo(
-    () => splitIntoTwoSentencesEach<Paragraph>(paragraphAssessment),
-    [paragraphAssessment]
-  )
   const handleSave = (data: WhisperApiResponse) => {
     setAssessmentInput((prev) => {
       return {
         ...prev,
-        paragraphSentenceResults: {
+        wordAssessmentResults: {
           create: [
-            ...prev.paragraphSentenceResults.create,
+            ...prev.wordAssessmentResults.create,
             {
               answerFromOriginalModelPrediction: data.response,
-              durationTheModelTakesToAnalzeEachSentenceInMilliseconds:
+              durationTheModelTakesToAnalzeEachWordInMilliseconds:
                 data.duration,
-              index: paragraphs[currentParagraph].index ?? currentParagraph,
-              expectedAnswer: paragraphs[currentParagraph].paragraph,
+              expectedAnswer: wordAssessment[currentWord].word,
               localAbsolutePathOfRecordedVoiceFile: data.url,
               urlOfRecordedVoice: data.url,
             },
@@ -54,33 +47,29 @@ export const ParagraphAssessments = ({
     handleNext()
   }
   const handleNext = () => {
-    if (currentParagraph < AssessmentConfig.totalParagraphs) {
-      setCurrentParagraph(currentParagraph + 1)
+    if (currentWord < AssessmentConfig.totalWords) {
+      setCurrentWord(currentWord + 1)
     } else {
-      setCurrentItem(assessmentVariants.story)
+      setCurrentItem(assessmentVariants.paragraph)
     }
   }
   const handleBack = () => {
-    if (currentParagraph == 0) setCurrentItem(assessmentVariants.word)
-    if (currentParagraph > 0) {
-      setCurrentParagraph(currentParagraph - 1)
+    if (currentWord == 0) setCurrentItem(assessmentVariants.letter)
+    if (currentWord > 0) {
+      setCurrentWord(currentWord - 1)
     }
   }
 
   return (
-    <Card className="md:max-w-fit w-full bg-transparent border-none mx-auto  lg:px-12">
+    <Card className="max-w-fit bg-transparent border-none mx-auto lg:px-12">
       <CardHeader>
-        <CardTitle>Paragraph Assessment</CardTitle>
+        <CardTitle>Word Assessment</CardTitle>
         <CardDescription>
-          Click the start recording button and read the paragraph in the card
+          Click the start recording button and read the word in the card
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <AssessmentContent
-          suffix="."
-          className="text-xl w-full p-6 sm:p-8 lg:p-12"
-          content={paragraphs[currentParagraph].paragraph}
-        />
+        <AssessmentContent content={wordAssessment[currentWord].word} />
       </CardContent>
       <CardFooter className="flex gap-4 justify-center">
         {/* <Button variant="outline" onClick={handleBack}>

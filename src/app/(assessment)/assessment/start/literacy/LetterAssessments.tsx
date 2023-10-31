@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AssessmentConfig, assessmentVariants } from "./Assessment"
-import { Letter, WhisperApiResponse } from "./start/types"
+import { Letter, WhisperApiResponse } from "../types"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
 import { AssessmentContent } from "./AssessmentContent"
