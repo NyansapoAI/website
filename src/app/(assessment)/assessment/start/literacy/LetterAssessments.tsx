@@ -10,10 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AssessmentConfig, assessmentVariants } from "./Assessment"
-import { Letter, WhisperApiResponse } from "../types"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"
 import { AssessmentContent } from "./AssessmentContent"
+import { Letter, WhisperApiResponse } from "../types"
 
 type LetterAssessmentProps = {
   letterAssessment: Letter[]

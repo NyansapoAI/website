@@ -65,16 +65,17 @@ export default async function page({}: Props) {
   const resp = await fetchAssessment("1")
 
   return (
-    <div className="sm:px-8 md:px-16 py-6 md:py-8 mx-auto max-w-[1920px]">
+    <div className="sm:px-8  py-6 md:py-8 mx-auto max-w-[1920px]">
+      <h2 className="text-2xl font-bold text-center">Choose Assessment type</h2>
       <div className="flex gap-6 justify-center items-center pt-8 md:pt-16 flex-wrap">
         <Link
-          className="p-8 rounded-md bg-card "
+          className="p-8 xl:p-12 hover:scale-105 duration-200 text-xl font-bold rounded-md border border-primary "
           href="/assessment/start/literacy"
         >
           Literacy Assessment
         </Link>
         <Link
-          className="p-8 rounded-md bg-card"
+          className="p-8 xl:p-12 hover:scale-105 duration-200 text-xl font-bold rounded-md border-primary border"
           href="/assessment/start/numeracy"
         >
           Numeracy Assessment
