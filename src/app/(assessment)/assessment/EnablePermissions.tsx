@@ -38,6 +38,10 @@ const EnablePermissions = ({ open, setOpen }: Props) => {
           <DialogTitle>
             Allow microphone permissions and reload the page
           </DialogTitle>
+          <DialogDescription>
+            if the options below are not visible,kindly open the assessment on a
+            different browser
+          </DialogDescription>
         </DialogHeader>
         <div className="max-w-lg max-h-[400px] overflow-clip ">
           <ImageGallery
