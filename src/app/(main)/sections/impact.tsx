@@ -1,4 +1,5 @@
 import React from "react"
+import { Stat } from "./Stat"
 
 type Props = {}
 
@@ -24,19 +25,6 @@ export default function Impact({}: Props) {
           description="Worked with 45 teachers in the learning programs"
         />
       </div>
-    </div>
-  )
-}
-
-type StatProps = {
-  title: string
-  description: string
-}
-function Stat({ title, description }: StatProps) {
-  return (
-    <div className="flex flex-col items-start gap-4 max-w-[275px]">
-      <h1 className="text-4xl 2xl:text-5xl font-bold">{title}</h1>
-      <p className="text-slate-400">{description}</p>
     </div>
   )
 }
