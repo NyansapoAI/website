@@ -1,11 +1,15 @@
 "use client"
-import React, { useEffect } from "react"
+import { useState, useRef, useEffect } from "react"
+import autoAnimate from "@formkit/auto-animate"
+
 import CountAndMatch from "./countAndMatch"
 import {
   NumeracyAssessmentContext,
   NumeracyAssessmentInput,
   initialNumeracyAssessmentInput,
 } from "./NumeracyAssessmentContext"
+import NumberRecognition from "./numberRecognition"
+import NumeracyOperation from "./numeracyOperation"
 export interface NumeracyAssessmentContent {
   id: string
   countAndMatchs: {
@@ -38,29 +42,51 @@ interface NumeracyAssessment {
 type Props = {
   data: NumeracyAssessmentContent
 }
-const numeracyAssessmentVariants = {
+export const numeracyAssessmentVariants = {
   countAndMatch: 0,
   numberRecognition: 1,
   numeracyOperation: 2,
   wordProblem: 3,
 }
+/**
+ * Configuration object for numeracy assessments.
+ * @typedef {Object} NumeracyAssessmentConfig
+ * @property {number} countAndMatch - Number of count and match assessments.
+ * @property {number} numberRecognition - Number of number recognition assessments.
+ * @property {number} numeracyOperation - Number of numeracy operation assessments.
+ * @property {number} wordProblem - Number of word problem assessments.
+ */
+export const numeracyAssessmentConfig = {
+  countAndMatch: 2,
+  numberRecognition: 2,
+  numeracyOperation: 2,
+  wordProblem: 2,
+} as const
 
 const NumeracyAssessments = ({ data }: Props) => {
-  const [loading, setLoading] = React.useState<boolean>(false)
-  const [assessmentId, setAssessmentId] = React.useState<number | undefined>()
-  const [currentItem, setCurrentItem] = React.useState<number>(
+  const [loading, setLoading] = useState<boolean>(false)
+  const [assessmentId, setAssessmentId] = useState<number | undefined>()
+  const [currentItem, setCurrentItem] = useState<number>(
     numeracyAssessmentVariants.countAndMatch
   )
-  const [feedbackId, setFeedbackId] = React.useState<string>("")
-  const [assessmentData, setAssessmentData] =
-    React.useState<NumeracyAssessmentInput>(initialNumeracyAssessmentInput)
+  const [feedbackId, setFeedbackId] = useState<string>("")
+  const [assessmentData, setAssessmentData] = useState<NumeracyAssessmentInput>(
+    initialNumeracyAssessmentInput
+  )
+  const parent = useRef(null)
+
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current)
+  }, [parent])
   useEffect(() => {
     console.log(assessmentData)
   }, [assessmentData])
   return (
-    <div>
+    <div ref={parent}>
       <NumeracyAssessmentContext.Provider
         value={{
+          setCurrentItem: setCurrentItem,
+          currentItem: currentItem,
           assessmentId: assessmentId,
           feedbackId: feedbackId,
           setFeedbackId: setFeedbackId,
@@ -69,7 +95,15 @@ const NumeracyAssessments = ({ data }: Props) => {
           setAssessmentInput: setAssessmentData,
         }}
       >
-        <CountAndMatch data={data.countAndMatchs} />
+        {currentItem == numeracyAssessmentVariants.countAndMatch && (
+          <CountAndMatch data={data.countAndMatchs} />
+        )}
+        {currentItem == numeracyAssessmentVariants.numberRecognition && (
+          <NumberRecognition data={data.numberRecognitions} />
+        )}
+        {currentItem == numeracyAssessmentVariants.numeracyOperation && (
+          <NumeracyOperation data={data.numeracyOperations} />
+        )}
       </NumeracyAssessmentContext.Provider>
     </div>
   )

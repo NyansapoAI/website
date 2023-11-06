@@ -8,8 +8,13 @@ import {
 import React, { useMemo, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { NumeracyAssessmentContent } from "./NumeracyAssessments"
+import {
+  NumeracyAssessmentContent,
+  numeracyAssessmentConfig,
+  numeracyAssessmentVariants,
+} from "./NumeracyAssessments"
 import { NumeracyAssessmentContext } from "./NumeracyAssessmentContext"
+import { cn } from "@/lib/utils"
 
 type Props = {
   data: NumeracyAssessmentContent["countAndMatchs"]
@@ -20,7 +25,9 @@ function seededRandom(seed: number) {
 }
 export default function CountAndMatch({ data }: Props) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const { setAssessmentInput } = React.useContext(NumeracyAssessmentContext)
+  const { setAssessmentInput, setCurrentItem } = React.useContext(
+    NumeracyAssessmentContext
+  )
 
   const current = data[currentQuestion]
   const answers = useMemo(() => {
@@ -43,7 +50,7 @@ export default function CountAndMatch({ data }: Props) {
   }, [current.number])
 
   const handleNext = (answer: number) => {
-    if (currentQuestion < data.length - 1) {
+    if (currentQuestion < numeracyAssessmentConfig.countAndMatch) {
       setAssessmentInput((prev) => {
         return {
           ...prev,
@@ -70,6 +77,7 @@ export default function CountAndMatch({ data }: Props) {
       setCurrentQuestion((prev) => prev + 1)
     } else {
       //go to next page
+      setCurrentItem(numeracyAssessmentVariants.numberRecognition)
     }
   }
 
@@ -81,13 +89,7 @@ export default function CountAndMatch({ data }: Props) {
         <div className="flex mt-6 py-6 xl:mt-8 flex-wrap gap-6 justify-center">
           {Array.from({ length: current.number }).map((item, i) => (
             <div key={i} className=" ">
-              <Image
-                width={100}
-                height={100}
-                className="hover:scale-105 duration-100"
-                src={`/imgs/numeracy/soccer-ball.png`}
-                alt="soccer ball"
-              />
+              <Ball />
             </div>
           ))}
         </div>
@@ -109,5 +111,22 @@ export default function CountAndMatch({ data }: Props) {
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+const Ball = () => {
+  const [clicked, setClicked] = useState(false)
+  return (
+    <Image
+      onClick={() => setClicked((c) => !c)}
+      width={100}
+      height={100}
+      className={cn(
+        "hover:scale-105 duration-100",
+        clicked ? "scale-105 border-2 rounded-full border-primary" : ""
+      )}
+      src={`/imgs/numeracy/soccer-ball.png`}
+      alt="soccer ball"
+    />
   )
 }

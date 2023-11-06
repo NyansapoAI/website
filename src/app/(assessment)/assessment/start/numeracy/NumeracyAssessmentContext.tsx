@@ -158,6 +158,8 @@ export const initialNumeracyAssessmentInput: NumeracyAssessmentInput = {
 type ContextType = {
   setAssessmentId: React.Dispatch<React.SetStateAction<number | undefined>>
   assessmentId: number | undefined
+  currentItem: number
+  setCurrentItem: React.Dispatch<React.SetStateAction<number>>
   feedbackId: string
   setFeedbackId: React.Dispatch<React.SetStateAction<string>>
   assessmentInput: NumeracyAssessmentInput
@@ -169,6 +171,8 @@ const NumeracyAssessmentContext = React.createContext<ContextType>({
   assessmentInput: initialNumeracyAssessmentInput,
   setAssessmentInput: () => {},
   feedbackId: "",
+  setCurrentItem: () => {},
+  currentItem: 0,
   setFeedbackId: () => {},
   setAssessmentId: () => {},
   assessmentId: undefined,

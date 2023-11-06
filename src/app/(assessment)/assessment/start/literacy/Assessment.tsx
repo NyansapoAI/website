@@ -18,6 +18,8 @@ import Lottie from "lottie-react"
 import transition from "@/lottie/transition.json"
 import { Questionnaire } from "./Questionnaire"
 import { ResultsQuestionnaire } from "./ResultsQuestionnaire"
+import { useRef } from "react"
+import autoAnimate from "@formkit/auto-animate"
 type Props = {
   literacyAssessment: LiteracyAssessment["literacyAssessmentContent"]
 }
@@ -46,6 +48,11 @@ export function Assessment({ literacyAssessment }: Props) {
   const [assessmentData, setAssessmentData] = React.useState<AssessmentInput>(
     initialAssessmentInput
   )
+  const parent = useRef(null)
+
+  React.useEffect(() => {
+    parent.current && autoAnimate(parent.current)
+  }, [parent])
   React.useEffect(() => {
     if (currentItem > 0) {
       setLoading(true)
@@ -74,7 +81,7 @@ export function Assessment({ literacyAssessment }: Props) {
             loop={false}
           />
         ) : (
-          <CardContent>
+          <CardContent ref={parent}>
             {currentItem == assessmentVariants.letter ? (
               <LetterAssessments
                 letterAssessment={literacyAssessment.letters}
