@@ -109,10 +109,10 @@ export default function BungomaProject() {
               description="We are committed to working with 20 dedicated teachers, equipping them with effective teaching methodologies to nurture young talents"
               icon={<Users2 className="text-primary" />}
             />
-            <ImpactStat
+            {/* <ImpactStat
               title="20"
               description="Worked with 20 teachers in the learning programs"
-            />
+            /> */}
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -120,8 +120,11 @@ export default function BungomaProject() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
               Featured
             </h2>
+            <p className="text-lg py-8">
+              Stay tuned for updates on the project
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
               <Link href="#">
                 <div className="rounded-lg overflow-hidden shadow-md">
                   <Image
@@ -164,7 +167,7 @@ export default function BungomaProject() {
                   </div>
                 </div>
               </Link>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>
