@@ -72,7 +72,7 @@ export default function BungomaProject() {
             <span className="text-primary font-bold">5000</span> children in
             schools across the county. Stay tuned as we share more about our
             collaborative journey and the positive changes we aim to bring to
-            the young minds of Bungoma. Together, we're shaping a brighter
+            the young minds of Bungoma. Together, we&apos;re shaping a brighter
             tomorrow, one child at a time.
           </h4>
         </div>
@@ -168,19 +168,6 @@ export default function BungomaProject() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-zinc-500 dark:text-zinc-400">
-          © 2023 Project Inc. All rights reserved.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-        </nav>
-      </footer>
     </div>
   )
 }
