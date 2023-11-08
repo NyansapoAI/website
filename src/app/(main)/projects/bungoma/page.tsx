@@ -9,22 +9,32 @@ const partners = [
   {
     name: "USAID",
     logo: "/imgs/logos/usaid-logo.png",
+    width: 150,
+    height: 150,
   },
   {
     name: "YALI",
     logo: "/imgs/logos/yali-logo.png",
+    width: 150,
+    height: 150,
   },
   {
     name: "Kenyatta University",
     logo: "/imgs/logos/kenyatta-university-logo.png",
+    width: 140,
+    height: 140,
+  },
+  {
+    name: "Nyansapo AI",
+    logo: "/imgs/logos/nyansapo-logo.png",
+    width: 150,
+    height: 150,
   },
   {
     name: "Amani CBO",
     logo: "/imgs/logos/amani-cbo-logo.png",
-  },
-  {
-    name: "Nyansapo AI",
-    logo: "/logo.png",
+    width: 120,
+    height: 150,
   },
   //   {
   //     name: "Nyansapo AI",
@@ -33,27 +43,33 @@ const partners = [
 ]
 export default function BungomaProject() {
   return (
-    <div className="flex flex-col  justify-center  gap-4 py-12 mt-24 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+    <div className="flex flex-col bg-white text-background justify-center  gap-4 py-12 mt-24 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       <main className="lg:max-w-4xl mx-auto">
         <div className="my-6">
           <section className="w-full py-12  ">
-            <div className="container px-4 md:px-6">
+            <div className="sm:container px-4 md:px-6">
               {/* <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                 Our Partners
               </h2> */}
-              <h2 className="text-2xl font-bold tracking-tighter sm:text-4xl">
+              <h2 className="text-2xl  font-bold tracking-tighter sm:text-4xl">
                 The Read Count and Shine project in patnership with
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 items-center justify-center gap-8 mt-8 py-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 items-center justify-center gap-4 sm:gap-6 mt-8 py-8">
                 {partners.map((partner, i) => {
                   return (
-                    <div key={i}>
+                    <div
+                      className="relative"
+                      style={{
+                        width: `${partner.width}px`,
+                        height: `${partner.height}px`,
+                      }}
+                      key={i}
+                    >
                       <Image
                         alt={partner.name}
-                        className="mx-auto object-contain w-56 h-40"
-                        height="400"
+                        className="mx-auto  "
+                        layout="fill"
                         src={partner.logo}
-                        width="400"
                       />
                     </div>
                   )
@@ -61,7 +77,7 @@ export default function BungomaProject() {
               </div>
             </div>
           </section>
-          <h4 className=" mx-auto text-muted-foreground mt-2 text-lg">
+          <h4 className=" mx-auto text-background mt-2 text-lg">
             Join us on a remarkable journey as five committed partners unite to
             make a profound impact in Bungoma, Kenya. Our mission is to conduct
             a three-month Foundational Skills Learning Camp empowered by AI and
@@ -91,7 +107,7 @@ export default function BungomaProject() {
           <h2 className="text-3xl font-bold tracking-tighter">
             Proposed Impact
           </h2>
-          <p className="text-lg text-muted-foreground mt-2">
+          <p className="text-lg  mt-2">
             Measuring Our Commitment to Positive Change
           </p>
           <div className="flex gap-4 lg:gap-8 flex-wrap items-center mt-6">
@@ -116,8 +132,8 @@ export default function BungomaProject() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+          <div className=" ">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
               Featured
             </h2>
             <p className="text-lg py-8">
@@ -188,7 +204,7 @@ function ImpactStat({ title, description, icon }: ImpactProps) {
         <h1 className="text-2xl font-bold">{title}</h1>
         {icon && icon}
       </div>
-      <p className="text-slate-400 max-w-2xl">{description}</p>
+      <p className=" max-w-2xl">{description}</p>
     </div>
   )
 }
