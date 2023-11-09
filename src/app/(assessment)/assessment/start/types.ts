@@ -56,6 +56,11 @@ export type WhisperApiResponse = {
 } & {
   duration: number
 }
+export type WhisperApiResponseHandWriting = {
+  response: string
+  url: string
+}
+
 export type LiteracyAssessmentResult = {
   literacyAssessment: {
     id: string

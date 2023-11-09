@@ -45,8 +45,11 @@ type Props = {
 export const numeracyAssessmentVariants = {
   countAndMatch: 0,
   numberRecognition: 1,
-  numeracyOperation: 2,
-  wordProblem: 3,
+  addition: 2,
+  subtraction: 3,
+  multiplication: 4,
+  division: 5,
+  wordProblem: 6,
 }
 /**
  * Configuration object for numeracy assessments.
@@ -58,11 +61,17 @@ export const numeracyAssessmentVariants = {
  */
 export const numeracyAssessmentConfig = {
   countAndMatch: 2,
-  numberRecognition: 2,
+  numberRecognition: 1,
   numeracyOperation: 2,
   wordProblem: 2,
 } as const
 
+export enum NumeracyOperations {
+  ADDITION = "ADDITION",
+  SUBTRACTION = "SUBTRACTION",
+  MULTIPLICATION = "MULTIPLICATION",
+  DIVISION = "DIVISION",
+}
 const NumeracyAssessments = ({ data }: Props) => {
   const [loading, setLoading] = useState<boolean>(false)
   const [assessmentId, setAssessmentId] = useState<number | undefined>()
@@ -101,8 +110,41 @@ const NumeracyAssessments = ({ data }: Props) => {
         {currentItem == numeracyAssessmentVariants.numberRecognition && (
           <NumberRecognition data={data.numberRecognitions} />
         )}
-        {currentItem == numeracyAssessmentVariants.numeracyOperation && (
-          <NumeracyOperation data={data.numeracyOperations} />
+        {currentItem == numeracyAssessmentVariants.addition && (
+          <NumeracyOperation
+            operator={NumeracyOperations.ADDITION}
+            data={data.numeracyOperations.filter(
+              (operation) =>
+                operation.mathOperator == NumeracyOperations.ADDITION
+            )}
+          />
+        )}
+        {currentItem == numeracyAssessmentVariants.subtraction && (
+          <NumeracyOperation
+            operator={NumeracyOperations.SUBTRACTION}
+            data={data.numeracyOperations.filter(
+              (operation) =>
+                operation.mathOperator == NumeracyOperations.SUBTRACTION
+            )}
+          />
+        )}
+        {currentItem == numeracyAssessmentVariants.multiplication && (
+          <NumeracyOperation
+            operator={NumeracyOperations.MULTIPLICATION}
+            data={data.numeracyOperations.filter(
+              (operation) =>
+                operation.mathOperator == NumeracyOperations.MULTIPLICATION
+            )}
+          />
+        )}
+        {currentItem == numeracyAssessmentVariants.division && (
+          <NumeracyOperation
+            operator={NumeracyOperations.DIVISION}
+            data={data.numeracyOperations.filter(
+              (operation) =>
+                operation.mathOperator == NumeracyOperations.DIVISION
+            )}
+          />
         )}
       </NumeracyAssessmentContext.Provider>
     </div>

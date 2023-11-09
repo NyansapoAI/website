@@ -5,7 +5,7 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card"
-import React, { useMemo, useState } from "react"
+import React, { useEffect, useId, useMemo, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
@@ -88,7 +88,7 @@ export default function CountAndMatch({ data }: Props) {
       <CardContent>
         <div className="flex mt-6 py-6 xl:mt-8 flex-wrap gap-6 justify-center">
           {Array.from({ length: current.number }).map((item, i) => (
-            <div key={i} className=" ">
+            <div key={Date.now() + i} className=" ">
               <Ball />
             </div>
           ))}
@@ -97,7 +97,7 @@ export default function CountAndMatch({ data }: Props) {
           <p className="text-2xl font-bold ">How many balls are there?</p>
           <div className="flex mt-6 xl:mt-8 flex-wrap gap-6 justify-center">
             {answers.map((item, i) => (
-              <div key={i} className=" ">
+              <div key={Date.now() + i} className=" ">
                 <Button
                   onClick={() => handleNext(item)}
                   variant="outline"
@@ -116,6 +116,7 @@ export default function CountAndMatch({ data }: Props) {
 
 const Ball = () => {
   const [clicked, setClicked] = useState(false)
+
   return (
     <Image
       onClick={() => setClicked((c) => !c)}

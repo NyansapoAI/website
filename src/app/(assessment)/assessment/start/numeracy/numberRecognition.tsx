@@ -57,7 +57,7 @@ export default function NumberRecognition({ data }: Props) {
     if (currentQuestion < numeracyAssessmentConfig.numberRecognition) {
       setCurrentQuestion(currentQuestion + 1)
     } else {
-      setCurrentItem(numeracyAssessmentVariants.numeracyOperation)
+      setCurrentItem(numeracyAssessmentVariants.addition)
     }
   }
 
