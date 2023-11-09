@@ -9,13 +9,13 @@ const partners = [
   {
     name: "USAID",
     logo: "/imgs/logos/usaid-logo.png",
-    width: 150,
-    height: 150,
+    width: 160,
+    height: 130,
   },
   {
     name: "YALI",
     logo: "/imgs/logos/yali-logo.png",
-    width: 150,
+    width: 140,
     height: 150,
   },
   {
@@ -33,7 +33,7 @@ const partners = [
   {
     name: "Amani CBO",
     logo: "/imgs/logos/amani-cbo-logo.png",
-    width: 120,
+    width: 110,
     height: 150,
   },
   //   {
