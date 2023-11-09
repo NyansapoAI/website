@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@faker-js/faker': ^8.1.0
+  '@formkit/auto-animate': ^0.8.0
   '@fortawesome/fontawesome-free': ^6.2.1
   '@graywolfai/react-heroicons': ^2.0.1
   '@headlessui/react': ^1.7.7
@@ -60,6 +61,7 @@ specifiers:
 
 dependencies:
   '@faker-js/faker': 8.1.0
+  '@formkit/auto-animate': 0.8.1
   '@fortawesome/fontawesome-free': 6.2.1
   '@graywolfai/react-heroicons': 2.0.1_react@18.2.0
   '@headlessui/react': 1.7.7_biqbaboplfbrettd7655fr4n2y
@@ -1040,6 +1042,10 @@ packages:
 
   /@floating-ui/utils/0.1.6:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
+    dev: false
+
+  /@formkit/auto-animate/0.8.1:
+    resolution: {integrity: sha512-0/Z2cuNXWVVIG/l0SpcHAWFhGdvLJ8DRvEfRWvmojtmRWfEy+LWNwgDazbZqY0qQYtkHcoEK3jBLkhiZaB/4Ig==}
     dev: false
 
   /@fortawesome/fontawesome-free/6.2.1:
