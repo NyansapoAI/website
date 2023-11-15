@@ -10,25 +10,29 @@ import {
 } from "./NumeracyAssessmentContext"
 import NumberRecognition from "./numberRecognition"
 import NumeracyOperation from "./numeracyOperation"
+import { WordProblem } from "./wordProblem"
+import { Questionnaire } from "../../Questionnaire"
+import NumeracyAssessmentResult from "./results/NumeracyAssessmentResult"
+import { ResultsQuestionnaire } from "../../ResultsQuestionnaire"
 export interface NumeracyAssessmentContent {
-  id: string
+  id: number
   countAndMatchs: {
-    id: string
+    id: number
     number: number
   }[]
   numberRecognitions: {
     number: number
-    id: string
+    id: number
   }[]
   numeracyOperations: {
     firstNumber: number
     mathOperator: string
     secondNumber: number
     correctAnswer: number
-    id: string
+    id: number
   }[]
   wordProblems: {
-    id: string
+    id: number
     problem: string
     problemAnswer: number
   }[]
@@ -50,6 +54,9 @@ export const numeracyAssessmentVariants = {
   multiplication: 4,
   division: 5,
   wordProblem: 6,
+  questionnaire: 7,
+  results: 8,
+  feedback: 9,
 }
 /**
  * Configuration object for numeracy assessments.
@@ -63,7 +70,7 @@ export const numeracyAssessmentConfig = {
   countAndMatch: 2,
   numberRecognition: 1,
   numeracyOperation: 2,
-  wordProblem: 2,
+  wordProblem: 1,
 } as const
 
 export enum NumeracyOperations {
@@ -91,7 +98,10 @@ const NumeracyAssessments = ({ data }: Props) => {
     console.log(assessmentData)
   }, [assessmentData])
   return (
-    <div ref={parent}>
+    <div
+      className="sm:max-w-fit w-full border-none h-full  mt-8  bg-transparent mx-auto "
+      ref={parent}
+    >
       <NumeracyAssessmentContext.Provider
         value={{
           setCurrentItem: setCurrentItem,
@@ -146,6 +156,24 @@ const NumeracyAssessments = ({ data }: Props) => {
             )}
           />
         )}
+        {currentItem == numeracyAssessmentVariants.wordProblem && (
+          <WordProblem data={data.wordProblems} />
+        )}
+        {currentItem == numeracyAssessmentVariants.questionnaire && (
+          <Questionnaire
+            assessmentType="numeracy"
+            setCurrentItem={setCurrentItem}
+          />
+        )}
+        {currentItem == numeracyAssessmentVariants.results && (
+          <NumeracyAssessmentResult />
+        )}
+        {currentItem == numeracyAssessmentVariants.feedback ? (
+          <ResultsQuestionnaire
+            assessmentType="numeracy"
+            setCurrentItem={setCurrentItem}
+          />
+        ) : null}
       </NumeracyAssessmentContext.Provider>
     </div>
   )

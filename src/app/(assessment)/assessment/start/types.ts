@@ -138,3 +138,62 @@ export type LiteracyAssessmentResult = {
     }[]
   }
 }
+export interface NumeracyAssessmentResponse {
+  numeracyAssessment: {
+    id: number
+    countAndMatchResults: {
+      correct: boolean
+      countAndMatch: {
+        number: number
+      }
+      id: number
+      studentAnswer: number
+    }[]
+    dynamicallyGeneratedLearningLevel: {
+      dynamicallyGeneratedLearningLevel: string
+    }
+    numberRecognitionResults: {
+      id: number
+      correctAccordingToModelPrediction: {
+        correct: boolean
+      }
+      urlOfRecordedVoice: string
+      answerFromOriginalModelPrediction: string
+      numberRecognition: {
+        number: number
+      }
+    }[]
+    numeracyOperationResults: {
+      id: number
+      answerFromModifiedModelPrediction: number
+      answerFromOriginalModelPrediction: number
+      correctAccordingToModelPrediction: {
+        correct: boolean
+        correctAccordingToModifiedModelPrediction: boolean
+        correctAccordingToOriginalModelPrediction: boolean
+      }
+      urlOfScreenshot: string
+      numeracyOperation: {
+        correctAnswer: number
+        firstNumber: number
+        mathOperator: string
+        secondNumber: number
+      }
+    }[]
+    wordProblemResults: {
+      answerFromModifiedModelPrediction: number
+      answerFromOriginalModelPrediction: number
+      correctAccordingToModelPrediction: {
+        correct: boolean
+        correctAccordingToModifiedModelPrediction: boolean
+        correctAccordingToOriginalModelPrediction: boolean
+      }
+      urlOfScreenshot: string
+      wordProblem: {
+        problem: string
+        problemAnswer: number
+      }
+      id: number
+    }[]
+  }
+}

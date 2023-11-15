@@ -50,9 +50,13 @@ const fetchNumeracyAssessmentContent = async (id: number) => {
 export default async function page({}: Props) {
   const resp = await fetchNumeracyAssessmentContent(1)
 
-  return (
+  return resp?.data ? (
     <div className="sm:px-8 md:px-16 py-2 mx-auto max-w-[1920px]">
-      <NumeracyAssessments data={resp.data.numeracyAssessmentContent} />
+      <NumeracyAssessments data={resp?.data.numeracyAssessmentContent} />
     </div>
+  ) : (
+    <p className="text-xl text-center text-destructive">
+      Something went wrong,please refresh the page
+    </p>
   )
 }

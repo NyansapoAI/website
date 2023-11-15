@@ -16,8 +16,8 @@ import {
 } from "./AssessmentContext"
 import Lottie from "lottie-react"
 import transition from "@/lottie/transition.json"
-import { Questionnaire } from "./Questionnaire"
-import { ResultsQuestionnaire } from "./ResultsQuestionnaire"
+import { Questionnaire } from "../../Questionnaire"
+import { ResultsQuestionnaire } from "../../ResultsQuestionnaire"
 import { useRef } from "react"
 import autoAnimate from "@formkit/auto-animate"
 type Props = {
@@ -113,7 +113,10 @@ export function Assessment({ literacyAssessment }: Props) {
               />
             ) : null}
             {currentItem == assessmentVariants.questionnaire ? (
-              <Questionnaire setCurrentItem={setCurrentItem} />
+              <Questionnaire
+                assessmentType="literacy"
+                setCurrentItem={setCurrentItem}
+              />
             ) : null}
             {currentItem == assessmentVariants.results ? (
               <AssessmentResults
@@ -123,7 +126,10 @@ export function Assessment({ literacyAssessment }: Props) {
             ) : null}
 
             {currentItem == assessmentVariants.feedback ? (
-              <ResultsQuestionnaire setCurrentItem={setCurrentItem} />
+              <ResultsQuestionnaire
+                assessmentType="literacy"
+                setCurrentItem={setCurrentItem}
+              />
             ) : null}
           </CardContent>
         )}

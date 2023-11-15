@@ -37,6 +37,7 @@ export default function NumberRecognition({ data }: Props) {
               ...prev.data.numberRecognitionResults.create,
               {
                 answerFromOriginalModelPrediction: resp.response,
+                durationTheModelTakesToAnalzeEachNumberInMilliseconds: 0,
                 urlOfRecordedVoice: resp.url,
                 localAbsolutePathOfRecordedVoiceFile: "",
 

@@ -6,7 +6,7 @@ export enum Gender {
   FEMALE = "FEMALE",
 }
 interface Connect {
-  id: string
+  id: number
 }
 
 interface CountAndMatch {
@@ -32,6 +32,7 @@ interface Create2 {
   urlOfRecordedVoice: string
   localAbsolutePathOfRecordedVoiceFile: string
   numberRecognition: NumberRecognition
+  durationTheModelTakesToAnalzeEachNumberInMilliseconds: number
 }
 
 interface NumberRecognitionResults {
@@ -45,6 +46,7 @@ interface NumeracyOperation {
 interface Create3 {
   localAbsolutePathOfScreenshot: string
   numeracyOperation: NumeracyOperation
+  durationTheModelTakesToAnalzeEachScreenshotInMilliseconds: number
   answerFromOriginalModelPrediction: string
   index: number
   urlOfScreenshot: string | null
@@ -62,6 +64,7 @@ interface Create4 {
   answerFromOriginalModelPrediction: string
   urlOfScreenshot: string | null
   wordProblem: WordProblem
+  durationTheModelTakesToAnalzeEachScreenshotInMilliseconds: number
   localAbsolutePathOfScreenshot: string
 }
 
@@ -76,10 +79,17 @@ interface Create5 {
   lastName: string
   camp: NumeracyOperation
   grade: number
+  where: {
+    firstName_lastName_campId: {
+      campId: number
+      firstName: string
+      lastName: string
+    }
+  }
 }
 
 interface Student {
-  create: Create5
+  connectOrCreate: Create5
 }
 
 interface Camp {
@@ -91,8 +101,20 @@ interface Data {
   numberRecognitionResults: NumberRecognitionResults
   numeracyOperationResults: NumeracyOperationResults
   wordProblemResults: WordProblemResults
+  durationOfAdditionAssessmentInMilliseconds: number
+  durationOfCountAndMatchAssessmentInMilliseconds: number
+  durationOfDivisionAssessmentInMilliseconds: number
+  durationOfMultiplicationAssessmentInMilliseconds: number
+  durationOfNumberRecognitionAssessmentInMilliseconds: number
+  durationOfSubtractionAssessmentInMilliseconds: number
+  durationOfWholeAssessmentInSeconds: number
+  durationOfWordProblemAssessmentInMilliseconds: number
+  assessmentType: string
   student: Student
   camp: Camp
+  numeracyAssessmentContent: {
+    connect: Connect
+  }
 }
 
 interface NumeracyAssessmentConfigInput {
@@ -126,11 +148,18 @@ export const initialNumeracyAssessmentInput: NumeracyAssessmentInput = {
       create: [],
     },
     student: {
-      create: {
+      connectOrCreate: {
+        where: {
+          firstName_lastName_campId: {
+            campId: parseInt(process.env.NEXT_PUBLIC_NUMERACY_CAMP_ID!),
+            firstName: "",
+            lastName: "",
+          },
+        },
         age: 10,
         camp: {
           connect: {
-            id: process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!,
+            id: parseInt(process.env.NEXT_PUBLIC_NUMERACY_CAMP_ID!),
           },
         },
         gender: Gender.MALE,
@@ -141,18 +170,32 @@ export const initialNumeracyAssessmentInput: NumeracyAssessmentInput = {
     },
     camp: {
       connect: {
-        id: process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!,
+        id: parseInt(process.env.NEXT_PUBLIC_NUMERACY_CAMP_ID!),
+      },
+    },
+    durationOfAdditionAssessmentInMilliseconds: 0,
+    durationOfCountAndMatchAssessmentInMilliseconds: 0,
+    durationOfDivisionAssessmentInMilliseconds: 0,
+    durationOfMultiplicationAssessmentInMilliseconds: 0,
+    durationOfNumberRecognitionAssessmentInMilliseconds: 0,
+    durationOfSubtractionAssessmentInMilliseconds: 0,
+    durationOfWholeAssessmentInSeconds: 0,
+    durationOfWordProblemAssessmentInMilliseconds: 0,
+    assessmentType: "BASELINE",
+    numeracyAssessmentContent: {
+      connect: {
+        id: 1,
       },
     },
   },
   numeracyAssessmentConfigInput: {
-    numberOfCountAndMatchThatShouldBeWrongOrAboveToFailCountAndMatchAssessment: 3,
-    numberOfNumberRecognitionsThatShouldBeWrongOrAboveToFailNumberRecognitionsAssessment: 3,
-    numberOfProblemsThatShouldBeWrongOrAboveToFailAdditionAssessment: 3,
-    numberOfProblemsThatShouldBeWrongOrAboveToFailDivisionAssessment: 3,
-    numberOfProblemsThatShouldBeWrongOrAboveToFailMultiplicationAssessment: 3,
-    numberOfProblemsThatShouldBeWrongOrAboveToFailSubtractionAssessment: 3,
-    numberOfProblemsThatShouldBeWrongOrAboveToFailWordProblemAssessment: 3,
+    numberOfCountAndMatchThatShouldBeWrongOrAboveToFailCountAndMatchAssessment: 1,
+    numberOfNumberRecognitionsThatShouldBeWrongOrAboveToFailNumberRecognitionsAssessment: 1,
+    numberOfProblemsThatShouldBeWrongOrAboveToFailAdditionAssessment: 1,
+    numberOfProblemsThatShouldBeWrongOrAboveToFailDivisionAssessment: 1,
+    numberOfProblemsThatShouldBeWrongOrAboveToFailMultiplicationAssessment: 1,
+    numberOfProblemsThatShouldBeWrongOrAboveToFailSubtractionAssessment: 1,
+    numberOfProblemsThatShouldBeWrongOrAboveToFailWordProblemAssessment: 1,
   },
 }
 type ContextType = {
