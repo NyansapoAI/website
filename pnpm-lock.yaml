@@ -44,6 +44,7 @@ specifiers:
   postcss: ^8.4.21
   react: 18.2.0
   react-confetti: ^6.1.0
+  react-countup: ^6.5.0
   react-dom: 18.2.0
   react-hook-form: ^7.47.0
   react-hot-toast: ^2.4.1
@@ -99,6 +100,7 @@ dependencies:
   next-themes: 0.2.1_jkbxmum2k66uczeeyfa2ahwyou
   react: 18.2.0
   react-confetti: 6.1.0_react@18.2.0
+  react-countup: 6.5.0_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.47.0_react@18.2.0
   react-hot-toast: 2.4.1_biqbaboplfbrettd7655fr4n2y
@@ -3269,6 +3271,10 @@ packages:
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
+  /countup.js/2.8.0:
+    resolution: {integrity: sha512-f7xEhX0awl4NOElHulrl4XRfKoNH3rB+qfNSZZyjSZhaAoUk6elvhH+MNxMmlmuUJ2/QNTWPSA7U4mNtIAKljQ==}
+    dev: false
+
   /crc-32/1.2.2:
     resolution: {integrity: sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==}
     engines: {node: '>=0.8'}
@@ -6069,6 +6075,15 @@ packages:
     dependencies:
       copy-to-clipboard: 3.3.3
       prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /react-countup/6.5.0_react@18.2.0:
+    resolution: {integrity: sha512-26JFHbUHsHxu8SetkJwWVIUEkaNnrj4P9msxNGC8tS4hGr1bngRzbwtJYOgXD2G/ItjaKJ3JfYKd85sw7qRVeA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      countup.js: 2.8.0
       react: 18.2.0
     dev: false
 
