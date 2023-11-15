@@ -32,7 +32,7 @@ export default function About({}: Props) {
           </Link>
         </div>
       </div>
-      <Gallery />
+      <Gallery autoPlay={true} />
       {/* <Slider2 /> */}
     </div>
   )

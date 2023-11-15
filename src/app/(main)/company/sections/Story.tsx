@@ -26,9 +26,9 @@ export default function Story({}: Props) {
           building Nyansapo which has been operation since then.
         </p>
       </div>
-      <div className="">
+      {/* <div className="">
         <Numbers />
-      </div>
+      </div> */}
     </div>
   )
 }
