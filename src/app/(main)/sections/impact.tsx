@@ -6,7 +6,7 @@ type Props = {}
 export default function Impact({}: Props) {
   return (
     <div className="py-16 flex flex-col items-center">
-      <div className="flex flex-col space-y-4 justify-center items-center">
+      <div className="flex  flex-col space-y-4 justify-center items-center">
         <h1 className="text-3xl sm:text-5xl tracking-lighter font-bold text-left">
           Our Impact
         </h1>
