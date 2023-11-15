@@ -39,7 +39,7 @@ export default function page({}: Props) {
       <Team />
       <Separator />
       <Locations />
-      <Separator />
+      {/* <Separator /> */}
       <Partners />
       {/* <Separator /> */}
       <NewsLetter />
