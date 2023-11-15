@@ -5,10 +5,14 @@ import { navigationLinks } from "@/constants/links"
 import { Twitter, Facebook, Instagram, Linkedin } from "./SocialIcons"
 export default function Footer() {
   const legal = [
-    { name: "Terms", link: "" },
-    { name: "Privacy", link: "" },
-    { name: "Legal", link: "" },
-    { name: "studio", link: "studio" },
+    {
+      name: "Terms",
+      link: "https://nyansapoai.notion.site/General-Terms-and-Conditions-for-Nyansapo-AI-0d96f12e14394c4d81e4ff8d4844c5fc",
+    },
+    {
+      name: "Privacy",
+      link: "https://nyansapoai.notion.site/Privacy-Policy-dc8bf36b989140b88bc0c34329a27be6",
+    },
   ]
   return (
     <div className="relative px-8 py-12">
@@ -58,12 +62,23 @@ export default function Footer() {
         <div>
           <div className="flex md:flex-col gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
             {legal.map((item, index) => (
-              <Link key={index} href={`/${item.link}`}>
+              <a
+                key={index}
+                target="_blank"
+                rel="noreferrer"
+                href={`/${item.link}`}
+              >
                 <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700">
                   {item.name}
                 </span>
-              </Link>
+              </a>
             ))}
+            <Link
+              className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500  focus:outline-none dark:focus:bg-trueGray-700"
+              href="/studio"
+            >
+              Studio
+            </Link>
           </div>
         </div>
         <div className="">

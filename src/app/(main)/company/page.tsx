@@ -41,7 +41,7 @@ export default function page({}: Props) {
       <Locations />
       <Separator />
       <Partners />
-      <Separator />
+      {/* <Separator /> */}
       <NewsLetter />
     </div>
   )
