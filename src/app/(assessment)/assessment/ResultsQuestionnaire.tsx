@@ -30,6 +30,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useContext } from "react"
 import { AssessmentContext } from "./start/literacy/AssessmentContext"
 import { numeracyAssessmentVariants } from "./start/numeracy/NumeracyAssessments"
+import { NumeracyAssessmentContext } from "./start/numeracy/NumeracyAssessmentContext"
 
 const formSchema = z.object({
   // recommend: z.string().feedbackId(),
@@ -96,6 +97,7 @@ export function ResultsQuestionnaire({
   assessmentType,
 }: Props) {
   const { feedbackId, setFeedbackId } = useContext(AssessmentContext)
+  const { feedbackId: NfeedbackId } = useContext(NumeracyAssessmentContext)
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -109,7 +111,7 @@ export function ResultsQuestionnaire({
   const { mutate, isLoading } = useMutation({
     mutationFn: async (data: z.infer<typeof formSchema>) => {
       await sanityClient
-        .patch(feedbackId)
+        .patch(feedbackId ?? NfeedbackId)
         .set({
           _type: "feedback",
           agree: data.agree ? "yes" : "No",
