@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Story, WhisperApiResponse } from "./start/types"
+import { Story, WhisperApiResponse } from "../types"
 import { assessmentVariants } from "./Assessment"
 import { AssessmentContext } from "./AssessmentContext"
 import { RecordButton } from "./RecordButton"

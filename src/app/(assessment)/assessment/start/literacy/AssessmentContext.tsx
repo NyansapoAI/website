@@ -120,7 +120,7 @@ export const initialAssessmentInput: AssessmentInput = {
       age: 10,
       camp: {
         connect: {
-          id: parseInt(process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!),
+          id: parseInt(process.env.NEXT_PUBLIC_LITERACY_CAMP_ID!),
         },
       },
       gender: Gender.MALE,
@@ -131,7 +131,7 @@ export const initialAssessmentInput: AssessmentInput = {
   },
   camp: {
     connect: {
-      id: parseInt(process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!),
+      id: parseInt(process.env.NEXT_PUBLIC_LITERACY_CAMP_ID!),
     },
   },
   assessmentType: "BASELINE",

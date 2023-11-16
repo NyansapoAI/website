@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { assessmentVariants } from "./Assessment"
+import { assessmentVariants } from "./start/literacy/Assessment"
 import toast from "react-hot-toast"
 import { Button } from "@/components/ui/button"
 import Spinner from "@/components/ui/spinner"
@@ -29,19 +29,22 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { useContext } from "react"
-import { AssessmentContext, Gender } from "./AssessmentContext"
+import { AssessmentContext, Gender } from "./start/literacy/AssessmentContext"
 import axios from "axios"
+import { NumeracyAssessmentContext } from "./start/numeracy/NumeracyAssessmentContext"
+import { numeracyAssessmentVariants } from "./start/numeracy/NumeracyAssessments"
 
 const formSchema = z.object({
   email: z.string().optional(),
   experience: z.string(),
   studentLink: z.string().optional(),
-  // recommend: z.string().email(),
+  assessmentType: z.string().optional(),
   feedback: z.string().optional(),
   subscribe: z.boolean().default(true).optional(),
 })
 type Props = {
   setCurrentItem: React.Dispatch<React.SetStateAction<number>>
+  assessmentType: "numeracy" | "literacy"
 }
 const experience = [
   {
@@ -65,9 +68,13 @@ const experience = [
     label: "Very Bad",
   },
 ]
-export function Questionnaire({ setCurrentItem }: Props) {
+export function Questionnaire({ setCurrentItem, assessmentType }: Props) {
   const { setAssessmentId, setFeedbackId, assessmentInput } =
     useContext(AssessmentContext)
+  const {
+    setAssessmentId: setNassessmentId,
+    assessmentInput: NassessmentInput,
+  } = useContext(NumeracyAssessmentContext)
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -79,7 +86,64 @@ export function Questionnaire({ setCurrentItem }: Props) {
     },
   })
   const { mutate: saveAssessment, isLoading: processing } = useMutation({
-    mutationFn: async (data: typeof assessmentInput) => {
+    mutationFn: async () => {
+      if (assessmentType === "numeracy") {
+        return axios
+          .post(
+            process.env.NEXT_PUBLIC_API_URL!,
+            {
+              query: `mutation CreateOneNumeracyAssessment($data: NumeracyAssessmentCreateInput!, $numeracyAssessmentConfigInput: NumeracyAssessmentConfigInput!) {
+    createOneNumeracyAssessment(data: $data) {
+      id
+      studentId
+      dynamicallyGeneratedLearningLevel(numeracyAssessmentConfigInput: $numeracyAssessmentConfigInput) {
+        dynamicallyGeneratedLearningLevel
+      }
+    }
+  }`,
+              variables: {
+                ...NassessmentInput,
+                data: {
+                  ...NassessmentInput.data,
+                  student: {
+                    connectOrCreate: {
+                      where: {
+                        firstName_lastName_campId: {
+                          campId: parseInt(
+                            process.env.NEXT_PUBLIC_NUMERACY_CAMP_ID!
+                          ),
+                          firstName: form.getValues("email") ?? "Anonymous",
+                          lastName: "",
+                        },
+                      },
+                      create: {
+                        age: 10,
+                        camp: {
+                          connect: {
+                            id: parseInt(
+                              process.env.NEXT_PUBLIC_NUMERACY_CAMP_ID!
+                            ),
+                          },
+                        },
+                        gender: Gender.MALE,
+                        lastName: "",
+                        firstName: form.getValues("email") ?? "Anonymous",
+                        grade: 4,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          )
+          .then((response) => response.data)
+      }
+
       return axios
         .post(
           process.env.NEXT_PUBLIC_API_URL!,
@@ -88,20 +152,19 @@ export function Questionnaire({ setCurrentItem }: Props) {
               "mutation CreateOneLiteracyAssessment($data: LiteracyAssessmentCreateInput!, $literacyAssessmentConfigInput: LiteracyAssessmentConfigInput!) {\r\n  createOneLiteracyAssessment(data: $data) {\r\n id\r\n     dynamicallyGeneratedLearningLevel(literacyAssessmentConfigInput: $literacyAssessmentConfigInput) {\r\n      dynamicallyGeneratedLearningLevel\r\n  }\r\n studentId \r\n  }\r\n}",
             variables: {
               data: {
-                ...data,
+                ...assessmentInput,
                 student: {
                   create: {
                     age: 10,
                     camp: {
                       connect: {
-                        id: parseInt(
-                          process.env.NEXT_PUBLIC_ASSESSMENT_CAMP_ID!
-                        ),
+                        id: parseInt(process.env.NEXT_PUBLIC_LITERACY_CAMP_ID!),
                       },
                     },
                     gender: Gender.MALE,
                     lastName: "",
-                    firstName: form.getValues("email") ?? "Anonymous",
+                    firstName:
+                      form.getValues("email") ?? "Anonymous-" + Math.random(),
                     grade: 4,
                   },
                 },
@@ -118,12 +181,25 @@ export function Questionnaire({ setCurrentItem }: Props) {
         .then((response) => response.data)
     },
     onSuccess: (data) => {
-      console.log(data.data.createOneLiteracyAssessment)
-      setAssessmentId(data.data.createOneLiteracyAssessment.id)
-      saveQuestionnaire({
-        ...form.getValues(),
-        studentLink: `https://dashboard.nyansapoai.net/Test%20Organization%20For%20Training/camps/Web%20Assessments/students/${data.data.createOneLiteracyAssessment.studentId}?campId=51`,
-      })
+      if (assessmentType === "numeracy") {
+        setNassessmentId(data.data.createOneNumeracyAssessment.id)
+        saveQuestionnaire({
+          ...form.getValues(),
+          assessmentType: "Numeracy",
+          studentLink: `https://dashboard.nyansapoai.net/Test%20Organization%20For%20Training/camps/Web%20Numeracy%20Assessments/students/${
+            data.data.createOneNumeracyAssessment.studentId
+          }?campId=${process.env.NEXT_PUBLIC_NUMERACY_CAMP_ID!}`,
+        })
+      } else if (assessmentType === "literacy") {
+        setAssessmentId(data.data.createOneLiteracyAssessment.id)
+        saveQuestionnaire({
+          ...form.getValues(),
+          assessmentType: "Literacy",
+          studentLink: `https://dashboard.nyansapoai.net/Test%20Organization%20For%20Training/camps/Web%20Assessments/students/${
+            data.data.createOneLiteracyAssessment.studentId
+          }?campId=${process.env.NEXT_PUBLIC_LITERACY_CAMP_ID!}`,
+        })
+      }
     },
     onError: (error) => {
       console.log("error", error)
@@ -166,7 +242,10 @@ export function Questionnaire({ setCurrentItem }: Props) {
     },
     onSuccess: (data) => {
       setFeedbackId(data?._id ?? "")
-      setCurrentItem(assessmentVariants.results)
+      if (assessmentType === "numeracy")
+        setCurrentItem(numeracyAssessmentVariants.results)
+      else if (assessmentType === "literacy")
+        setCurrentItem(assessmentVariants.results)
     },
     onError: (err: Error) => {
       toast.error(err.message)
@@ -174,10 +253,10 @@ export function Questionnaire({ setCurrentItem }: Props) {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    saveAssessment(assessmentInput)
+    saveAssessment()
   }
   return (
-    <Card className="bg-transparent shadow-none border-none">
+    <Card className="bg-transparent shadow-none mx-auto max-w-fit">
       <CardHeader>
         <CardTitle>Finishing up</CardTitle>
         <CardDescription>

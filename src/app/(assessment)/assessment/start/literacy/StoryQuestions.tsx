@@ -1,6 +1,6 @@
 "use client"
 import * as React from "react"
-import { Question } from "./start/types"
+import { Question } from "../types"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -14,12 +14,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { assessmentVariants } from "./Assessment"
 import { AssessmentContext, Gender } from "./AssessmentContext"
-import { useMutation } from "@tanstack/react-query"
-import axios from "axios"
-import Spinner from "@/components/ui/spinner"
-import AssessmentResults from "./AssessmentResults"
 import { generateRandomName } from "@/lib/utils"
-import { Questionnaire } from "./Questionnaire"
 type StoryQuestionProps = {
   storyQuestions: Question[]
   setCurrentItem: React.Dispatch<React.SetStateAction<number>>

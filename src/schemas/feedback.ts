@@ -20,6 +20,11 @@ export default defineType({
       title: "Experience",
     },
     {
+      name: "assessmentType",
+      type: "string",
+      title: "Assessment Type",
+    },
+    {
       name: "feedback",
       type: "text",
       title: "Feedback",

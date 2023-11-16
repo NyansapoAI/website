@@ -1,7 +1,6 @@
 import React from "react"
-import { Assessment } from "./literacy/Assessment"
-import { LiteracyAssessment } from "./types"
-import Link from "next/link"
+import { Assessment } from "./Assessment"
+import { LiteracyAssessment } from "../types"
 
 type Props = {}
 
@@ -65,29 +64,14 @@ export default async function page({}: Props) {
   const resp = await fetchAssessment("1")
 
   return (
-    <div className="sm:px-8  py-6 md:py-8 mx-auto max-w-[1920px]">
-      <h2 className="text-2xl font-bold text-center">Choose Assessment type</h2>
-      <div className="flex gap-6 justify-center items-center pt-8 md:pt-16 flex-wrap">
-        <Link
-          className="p-8 xl:p-12 hover:scale-105 duration-200 text-xl font-bold rounded-md border border-primary "
-          href="/assessment/start/literacy"
-        >
-          Literacy Assessment
-        </Link>
-        <Link
-          className="p-8 xl:p-12 hover:scale-105 duration-200 text-xl font-bold rounded-md border-primary border"
-          href="/assessment/start/numeracy"
-        >
-          Numeracy Assessment
-        </Link>
-      </div>
-      {/* {resp && resp.data.literacyAssessmentContent ? (
+    <div className="sm:px-8 md:px-16 py-6 md:py-8 mx-auto max-w-[1920px]">
+      {resp && resp.data.literacyAssessmentContent ? (
         <Assessment literacyAssessment={resp.data.literacyAssessmentContent} />
       ) : (
         <p className="text-xl p-4 text-destructive">
           Something went wrong, please refresh the page
         </p>
-      )} */}
+      )}
     </div>
   )
 }

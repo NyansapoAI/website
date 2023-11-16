@@ -14,7 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { assessmentVariants } from "./Assessment"
+import { assessmentVariants } from "./start/literacy/Assessment"
 import toast from "react-hot-toast"
 import { Button } from "@/components/ui/button"
 import Spinner from "@/components/ui/spinner"
@@ -28,7 +28,8 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
 import { useContext } from "react"
-import { AssessmentContext } from "./AssessmentContext"
+import { AssessmentContext } from "./start/literacy/AssessmentContext"
+import { numeracyAssessmentVariants } from "./start/numeracy/NumeracyAssessments"
 
 const formSchema = z.object({
   // recommend: z.string().feedbackId(),
@@ -38,6 +39,7 @@ const formSchema = z.object({
 })
 type Props = {
   setCurrentItem: React.Dispatch<React.SetStateAction<number>>
+  assessmentType: "numeracy" | "literacy"
 }
 const experience = [
   {
@@ -89,7 +91,10 @@ const agree = [
     label: "No",
   },
 ]
-export function ResultsQuestionnaire({ setCurrentItem }: Props) {
+export function ResultsQuestionnaire({
+  setCurrentItem,
+  assessmentType,
+}: Props) {
   const { feedbackId, setFeedbackId } = useContext(AssessmentContext)
 
   // 1. Define your form.
@@ -122,7 +127,11 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
     },
   })
   const handleBack = () => {
-    setCurrentItem(assessmentVariants.results)
+    if (assessmentType === "literacy") {
+      setCurrentItem(assessmentVariants.results)
+    } else if (assessmentType === "numeracy") {
+      setCurrentItem(numeracyAssessmentVariants.results)
+    }
   }
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -246,7 +255,7 @@ export function ResultsQuestionnaire({ setCurrentItem }: Props) {
               )}
             /> */}
             <div className="flex items-center gap-6">
-              <Button variant="outline" onClick={handleBack}>
+              <Button type="button" variant="outline" onClick={handleBack}>
                 Back to Results
               </Button>
               <Button type="submit" className="max-w-fit" disabled={isLoading}>

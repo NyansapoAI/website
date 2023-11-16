@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [
       "unsplash.com",
       "images.unsplash.com",
+      "s3.amazonaws.com",
       "cdn.sanity.io",
     ].map((pattern) => ({
       protocol: "https",
