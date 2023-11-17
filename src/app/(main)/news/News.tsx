@@ -59,10 +59,11 @@ export interface NewsInterface {
     }
   }
 }
-export const revalidate = 0
+export const revalidate = 60 * 60
 type Props = {
   latest: boolean
 }
+
 export default async function News({ latest }: Props) {
   const data = await clientFetch<NewsInterface[]>(query)
   const latestNews = data.slice(0, 3)
