@@ -26,7 +26,7 @@ export default function Home() {
       <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
         {/* <Testimonials /> */}
         <Separator />
-        <News />
+        <News latest={true} />
       </div>
       <Separator />
       <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">

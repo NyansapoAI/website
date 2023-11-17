@@ -5,6 +5,7 @@ import { sanityClient } from "@/lib/sanity.client"
 import Image from "next/image"
 import Link from "next/link"
 import { NewsInterface } from "./News"
+import { friendlyLastUpdatedDate } from "@/lib/utils"
 
 type Props = {
   data: NewsInterface
@@ -33,9 +34,14 @@ export default function Preview({ data }: Props) {
               blurDataURL={data.mainImage.asset.metadata.lqip}
             />
           </div>
-          <h1 className="text-2xl  text-center lg:text-left group-hover:text-slate-500 duration-300">
-            {data.title}
-          </h1>
+          <div>
+            <h1 className="text-2xl  text-center lg:text-left group-hover:text-slate-500 duration-300">
+              {data.title}
+            </h1>
+            <p className="text-muted-foreground">
+              {friendlyLastUpdatedDate(data._createdAt)}
+            </p>
+          </div>
         </a>
       ) : (
         <Link
@@ -55,9 +61,14 @@ export default function Preview({ data }: Props) {
               />
             </div>
           )}
-          <h1 className="text-2xl  text-center lg:text-left group-hover:text-slate-500 duration-300">
-            {data.title}
-          </h1>
+          <div>
+            <h1 className="text-2xl  text-center lg:text-left group-hover:text-slate-500 duration-300">
+              {data.title}
+            </h1>
+            <p className="text-muted-foreground">
+              {friendlyLastUpdatedDate(data._createdAt)}
+            </p>
+          </div>
         </Link>
       )}
     </div>

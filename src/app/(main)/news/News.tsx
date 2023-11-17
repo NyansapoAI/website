@@ -10,9 +10,29 @@ export const metadata: Metadata = {
 }
 // Enable NextJS to cache and dedupe queries
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
-const query = groq`*[_type=='news']{body, title,link, _createdAt, publishedAt, _rev, _type, _id, _updatedAt, slug, mainImage{asset->{...,metadata{
-  lqip
-}}}}`
+// const query = groq`*[_type=='news']{body, title,link, _createdAt, publishedAt, _rev, _type, _id, _updatedAt, slug, mainImage{asset->{...,metadata{
+//   lqip
+// }}}}`
+const query = groq`*[_type=='news'] | order(_createdAt desc) {
+  body, 
+  title, 
+  link, 
+  _createdAt, 
+  publishedAt, 
+  _rev, 
+  _type, 
+  _id, 
+  _updatedAt, 
+  slug, 
+  mainImage {
+    asset -> {
+      ...,
+      metadata {
+        lqip
+      }
+    }
+  }
+}`
 export interface NewsInterface {
   body: any[]
   title: string
@@ -39,15 +59,22 @@ export interface NewsInterface {
     }
   }
 }
-export const revalidate = 60 * 60
-export default async function News() {
+export const revalidate = 0
+type Props = {
+  latest: boolean
+}
+export default async function News({ latest }: Props) {
   const data = await clientFetch<NewsInterface[]>(query)
+  const latestNews = data.slice(0, 3)
+  const news = latest ? latestNews : data
   return (
     <div id="news-section" className="py-8 lg:py-12">
-      <h2 className="text-3xl xl:text-4xl font-bold mb-8">Latest News</h2>
+      <h2 className="text-3xl xl:text-4xl font-bold mb-8">
+        {latest ? "Latest News" : "News"}
+      </h2>
       <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8 ">
         {data &&
-          data.map((item) => {
+          news.map((item) => {
             return <Preview key={item._id} data={item} />
           })}
       </div>
