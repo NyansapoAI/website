@@ -117,7 +117,6 @@ const NumeracyAssessments = ({ data }: Props) => {
     }
   }
   const parent = useRef(null)
-
   useEffect(() => {
     parent.current && autoAnimate(parent.current)
   }, [parent])
@@ -131,17 +130,17 @@ const NumeracyAssessments = ({ data }: Props) => {
   }, [currentItem])
   return (
     <div
-      className="sm:max-w-fit w-full border-none h-full  mt-8  bg-transparent mx-auto "
       ref={parent}
+      className="sm:max-w-fit w-full border-none h-full  mt-8  bg-transparent mx-auto "
     >
       {loading ? (
-        <div className="relative border-2">
-          <Lottie
+        <div className="bg-transparent rounded-md duration-300  w-[500px] h-[400px] relative  flex items-center justify-center">
+          {/* <Lottie
             className=" max-w-[625px] max-h-[600px] "
             animationData={transition}
             loop={false}
-          />
-          <p className="font-bold text-xl absolute top-[50%] right-[50%] translate-x-[50%] translate-y-[50%] ">
+          /> */}
+          <p className="font-bold text-2xl  duration-200 ">
             {getCurrentTitle()}
           </p>
         </div>

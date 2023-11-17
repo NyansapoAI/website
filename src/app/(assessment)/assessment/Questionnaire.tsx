@@ -73,6 +73,7 @@ export function Questionnaire({ setCurrentItem, assessmentType }: Props) {
     useContext(AssessmentContext)
   const {
     setAssessmentId: setNassessmentId,
+    setFeedbackId: setNfeedbackId,
     assessmentInput: NassessmentInput,
   } = useContext(NumeracyAssessmentContext)
   // 1. Define your form.
@@ -241,11 +242,14 @@ export function Questionnaire({ setCurrentItem, assessmentType }: Props) {
       }
     },
     onSuccess: (data) => {
-      setFeedbackId(data?._id ?? "")
-      if (assessmentType === "numeracy")
+      if (assessmentType === "numeracy") {
         setCurrentItem(numeracyAssessmentVariants.results)
-      else if (assessmentType === "literacy")
+        setNfeedbackId(data?._id)
+      } else if (assessmentType === "literacy") {
+        setFeedbackId(data?._id)
+
         setCurrentItem(assessmentVariants.results)
+      }
     },
     onError: (err: Error) => {
       toast.error(err.message)

@@ -46,7 +46,6 @@ export const Canvas: React.FC<CanvasProps> = ({
           }
         )
         const data = (await resp.json()) as WhisperApiResponseHandWriting
-        console.log("whisper resp", data)
         setProcessing(false)
         if (data.response.includes("failed")) {
           toast.error("Error in recognizing the image,please try again")
@@ -70,7 +69,6 @@ export const Canvas: React.FC<CanvasProps> = ({
     if (!canvas) return
     const context = canvas.getContext("2d")
     if (!context) return
-    console.log("context and canvas found")
     canvas.style.cursor = erasing ? "grab" : "default"
 
     let drawing = false

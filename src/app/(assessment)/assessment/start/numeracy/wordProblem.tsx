@@ -27,7 +27,6 @@ export const WordProblem = ({ data: wordProblems }: StoryQuestionProps) => {
   const [erasing, setErasing] = React.useState(false)
   const { setAssessmentInput, setCurrentItem, assessmentInput } =
     React.useContext(NumeracyAssessmentContext)
-  console.log(wordProblems)
   const handleSave = (resp: WhisperApiResponseHandWriting) => {
     setAssessmentInput((prev) => {
       return {

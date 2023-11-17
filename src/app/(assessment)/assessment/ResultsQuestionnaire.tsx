@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/card"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Textarea } from "@/components/ui/textarea"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AssessmentContext } from "./start/literacy/AssessmentContext"
 import { numeracyAssessmentVariants } from "./start/numeracy/NumeracyAssessments"
 import { NumeracyAssessmentContext } from "./start/numeracy/NumeracyAssessmentContext"
@@ -110,8 +110,9 @@ export function ResultsQuestionnaire({
   })
   const { mutate, isLoading } = useMutation({
     mutationFn: async (data: z.infer<typeof formSchema>) => {
+      const id = assessmentType === "literacy" ? feedbackId : NfeedbackId
       await sanityClient
-        .patch(feedbackId ?? NfeedbackId)
+        .patch(id)
         .set({
           _type: "feedback",
           agree: data.agree ? "yes" : "No",
