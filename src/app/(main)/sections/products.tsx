@@ -64,6 +64,9 @@ const ProductPreview = ({
   flexReverse,
   imageWidth,
 }: ProductPreviewProps) => {
+  const videoLink = product.title.includes("Android")
+    ? "/video/app.mp4"
+    : "/video/dashboard.mp4"
   return (
     <div
       className={cn(
@@ -82,12 +85,22 @@ const ProductPreview = ({
         </Link>
       </aside>
       <div className="relative">
-        <SanityImage
+        <video
+          width={imageWidth}
+          autoPlay={true}
+          loop
+          muted
+          className={cn(imageClassName, "z-10 relative")}
+        >
+          <source src={videoLink} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* <SanityImage
           imageWidth={imageWidth}
           className={cn(imageClassName, "z-10 relative  ")}
           altText={product.title}
           imageData={product.mainImage}
-        />
+        /> */}
 
         {/* <div className="w-96 h-96 rounded-full z-0 bg-yellow-300 absolute -right-12 top-24"></div> */}
       </div>
