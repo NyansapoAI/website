@@ -8,9 +8,22 @@ import { CTA_TEXT } from "@/constants"
 import { useWindowScroll } from "@uidotdev/usehooks"
 import { useEffect, useState } from "react"
 import { buttonVariants } from "@/components/ui/button"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
+import { ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils"
 export default function Navbar() {
   const [{ x, y }, scrollTo] = useWindowScroll()
+  console.log(navigationLinks)
   const [addBg, setAddBg] = useState(false)
   useEffect(() => {
     if (y && y > 500) {
@@ -23,14 +36,14 @@ export default function Navbar() {
     <div
       className={`w-full fixed ${
         addBg ? "bg-background" : "bg-gradient-to-b from-black/90"
-      } text-white duration-200  backdrop-blur- via-50% top-0 left-0 z-50 `}
+      } text-white duration-200  via-50% top-0 left-0 z-50 `}
     >
       <nav className=" relative flex flex-wrap py-3 px-4 gap-2 items-center justify-between  lg:justify-between ">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
             <>
-              <div className="flex flex-wrap items-center  justify-between w-full lg:w-auto">
+              <div className="flex flex-wrap items-center backdrop-blur-sm justify-between w-full lg:w-auto">
                 <Link href="/" className=" ">
                   <Image
                     src="/logo.png"
@@ -40,7 +53,6 @@ export default function Navbar() {
                     className="rounded-sm"
                   />
                 </Link>
-
                 <Disclosure.Button
                   aria-label="Toggle Menu"
                   className="px-2 py-1 ml-auto  rounded-md lg:hidden hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none  dark:focus:bg-cyan-700"
@@ -67,9 +79,9 @@ export default function Navbar() {
                 </Disclosure.Button>
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
-                  <>
+                  <div className="flex flex-col">
                     {navigationLinks.map((item, index) =>
-                      item.type == "page" ? (
+                      item.type === "page" ? (
                         <Link
                           className="w-full capitalize px-4 py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
@@ -77,6 +89,17 @@ export default function Navbar() {
                         >
                           {item.name}
                         </Link>
+                      ) : item.type === "menu" ? (
+                        item?.subMenu &&
+                        item.subMenu.map((sub, i) => (
+                          <Link
+                            className="hover:text-accent capitalize px-4 py-2  "
+                            key={i}
+                            href={`/${sub.name}`}
+                          >
+                            {sub.name}
+                          </Link>
+                        ))
                       ) : (
                         <a
                           className="w-full px-4 capitalize py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
@@ -94,7 +117,7 @@ export default function Navbar() {
                       <span className="">{CTA_TEXT}</span>
                     </Link>
                     <ThemeSwitch />
-                  </>
+                  </div>
                 </Disclosure.Panel>
               </div>
             </>
@@ -114,6 +137,28 @@ export default function Navbar() {
                   >
                     {item.name}
                   </Link>
+                ) : item.type === "menu" ? (
+                  <NavigationMenu className="bg-transparent">
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger className="flex items-center gap-2 bg-transparent capitalize text-md font-semibold">
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="flex bg-transparent flex-col p-1 gap-1">
+                        {item.subMenu?.map((subItem, index) => (
+                          <Link href={subItem.name} key={index}>
+                            <NavigationMenuLink
+                              className={cn(
+                                navigationMenuTriggerStyle(),
+                                "bg-transparent capitalize text-md font-semibold w-full"
+                              )}
+                            >
+                              {subItem.name}
+                            </NavigationMenuLink>
+                          </Link>
+                        ))}
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenu>
                 ) : (
                   <a
                     className="w-full capitalize px-4 py-2 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "

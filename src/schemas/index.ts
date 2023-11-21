@@ -6,6 +6,7 @@ import products from "./products"
 import features from "./features"
 import feedback from "./feedback"
 import careers from "./careers"
+import awards from "./awards"
 export const schemaTypes = [
   news,
   subscribers,
@@ -15,4 +16,5 @@ export const schemaTypes = [
   features,
   feedback,
   careers,
+  awards,
 ]

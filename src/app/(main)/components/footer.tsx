@@ -37,19 +37,30 @@ export default function Footer() {
         </div>
 
         <div>
-          <div className="flex  md:flex-col  gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+          <div className="flex md:grid grid-cols-2 items-start justify-start  gap-y-4 gap-x-6 flex-wrap w-full ">
             {navigationLinks.map((item, index) =>
               item.type == "page" ? (
                 <Link
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500  focus:outline-none dark:focus:bg-trueGray-700"
+                  className="hover:text-accent capitalize "
                   key={index}
                   href={`/${item.name}`}
                 >
                   {item.name}
                 </Link>
+              ) : item.type == "menu" ? (
+                item?.subMenu &&
+                item.subMenu.map((sub) => (
+                  <Link
+                    className="hover:text-accent capitalize "
+                    key={index}
+                    href={`/${sub.name}`}
+                  >
+                    {sub.name}
+                  </Link>
+                ))
               ) : (
                 <a
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500  focus:outline-none dark:focus:bg-trueGray-700"
+                  className="hover:text-accent capitalize "
                   key={index}
                   href={`/#${item.name}`}
                 >
@@ -60,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <div className="flex md:flex-col gap-4 flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
+          <div className="flex md:flex-col gap-4 flex-wrap w-full ">
             {legal.map((item, index) => (
               <a
                 key={index}
