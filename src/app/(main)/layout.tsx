@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   ],
   category: "technology",
   robots: {
-    index: false,
+    index: true,
     follow: true,
     nocache: true,
     googleBot: {
