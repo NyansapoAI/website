@@ -49,7 +49,6 @@ export const StoryQuestions = ({
     //if it is, update the answer
     //if not, add the question
 
-    console.log("value", value)
     if (
       !assessmentInput.questionAssessmentResults.create.some(
         (item) =>
@@ -121,7 +120,6 @@ export const StoryQuestions = ({
     }
   }
   const handleFinish = () => {
-    console.log("final data", assessmentInput)
     // mutate(assessmentInput)
     setCurrentItem(assessmentVariants.questionnaire)
   }

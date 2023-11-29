@@ -1,7 +1,7 @@
 export const navigationLinks = [
-  { name: "about us", type: "section" },
+  // { name: "about us", type: "section" },
   { name: "products", type: "section" },
-  { name: "company", type: "page" },
+  { name: "about us", type: "page" },
   {
     name: "impact",
     type: "menu",

@@ -23,7 +23,6 @@ import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 export default function Navbar() {
   const [{ x, y }, scrollTo] = useWindowScroll()
-  console.log(navigationLinks)
   const [addBg, setAddBg] = useState(false)
   useEffect(() => {
     if (y && y > 500) {
