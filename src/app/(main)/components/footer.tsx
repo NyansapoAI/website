@@ -77,7 +77,7 @@ export default function Footer() {
                 key={index}
                 target="_blank"
                 rel="noreferrer"
-                href={`/${item.link}`}
+                href={`${item.link}`}
               >
                 <span className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700">
                   {item.name}
