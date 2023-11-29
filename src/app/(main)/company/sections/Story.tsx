@@ -11,6 +11,21 @@ export default function Story({}: Props) {
         <div className="p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-6 shadow-lg rounded-full "></div>
 
         <h1 className=" text-4xl xl:text-5xl mb-6">Our story</h1>
+        {/* <p className="text-lg font-light leading-relaxed mt-4 mb-4 ">
+          At Nyansapo AI, our dedicated team is comprised of seasoned educators,
+          AI experts, and technology enthusiasts who share a common vision: to
+          elevate literacy and numeracy outcomes through the strategic
+          integration of artificial intelligence. Our collective expertise spans
+          teaching, neuroscience, and technology, bringing together a unique
+          blend of insights to drive innovation in education. In crafting our
+          solutions, we&apos;ve meticulously incorporated the most recent
+          advancements in learning science, AI, . This synergy ensures that our
+          approach is not just intuitive and engaging but is firmly grounded in
+          evidence-based scientific and pedagogical techniques. The result is an
+          educational platform that goes beyond conventional methods, offering a
+          personalized, effective, and scientifically validated approach to
+          improving literacy and numeracy skills.
+        </p> */}
         <p className="text-lg font-light leading-relaxed mt-4 mb-4 ">
           Nyansapo was founded by Mumbe Mwangangi and Edward Amoah in 2019 in
           Kenya. It was based on the premise of bringing “technology into

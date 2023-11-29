@@ -29,10 +29,10 @@ export const revalidate = 86400
 export default function page({}: Props) {
   return (
     <div className="text-dark dark:text-white mt-20 px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
-      <CompanyLanding />
+      {/* <CompanyLanding /> */}
+      <Story />
       <Values />
       <Separator />
-      <Story />
       <Separator />
       <Research />
       <Separator />
