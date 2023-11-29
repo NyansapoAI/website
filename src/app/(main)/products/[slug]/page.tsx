@@ -8,6 +8,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import ProductFeatures, { Feature } from "./productFeatures"
 import SanityImage from "@/components/ui/SanityImage"
+import { cn } from "@/lib/utils"
 type Props = {
   params: { slug: string }
 }
@@ -110,6 +111,7 @@ export default async function page({ params }: Props) {
   description
 }}`
   const data = await clientFetch<ProductInterface[]>(query)
+
   return (
     <div className="lg:px-28 flex  flex-col gap-4 py-12 2xl:py-16 mt-20 px-4 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
       {data.length > 0 ? (
@@ -117,15 +119,45 @@ export default async function page({ params }: Props) {
           <h1 className=" text-3xl lg:text-5xl font-bold text-center mb-8">
             {data[0].title}
           </h1>
-          <SanityImage
+          {data[0].title.includes("Android") && (
+            <div className="flex flex-col items-center gap-8 justify-center">
+              <video
+                width={300}
+                autoPlay={true}
+                loop
+                muted
+                className={cn("z-10 relative")}
+              >
+                <source src={"/video/app.mp4"} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
+
+          {data[0].title.includes("Dashboard") && (
+            <div className="flex flex-col items-center gap-8 justify-center">
+              <video
+                width={800}
+                autoPlay={true}
+                loop
+                muted
+                className={cn("z-10 relative")}
+              >
+                <source src={"/video/dashboard.mp4"} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
+          <h2 className=" text-xl  text-muted-foreground my-8">
+            {data[0].summary}
+          </h2>
+
+          {/* <SanityImage
             className=" mx-auto my-6 2xl:my-12 aspect-video"
             imageData={data[0].mainImage}
             imageWidth={data[0].title.includes("App") ? 300 : 1000}
             altText={data[0].title}
-          />
-          <h1 className=" text-xl text-center text-muted-foreground mb-8">
-            {data[0].summary}
-          </h1>
+          /> */}
           {/* {data[0].mainImage && <MainImage data={data[0]} />} */}
           {data[0].video && (
             <iframe
