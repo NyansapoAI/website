@@ -25,7 +25,7 @@ export default function About({}: Props) {
             their  education.
           </p>
           <Link
-            href="/company"
+            href="/about"
             className="px-6 py-3 rounded-full max-w-fit border-2 border-yellow-500"
           >
             Learn more

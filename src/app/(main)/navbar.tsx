@@ -84,7 +84,7 @@ export default function Navbar() {
                         <Link
                           className="w-full capitalize px-4 py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
-                          href={`/${item.name}`}
+                          href={`/${item.link ?? item.name}`}
                         >
                           {item.name}
                         </Link>
@@ -132,7 +132,7 @@ export default function Navbar() {
                   <Link
                     className="w-full capitalize px-4 py-2 font-semibold rounded-md hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
                     key={index}
-                    href={`/${item.name}`}
+                    href={`/${item.link ?? item.name}`}
                   >
                     {item.name}
                   </Link>
