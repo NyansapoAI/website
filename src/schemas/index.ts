@@ -8,6 +8,7 @@ import feedback from "./feedback"
 import careers from "./careers"
 import awards from "./awards"
 import contact from "./contact"
+import partners from "./partners"
 export const schemaTypes = [
   news,
   subscribers,
@@ -18,5 +19,6 @@ export const schemaTypes = [
   feedback,
   careers,
   awards,
+  partners,
   contact,
 ]

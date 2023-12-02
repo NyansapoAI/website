@@ -18,6 +18,10 @@ export const navigationLinks = [
         name: "achievements",
         type: "page",
       },
+      {
+        name: "partners",
+        type: "page",
+      },
     ],
   },
   { name: "news", type: "page" },

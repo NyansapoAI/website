@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "Nyansapo Artificial Intelligence",
     "literacy and numeracy bootcamps",
     "teaching at the right level",
+    "accelerated learning",
   ],
   category: "technology",
   robots: {

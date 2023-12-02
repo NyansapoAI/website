@@ -4,7 +4,6 @@ import React from "react"
 import CompanyLanding from "./sections/landing"
 import Locations from "./sections/Locations"
 import NewsLetter from "./sections/NewsLetter"
-import Partners from "./sections/partners"
 import Research from "./sections/Research"
 import Story from "./sections/Story"
 import Team from "./sections/Team"
@@ -23,6 +22,7 @@ export const metadata: Metadata = {
     "Nyansapo Artificial Intelligence",
     "literacy and numeracy bootcamps",
     "teaching at the right level",
+    "accelerated learning",
   ],
 }
 export const revalidate = 86400
@@ -40,7 +40,7 @@ export default function page({}: Props) {
       <Separator />
       <Locations />
       {/* <Separator /> */}
-      <Partners />
+      {/* <Partners /> */}
       {/* <Separator /> */}
       <NewsLetter />
     </div>
