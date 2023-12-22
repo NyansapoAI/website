@@ -1,1 +1,1 @@
-export const CTA_TEXT='Get In Touch'
+export const CTA_TEXT = "Get Started"

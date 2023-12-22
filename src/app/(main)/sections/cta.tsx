@@ -1,6 +1,7 @@
 import { CTA_TEXT } from "@/constants"
 import Link from "next/link"
 import React from "react"
+import { CTAButton } from "../CTAButton"
 
 export default function Cta() {
   return (
@@ -14,12 +15,7 @@ export default function Cta() {
           <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl"></p>
         </div>
         <div className="flex-shrink-0 relative z-20 w-full text-center lg:w-auto">
-          <Link
-            href="/contact"
-            className="inline-block py-3 mx-auto text-xl  text-center  bg-yellow-500 rounded-md px-6  "
-          >
-            {CTA_TEXT}
-          </Link>
+          <CTAButton />
         </div>
       </div>
     </div>

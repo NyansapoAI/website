@@ -6,6 +6,7 @@ import Video from "../components/Video"
 import { CTA_TEXT } from "@/constants"
 import Image from "next/image"
 import { buttonVariants } from "@/components/ui/button"
+import { CTAButton } from "../CTAButton"
 
 type Props = {}
 
@@ -48,12 +49,7 @@ export default function Hero({}: Props) {
           </div>
 
           <div className="flex flex-wrap gap-4 justify-center items-center">
-            <Link
-              href="/contact"
-              className={buttonVariants({ variant: "default" })}
-            >
-              {CTA_TEXT}
-            </Link>
+            <CTAButton />
             <button
               onClick={() => setIsOpen(true)}
               className="text-accent2 border-2 px-4 py-2 rounded-md border-accent2 flex gap-x-3 items-center "

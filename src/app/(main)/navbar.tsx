@@ -21,6 +21,7 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { CTAButton } from "./CTAButton"
 export default function Navbar() {
   const [{ x, y }, scrollTo] = useWindowScroll()
   const [addBg, setAddBg] = useState(false)
@@ -173,12 +174,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex">
-          <Link
-            href="/contact"
-            className="px-3 py-2 text-primary-foreground  bg-primary rounded-md md:ml-5"
-          >
-            <span className="">{CTA_TEXT}</span>
-          </Link>
+          <CTAButton />
           <ThemeSwitch />
         </div>
       </nav>
