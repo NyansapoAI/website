@@ -7,7 +7,7 @@ import { navigationLinks } from "@/constants/links"
 import { CTA_TEXT } from "@/constants"
 import { useWindowScroll } from "@uidotdev/usehooks"
 import { useEffect, useState } from "react"
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -145,7 +145,7 @@ export default function Navbar() {
                       </NavigationMenuTrigger>
                       <NavigationMenuContent className="flex bg-transparent flex-col p-1 gap-1">
                         {item.subMenu?.map((subItem, index) => (
-                          <Link href={subItem.name} key={index}>
+                          <Link href={`/${subItem.name}`} key={index}>
                             <NavigationMenuLink
                               className={cn(
                                 navigationMenuTriggerStyle(),
@@ -175,7 +175,7 @@ export default function Navbar() {
 
         <div className="hidden mr-3 space-x-4 lg:flex">
           <CTAButton />
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </div>
       </nav>
     </div>
