@@ -67,15 +67,20 @@ type Props = {
 export default async function News({ latest }: Props) {
   const data = await clientFetch<NewsInterface[]>(query)
   const latestNews = data.slice(0, 3)
-  const news = latest ? latestNews : data
+
+  const news = latest ? latestNews : data.slice(1, data.length)
   return (
     <div id="news-section" className="py-8 lg:py-12">
       <h2 className="text-3xl xl:text-4xl font-bold mb-8">
         {latest ? "Latest News" : "News"}
       </h2>
-      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8 ">
+      <div className="mb-8 lg:mb-12">
+        <h2 className="mb-2 text-xl">Latest News</h2>
+        <Preview key={data[0]._id} data={data[0]} large={true} />
+      </div>
+      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8 py-8">
         {data &&
-          news.map((item) => {
+          news.map((item, i) => {
             return <Preview key={item._id} data={item} />
           })}
       </div>

@@ -40,7 +40,7 @@ export default function NewsLetter({}: Props) {
     }
   }
   return (
-    <div className="flex  rounded-lg p-8 mx-auto items-center max-w-fit justify-center   gap-4 ">
+    <div className="flex  rounded-lg p-8 my-12 lg:my-16  mx-auto items-center max-w-fit justify-center   gap-4 ">
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl">Join Our NewsLetter</h1>
         <p className="max-w-lg">

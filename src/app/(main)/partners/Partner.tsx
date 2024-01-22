@@ -17,9 +17,9 @@ export default function Partner({ award }: AwardProps) {
       <Image
         {...imageProps}
         // height={500}
-        width={300}
-        height={300}
-        className="w-full max-w-[150px] max-h-[150px] object-contain  rounded-md"
+        width={400}
+        height={400}
+        className="w-full max-w-[250px] max-h-[250px] object-contain  rounded-md"
         alt={award.title}
       />
       <div>

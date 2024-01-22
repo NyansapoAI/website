@@ -15,9 +15,9 @@ export default function Footer() {
     },
   ]
   return (
-    <div className="relative px-8 py-12">
-      <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 lg:grid-cols-5">
-        <div className="lg:col-span-2">
+    <div className="relative bg-secondary text-secondary-foreground px-8 py-12">
+      <div className="grid max-w-screen-xl grid-cols-1 gap-8  pt-10 mx-auto mt-5 lg:grid-cols-5">
+        <div className="lg:col-span-2 flex flex-col items-center">
           <div>
             <Link href="/" className="flex gap-4 items-center">
               <span className="flex items-center space-x-2 text-2xl font-medium text-cyan-500 dark:text-gray-100">
@@ -31,44 +31,42 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
+          <div className="max-w-md mt-2 text-muted-foreground">
             AI For Childen:Read,Count & Shine
           </div>
         </div>
 
-        <div>
-          <div className="flex md:grid grid-cols-2 items-start justify-start  gap-y-4 gap-x-6 flex-wrap w-full ">
-            {navigationLinks.map((item, index) =>
-              item.type == "page" ? (
+        <div className="flex md:grid grid-cols-2 items-start justify-start  gap-y-4 gap-x-12 flex-wrap w-full ">
+          {navigationLinks.map((item, index) =>
+            item.type == "page" ? (
+              <Link
+                className="hover:text-accent capitalize "
+                key={index}
+                href={`/${item.name}`}
+              >
+                {item.name}
+              </Link>
+            ) : item.type == "menu" ? (
+              item?.subMenu &&
+              item.subMenu.map((sub) => (
                 <Link
                   className="hover:text-accent capitalize "
                   key={index}
-                  href={`/${item.name}`}
+                  href={`/${sub.name}`}
                 >
-                  {item.name}
+                  {sub.name}
                 </Link>
-              ) : item.type == "menu" ? (
-                item?.subMenu &&
-                item.subMenu.map((sub) => (
-                  <Link
-                    className="hover:text-accent capitalize "
-                    key={index}
-                    href={`/${sub.name}`}
-                  >
-                    {sub.name}
-                  </Link>
-                ))
-              ) : (
-                <a
-                  className="hover:text-accent capitalize "
-                  key={index}
-                  href={`/#${item.name}`}
-                >
-                  {item.name}
-                </a>
-              )
-            )}
-          </div>
+              ))
+            ) : (
+              <a
+                className="hover:text-accent capitalize "
+                key={index}
+                href={`/#${item.name}`}
+              >
+                {item.name}
+              </a>
+            )
+          )}
         </div>
         <div>
           <div className="flex md:flex-col gap-4 flex-wrap w-full ">
