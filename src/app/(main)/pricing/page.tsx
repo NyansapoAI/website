@@ -106,7 +106,7 @@ export default function Component() {
 
         <div className="grid gap-6 md:grid-cols-2 md:gap-12">
           <div className="flex flex-col items-center space-y-4 p-6 text-primary-foreground bg-green-100 rounded-lg">
-            <h3 className="text-2xl my-4 font-bold">Free tier</h3>
+            <h3 className="text-2xl font-bold">Free tier</h3>
             <p className="text-4xl lg:text-5xl font-bold">$0</p>
             <p className="text-md font-semibold">Per child/month</p>
             <p className="text-md text-center font-semibold">
