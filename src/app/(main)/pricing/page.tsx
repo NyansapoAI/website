@@ -46,7 +46,7 @@ export default function Component() {
             </ul>
 
             <a
-              href="https://platform.nyansapoai.net"
+              href="https://platform.nyansapoai.net/auth/signup"
               target={"_blank"}
               className={cn(buttonVariants({ variant: "default" }), "w-full")}
             >
@@ -89,7 +89,7 @@ export default function Component() {
               </li>
             </ul>
             <a
-              href="https://platform.nyansapoai.net"
+              href="https://platform.nyansapoai.net/auth/signup"
               target={"_blank"}
               className={cn(
                 buttonVariants({ variant: "default" }),
@@ -136,7 +136,7 @@ export default function Component() {
               </li>
             </ul>
             <a
-              href="https://platform.nyansapoai.net"
+              href="https://platform.nyansapoai.net/auth/signup"
               target={"_blank"}
               className={cn(buttonVariants({ variant: "default" }), "w-full")}
             >
@@ -176,7 +176,7 @@ export default function Component() {
               </li>
             </ul>
             <a
-              href="https://platform.nyansapoai.net"
+              href="https://platform.nyansapoai.net/auth/signup"
               target={"_blank"}
               className={cn(
                 buttonVariants({ variant: "default" }),
