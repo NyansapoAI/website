@@ -83,7 +83,7 @@ export default function Navbar() {
                     {navigationLinks.map((item, index) =>
                       item.type === "page" ? (
                         <Link
-                          className="w-full capitalize px-4 py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
+                          className="w-full capitalize px-4 py-2 rounded-md font-semibold hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
                           href={`/${item.link ?? item.name}`}
                         >
@@ -93,7 +93,7 @@ export default function Navbar() {
                         item?.subMenu &&
                         item.subMenu.map((sub, i) => (
                           <Link
-                            className="hover:text-accent capitalize px-4 py-2  "
+                            className="hover:text-accent font-semibold capitalize px-4 py-2  "
                             key={i}
                             href={`/${sub.name}`}
                           >
@@ -112,11 +112,33 @@ export default function Navbar() {
                     )}
                     <Link
                       href="/contact"
-                      className={buttonVariants({ variant: "default" })}
+                      className="w-full capitalize px-4 py-2 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                     >
-                      <span className="">{CTA_TEXT}</span>
+                      <span className="">Contact Us</span>
                     </Link>
-                    <ThemeSwitch />
+                    <div className="flex flex-col my-2 gap-4 px-4">
+                      <a
+                        href="https://platform.nyansapoai.net/auth/signup"
+                        target="_blank"
+                        className={cn(
+                          buttonVariants({ variant: "default" }),
+                          "text-lg   "
+                        )}
+                      >
+                        Get Started
+                      </a>
+                      <a
+                        href="https://buy.stripe.com/14k03f1RV90O1RS5kk"
+                        target="_blank"
+                        className={cn(
+                          buttonVariants({ variant: "default" }),
+                          "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100 "
+                        )}
+                      >
+                        Donate
+                      </a>
+                    </div>
+                    {/* <ThemeSwitch /> */}
                   </div>
                 </Disclosure.Panel>
               </div>
@@ -173,8 +195,24 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="hidden mr-3 space-x-4 lg:flex">
+        <div className="hidden  space-x-4 lg:flex">
+          <Link
+            href="/contact"
+            className="capitalize px-4 py-2 rounded-md font-semibold hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
+          >
+            <span className="">Contact Us</span>
+          </Link>
           <CTAButton />
+          <a
+            href="https://buy.stripe.com/14k03f1RV90O1RS5kk"
+            target="_blank"
+            className={cn(
+              buttonVariants({ variant: "default" }),
+              "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100 "
+            )}
+          >
+            Donate
+          </a>
           {/* <ThemeSwitch /> */}
         </div>
       </nav>
