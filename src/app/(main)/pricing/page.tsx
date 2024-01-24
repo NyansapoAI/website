@@ -54,7 +54,7 @@ export default function Component() {
             </a>
           </div>
           <div className="flex flex-col items-center space-y-4 p-6 bg-yellow-100 rounded-lg">
-            <h3 className="text-2xl font-bold">Paid tier</h3>
+            <h3 className="text-2xl font-bold">FLN at Scale</h3>
             <p className="text-4xl lg:text-5xl font-bold">$0.99</p>
             <p className="text-md font-semibold">
               Per child/month (Discounted from $4.99)
@@ -144,7 +144,7 @@ export default function Component() {
             </a>
           </div>
           <div className="flex flex-col items-center space-y-4 p-6 text-primary-foreground bg-yellow-100 rounded-lg">
-            <h3 className="text-2xl font-bold">Paid tier</h3>
+            <h3 className="text-2xl font-bold">FLN at Scale</h3>
             <p className="text-4xl lg:text-5xl font-bold">$0.99</p>
             <p className="text-md font-semibold">
               Per child/month (Discounted from $4.99)
