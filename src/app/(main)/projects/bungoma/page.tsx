@@ -77,32 +77,34 @@ export default function BungomaProject() {
               </div>
             </div>
           </section>
+          <h2 className="text-3xl font-bold tracking-tighter">
+            Introduction
+          </h2>
           <h4 className=" mx-auto text-background mt-2 text-lg">
-            Join us on a remarkable journey as five committed partners unite to
-            make a profound impact in Bungoma, Kenya. Our mission is to conduct
-            a three-month Foundational Skills Learning Camp empowered by AI and
-            Data, focusing on young children aged between 8 and 15. We are
-            partnering with the Amani CBO in Bungoma with the support of the
-            USAID, YALI RLC EA and Kenyatta university to train teachers and
-            implement learning camps for&nbsp;
-            <span className="text-primary font-bold">5000</span> children in
-            schools across the county. Stay tuned as we share more about our
-            collaborative journey and the positive changes we aim to bring to
-            the young minds of Bungoma. Together, we&apos;re shaping a brighter
-            tomorrow, one child at a time.
+            In 2015, the Uwezo learning assessments evaluated the foundational literacy and numeracy (FLN) skills of 
+            children between ages of 6-16 across Uganda, Kenya and Tanzania (Nakabugo, 2015). 
+            According to the Uwezo learning assessments <span className="text-primary font-bold">3/10 children</span> between ages of 
+            6-16 in East Africa cannot read Grade 2-level stories with comprehension. 
+            The study also revealed some of the major factors that are influencing 
+            FLN education in East Africa. Communities where most children could not 
+            read were in poor, arid, semi-arid communities with limited resources (Virginia et al., 2022). 
+            Other important factors were socio-economic status like mothers' education, home source 
+            of lighting etc. Children of mothers with secondary education and higher displayed higher 
+            literacy and numeracy skills compared to other children. Similarly, children in homes where 
+            electricity was the source of energy outperformed the other children (Nakabugo, 2015). 
+  
+          </h4>
+          <br></br>
+          <h4 className=" mx-auto text-background mt-2 text-lg" >
+            The read, count and shine project is a commmunity-based FLN program that targets, train and 
+            empower teachers, parents and children for FLN education in communities. 
+            Together with our partners we are implementing a Nyansapo AI FLN program powered by our 
+            Nyansapo AI platform in <span className="text-primary font-bold">20 primary schools </span> in Bungoma, Kenya tagerting <span className="text-primary font-bold">5000 children</span>. 
+            We are working with and training <span className="text-primary font-bold">40 school teachers</span> and teaching volunteer to implement 
+            an FLN intervention as an after school hours program.
           </h4>
         </div>
-        {/* <section className="w-full ">
-          <div>
-            <Image
-              alt="Landing Video"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full"
-              height="550"
-              src="/hero.png"
-              width="550"
-            />
-          </div>
-        </section> */}
+   
         <section className="w-full py-12  ">
           <h2 className="text-3xl font-bold tracking-tighter">
             Proposed Impact
@@ -110,82 +112,40 @@ export default function BungomaProject() {
           <p className="text-lg  mt-2">
             Measuring Our Commitment to Positive Change
           </p>
-          <div className="flex gap-4 lg:gap-8 flex-wrap items-center mt-6">
-            <ImpactStat
-              title="Unlocking Brighter Futures"
-              description="Our goal is to reach 5,000 young minds through our Learning Camps, providing them with vital skills and knowledge that will shape their future."
-              icon={<Star className="text-primary" />}
-            />
-            {/* <ImpactStat
-                title="35"
-                description="35 learning camps conducted in marginalized areas"
-              /> */}
-            <ImpactStat
-              title="Teacher Engagement"
-              description="We are committed to working with 20 dedicated teachers, equipping them with effective teaching methodologies to nurture young talents"
-              icon={<Users2 className="text-primary" />}
-            />
-            {/* <ImpactStat
-              title="20"
-              description="Worked with 20 teachers in the learning programs"
-            /> */}
-          </div>
+          <br></br>
+          <ul className="list-disc list-inside">
+            <li className="mb-2">Improve learning level of 5,000 children at least one learning level</li>
+            <li className="mb-2">Train and empower at least 40 teachers to implement FLN programs</li>
+            <li className="mb-2">Execute FLN program in 20 primary schools</li>
+            <li className="mb-2">Increase parents awareness and support for FLN programs</li>
+          </ul>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className=" ">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-              Featured
-            </h2>
-            <p className="text-lg py-8">
-              Stay tuned for updates on the project
-            </p>
+    
+        <section>
+          <section>
+          <h2 className="text-3xl font-bold tracking-tighter">
+            Follow Zawadi's Journey
+          </h2>
+          <br></br>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+              <div className="w-full md:w-1/2">
+                <img src="https://github.com/eai6/nyansapo_website/blob/main/zawadi.png?raw=true" alt="Random Image" className="w-full" />
+              </div>
+              <div className="w-full md:w-1/2" style={{ height: '100%', overflowY: 'scroll' }}>
+                <h2 className="text-3xl font-bold">Zawadi's Journey: Empowering Dreams through Education</h2>
+                <p className="text-lg mt-4">
+                In the heart of Kitui County, Kenya, in the present day, there is a bright and spirited young girl named Zawadi. 
+                Zawadi is a Grade 4 student at Voo Primary School, a place filled with enthusiasm for learning and adventure. 
+                Her journey with education is being significantly transformed by Nyansapo AI, an innovative learning tool that 
+                has become an integral part of her daily life. Zawadi’s story is a testament to the power of education and the
+                transformative impact of Nyansapo AI in the lives of young learners.
 
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              <Link href="#">
-                <div className="rounded-lg overflow-hidden shadow-md">
-                  <Image
-                    width={350}
-                    alt="Blog Image"
-                    className="object-cover w-full h-48"
-                    height="200"
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "350/200",
-                      objectFit: "cover",
-                    }}
-                  />
-                  <div className="p-6">
-                    <h3 className="font-bold text-xl mb-2">Blog Title 1</h3>
-                    <p className="text-gray-700 text-base">
-                      Blog Description 1
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link href="#">
-                <div className="rounded-lg overflow-hidden shadow-md">
-                  <Image
-                    alt="Blog Image"
-                    className="object-cover w-full h-48"
-                    height="200"
-                    src="/placeholder.svg"
-                    style={{
-                      aspectRatio: "350/200",
-                      objectFit: "cover",
-                    }}
-                    width="350"
-                  />
-                  <div className="p-6">
-                    <h3 className="font-bold text-xl mb-2">Blog Title 2</h3>
-                    <p className="text-gray-700 text-base">
-                      Blog Description 2
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div> */}
-          </div>
+                </p>
+              </div>
+            </div>
+          </section>
         </section>
+        
       </main>
     </div>
   )
