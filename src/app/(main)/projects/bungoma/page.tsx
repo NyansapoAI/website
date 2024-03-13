@@ -88,7 +88,7 @@ export default function BungomaProject() {
             The study also revealed some of the major factors that are influencing 
             FLN education in East Africa. Communities where most children could not 
             read were in poor, arid, semi-arid communities with limited resources (Virginia et al., 2022). 
-            Other important factors were socio-economic status like mothers' education, home source 
+            Other important factors were socio-economic status like mothers education, home source 
             of lighting etc. Children of mothers with secondary education and higher displayed higher 
             literacy and numeracy skills compared to other children. Similarly, children in homes where 
             electricity was the source of energy outperformed the other children (Nakabugo, 2015). 
@@ -124,7 +124,7 @@ export default function BungomaProject() {
         <section>
           <section>
           <h2 className="text-3xl font-bold tracking-tighter">
-            Follow Zawadi's Journey
+            Follow Zawadis Journey
           </h2>
           <br></br>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
@@ -132,7 +132,7 @@ export default function BungomaProject() {
                 <Image src="https://github.com/eai6/nyansapo_website/blob/main/zawadi.png?raw=true" alt="Random Image" className="w-full" />
               </div>
               <div className="w-full md:w-1/2" style={{ height: '100%', overflowY: 'scroll' }}>
-                <h2 className="text-3xl font-bold">Zawadi's Journey: Empowering Dreams through Education</h2>
+                <h2 className="text-3xl font-bold">Zawadis Journey: Empowering Dreams through Education</h2>
                 <p className="text-lg mt-4">
                 In the heart of Kitui County, Kenya, in the present day, there is a bright and spirited young girl named Zawadi. 
                 Zawadi is a Grade 4 student at Voo Primary School, a place filled with enthusiasm for learning and adventure. 
