@@ -129,7 +129,7 @@ export default function BungomaProject() {
           <br></br>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <div className="w-full md:w-1/2">
-              <Image src="https://github.com/eai6/nyansapo_website/blob/main/zawadi.png?raw=true" alt="Random Image" className="w-full" width={500} height={300} />
+              <Image src="/imgs/testimonial/zawadi.png" alt="Random Image" className="w-full" width={500} height={300} />
               </div>
               <div className="w-full md:w-1/2" style={{ height: '100%', overflowY: 'scroll' }}>
                 <h2 className="text-3xl font-bold">Zawadis Journey: Empowering Dreams through Education</h2>
