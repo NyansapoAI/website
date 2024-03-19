@@ -129,7 +129,7 @@ export default function BungomaProject() {
           <br></br>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <div className="w-full md:w-1/2">
-                <Image src="https://github.com/eai6/nyansapo_website/blob/main/zawadi.png?raw=true" alt="Random Image" className="w-full" />
+              <Image src="https://github.com/eai6/nyansapo_website/blob/main/zawadi.png?raw=true" alt="Random Image" className="w-full" width={500} height={300} />
               </div>
               <div className="w-full md:w-1/2" style={{ height: '100%', overflowY: 'scroll' }}>
                 <h2 className="text-3xl font-bold">Zawadis Journey: Empowering Dreams through Education</h2>
@@ -137,7 +137,7 @@ export default function BungomaProject() {
                 In the heart of Kitui County, Kenya, in the present day, there is a bright and spirited young girl named Zawadi. 
                 Zawadi is a Grade 4 student at Voo Primary School, a place filled with enthusiasm for learning and adventure. 
                 Her journey with education is being significantly transformed by Nyansapo AI, an innovative learning tool that 
-                has become an integral part of her daily life. Zawadi’s story is a testament to the power of education and the
+                has become an integral part of her daily life. Zawadi&apos;s story is a testament to the power of education and the
                 transformative impact of Nyansapo AI in the lives of young learners.
 
                 </p>
