@@ -30,7 +30,7 @@ export default function Preview({ data, large }: Props) {
         >
           <div className="overflow-clip">
             <Image
-              alt={data.slug.current}
+              alt={data?.slug?.current??'blog_image'} 
               {...imageProps}
               width={large ? 800 : 400}
               height={large ? 800 : 400}
@@ -72,7 +72,7 @@ export default function Preview({ data, large }: Props) {
               )}
             >
               <Image
-                alt={data.slug.current}
+                alt={data?.slug?.current??'blog_image'}
                 {...imageProps}
                 width={800}
                 height={600}
