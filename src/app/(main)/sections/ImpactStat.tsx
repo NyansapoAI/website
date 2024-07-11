@@ -17,7 +17,7 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
   // Function to determine title color based on title
   const getTitleColor = (title: string) => {
     if (title === "5000" || title === "40" || title === "15" || title === "200") {
-      return "text-white-500"; // Example: Change to your desired color class
+      return "text-yellow-500"; // Example: Change to your desired color class
     }
     return "text-white"; // Default title color
   };
