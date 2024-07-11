@@ -1,10 +1,10 @@
 "use client"
 import React from "react"
 import ImpactStat from "./ImpactStat"
-import heroImage from "../../../../public/screenshots/app/teacher.jpeg"
-import campImage from "../../../../public/screenshots/app/home-screen.jpg"
-import partnersImage from "../../../../public/screenshots/app/newpartners.jpeg"
-import groupingImage from "../../../../public/screenshots/app/grouping.jpeg"
+import heroImage from "../../../../public/screenshots/app/teachers.jpeg"
+import campImage from "../../../../public/screenshots/app/drawing.jpeg"
+import partnersImage from "../../../../public/screenshots/app/staff.jpeg"
+import groupingImage from "../../../../public/screenshots/app/holding.jpeg"
 
 type Props = {}
 
