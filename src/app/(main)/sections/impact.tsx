@@ -3,12 +3,8 @@ import React from "react"
 import ImpactStat from "./ImpactStat"
 import heroImage from "../../../../public/screenshots/app/teacher.jpeg"
 import campImage from "../../../../public/screenshots/app/home-screen.jpg"
-import partnersImage from "../../../../public/screenshots/app/partners.jpeg"
+import partnersImage from "../../../../public/screenshots/app/newpartners.jpeg"
 import groupingImage from "../../../../public/screenshots/app/grouping.jpeg"
-
-
-
-
 
 type Props = {}
 
@@ -24,41 +20,37 @@ export default function Impact({}: Props) {
           the ways we&apos;ve made an impact.
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12 py-12">
-      
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12 py-12 px-7"> {/* Added px-4 for padding */}
         <ImpactStat
-          title="1000"
+          title="5000"
           suffix="+"
-          description="Leaners Assessed"
+          description="CHILDREN \n \n Assessed in schools around Kenya"
           image={groupingImage}
-          imageWidth="300px" 
+          imageWidth="250px" 
           imageHeight="350px"
         />
         <ImpactStat
-          title="30"
+          title="40"
           suffix="+"
-          description="learning camps conducted"
+          description="LEARNING CAMPS \n \n Conducted in Various Schools in Kenya"
           image={campImage}
-          imageWidth="300px" 
+          imageWidth="250px" 
           imageHeight="350px"
-
         />
         <ImpactStat
-          title="10"
-          description="Organizations partnered with"
+          title="15"
+          description="ORGANIZATION \n \n \n Partnered with in Kenya"
           image={partnersImage}
-          imageWidth="390px" 
+          imageWidth="250px" 
           imageHeight="350px"
-          
         />
         <ImpactStat
-          title="50"
+          title="200"
           suffix="+"
-          description="Teachers worked with"
+          description="TEACHERS \n \n Worked within the learning Camps we have been having"
           image={heroImage}
-          imageWidth="390px" 
+          imageWidth="250px" 
           imageHeight="350px"
-          
         />
       </div>
     </div>
