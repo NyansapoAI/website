@@ -39,6 +39,7 @@ export default function Impact({}: Props) {
         />
         <ImpactStat
           title="15"
+          suffix="+"
           description="ORGANIZATION \n \n \n Partnered with in Kenya"
           image={partnersImage}
           imageWidth="250px" 

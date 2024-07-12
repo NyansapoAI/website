@@ -203,16 +203,15 @@ export default function Navbar() {
             <span className="">Contact Us</span>
           </Link>
           <CTAButton />
-          <a
-            href="https://buy.stripe.com/14k03f1RV90O1RS5kk"
-            target="_blank"
-            className={cn(
-              buttonVariants({ variant: "default" }),
-              "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100 "
-            )}
-          >
-            Donate
-          </a>
+          <Link
+                        href="/donate"
+                        className={cn(
+                          buttonVariants({ variant: "default" }),
+                          "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100"
+                        )}
+                      >
+                        Donate
+                      </Link>
           {/* <ThemeSwitch /> */}
         </div>
       </nav>
