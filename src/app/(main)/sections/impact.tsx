@@ -30,7 +30,7 @@ export default function Impact({}: Props) {
           imageHeight="350px"
         />
         <ImpactStat
-          title="30"
+          title="40"
           suffix="+"
           description="LEARNING CAMPS \n \n Conducted in Various Schools in Kenya"
           image={campImage}
