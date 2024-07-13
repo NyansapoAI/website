@@ -16,11 +16,10 @@ export default function Impact({}: Props) {
           Our Impact
         </h1>
         <p className="max-w-[900px] text-zinc-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-zinc-400">
-          We are committed to making a difference in the world. Here are some of
-          the ways we&apos;ve made an impact.
+          We are committed to making a difference in the world. Here are some of the ways we have made an impact.
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12 py-12 px-7"> {/* Added px-4 for padding */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12 py-12 px-7">
         <ImpactStat
           title="5000"
           suffix="+"
