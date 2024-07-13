@@ -42,13 +42,12 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
 
   return (
     <div
-      className="flex flex-col items-center justify-center p-4 rounded-lg text-white relative m-9" // Added margin here
+      className="flex flex-col items-center justify-center p-4 rounded-lg text-white relative m-9"
       style={{
         width: imageWidth,
         height: imageHeight,
       }}
     >
-      {/* Container for hover effect */}
       <div
         className="h-full w-full overflow-hidden rounded-lg bg-gray-800 transition duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white hover:scale-105"
         style={{
@@ -57,10 +56,8 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
           backgroundPosition: "center",
         }}
       >
-        {/* Overlay for darkening effect */}
         <div className="h-full w-full absolute top-0 left-0 bg-black opacity-50 hover:opacity-0 transition duration-300 ease-in-out"></div>
         
-        {/* Conditional rendering based on image availability */}
         {image && (
           <div className="h-full w-full flex flex-col items-center justify-center text-center opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
             <div className={`flex text-4xl tracking-wide font-bold relative z-10 ${getTitleColor(title)}`}>
