@@ -19,7 +19,7 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
     if (title === "5000" || title === "40" || title === "15" || title === "200") {
       return "text-yellow-500"; // Example: Change to your desired color class
     }
-    return "text-white"; // Default title color
+    return "text-yellow"; // Default title color
   };
 
   // Function to determine description color based on title
