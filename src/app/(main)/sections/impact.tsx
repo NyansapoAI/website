@@ -23,7 +23,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="5000"
           suffix="+"
-          description="CHILDREN \\n \\n Assessed in schools around Kenya"
+          description="CHILDREN \n \n Assessed in schools around Kenya"
           image={groupingImage}
           imageWidth="250px" 
           imageHeight="350px"
@@ -31,7 +31,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="40"
           suffix="+"
-          description="LEARNING CAMPS \\n \\n Conducted in Various Schools in Kenya"
+          description="LEARNING CAMPS \n \n Conducted in Various Schools in Kenya"
           image={campImage}
           imageWidth="250px" 
           imageHeight="350px"
@@ -39,7 +39,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="15"
           suffix="+"
-          description="ORGANIZATION \\n \\n \\n Partnered with in Kenya"
+          description="ORGANIZATION \n \n \n Partnered with in Kenya"
           image={partnersImage}
           imageWidth="250px" 
           imageHeight="350px"
@@ -47,7 +47,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="200"
           suffix="+"
-          description="TEACHERS \\n \\n Worked within the learning Camps we have been having"
+          description="TEACHERS \n \n Worked within the learning Camps we have been having"
           image={heroImage}
           imageWidth="250px" 
           imageHeight="350px"

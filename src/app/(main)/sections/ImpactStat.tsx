@@ -14,23 +14,21 @@ type Props = {
 };
 
 const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight }: Props) => {
-  // Function to determine title color based on title
+  
   const getTitleColor = (title: string) => {
     if (title === "5000" || title === "40" || title === "15" || title === "200") {
-      return "text-yellow-500"; // Example: Change to your desired color class
+      return "text-yellow-500"; 
     }
-    return "text-yellow"; // Default title color
+    return "text-white"; 
   };
 
-  // Function to determine description color based on title
   const getDescriptionColor = (title: string) => {
     if (title === "5000" || title === "40" || title === "15" || title === "200") {
-      return "text-white-500"; // Example: Change to your desired color class
+      return "text-white-500"; 
     }
-    return "text-gray-400"; // Default description color
+    return "text-gray-400"; 
   };
 
-  // Function to split description into lines and add <br> tags
   const renderDescription = (description: string) => {
     return description.split("\\n").map((line, index) => (
       <React.Fragment key={index}>
@@ -61,13 +59,18 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
         {image && (
           <div className="h-full w-full flex flex-col items-center justify-center text-center opacity-0 hover:opacity-100 transition duration-300 ease-in-out">
             <div className={`flex text-4xl tracking-wide font-bold relative z-10 ${getTitleColor(title)}`}>
-              <CountUp start={0} end={parseInt(title)} suffix={suffix || ""}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} />
-                  </div>
-                )}
-              </CountUp>
+            <CountUp
+          enableScrollSpy={true}
+          start={0}
+          end={parseInt(title)}
+          suffix={suffix}
+        >
+          {({ countUpRef }) => (
+            <div>
+              <span ref={countUpRef} />
+            </div>
+          )}
+        </CountUp>
             </div>
             <p className={`mt-2 text-lg relative z-10 ${getDescriptionColor(title)}`}>
               {renderDescription(description)}
