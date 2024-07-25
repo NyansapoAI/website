@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
 import ImpactStat from "./ImpactStat"
-import heroImage from "../../../../public/screenshots/app/teachers.jpeg"
+import heroImage from "../../../../public/hero.png"
 import campImage from "../../../../public/screenshots/app/drawing.jpeg"
 import partnersImage from "../../../../public/screenshots/app/staff.jpeg"
 import groupingImage from "../../../../public/screenshots/app/holding.jpeg"
@@ -10,47 +10,47 @@ type Props = {}
 
 export default function Impact({}: Props) {
   return (
-    <div className="py-16 flex flex-col items-center">
+    <div className="py-5 flex flex-col items-center">
       <div className="flex flex-col space-y-4 justify-center items-center">
         <h1 className="text-3xl sm:text-5xl tracking-lighter font-bold text-left">
           Our Impact
         </h1>
-        <p className="max-w-[900px] text-zinc-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-zinc-400">
+        <p className="max-w-[900px] text-white-500 md:text-9xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed dark:text-white-400">
           We are committed to making a difference in the world. Here are some of the ways we have made an impact.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-12 py-12 px-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 py-1 px-1 w-full">
         <ImpactStat
           title="5000"
           suffix="+"
           description="CHILDREN \n \n Assessed in schools around Kenya"
           image={groupingImage}
-          imageWidth="250px" 
-          imageHeight="350px"
+          imageWidth="300px" 
+          imageHeight="550px"
         />
         <ImpactStat
           title="40"
           suffix="+"
           description="LEARNING CAMPS \n \n Conducted in Various Schools in Kenya"
           image={campImage}
-          imageWidth="250px" 
-          imageHeight="350px"
+          imageWidth="300px" 
+          imageHeight="550px"
         />
         <ImpactStat
           title="15"
           suffix="+"
           description="ORGANIZATION \n \n \n Partnered with in Kenya"
           image={partnersImage}
-          imageWidth="250px" 
-          imageHeight="350px"
+          imageWidth="300px" 
+          imageHeight="550px"
         />
         <ImpactStat
           title="200"
           suffix="+"
           description="TEACHERS \n \n Worked within the learning Camps we have been having"
           image={heroImage}
-          imageWidth="250px" 
-          imageHeight="350px"
+          imageWidth="300px" 
+          imageHeight="550px"
         />
       </div>
     </div>

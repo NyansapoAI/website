@@ -9,7 +9,7 @@ const DonatePage = (props: Props) => {
       {/* First Section */}
       <div className='relative w-full h-screen'>
         <Image
-          src="/screenshots/app/holding.jpeg"
+          src="/screenshots/app/WEBSITE UPDATE 2024.jpg"
           alt="Your Image"
           layout="fill"
           objectFit="cover"
@@ -20,7 +20,7 @@ const DonatePage = (props: Props) => {
           <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-center'>
             Empower Children Through <br /> Literacy & Numeracy Skills
           </h1>
-          <h2 className='text-2xl md:text-3xl lg:text-4xl text-yellow-500 mt-4 text-center'>
+          <h2 className='text-2xl md:text-3xl lg:text-1xl font-bold text-yellow-500 mt-4 text-center'>
             Your donation makes a difference
           </h2>
         </div>
