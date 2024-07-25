@@ -43,8 +43,8 @@ export default function Hero({}: Props) {
               </div>
             </div>
             <p className="py-4 text-lg leading-normal  max-w-lg text-gray-300">
-              We partner with organizations to support and scale literacy and
-              numeracy interventions by leveraging AI
+            We leverage the power of Artificial Intelligence (AI) 
+            to revolutionize foundational literacy and numeracy for children around the world.
             </p>
           </div>
 

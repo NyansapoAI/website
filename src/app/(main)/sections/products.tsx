@@ -81,7 +81,7 @@ const ProductPreview = ({
           href={`/products/${product.slug.current}`}
           className="bg-accent text-accent-foreground mt-4 inline-block  py-2 px-4 rounded-md "
         >
-          Find out more
+          Learn more
         </Link>
       </aside>
       <div className="relative">
