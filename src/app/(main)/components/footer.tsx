@@ -6,11 +6,11 @@ import { Twitter, Facebook, Instagram, Linkedin } from "./SocialIcons"
 export default function Footer() {
   const legal = [
     {
-      name: "Terms",
-      link: "https://nyansapoai.notion.site/General-Terms-and-Conditions-for-Nyansapo-AI-0d96f12e14394c4d81e4ff8d4844c5fc",
+      name: "Terms of Service",
+      link: "https://lydian-metatarsal-304.notion.site/NYANSAPO-AI-TERM-OF-SERVICE-1218c217191345babad183918c5d3da0",
     },
     {
-      name: "Privacy",
+      name: "Privacy Policy",
       link: "https://nyansapoai.notion.site/Privacy-Policy-dc8bf36b989140b88bc0c34329a27be6",
     },
   ]

@@ -18,16 +18,16 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
 
   const getTitleColor = (title: string) => {
     if (title === "5000" || title === "40" || title === "15" || title === "200") {
-      return "text-white-500";
+      return "text-yellow-500";
     }
-    return "text-white";
+    return "text-yellow-500";
   };
 
   const getDescriptionColor = (title: string) => {
     if (title === "5000" || title === "40" || title === "15" || title === "200") {
       return "text-white-500 ";
     }
-    return "text-gray-400";
+    return "text-white-500";
   };
 
   const renderDescription = (description: string) => {
@@ -57,7 +57,7 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
         <div className="h-full w-full absolute top-0 left-0 bg-black opacity-50 hover:opacity-0 transition duration-300 ease-in-out"></div>
         {image && (
   <div className="h-full w-full flex flex-col items-center justify-center text-center opacity-100 transition duration-300 ease-in-out">
-    <div className={`flex text-7xl tracking-wide font-bold relative z-10 ${getTitleColor(title)}`}>
+    <div className={`flex text-6xl tracking-wide font-bold relative z-10 ${getTitleColor(title)}`}>
       <CountUp enableScrollSpy={true} start={0} end={parseInt(title)} suffix={suffix}>
         {({ countUpRef }) => (
           <div>

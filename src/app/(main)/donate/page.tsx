@@ -79,26 +79,26 @@ const DonatePage = (props: Props) => {
             <div className='bg-white p-4 md:p-6 rounded shadow-lg w-full md:w-1/2 lg:w-1/4 text-center mb-4 lg:mb-0 lg:mr-4'>
               <img src="/icon1.png" alt="Person Reading" className='mx-auto mb-4' />
               <h2 className='text-gray-800 font-bold text-lg md:text-xl'>ADOPT A LEARNER</h2>
-              <p className='text-gray-600 text-sm md:text-base'>500$ per year</p>
+              <p className='text-gray-600 text-sm md:text-base'>30$ per year</p>
               <p className='text-gray-800 text-sm md:text-base'>Help teach a learner to read by sponsoring their literacy journey.</p>
             </div>
             <div className='bg-white p-4 md:p-6 rounded shadow-lg w-full md:w-1/2 lg:w-1/4 text-center mb-4 lg:mb-0 lg:mr-4'>
               <img src="/icon2.png" alt="Teacher Teaching" className='mx-auto mb-4' />
               <h2 className='text-gray-800 font-bold text-lg md:text-xl'>TRANSFORM A CLASS</h2>
-              <p className='text-gray-600 text-sm md:text-base'>20,000$ per year</p>
-              <p className='text-gray-800 text-sm md:text-base'>Empower an entire class of 40 learners by providing them with the building blocks to literacy.</p>
+              <p className='text-gray-600 text-sm md:text-base'>1,200$ per year</p>
+              <p className='text-gray-800 text-sm md:text-base'>Empower an entire class of 40 learners by providing them with the building blocks to literacy and numeracy.</p>
             </div>
             <div className='bg-white p-4 md:p-6 rounded shadow-lg w-full md:w-1/2 lg:w-1/4 text-center mb-4 lg:mb-0 lg:mr-4'>
               <img src="/icon3.png" alt="Sponsor Grade" className='mx-auto mb-4' />
               <h2 className='text-gray-800 font-bold text-lg md:text-xl'>SPONSOR A GRADE</h2>
-              <p className='text-gray-600 text-sm md:text-base'>60,000$ per year</p>
+              <p className='text-gray-600 text-sm md:text-base'>3,600$ per year</p>
               <p className='text-gray-800 text-sm md:text-base'>Impact an entire grade and shift the paradigm by sponsoring 120 learners.</p>
             </div>
             <div className='bg-white p-4 md:p-6 rounded shadow-lg w-11/12 sm:w-1/2 md:w-1/5 text-center mt-4 md:mt-0'>
               <img src="/icon5.png" alt="Adopt School" className='mx-auto mb-4' />
               <h2 className='text-gray-800 font-bold'>ADOPT A SCHOOL</h2>
-              <p className='text-gray-600'>300,000$ per year</p>
-              <p className='text-gray-800'>Shift the trajectory of learners lives in an entire school by sculpting their futures with the ability to read.</p>
+              <p className='text-gray-600'>18,000$ per year</p>
+              <p className='text-gray-800'>Shift the trajectory of learners lives in an entire school by sculpting their futures with the ability to read and do math.</p>
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ import { CTA_TEXT } from "@/constants"
 import Image from "next/image"
 import { buttonVariants } from "@/components/ui/button"
 import { CTAButton } from "../CTAButton"
+import { cn } from "@/lib/utils"
+
 
 type Props = {}
 
@@ -32,21 +34,22 @@ export default function Hero({}: Props) {
       </video>
       <div className="relative z-30 flex w-full h-screen bg-gradient-to-t from-black items-center justify-center">
         <div className=" flex-col gap-8 items-center justify-end  relative translate-y-24  text-center">
-          <div className="max-w-xl">
-            <div className="text-4xl lg:text-5xl font-bold leading-snug tracking-tight lg:leading-tight xl:text-6xl  xl:leading-tight 2xl:leading-tight">
-              <div className="flex flex-col gap-2">
-                <p>
-                  <span className="text-cyan-500">A</span>
-                  <span className="text-yellow-500">I</span>&nbsp;for children
-                </p>
-                <span>read, count & shine</span>
-              </div>
-            </div>
-            <p className="py-4 text-lg leading-normal  max-w-lg text-gray-300">
-            We leverage the power of Artificial Intelligence (AI) 
-            to revolutionize foundational literacy and numeracy for children around the world.
+        <div className="max-w-7xl bg-blue-900 bg-opacity-10 backdrop-blur-lg p-4">
+    <div className="text-4xl lg:text-5xl font-bold leading-snug tracking-tight lg:leading-tight xl:text-6xl xl:leading-tight 2xl:leading-tight">
+        <div className="flex flex-col gap-2">
+            <p>
+                {/* <span className="text-cyan-500">A</span> */}
+                {/* <span className="text-yellow-500">AI</span>&nbsp;for Children Read, Count & Shine */}
+                <span className="text-yellow-500">AI FOR CHILDREN:</span> READ, COUNT & SHINE
+
             </p>
-          </div>
+            {/* <span>Read, Count & Shine</span> */}
+        </div>
+    </div>
+    <div className="py-4 text-lg leading-normal max-w-xlg text-white">
+        We work in Sub-Saharan Africa to help educators enhance childrens literacy and numeracy using AI-driven assessments and tailored lesson plans through partnering with NGOs and governments to reach 3 million students by 2027, because 90% of children struggle with basic reading and math skills.
+    </div>
+</div>
 
           <div className="flex flex-wrap gap-4 justify-center items-center">
             <CTAButton />
@@ -54,7 +57,16 @@ export default function Hero({}: Props) {
               onClick={() => setIsOpen(true)}
               className="text-accent2 border-2 px-4 py-2 rounded-md border-accent2 flex gap-x-3 items-center "
             >
-              <span>Learn More</span>
+              
+              <Link
+                        href="/about"
+                        className={cn(
+                          // buttonVariants({ variant: "default" }),
+                          // "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100"
+                        )}
+                      >
+                        Learn more
+                      </Link>
             </button>
           </div>
         </div>
