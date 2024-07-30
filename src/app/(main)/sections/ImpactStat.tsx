@@ -47,7 +47,7 @@ const ImpactStat = ({ title, description, suffix, image, imageWidth, imageHeight
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className="h-full w-full overflow-hidden rounded-lg bg-gray-800 transition duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white hover:scale-105"
+        className="h-full w-full overflow-hidden rounded-lg bg-blue-900 transition duration-300 ease-in-out transform hover:bg-gray-800 hover:text-white hover:scale-105"
         style={{
           backgroundImage: image && isHovered ? `url(${typeof image === "string" ? image : image.src})` : "none",
           backgroundSize: "cover",

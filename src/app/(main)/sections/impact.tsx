@@ -22,9 +22,9 @@ export default function Impact({}: Props) {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 py-1 px-1 w-full">
       <ImpactStat
-          title="40"
-          suffix="+"
-          description="LEARNING CAMPS \n \n \n 31% improvement in literacy and numeracy outcomes."
+          title="31"
+          suffix="%"
+          description="IMPROVEMENT \n \n \n   in literacy and numeracy outcomes."
           image={campImage}
           imageWidth="300px" 
           imageHeight="550px"
@@ -32,7 +32,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="23000"
           suffix="+"
-          description="CHILDREN \n \n \n  assessed to identify educational needs across diverse learning environments."
+          description="CHILDREN \n \n \n  have been reached through our partnership with various schools and organizations."
           image={groupingImage}
           imageWidth="300px" 
           imageHeight="550px"
@@ -40,7 +40,7 @@ export default function Impact({}: Props) {
          <ImpactStat
           title="800"
           suffix="+"
-          description="TEACHERS \n \n \n \n \n reached"
+          description="TEACHERS \n \n \n have been reached and trained to effectively utilize Nyansapo AI's platform."
           image={heroImage}
           imageWidth="300px" 
           imageHeight="550px"
@@ -49,7 +49,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="15"
           suffix="+"
-          description="ORGANIZATIONS \n \n partnered with across 5 countries to create a robust network for comprehensive child development."
+          description="ORGANIZATIONS \n \n \n \n partnered with across 5 countries."
           image={partnersImage}
           imageWidth="300px" 
           imageHeight="550px"
