@@ -49,7 +49,7 @@ export default function Impact({}: Props) {
         <ImpactStat
           title="15"
           suffix="+"
-          description="ORGANIZATIONS \n \n \n \n partnered with across 5 countries."
+          description="ORGANIZATION \n \n \n \n partnered with across 5 countries."
           image={partnersImage}
           imageWidth="300px" 
           imageHeight="550px"
