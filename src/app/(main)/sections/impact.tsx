@@ -12,6 +12,7 @@ export default function Impact({}: Props) {
   return (
     <div className="py-5 flex flex-col items-center">
       <div className="flex flex-col space-y-4 justify-center items-center">
+      <br/>
       
         <h1 className="text-3xl sm:text-5xl tracking-lighter font-bold text-left">
           Impact

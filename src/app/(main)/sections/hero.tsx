@@ -33,25 +33,27 @@ export default function Hero({}: Props) {
         />
       </video>
       <div className="relative z-30 flex w-full h-screen bg-gradient-to-t from-black items-center justify-center">
-        <div className=" flex-col gap-8 items-center justify-end  relative translate-y-24  text-center">
+      <div className="flex flex-col  items-center justify-end relative translate-y-24 text-center">
         {/* <div className="max-w-7xl bg-blue-900 bg-opacity-10 backdrop-blur-lg p-4"> */}
-    <div className="text-4xl lg:text-3xl font-bold leading-snug tracking-tight lg:leading-tight xl:text-6xl xl:leading-tight 2xl:leading-tight">
-        <div className="flex flex-col gap-2">
+        <div className="text-2xl lg:text-sm font-bold leading-snug tracking-tight lg:leading-tight xl:text-4xl xl:leading-tight 2xl:leading-tight mb-4">
+    <div className="flex flex-col gap-2">
+          <br/>
+          <br/>
             <p>
                 {/* <span className="text-cyan-500">A</span> */}
                 {/* <span className="text-yellow-500">AI</span>&nbsp;for Children Read, Count & Shine */}
-                <span className="text-blue-500">AI FOR CHILDREN:</span> <span className="text-yellow-500">READ, COUNT & SHINE</span>
+                <span className="text-blue-500">AI FOR CHILDREN:</span> <span className="text-yellow-500 italic">READ, COUNT & SHINE</span>
 
             </p>
             {/* <span>Read, Count & Shine</span> */}
         </div>
     </div>
-    <div className="py-4 text-lg leading-normal max-w-xlg text-white">
+    <div className="py-4 text-lg leading-normal max-w-4xl text-white ">
     We work in Sub-Saharan Africa to help educators enhance childrens literacy and numeracy using AI-driven assessments and tailored lesson plans through partnering with NGOs and governments to reach 3 million students by 2027, because 90% of children struggle with basic reading and math skills.
     </div>
 {/* </div> */}
 
-          <div className="flex flex-wrap gap-4 justify-center items-center">
+          <div className="flex flex-wrap gap-4 justify-center items-center ">
             <CTAButton />
             <button
               onClick={() => setIsOpen(true)}
@@ -69,6 +71,7 @@ export default function Hero({}: Props) {
                       </Link>
             </button>
             <br/>
+      
           </div>
         </div>
       </div>
