@@ -49,7 +49,7 @@ export default function Hero({}: Props) {
         </div>
     </div>
     <div className="py-4 text-lg leading-normal max-w-4xl text-white ">
-    We work in Sub-Saharan Africa to help educators enhance childrens literacy and numeracy using AI-driven assessments and tailored lesson plans through partnering with NGOs and governments to reach 3 million students by 2027, because 90% of children struggle with basic reading and math skills.
+    We work in Sub-Saharan Africa to help educators enhance childrens literacy and numeracy using AI-driven assessments and tailored lesson plans through partnering with NGOs and government to reach 3 million students by 2027, because 90% of children struggle with basic reading and math skills.
     </div>
 {/* </div> */}
 
