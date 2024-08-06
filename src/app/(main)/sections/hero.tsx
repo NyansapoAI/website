@@ -42,7 +42,7 @@ export default function Hero({}: Props) {
             <p>
                 {/* <span className="text-cyan-500">A</span> */}
                 {/* <span className="text-yellow-500">AI</span>&nbsp;for Children Read, Count & Shine */}
-                <span className="text-blue-500">AI FOR CHILDREN:</span> <span className="text-yellow-500 italic">READ, COUNT & SHINE</span>
+                <span className="text-cyan-500">AI FOR CHILDREN:</span> <span className="text-yellow-400 italic">READ, COUNT & SHINE</span>
 
             </p>
             {/* <span>Read, Count & Shine</span> */}

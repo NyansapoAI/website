@@ -15,12 +15,14 @@ const DonatePage = (props: Props) => {
           objectFit="cover"
           quality={100}
         />
-        <div className='absolute inset-0 bg-gray-800 opacity-50'></div>
+        <div className='absolute inset-0  opacity-50'></div>
         <div className='absolute inset-0 flex flex-col items-center justify-center text-white px-4 md:px-8'>
           <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold text-center'>
-            Empower Children Through <br /> Literacy & Numeracy Skills
+          <span className="text-yellow-400"> Empower</span> <span className="text-white">Children Through</span> <br /> <span className="text-yellow-400"> Literacy</span> <span className="text-white">& Numeracy Skills</span>
+
+            {/* Empower Children Through <br /> Literacy & Numeracy Skills */}
           </h1>
-          <h2 className='text-2xl md:text-3xl lg:text-1xl font-bold text-yellow-500 mt-4 text-center'>
+          <h2 className='text-2xl md:text-3xl lg:text-1xl font-bold text-yellow-400 mt-4 text-center'>
             Your donation makes a difference
           </h2>
         </div>
