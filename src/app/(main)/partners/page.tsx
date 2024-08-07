@@ -1,7 +1,9 @@
 import { sanityClient } from "@/lib/sanity.client"
 import { groq } from "next-sanity"
-import { DetailedHTMLProps, cache } from "react"
+import { cache } from "react"
+import Image from 'next/image'
 import Partner from "./Partner"
+
 /**
  * v0 by Vercel.
  * @see https://v0.dev/t/ufLntfUtwcw
@@ -11,8 +13,10 @@ export const metadata = {
   description: "We are proud to have worked with these organizations.",
   slug: "/partners",
 }
+
 const query = groq`*[_type=='partners']{title,description,logo{asset->{...,metadata{lqip}}}}`
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
+
 export interface IPartner {
   title: string
   description: string
@@ -24,7 +28,9 @@ export interface IPartner {
     }
   }
 }
-export const revalidate=60*60
+
+export const revalidate = 60 * 60
+
 export default async function Achievements() {
   const data = await clientFetch<IPartner[]>(query)
   return (
@@ -34,15 +40,19 @@ export default async function Achievements() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             Our Partnerships
           </h2>
-          <p className="mx-auto max-w-[700px] text-zinc-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-zinc-400">
-            We are proud to have worked with these organizations.
+          <p className="mx-auto max-w-[700px] text-zinc-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-white">
+          There are currently 23,000 children using our award-winning solutions around the world, thanks to our partners and donors:
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          {data && data.length > 0
-            ? data.map((award, i) => <Partner key={i} award={award} />)
-            : null}
-        </div>
+      </div>
+      <div className="relative w-[900px] max-w-3xl mx-auto h-[400px] flex items-end mb-6 lg:mb-12">
+        <Image
+          src="/screenshots/app/image (14).png" 
+          alt="Description of the image"
+          layout="fill" 
+          objectFit="cover" 
+          className="rounded-lg shadow-lg"
+        />
       </div>
     </section>
   )

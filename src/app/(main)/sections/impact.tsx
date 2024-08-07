@@ -15,7 +15,7 @@ export default function Impact({}: Props) {
       <br/>
       
         <h1 className="text-3xl sm:text-5xl tracking-lighter font-bold text-left">
-          Impact
+        <span className="text-white">Impact</span>
         </h1>
         {/* <p className="max-w-[900px] text-white-500 md:text-9xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed dark:text-white-400">
           We are committed to making a difference in the world. Here are some of the ways we have made an impact.
