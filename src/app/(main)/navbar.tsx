@@ -22,6 +22,7 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { CTAButton } from "./CTAButton"
+
 export default function Navbar() {
   const [{ x, y }, scrollTo] = useWindowScroll()
   const [addBg, setAddBg] = useState(false)
@@ -36,9 +37,9 @@ export default function Navbar() {
     <div
       className={`w-full fixed ${
         addBg ? "bg-background" : "bg-gradient-to-b from-black/90"
-      } text-white duration-200  via-50% top-0 left-0 z-50 `}
+      } text-white duration-200 via-50% top-0 left-0 z-50 `}
     >
-      <nav className=" relative flex flex-wrap py-3 px-4 gap-2 items-center justify-between  lg:justify-between ">
+      <nav className=" relative flex flex-wrap py-2 px-4 gap-1 items-center justify-between  lg:justify-between ">
         {/* Logo  */}
         <Disclosure>
           {({ open }) => (
@@ -83,7 +84,7 @@ export default function Navbar() {
                     {navigationLinks.map((item, index) =>
                       item.type === "page" ? (
                         <Link
-                          className="w-full capitalize px-4 py-2 rounded-md font-semibold hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
+                          className="w-full capitalize px-2 py-1 rounded-md font-semibold hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
                           href={`/${item.link ?? item.name}`}
                         >
@@ -93,7 +94,7 @@ export default function Navbar() {
                         item?.subMenu &&
                         item.subMenu.map((sub, i) => (
                           <Link
-                            className="hover:text-accent font-semibold capitalize px-4 py-2  "
+                            className="hover:text-accent font-semibold capitalize px-2 py-1  "
                             key={i}
                             href={`/${sub.name}`}
                           >
@@ -102,7 +103,7 @@ export default function Navbar() {
                         ))
                       ) : (
                         <a
-                          className="w-full px-4 capitalize py-2 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
+                          className="w-full px-2 capitalize py-1 rounded-md  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                           key={index}
                           href={`/#${item.name}`}
                         >
@@ -112,11 +113,11 @@ export default function Navbar() {
                     )}
                     <Link
                       href="/contact"
-                      className="w-full capitalize px-4 py-2 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
+                      className="w-full capitalize px-2 py-1 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
                     >
                       <span className="">Contact Us</span>
                     </Link>
-                    <div className="flex flex-col my-2 gap-4 px-4">
+                    <div className="flex flex-col my-2 gap-4 px-2">
                       <a
                         href="https://platform.nyansapoai.net/auth/signup"
                         target="_blank"
@@ -149,10 +150,10 @@ export default function Navbar() {
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1  list-none lg:pt-0 lg:flex">
             {navigationLinks.map((item, index) => (
-              <li className="mr-3" key={index}>
+              <li className="mr-2" key={index}>
                 {item.type == "page" ? (
                   <Link
-                    className="w-full capitalize px-4 py-2 font-semibold rounded-md hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
+                    className="w-full capitalize px-2 py-1 font-semibold rounded-md hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
                     key={index}
                     href={`/${item.link ?? item.name}`}
                   >
@@ -182,7 +183,7 @@ export default function Navbar() {
                   </NavigationMenu>
                 ) : (
                   <a
-                    className="w-full capitalize px-4 py-2 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
+                    className="w-full capitalize px-2 py-1 rounded-md font-semibold  hover:text-cyan-500 focus:text-cyan-500 focus:outline-none "
                     key={index}
                     href={`/#${item.name}`}
                   >
@@ -194,10 +195,10 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="hidden  space-x-4 lg:flex">
+        <div className="hidden  space-x-2 lg:flex">
           <Link
             href="/contact"
-            className="capitalize px-4 py-2 rounded-md font-semibold hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
+            className="capitalize px-2 py-1 rounded-md font-semibold hover:text-cyan-500 focus:text-cyan-500  focus:outline-none "
           >
             <span className="">Contact Us</span>
           </Link>
