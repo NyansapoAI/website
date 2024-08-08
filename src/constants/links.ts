@@ -26,6 +26,6 @@ export const navigationLinks = [
     ],
   },
   { name: "News&Stories", type: "page" },
-  { name: "careers", type: "page" },
+  // { name: "careers", type: "page" },
   { name: "assessment", type: "page" },
 ]
