@@ -47,7 +47,7 @@ export default async function Achievements() {
       </div>
       <div className="relative w-[900px] max-w-3xl mx-auto h-[400px] flex items-end mb-6 lg:mb-12">
         <Image
-          src="/screenshots/app/image (14).png" 
+          src="/screenshots/app/image (16).png" 
           alt="Description of the image"
           layout="fill" 
           objectFit="cover" 
