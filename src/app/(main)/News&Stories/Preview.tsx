@@ -4,7 +4,7 @@ import { useNextSanityImage } from "next-sanity-image"
 import { sanityClient } from "@/lib/sanity.client"
 import Image from "next/image"
 import Link from "next/link"
-import { NewsInterface } from "./News"
+import { NewsInterface } from "./News&Stories"
 import { cn, friendlyLastUpdatedDate } from "@/lib/utils"
 import { Card } from "@/components/ui/card"
 

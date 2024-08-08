@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import NewsLetter from "../about/sections/NewsLetter"
-import News from "./News"
+import News from "./News&Stories"
 
 export const metadata: Metadata = {
   title: "News",

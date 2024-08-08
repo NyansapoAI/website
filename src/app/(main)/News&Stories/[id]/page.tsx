@@ -7,7 +7,7 @@ import { cache } from "react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import MainImage from "./MainImage"
-import { NewsInterface } from "../News"
+import { NewsInterface } from "../News&Stories"
 type Props = {
   params: { id: string }
 }

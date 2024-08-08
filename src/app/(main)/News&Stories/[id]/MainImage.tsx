@@ -3,7 +3,7 @@ import React from "react"
 import { useNextSanityImage } from "next-sanity-image"
 import { sanityClient } from "@/lib/sanity.client"
 import Image from "next/image"
-import { NewsInterface } from "../News"
+import { NewsInterface } from "../News&Stories"
 
 type Props = {
   data: NewsInterface

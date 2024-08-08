@@ -1,4 +1,4 @@
-import news from "./news"
+import news from "./News&Stories"
 import subscribers from "./subscribers"
 import projects from "./projects"
 import team from "./team"

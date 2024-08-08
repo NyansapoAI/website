@@ -8,7 +8,7 @@ import NewsLetter from "./about/sections/NewsLetter"
 import RootProviders from "../providers"
 import Impact from "./sections/impact"
 import { Separator } from "@/components/ui/separator"
-import News from "./news/News"
+import News from "./News&Stories/News&Stories"
 
 export default function Home() {
   return (

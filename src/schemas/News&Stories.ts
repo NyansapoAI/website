@@ -1,9 +1,9 @@
 import { defineType } from "sanity"
 
 export default defineType({
-  name: "news",
+  name: "News&Stories",
   type: "document",
-  title: "News",
+  title: "News&Stories",
 
   fields: [
     {
