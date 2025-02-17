@@ -40,7 +40,7 @@ export default async function Team({}: Props) {
             <p className="text-lg leading-relaxed m-4 text-blueGray-500"></p>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {data.map((member) => (
             <TeamMember key={member.name} data={member} />
           ))}

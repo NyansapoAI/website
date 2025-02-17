@@ -14,18 +14,18 @@ export default function Home() {
   return (
     <main className="">
       <Hero />
+      <Products />
       <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+        <Separator />
         <Impact />
-        <Separator />
-        <About />
-        <Separator />
+        {/* <About /> */}
+        {/* <Separator /> */}
         {/* <Services />
         <Separator /> */}
       </div>
-      <Products />
       <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
         {/* <Testimonials /> */}
-        <Separator />
+        {/* <Separator /> */}
         <News latest={true} />
       </div>
       <Separator />

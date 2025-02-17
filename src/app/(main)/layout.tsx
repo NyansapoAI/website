@@ -8,6 +8,7 @@ import Alert from "./components/Alert"
 import { Separator } from "@/components/ui/separator"
 import RootProviders from "../providers"
 import { Toaster } from "react-hot-toast"
+import { Anton } from "next/font/google"
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -21,6 +22,11 @@ const raleway = Raleway({
 //   display: 'optional',
 //   weight: '400',
 // })
+
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+})
 export const metadata: Metadata = {
   title: "Nyansapo AI",
   description:

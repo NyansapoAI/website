@@ -9,11 +9,13 @@ import careers from "./careers"
 import awards from "./awards"
 import contact from "./contact"
 import partners from "./partners"
+import product from "./product"
 export const schemaTypes = [
   news,
   subscribers,
   projects,
   team,
+  product,
   products,
   features,
   feedback,
