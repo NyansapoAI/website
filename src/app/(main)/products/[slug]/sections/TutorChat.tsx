@@ -11,7 +11,11 @@ interface FormData {
   primaryCountry: string
 }
 
-const TutorChat = () => {
+interface TutorChatProps {
+  ctaText: string
+}
+
+const TutorChat: React.FC<TutorChatProps> = ({ ctaText }) => {
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -64,16 +68,11 @@ const TutorChat = () => {
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                 <MessageCircle className="h-6 w-6 text-blue-600" />
               </div>
-              <h2 className="text-xl font-semibold">
-                Upchieve Live Tutor Chat
+              <h2 className="text-xl text-gray-700 font-semibold">
+                Reach out to us
               </h2>
             </div>
-            <p className="text-gray-700">
-              Our pricing model is tailored to align with the scale of your
-              foundational literacy and numeracy intervention, ensuring
-              cost-effectiveness and value. To receive a customized quote that
-              best fits your needs, please contact us directly.
-            </p>
+            <p className="text-gray-700">{ctaText}</p>
             <button
               onClick={() => setShowForm(true)}
               className="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-blue-900 transition-colors"
