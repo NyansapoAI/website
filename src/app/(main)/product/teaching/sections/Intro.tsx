@@ -9,7 +9,6 @@ const CurriculumHero = () => {
         <div className="rounded-2xl overflow-hidden shadow-xl w-full max-w-md mx-auto mt-8">
           <div style={{ width: "100%", height: "200px", position: "relative" }}>
             {" "}
-            {/* Added explicit dimensions */}
             <Image
               src="https://learningportal.iiep.unesco.org/sites/default/files/inline-images/pic2.png"
               alt="Teacher"
@@ -24,16 +23,14 @@ const CurriculumHero = () => {
         <div className="relative flex flex-col lg:flex-row items-start justify-between gap-8 py-12">
           {/* Content Section */}
           <div className="w-full lg:w-1/2 space-y-6 z-10 px-2">
+            {/* use Title data from sanity below */}
             <div className="text-white text-sm">Nyansapo Teaching App</div>
-
+            {/* Use `detailsTitle` from sanity data below */}
             <h1 className="text-white text-4xl lg:text-5xl font-bold">
               Data-Driven Assessments. Scalable Impact.
             </h1>
 
-            {/* <p className="text-white/90 text-lg">
-              We support the best in math curriculum.
-            </p> */}
-
+            {/* Use `detailsSummary` from sanity data below */}
             <p className="text-white/90">
               Enhance the effectiveness of foundational literacy and numeracy
               programs with AI-powered assessments and real-time data insights.

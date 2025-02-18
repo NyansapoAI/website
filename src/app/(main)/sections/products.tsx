@@ -16,6 +16,7 @@ export type ProductPreviewInterface = {
       metadata: {
         lqip: string
       }
+      url: string
     }
   }
   _id: string
@@ -25,7 +26,7 @@ export type ProductPreviewInterface = {
 }
 
 const projectQuery = groq`*[_type=='products']{title,summary,slug,mainImage{asset->{...,metadata{
-  lqip}}}}`
+  lqip, url}}}}`
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
 
 const topImgs = [
@@ -38,13 +39,15 @@ export default async function Products({}: Props) {
   return (
     <div
       id="products"
-      className="py-12 px-8 md:px-16 xl:px-32 2xl:px-64 bg-[#fbfbfb] text-gray-800"
+      className="py-12 px-8 md:px-16 xl:px-32 2xl:px-64 bg-[#fbfbfb] text-gray-800 h-[94vh]"
     >
-      <h1 className="text-4xl font-bold w-full text-center">OUR PRODUCTS </h1>
+      <h1 className="text-4xl font-bold w-full text-center mt-14">
+        OUR PRODUCTS{" "}
+      </h1>
       <h4 className="text-3xl text-center">
         Assessments. Data Analysis. Targeted Instruction
       </h4>
-      <div className="flex flex-col md:flex-row gap-12 mt-4 justify-center">
+      <div className="flex flex-col md:flex-row gap-12 mt-20 justify-center">
         {data.map((product, i) => (
           <ProductPreview
             product={product}
@@ -75,13 +78,12 @@ const ProductPreview = ({
   bgColor,
   index,
 }: ProductPreviewProps) => {
-  const topImg = topImgs[index % topImgs.length]
   return (
     <div>
       <div className="hidden lg:block w-full lg:h-[20vh] relative">
         <Image
-          src={topImg.src}
-          alt={topImg.alt}
+          src={product.mainImage.asset.url}
+          alt={product.title}
           fill
           className="object-contain"
         />
