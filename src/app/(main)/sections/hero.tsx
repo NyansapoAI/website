@@ -95,7 +95,7 @@ export default function Hero({}: Props) {
             </div>
           </div>
           <div
-            className={`hero-text text-center lg:text-left py-4 text-lg leading-normal max-w-4xl text-white ${playfairDisplay.className}`}
+            className={`hero-text text-center py-4 text-lg leading-normal max-w-4xl text-white ${playfairDisplay.className}`}
           >
             Improve learning outcomes through data driven assessments solutions
             for students, teachers and schools.
