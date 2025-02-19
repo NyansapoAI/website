@@ -5,8 +5,15 @@ import TutorChat from "./sections/TutorChat"
 import { sanityClient } from "@/lib/sanity.client"
 import { groq } from "next-sanity"
 
-const productQuery = groq`*[_type=='products']{
+type Props = {
+  params: {
+    slug: string
+  }
+}
+
+const productQuery = groq`*[_type=='products' && slug.current == $slug][0]{
   title,
+  slug,
   detailsTitle,
   detailsSummary,
   detailsImage{
@@ -17,15 +24,15 @@ const productQuery = groq`*[_type=='products']{
   features[]->{
     title,
     icon{
-    asset->{ url, metadata { lqip } }
-  },
+      asset->{ url, metadata { lqip } }
+    },
     description
   },
   reachOut
-}[0]`
+}`
 
-export default async function Page() {
-  const productData = await sanityClient.fetch(productQuery)
+export default async function Page({ params: { slug } }: Props) {
+  const productData = await sanityClient.fetch(productQuery, { slug })
 
   return (
     <div>
@@ -35,7 +42,7 @@ export default async function Page() {
         whyNyansapoSummary={productData.whyNyansapoSummary}
         features={productData.features || []}
       />
-      <TutorChat ctaText={productData.reachOut} />
+      <TutorChat ctaText={productData.reachOut} productSlug={slug} />
     </div>
   )
 }
