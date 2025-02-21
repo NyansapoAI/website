@@ -26,6 +26,31 @@ export default defineType({
       title: "Summary",
     },
     {
+      name: "summaryHexColor",
+      type: "string",
+      title: "Summary Hex Color",
+    },
+    {
+      name: "detailsTitle",
+      type: "string",
+      title: "Details Title",
+    },
+    {
+      name: "detailsLink",
+      type: "string",
+      title: "Details Link",
+    },
+    {
+      name: "detailsSummary",
+      type: "text",
+      title: "Details Summary",
+    },
+    {
+      name: "detailsImage",
+      type: "image",
+      title: "Details image",
+    },
+    {
       name: "video",
       type: "url",
       title: "Video Url",
@@ -36,13 +61,26 @@ export default defineType({
       type: "array",
       of: [{ type: "reference", to: [{ type: "features" }] }],
     },
-
+    {
+      name: "whyNyansapoTitle",
+      type: "string",
+      title: "Why Nyansapo Title",
+    },
+    {
+      name: "whyNyansapoSummary",
+      type: "text",
+      title: "Why Nyansapo Summary",
+    },
+    {
+      name: "reachOut",
+      type: "text",
+      title: "Reach Out text",
+    },
     {
       name: "mainImage",
       type: "image",
       title: "Main image",
     },
-
     {
       name: "publishedAt",
       type: "datetime",

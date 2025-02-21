@@ -6,6 +6,7 @@ const nextConfig = {
       "images.unsplash.com",
       "s3.amazonaws.com",
       "cdn.sanity.io",
+      "learningportal.iiep.unesco.org", // Added new hostname
     ].map((pattern) => ({
       protocol: "https",
       hostname: pattern,

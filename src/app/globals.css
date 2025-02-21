@@ -60,3 +60,36 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hero-header {
+  font-family: var(--font-anton);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px; /* mobile size */
+  line-height: 40px; /* mobile size */
+  color: rgb(244, 241, 235);
+  max-width: 100%; /* mobile full width */
+}
+
+@media (min-width: 1024px) {
+  .hero-header {
+    font-size: 60px; /* desktop size */
+    line-height: 80px; /* desktop size */
+    max-width: 1000px;
+  }
+}
+
+.hero-text {
+  color: rgb(244, 241, 235);
+  font-size: 18px; /* mobile size */
+  line-height: 24px; /* mobile size */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (min-width: 1024px) {
+  .hero-text {
+    font-size: 30px; /* desktop size */
+    line-height: 30px; /* desktop size */
+  }
+}

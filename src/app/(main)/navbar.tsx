@@ -47,7 +47,7 @@ export default function Navbar() {
               <div className="flex flex-wrap items-center backdrop-blur-sm justify-between w-full lg:w-auto">
                 <Link href="/" className=" ">
                   <Image
-                    src="/logo.png"
+                    src="/imgs/logos/nyansapo-logo.png"
                     alt="N"
                     width="150"
                     height="150"
@@ -129,14 +129,14 @@ export default function Navbar() {
                         Get Started
                       </a>
                       <Link
-  href="/donate"
-  className={cn(
-    buttonVariants({ variant: "default" }),
-    "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100"
-  )}
->
-  Donate
-</Link>
+                        href="/donate"
+                        className={cn(
+                          buttonVariants({ variant: "default" }),
+                          "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100"
+                        )}
+                      >
+                        Donate
+                      </Link>
                     </div>
                     {/* <ThemeSwitch /> */}
                   </div>
@@ -204,14 +204,14 @@ export default function Navbar() {
           </Link>
           <CTAButton />
           <Link
-                        href="/donate"
-                        className={cn(
-                          buttonVariants({ variant: "default" }),
-                          "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100"
-                        )}
-                      >
-                        Donate
-                      </Link>
+            href="/donate"
+            className={cn(
+              buttonVariants({ variant: "default" }),
+              "text-lg bg-sky-500 hover:bg-sky-400 text-slate-100"
+            )}
+          >
+            Donate
+          </Link>
           {/* <ThemeSwitch /> */}
         </div>
       </nav>
