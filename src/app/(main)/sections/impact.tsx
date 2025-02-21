@@ -20,24 +20,24 @@ export default function Impact() {
           CONDUCTED
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 py-1 px-1 w-full max-w-[900px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 p-0 w-full max-w-[900px] lg:max-w-[1200px] lg:flex lg:flex-row mx-auto">
         <ImpactStat
           content="By more than 23000 learners and 800 teachers"
           image={groupingImage}
-          imageWidth={{ default: "300px", lg: "550px" }}
-          imageHeight="60vh"
+          imageWidth={{ default: "450px", lg: "650px" }}
+          imageHeight="75vh"
         />
         <ImpactStat
           content="Across 30 counties and 5 countries"
           image={partnersImage}
-          imageWidth={{ default: "300px", lg: "550px" }}
-          imageHeight="60vh"
+          imageWidth={{ default: "450px", lg: "550px" }}
+          imageHeight="75vh"
         />
         <ImpactStat
           content="Studies shown proven gain in maths and languages with regular use"
           image={campImage}
-          imageWidth={{ default: "300px", lg: "550px" }}
-          imageHeight="60vh"
+          imageWidth={{ default: "450px", lg: "550px" }}
+          imageHeight="75vh"
         />
       </div>
     </div>
