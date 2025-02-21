@@ -1,4 +1,20 @@
 {
   "typescript.tsdk": "node_modules\\.pnpm\\typescript@4.9.4\\node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "52.28.162.55",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "aws-sacco",
+      "database": "aws_dsacco_db",
+      "username": "admin",
+      "password": "@}dB<j6.jPB1ENM6"
+    }
+  ]
 }
