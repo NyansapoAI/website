@@ -44,7 +44,7 @@ const CurriculumHero = ({ product }: ProductProps) => {
             <h1 className="text-white text-4xl lg:text-5xl font-bold">
               {product.detailsTitle}
             </h1>
-            <p className="text-white/90 text-lg lg:text-2xl">
+            <p className="text-white/90 text-lg text-justify lg:text-2xl">
               {product.detailsSummary}
             </p>
             <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-md font-medium transition-colors duration-200 inline-flex items-center gap-2">
