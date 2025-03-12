@@ -30,7 +30,7 @@ export default function page({}: Props) {
       <Mission />
       <Narration />
       <Goals />
-      <NewsLetter />
+      {/* <NewsLetter /> */}
     </div>
   )
 }

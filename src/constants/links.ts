@@ -25,28 +25,28 @@ export const navigationLinks = [
       },
     ],
   },
-  {
-    name: "Resources",
-    type: "menu",
-    subMenu: [
-      {
-        name: "News and stories",
-        type: "page",
-      },
-      // {
-      //   name: "partners",
-      //   type: "page",
-      // },
-      {
-        name: "assessments",
-        type: "page",
-      },
-      {
-        name: "careers",
-        type: "page",
-      },
-    ],
-  },
+  // {
+  //   name: "Resources",
+  //   type: "menu",
+  //   subMenu: [
+  //     {
+  //       name: "News and stories",
+  //       type: "page",
+  //     },
+  //     // {
+  //     //   name: "partners",
+  //     //   type: "page",
+  //     // },
+  //     {
+  //       name: "assessments",
+  //       type: "page",
+  //     },
+  //     {
+  //       name: "careers",
+  //       type: "page",
+  //     },
+  //   ],
+  // },
   // { name: "News&Stories", type: "page" },
   // { name: "careers", type: "page" },
   // { name: "assessment", type: "page" },

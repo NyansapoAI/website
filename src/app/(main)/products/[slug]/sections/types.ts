@@ -50,11 +50,3 @@ export const classLevelOptions = [
   "Lower Secondary (7-9)",
   "Upper Secondary (10-12)",
 ]
-
-// Email JS constants
-export const EMAIL_TEMPLATE_ID =
-  process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID || "template_dzq16h9"
-export const EMAIL_SERVICE_ID =
-  process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID || "service_i5w3xke"
-export const EMAIL_PUBLIC_KEY =
-  process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY || "NNZptiDoxZsJ0cx1P"

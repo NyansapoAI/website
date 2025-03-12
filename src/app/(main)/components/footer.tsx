@@ -46,17 +46,6 @@ export default function Footer() {
               >
                 {item.name}
               </Link>
-            ) : item.type == "menu" ? (
-              item?.subMenu &&
-              item.subMenu.map((sub) => (
-                <Link
-                  className="hover:text-accent capitalize "
-                  key={index}
-                  href={`/${sub.name}`}
-                >
-                  {sub.name}
-                </Link>
-              ))
             ) : (
               <a
                 className="hover:text-accent capitalize "

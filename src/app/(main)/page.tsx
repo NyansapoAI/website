@@ -12,10 +12,10 @@ import News from "./News&Stories/News&Stories"
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="w-full">
       <Hero />
       <Products />
-      <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+      <div className="px-4 sm:px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
         <Separator />
         <Impact />
         {/* <About /> */}
@@ -31,7 +31,7 @@ export default function Home() {
       <Separator />
       <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
         <Cta />
-        <NewsLetter />
+        {/* <NewsLetter /> */}
       </div>
     </main>
   )

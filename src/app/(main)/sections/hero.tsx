@@ -36,20 +36,20 @@ export default function Hero({}: Props) {
       setCurrentIndex((prev) =>
         prev === carouselImgs.length - 1 ? 0 : prev + 1
       )
-    }, 7000)
+    }, 30000)
     return () => clearInterval(interval)
   }, [currentIndex])
 
   return (
-    <section className="relative min-h-screen overflow-hidden text-white bg-black">
+    <section className="relative w-full min-h-screen overflow-hidden text-white bg-black">
       <div className="absolute inset-0 z-0">
         {/* Previous Image for Smooth Crossfade */}
         {prevIndex !== null && (
           <motion.div
-            key={prevIndex}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+            key={`prev-${prevIndex}`}
+            initial={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
             className="absolute inset-0"
           >
             <Image
@@ -65,10 +65,10 @@ export default function Hero({}: Props) {
 
         {/* Current Image */}
         <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+          key={`current-${currentIndex}`}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: [0.25, 0.1, 0.25, 1] }}
           className="absolute inset-0"
         >
           <Image
@@ -83,9 +83,9 @@ export default function Hero({}: Props) {
         </motion.div>
       </div>
 
-      <div className="relative z-30 flex w-full h-screen bg-gradient-to-t from-black items-center justify-center">
-        <div className="flex flex-col items-center justify-end relative translate-y-24">
-          <div className="text-2xl lg:text-sm font-bold leading-snug tracking-tight lg:leading-tight xl:text-4xl xl:leading-tight 2xl:leading-tight mb-4">
+      <div className="relative z-30 flex w-full h-screen bg-gradient-to-t from-black items-center justify-center px-4 sm:px-8">
+        <div className="flex flex-col items-center justify-end relative translate-y-16 sm:translate-y-24">
+          <div className="text-xl sm:text-2xl lg:text-sm font-bold leading-snug tracking-tight lg:leading-tight xl:text-4xl xl:leading-tight 2xl:leading-tight mb-4">
             <div className="flex flex-col gap-2 text-center">
               <br />
               <br />
@@ -95,7 +95,7 @@ export default function Hero({}: Props) {
             </div>
           </div>
           <div
-            className={`hero-text text-center py-4 text-lg leading-normal max-w-4xl text-white ${playfairDisplay.className}`}
+            className={`hero-text text-center py-4 text-base sm:text-lg leading-normal max-w-4xl text-white ${playfairDisplay.className}`}
           >
             Improve learning outcomes through data driven assessments solutions
             for students, teachers and schools.

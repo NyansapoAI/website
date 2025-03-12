@@ -15,7 +15,7 @@ export default function Impact() {
             MAKING AN IMPACT ACROSS KENYAN CLASSROOMS
           </span>
         </h1>
-        <p className="max-w-[900px] text-white-500 md:text-9xl/relaxed lg:text-xl xl:text-2xl dark:text-white-400 bg-white/5 rounded-lg p-4">
+        <p className="max-w-[900px] text-white-500 md:text-9xl/relaxed lg:text-4xl xl:text-4xl dark:text-white-400 bg-white/5 rounded-lg p-4">
           OVER <span className="text-yellow-500">200,000</span> ASSESSMENTS
           CONDUCTED
         </p>

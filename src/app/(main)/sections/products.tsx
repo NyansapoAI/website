@@ -39,15 +39,15 @@ export default async function Products({}: Props) {
   return (
     <div
       id="products"
-      className="py-12 px-8 md:px-16 xl:px-32 2xl:px-64 bg-[#fbfbfb] text-gray-800 h-[94vh]"
+      className="py-12 px-4 sm:px-8 md:px-16 xl:px-32 2xl:px-64 bg-[#fbfbfb] text-gray-800 min-h-screen"
     >
-      <h1 className="text-4xl font-bold w-full text-center mt-14">
-        OUR PRODUCTS{" "}
+      <h1 className="text-2xl sm:text-4xl font-bold w-full text-center mt-8 sm:mt-14">
+        OUR PRODUCTS
       </h1>
-      <h4 className="text-3xl text-center">
+      <h4 className="text-xl sm:text-3xl text-center">
         Assessments. Data Analysis. Targeted Instruction
       </h4>
-      <div className="flex flex-col md:flex-row gap-12 mt-20 justify-center">
+      <div className="flex flex-col md:flex-row gap-8 mt-12 sm:mt-20 justify-center">
         {data.map((product, i) => (
           <ProductPreview
             product={product}
@@ -91,7 +91,7 @@ const ProductPreview = ({
       <div
         style={{ backgroundColor: bgColor }}
         className={cn(
-          "flex flex-col md:flex-row gap-12 items-center justify-center p-6 lg:w-[35vw] rounded-lg",
+          "flex flex-col md:flex-row gap-6 sm:gap-12 items-center justify-center p-4 sm:p-6 w-full lg:w-[35vw] rounded-lg",
           flexReverse ? "md:flex-row-reverse" : ""
         )}
       >
