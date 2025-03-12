@@ -35,7 +35,7 @@ export default function Navbar() {
   }, [y])
   return (
     <div
-      className={`w-full fixed ${
+      className={`w-[98vw] lg:w-full fixed ${
         addBg ? "bg-background" : "bg-gradient-to-b from-black/90"
       } text-white duration-200 via-50% top-0 left-0 z-50 `}
     >
