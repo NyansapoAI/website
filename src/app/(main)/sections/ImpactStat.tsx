@@ -70,7 +70,7 @@ const ImpactStat = ({ content, image, imageWidth, imageHeight }: Props) => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center p-4 lg:w-[30vw] rounded-lg text-white relative my-9 overflow-hidden"
+      className="flex flex-col items-center !w-[90vw] justify-center p-4 lg:w-[30vw] rounded-lg text-white relative my-9 overflow-hidden"
       style={{
         width: typeof imageWidth === "object" ? imageWidth.default : imageWidth,
         height:

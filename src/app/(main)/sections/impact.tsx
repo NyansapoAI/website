@@ -2,9 +2,9 @@
 "use client"
 import React from "react"
 import ImpactStat from "./ImpactStat"
-import campImage from "../../../../public/screenshots/app/8.jpg"
-import groupingImage from "../../../../public/screenshots/app/holding.jpeg"
-import partnersImage from "../../../../public/screenshots/app/staff.png"
+import campImage from "../../../../public/screenshots/app/stat1.jpg"
+import groupingImage from "../../../../public/screenshots/app/stat3.jpg"
+import partnersImage from "../../../../public/screenshots/app/stat2.jpg"
 
 export default function Impact() {
   return (
