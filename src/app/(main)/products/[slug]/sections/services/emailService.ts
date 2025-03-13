@@ -45,7 +45,7 @@ export const sendFormEmail = async (data: FormData): Promise<boolean> => {
   try {
     const formData = formatFormData(data)
 
-    const response = await fetch("https://formspree.io/f/xvgkolpr", {
+    const response = await fetch("https://formspree.io/f/xgvaebzy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
