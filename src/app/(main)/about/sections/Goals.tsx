@@ -18,19 +18,25 @@ const Goals = () => {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 lg:gap-0 py-1 px-1 w-full">
         <ImpactStat
-          content="Immediate reading and math feedback for children"
+          statNumber={1}
+          label="FEEDBACK"
+          description="Immediate reading and math feedback for children"
           image={imagesBg.campImage}
           imageWidth="300px"
           imageHeight="60vh"
         />
         <ImpactStat
-          content="Actionable learning data for teachers"
+          statNumber={2}
+          label="DATA"
+          description="Actionable learning data for teachers"
           image={imagesBg.groupingImage}
           imageWidth="300px"
           imageHeight="60vh"
         />
         <ImpactStat
-          content="Intervention Support tools for high impact programs by government and NGOs"
+          statNumber={3}
+          label="SUPPORT"
+          description="Intervention Support tools for high impact programs by government and NGOs"
           image={imagesBg.partnersImage}
           imageWidth="300px"
           imageHeight="60vh"
