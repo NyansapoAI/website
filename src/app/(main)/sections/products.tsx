@@ -47,11 +47,12 @@ export default async function Products({}: Props) {
       <h4 className="text-xl sm:text-3xl text-center">
         Assessments. Data Analysis. Targeted Instruction
       </h4>
-      <div className="flex flex-col md:flex-row gap-8 mt-12 sm:mt-20 justify-center">
+      {/* Changed from grid to flex layout with centering and proper spacing */}
+      <div className="flex flex-wrap justify-center gap-8 mt-12 sm:mt-20 max-w-6xl mx-auto">
         {data.map((product, i) => (
           <ProductPreview
             product={product}
-            bgColor={i % 2 === 0 ? "#008855" : "#B81C61"}
+            bgColor={i % 2 === 0 ? "#4caf50" : "#e67e22"}
             key={i}
             flexReverse={i % 2 === 0}
             index={i}
@@ -79,38 +80,38 @@ const ProductPreview = ({
   index,
 }: ProductPreviewProps) => {
   return (
-    <div>
-      <div className="hidden lg:block w-full lg:h-[20vh] relative">
+    <div
+      className="flex flex-col overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 w-full max-w-sm"
+      style={{ backgroundColor: "white" }}
+    >
+      {/* Image section - visible on all screen sizes */}
+      <div className="relative w-full h-48 sm:h-56 md:h-64">
         <Image
           src={product.mainImage.asset.url}
           alt={product.title}
           fill
-          className="object-contain"
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </div>
+
+      {/* Content section */}
       <div
         style={{ backgroundColor: bgColor }}
-        className={cn(
-          "flex flex-col md:flex-row gap-6 sm:gap-12 items-center justify-center p-4 sm:p-6 w-full lg:w-[35vw] rounded-lg",
-          flexReverse ? "md:flex-row-reverse" : ""
-        )}
+        className="flex flex-col p-6 flex-grow"
       >
-        {/* Top image for lg screens and above */}
-
-        <aside>
-          <h1 className="text-xl mb-4 font-semibold text-white">
-            {product.title}
-          </h1>
-          <p className="tracking-wide lg:max-w-sm text-white">
-            {product.summary}
-          </p>
-          <Link
-            href={`/products/${product.slug.current}`}
-            className="mt-4 inline-block py-2 px-4 rounded-md bg-white text-gray-800"
-          >
-            Learn more
-          </Link>
-        </aside>
+        <h1 className="text-xl sm:text-2xl mb-4 font-semibold text-white">
+          {product.title}
+        </h1>
+        <p className="tracking-wide text-white flex-grow mb-6">
+          {product.summary}
+        </p>
+        <Link
+          href={`/products/${product.slug.current}`}
+          className="inline-block py-2 px-6 rounded-md bg-white text-gray-800 font-medium hover:bg-gray-100 transition-colors duration-200 text-center"
+        >
+          Learn more
+        </Link>
       </div>
     </div>
   )

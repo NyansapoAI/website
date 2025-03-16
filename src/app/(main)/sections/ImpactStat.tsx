@@ -1,4 +1,3 @@
-// ImpactStat.tsx
 import React, { useState } from "react"
 import CountUp from "react-countup"
 import { StaticImageData } from "next/image"
@@ -12,61 +11,25 @@ const anton = Anton({
 type ImageType = string | StaticImageData
 
 type Props = {
-  content: string
+  statNumber: string | number
+  suffix?: string
+  label: string
+  description: string
   image?: ImageType
   imageWidth?: string | { default: string; lg: string }
   imageHeight?: string | { default: string; lg: string }
 }
 
-const KEYWORDS = [
-  "learners",
-  "teachers",
-  "counties",
-  "countries",
-  "maths",
-  "languages",
-  "gain",
-]
-
-const ImpactStat = ({ content, image, imageWidth, imageHeight }: Props) => {
+const ImpactStat = ({
+  statNumber,
+  suffix = "",
+  label,
+  description,
+  image,
+  imageWidth,
+  imageHeight,
+}: Props) => {
   const [isHovered, setIsHovered] = useState(false)
-
-  const renderContent = () => {
-    const parts = content.split(/(\d+[%+]?|\b)/gi)
-
-    return parts.map((part, index) => {
-      const numberMatch = part.match(/(\d+)([%+]?)/)
-      const isKeyword = KEYWORDS.some(
-        (keyword) => part.toLowerCase() === keyword.toLowerCase()
-      )
-
-      if (numberMatch) {
-        const [, number, suffix] = numberMatch
-        return (
-          <CountUp
-            key={index}
-            start={0}
-            end={parseInt(number)}
-            suffix={suffix}
-            enableScrollSpy
-            className="text-yellow-500 inline-block"
-          >
-            {({ countUpRef }) => <span ref={countUpRef} />}
-          </CountUp>
-        )
-      }
-
-      if (isKeyword) {
-        return (
-          <span key={index} className="text-yellow-500">
-            {part}
-          </span>
-        )
-      }
-
-      return <span key={index}>{part}</span>
-    })
-  }
 
   return (
     <div
@@ -89,12 +52,35 @@ const ImpactStat = ({ content, image, imageWidth, imageHeight }: Props) => {
           opacity: isHovered ? 1 : 0,
         }}
       />
-      <div className="relative z-10">
-        <p
-          className={`text-5xl text-left font-bold uppercase ${anton.className}`}
+
+      {/* Content container with layered stats */}
+      <div className="relative z-10 flex flex-col p-4 rounded-lg w-full">
+        {/* Large number display with CountUp */}
+        <div
+          className={`text-6xl sm:text-7xl font-bold ${anton.className} text-yellow-500`}
         >
-          {renderContent()}
-        </p>
+          <CountUp
+            start={0}
+            end={Number(statNumber)}
+            enableScrollSpy
+            separator=","
+          >
+            {({ countUpRef }) => (
+              <div className="flex items-center">
+                <span ref={countUpRef} />
+                <span>{suffix}</span>
+              </div>
+            )}
+          </CountUp>
+        </div>
+
+        {/* Bold label */}
+        <div className="text-2xl sm:text-3xl font-extrabold uppercase mt-2 text-white">
+          {label}
+        </div>
+
+        {/* Description text */}
+        <div className="text-lg mt-2 text-white-200">{description}</div>
       </div>
     </div>
   )

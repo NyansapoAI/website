@@ -3,12 +3,34 @@ export const navigationLinks = [
   { name: "products", type: "section" },
   { name: "about us", link: "about", type: "page" },
   // { name: "pricing", link: "pricing", type: "page" },
+  // {
+  //   name: "impact",
+  //   type: "menu",
+  //   subMenu: [
+  //     {
+  //       name: "projects",
+  //       type: "page",
+  //     },
+  //     {
+  //       name: "partners",
+  //       type: "page",
+  //     },
+  //     {
+  //       name: "achievements",
+  //       type: "page",
+  //     },
+  //     {
+  //       name: "partners",
+  //       type: "page",
+  //     },
+  //   ],
+  // },
   {
-    name: "impact",
+    name: "Resources",
     type: "menu",
     subMenu: [
       {
-        name: "projects",
+        name: "Features",
         type: "page",
       },
       // {
@@ -16,37 +38,15 @@ export const navigationLinks = [
       //   type: "page",
       // },
       {
-        name: "achievements",
+        name: "assessments",
         type: "page",
       },
       {
-        name: "partners",
+        name: "careers",
         type: "page",
       },
     ],
   },
-  // {
-  //   name: "Resources",
-  //   type: "menu",
-  //   subMenu: [
-  //     {
-  //       name: "News and stories",
-  //       type: "page",
-  //     },
-  //     // {
-  //     //   name: "partners",
-  //     //   type: "page",
-  //     // },
-  //     {
-  //       name: "assessments",
-  //       type: "page",
-  //     },
-  //     {
-  //       name: "careers",
-  //       type: "page",
-  //     },
-  //   ],
-  // },
   // { name: "News&Stories", type: "page" },
   // { name: "careers", type: "page" },
   // { name: "assessment", type: "page" },

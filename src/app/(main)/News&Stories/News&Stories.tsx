@@ -2,51 +2,36 @@ import { sanityClient } from "@/lib/sanity.client"
 import { cache } from "react"
 import { groq } from "next-sanity"
 import type { Metadata } from "next"
-import Preview from "./Preview"
+import Image from "next/image"
 
 export const metadata: Metadata = {
-  title: "News",
-  description: "Nyansapo News",
+  title: "Featured Partners",
+  description: "Organizations and publications featuring Nyansapo",
 }
+
 // Enable NextJS to cache and dedupe queries
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
-// const query = groq`*[_type=='news']{body, title,link, _createdAt, publishedAt, _rev, _type, _id, _updatedAt, slug, mainImage{asset->{...,metadata{
-//   lqip
-// }}}}`
-const query = groq`*[_type=='news'] | order(_createdAt desc) {
-  body, 
+
+// Query for featured items
+const featuredQuery = groq`*[_type=='news' && isFeatured == true] | order(publishedAt desc, _createdAt desc) {
   title, 
   link, 
-  _createdAt, 
-  publishedAt, 
-  _rev, 
-  _type, 
-  _id, 
-  _updatedAt, 
-  slug, 
+  _id,
   mainImage {
     asset -> {
       ...,
       metadata {
         lqip
-      }
+      },
+      url
     }
   }
 }`
-export interface NewsInterface {
-  body: any[]
+
+export interface FeaturedInterface {
   title: string
-  _createdAt: string
-  publishedAt: string
   link: string
-  _rev: string
-  _type: string
   _id: string
-  _updatedAt: string
-  slug: {
-    _type: string
-    current: string
-  }
   mainImage: {
     _type: string
     asset: {
@@ -55,37 +40,63 @@ export interface NewsInterface {
       metadata: {
         lqip: string
       }
-      /* Define the properties of the asset object here */
+      url: string
     }
   }
 }
+
 export const revalidate = 60 * 60
-type Props = {
-  latest: boolean
-}
 
-export default async function News({ latest }: Props) {
-  const data = await clientFetch<NewsInterface[]>(query)
-  const latestNews = data.slice(0, 3)
+export default async function News() {
+  const featuredData = await clientFetch<FeaturedInterface[]>(featuredQuery)
 
-  const news = latest ? latestNews : data.slice(1, data.length)
   return (
-    <div id="news-section" className="py-8 lg:py-12">
-      <h2 className="text-3xl xl:text-4xl font-bold mb-8">
-        {latest ? "Latest News" : "News"}
+    <div
+      id="featured-partners-section"
+      className="py-8 lg:py-16 container mx-auto px-4"
+    >
+      <h2 className="text-3xl xl:text-4xl font-bold mb-10 text-center">
+        Featured By
       </h2>
-      {!latest && (
+
+      {featuredData.length > 0 ? (
         <div className="mb-8 lg:mb-12">
-          <h2 className="mb-2 text-xl">Latest News</h2>
-          <Preview key={data[0]._id} data={data[0]} large={true} />
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 items-center">
+            {featuredData.map((item) => (
+              <a
+                key={item._id}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group hover:opacity-90 transition-all duration-300 h-24 flex items-center justify-center"
+                title={item.title}
+              >
+                {item.mainImage?.asset?.url && (
+                  <div className="w-full h-full relative flex items-center justify-center">
+                    <Image
+                      src={item.mainImage.asset.url}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                      className="object-contain group-hover:scale-105 transition-transform duration-300"
+                      placeholder={
+                        item.mainImage.asset.metadata.lqip ? "blur" : "empty"
+                      }
+                      blurDataURL={
+                        item.mainImage.asset.metadata.lqip || undefined
+                      }
+                    />
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
         </div>
+      ) : (
+        <p className="text-center text-gray-500">
+          No featured partners to display.
+        </p>
       )}
-      <div className=" grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-8 py-8">
-        {data &&
-          news.map((item, i) => {
-            return <Preview key={item._id} data={item} />
-          })}
-      </div>
     </div>
   )
 }

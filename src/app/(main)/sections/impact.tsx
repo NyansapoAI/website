@@ -22,19 +22,27 @@ export default function Impact() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 p-0 w-full max-w-[900px] lg:max-w-[1200px] lg:flex lg:flex-row mx-auto">
         <ImpactStat
-          content="By more than 23000 learners and 800 teachers"
+          statNumber={23000}
+          suffix="+"
+          label="LEARNERS"
+          description="Assessed with the help of over 800 teachers"
           image={groupingImage}
           imageWidth={{ default: "450px", lg: "650px" }}
           imageHeight="75vh"
         />
         <ImpactStat
-          content="Across 30 counties and 5 countries"
+          statNumber={30}
+          label="COUNTIES"
+          description="Across 5 countries reaching diverse populations"
           image={partnersImage}
           imageWidth={{ default: "450px", lg: "550px" }}
           imageHeight="75vh"
         />
         <ImpactStat
-          content="Studies shown proven gain in maths and languages with regular use"
+          statNumber={31}
+          suffix="%"
+          label="GAIN"
+          description="in foundational literacy and numeracy with regular use"
           image={campImage}
           imageWidth={{ default: "450px", lg: "550px" }}
           imageHeight="75vh"
