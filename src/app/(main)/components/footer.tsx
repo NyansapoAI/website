@@ -42,7 +42,7 @@ export default function Footer() {
               <Link
                 className="hover:text-accent capitalize "
                 key={index}
-                href={`/${item.name}`}
+                href={`/${item.link}`}
               >
                 {item.name}
               </Link>
