@@ -90,9 +90,9 @@ export default function Navbar() {
                         >
                           {item.name}
                         </Link>
-                      ) : item.type === "menu" ? (
-                        item?.subMenu &&
-                        item.subMenu.map((sub, i) => (
+                      ) : item.type === "menu" &&
+                        Array.isArray(item.subMenu) ? (
+                        item.subMenu.map((sub: any, i: number) => (
                           <Link
                             className="hover:text-accent font-semibold capitalize px-2 py-1  "
                             key={i}
@@ -121,6 +121,7 @@ export default function Navbar() {
                       <a
                         href="https://platform.nyansapoai.net/auth/signup"
                         target="_blank"
+                        rel="noopener"
                         className={cn(
                           buttonVariants({ variant: "default" }),
                           "text-lg   "

@@ -52,7 +52,7 @@ export default async function News() {
 
   return (
     <div
-      id="featured-partners-section"
+      id="Resources"
       className="py-8 lg:py-16 container mx-auto px-4"
     >
       <h2 className="text-3xl xl:text-4xl font-bold mb-10 text-center">
