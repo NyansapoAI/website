@@ -1,11 +1,12 @@
 import Image from "next/image"
 import React from "react"
+import { PortableText, PortableTextReactComponents } from "@portabletext/react"
 
 type ProductProps = {
   product: {
     title: string
     detailsTitle: string
-    detailsSummary: string
+    detailsSummary: any[]
     detailsImage: {
       asset: {
         metadata: {
@@ -18,6 +19,27 @@ type ProductProps = {
 }
 
 const CurriculumHero = ({ product }: ProductProps) => {
+  // Custom components for rendering the rich text
+  const components: Partial<PortableTextReactComponents> = {
+    list: {
+      bullet: ({ children }) => (
+        <ul className="list-disc pl-6 mb-4 text-white/90 text-lg lg:text-2xl">
+          {children}
+        </ul>
+      ),
+    },
+    listItem: {
+      bullet: ({ children }) => <li className="mb-1">{children}</li>,
+    },
+    block: {
+      normal: ({ children }) => (
+        <p className="text-white/90 text-lg text-justify lg:text-2xl lg:pr-40 mb-4">
+          {children}
+        </p>
+      ),
+    },
+  }
+
   return (
     <div className="relative bg-[#142848] w-full pt-[100px]">
       {/* Mobile Image (shown above content on small screens) */}
@@ -44,9 +66,18 @@ const CurriculumHero = ({ product }: ProductProps) => {
             <h1 className="text-white text-4xl lg:text-5xl font-bold">
               {product.detailsTitle}
             </h1>
-            <p className="text-white/90 text-lg text-justify lg:text-2xl lg:pr-40">
-              {product.detailsSummary}
-            </p>
+            <div className="rich-text-container">
+              {product.detailsSummary ? (
+                <PortableText
+                  value={product.detailsSummary}
+                  components={components}
+                />
+              ) : (
+                <p className="text-white/90 text-lg text-justify lg:text-2xl lg:pr-40">
+                  No details available
+                </p>
+              )}
+            </div>
             <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-md font-medium transition-colors duration-200 inline-flex items-center gap-2">
               Learn More
             </button>

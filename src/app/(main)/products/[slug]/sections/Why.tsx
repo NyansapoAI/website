@@ -1,6 +1,8 @@
 "use client"
 import React from "react"
 import Image from "next/image"
+import { PortableText, PortableTextReactComponents } from "@portabletext/react"
+
 interface Feature {
   title: string
   description: string
@@ -13,7 +15,7 @@ interface Feature {
 
 interface WhyProps {
   whyNyansapoTitle: string
-  whyNyansapoSummary: string
+  whyNyansapoSummary: any[] // Changed from string to any[] for Portable Text
   features: Feature[]
 }
 
@@ -35,6 +37,20 @@ const Why: React.FC<WhyProps> = ({
     "border-orange-200",
   ]
 
+  // Custom components for rendering the rich text with correct type structure
+  const components: Partial<PortableTextReactComponents> = {
+    list: {
+      bullet: ({ children }) => (
+        <ul className="list-disc pl-6 mb-4 text-gray-700 text-lg">
+          {children}
+        </ul>
+      ),
+    },
+    listItem: {
+      bullet: ({ children }) => <li className="mb-1">{children}</li>,
+    },
+  }
+
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-16 bg-white">
       <div className="max-w-4xl mx-auto">
@@ -42,9 +58,13 @@ const Why: React.FC<WhyProps> = ({
           {whyNyansapoTitle}
         </h1>
 
-        <p className="text-center text-gray-700 text-lg mb-16">
-          {whyNyansapoSummary}
-        </p>
+        <div className="text-center text-gray-700 text-lg mb-16">
+          {whyNyansapoSummary ? (
+            <PortableText value={whyNyansapoSummary} components={components} />
+          ) : (
+            <p>No summary available</p>
+          )}
+        </div>
 
         <div className="space-y-6">
           {features.map((feature, index) => (

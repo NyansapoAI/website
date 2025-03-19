@@ -53,9 +53,9 @@ export default async function News() {
   return (
     <div
       id="Resources"
-      className="py-8 lg:py-16 container mx-auto px-4"
+      className="py-8 lg:py-16 container px-4 bg-white min-w-screen"
     >
-      <h2 className="text-3xl xl:text-4xl font-bold mb-10 text-center">
+      <h2 className="text-3xl xl:text-4xl font-bold mb-10 text-center text-[#1F2836]">
         Featured By
       </h2>
 

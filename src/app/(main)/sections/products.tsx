@@ -29,11 +29,6 @@ const projectQuery = groq`*[_type=='products']{title,summary,slug,mainImage{asse
   lqip, url}}}}`
 const clientFetch = cache(sanityClient.fetch.bind(sanityClient))
 
-const topImgs = [
-  { src: "/imgs/products/vectors/v1.png", alt: "dash" },
-  { src: "/imgs/products/vectors/app.png", alt: "app" },
-]
-
 export default async function Products({}: Props) {
   const data = await clientFetch<ProductPreviewInterface[]>(projectQuery)
   return (

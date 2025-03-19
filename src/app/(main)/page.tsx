@@ -23,7 +23,7 @@ export default function Home() {
         {/* <Services />
         <Separator /> */}
       </div>
-      <div className="px-8 md:px-16 xl:px-32 2xl:px-64 mx-auto max-w-[1920px]">
+      <div className="px-8 md:px-16 xl:px-32 2xl:px-64 w-screen bg-white">
         {/* <Separator /> */}
         <News />
       </div>
