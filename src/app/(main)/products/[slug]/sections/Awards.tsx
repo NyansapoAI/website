@@ -39,7 +39,7 @@ const Awards: React.FC<AwardsProps> = ({ title, description, awardLogos }) => {
               <div className="flex items-center justify-center h-full">
                 <Image
                   src={logo.asset.url}
-                  alt={logo.alt || `Award logo ${index + 1}`}
+                  alt={logo.alt || `Awards logo ${index + 1}`}
                   width={200}
                   height={180}
                   className="object-contain max-h-24"
