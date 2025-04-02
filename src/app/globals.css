@@ -61,6 +61,15 @@
   }
 }
 
+/* 3D Flip Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
 .hero-header {
   font-family: var(--font-anton);
   font-style: normal;

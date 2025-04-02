@@ -1,7 +1,8 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import { PortableText, PortableTextReactComponents } from "@portabletext/react"
+import { motion } from "framer-motion"
 
 interface Feature {
   title: string
@@ -66,40 +67,83 @@ const Why: React.FC<WhyProps> = ({
           )}
         </div>
 
-        <div className="space-y-6">
+        <div className="flex flex-wrap justify-center gap-8">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`p-6 rounded-lg border-2 ${
-                borderColors[index % borderColors.length]
-              } transition-all duration-300`}
-            >
-              <div className="flex items-start gap-4">
-                <div
-                  className="p-2 rounded-lg shrink-0"
-                  style={{ backgroundColor: colors[index % colors.length] }}
-                >
-                  <Image
-                    src={feature.icon.asset.url}
-                    alt={feature.title}
-                    width={24}
-                    height={24}
-                    className="w-6 h-6"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-700">{feature.description}</p>
-                </div>
-              </div>
-            </div>
+            <FlipCard 
+              key={index} 
+              feature={feature} 
+              color={colors[index % colors.length]} 
+              borderColor={borderColors[index % borderColors.length]} 
+            />
           ))}
         </div>
       </div>
     </div>
   )
 }
+
+interface FlipCardProps {
+  feature: Feature;
+  color: string;
+  borderColor: string;
+}
+
+const FlipCard: React.FC<FlipCardProps> = ({ feature, color, borderColor }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  
+  return (
+    <div 
+      className="perspective-1000 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(50%-2rem)] min-h-[300px]"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <motion.div
+        className="relative w-full h-full"
+        initial={false}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* Front of card */}
+        <motion.div
+          className={`absolute w-full h-full rounded-lg border-2 ${borderColor} flex flex-col items-center justify-center p-8 backface-hidden`}
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <div
+            className="p-4 rounded-lg mb-4"
+            style={{ backgroundColor: color }}
+          >
+            <Image
+              src={feature.icon.asset.url}
+              alt={feature.title}
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+          </div>
+          <h3 className="text-xl font-semibold text-center text-gray-800">
+            {feature.title}
+          </h3>
+        </motion.div>
+        
+        {/* Back of card */}
+        <motion.div
+          className={`absolute w-full h-full rounded-lg border-2 ${borderColor} p-8 flex flex-col items-center justify-center backface-hidden`}
+          style={{ 
+            backgroundColor: color,
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+            color: "white"
+          }}
+        >
+          <h3 className="text-xl font-semibold mb-4 text-center">
+            {feature.title}
+          </h3>
+          <p className="text-center">{feature.description}</p>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+};
 
 export default Why
