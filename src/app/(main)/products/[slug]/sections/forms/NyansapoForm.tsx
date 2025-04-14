@@ -27,7 +27,7 @@ const NyansapoForm: React.FC<NyansapoFormProps> = ({
             name="firstName"
             value={formData.firstName}
             onChange={onInputChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
             required
           />
         </div>
@@ -42,7 +42,7 @@ const NyansapoForm: React.FC<NyansapoFormProps> = ({
             name="secondName"
             value={formData.secondName}
             onChange={onInputChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
             required
           />
         </div>
@@ -57,7 +57,7 @@ const NyansapoForm: React.FC<NyansapoFormProps> = ({
           name="organizationType"
           value={formData.organizationType}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         >
           <option value="">Select organization type</option>
@@ -78,7 +78,7 @@ const NyansapoForm: React.FC<NyansapoFormProps> = ({
           name="assessmentSupport"
           value={formData.assessmentSupport}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           rows={3}
           required
         />
@@ -94,7 +94,7 @@ const NyansapoForm: React.FC<NyansapoFormProps> = ({
           name="childrenCount"
           value={formData.childrenCount}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         />
       </div>
@@ -109,7 +109,7 @@ const NyansapoForm: React.FC<NyansapoFormProps> = ({
           name="primaryCountry"
           value={formData.primaryCountry}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         />
       </div>

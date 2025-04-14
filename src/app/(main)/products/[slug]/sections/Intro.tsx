@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import React from "react"
 import { PortableText, PortableTextReactComponents } from "@portabletext/react"
@@ -14,6 +15,9 @@ type ProductProps = {
         }
         url: string
       }
+    }
+    slug?: {
+      current: string
     }
   }
 }
@@ -78,7 +82,17 @@ const CurriculumHero = ({ product }: ProductProps) => {
                 </p>
               )}
             </div>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-md font-medium transition-colors duration-200 inline-flex items-center gap-2">
+            <button
+              className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-md font-medium transition-colors duration-200 inline-flex items-center gap-2"
+              onClick={() => {
+                if (product.slug?.current === "nyansapo-ai-android-app") {
+                  window.open(
+                    "https://platform.nyansapoai.net/auth/signup",
+                    "_blank"
+                  )
+                }
+              }}
+            >
               Learn More
             </button>
           </div>
