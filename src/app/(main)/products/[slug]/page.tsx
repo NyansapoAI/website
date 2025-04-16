@@ -5,6 +5,7 @@ import TutorChat from "./sections/TutorChat"
 import Awards from "./sections/Awards"
 import { sanityClient } from "@/lib/sanity.client"
 import { groq } from "next-sanity"
+import HowItWorks from "./sections/HowItWorks"
 
 type Props = {
   params: {
@@ -73,6 +74,7 @@ export default async function Page({ params: { slug } }: Props) {
           awardLogos={productData.awardLogos || []}
         />
       )}
+      {slug === "hekima-learning-app" && <HowItWorks />}
       <TutorChat ctaText={productData.reachOut} productSlug={slug} />
     </div>
   )

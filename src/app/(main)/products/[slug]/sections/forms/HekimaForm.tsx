@@ -31,7 +31,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
           name="institutionName"
           value={formData.institutionName}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         />
       </div>
@@ -45,7 +45,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
           name="institutionType"
           value={formData.institutionType}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         >
           <option value="">Select institution type</option>
@@ -67,7 +67,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
           name="location"
           value={formData.location}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         />
       </div>
@@ -82,7 +82,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
           name="contactNameRole"
           value={formData.contactNameRole}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         />
       </div>
@@ -97,7 +97,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
           name="emailPhone"
           value={formData.emailPhone}
           onChange={onInputChange}
-          className="w-full p-2 border rounded-md"
+          className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
           required
         />
       </div>
@@ -117,7 +117,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
             name="studentCount"
             value={formData.studentCount}
             onChange={onInputChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
             required
           />
         </div>
@@ -132,7 +132,7 @@ const HekimaForm: React.FC<HekimaFormProps> = ({
             name="teacherCount"
             value={formData.teacherCount}
             onChange={onInputChange}
-            className="w-full p-2 border rounded-md"
+            className="w-full p-2 border rounded-md text-black dark:text-white dark:bg-gray-800"
             required
           />
         </div>

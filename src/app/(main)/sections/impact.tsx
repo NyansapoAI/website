@@ -12,15 +12,15 @@ export default function Impact() {
       <div className="flex flex-col space-y-4 justify-center items-center">
         <h1 className="text-3xl sm:text-5xl tracking-lighter font-bold text-left">
           <span className="text-white">
-            MAKING AN IMPACT ACROSS KENYAN CLASSROOMS
+            MAKING LEARNING VISIBLE AND ACTIONABLE FOR
           </span>
         </h1>
-        <p className="max-w-[900px] text-white-500 md:text-9xl/relaxed lg:text-4xl xl:text-4xl dark:text-white-400 bg-white/5 rounded-lg p-4">
+        {/* <p className="max-w-[900px] text-white-500 md:text-9xl/relaxed lg:text-4xl xl:text-4xl dark:text-white-400 bg-white/5 rounded-lg p-4">
           OVER <span className="text-yellow-500">200,000</span> ASSESSMENTS
           CONDUCTED
-        </p>
+        </p> */}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 p-0 w-full max-w-[900px] lg:max-w-[1200px] lg:flex lg:flex-row mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 p-2 w-full max-w-[900px] md:flex md:flex-col lg:grid-cols-none lg:max-w-[1200px] lg:flex lg:flex-row mx-auto">
         <ImpactStat
           statNumber={23000}
           suffix="+"
