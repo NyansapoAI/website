@@ -119,9 +119,7 @@ export default function Navbar() {
                     </Link>
                     <div className="flex flex-col my-2 gap-4 px-2">
                       <a
-                        href="https://platform.nyansapoai.net/auth/signup"
-                        target="_blank"
-                        rel="noopener"
+                        href="/getstarted"
                         className={cn(
                           buttonVariants({ variant: "default" }),
                           "text-lg   "

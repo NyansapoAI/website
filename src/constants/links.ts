@@ -15,7 +15,7 @@ export const navigationLinks: NavigationItem[] = [
   // { name: "about us", type: "section" },
   { name: "products", type: "section" },
   { name: "about us", link: "about", type: "page" },
-  { name: "Resources", type: "section" },
+   { name: "Resources", link: "resources", type: "page" }, 
   // Uncomment if you need this menu item with subMenu
   /*
   {
