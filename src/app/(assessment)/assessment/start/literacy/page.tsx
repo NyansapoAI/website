@@ -1,80 +1,68 @@
-"use client";
+// app/assessment/start/literacy/page.tsx
+// This is a Server Component (no "use client" → perfect for data fetching)
 
-
-import React from "react"
-import { Assessment } from "./Assessment"
-import { LiteracyAssessment } from "../types"
-
-type Props = {}
+import { Assessment } from "./Assessment";
+import type { LiteracyAssessmentContent } from "../types"; // adjust path if needed
 
 const fetchAssessment = async (id: string) => {
-  return fetch("https://graphql.nyansapoai.net/", {
+  const res = await fetch("https://graphql.nyansapoai.net/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    // Important: prevents caching issues during build on Vercel
+    cache: "no-store",
     body: JSON.stringify({
-      query: `query Content($where: LiteracyAssessmentContentWhereUniqueInput!) {
-        literacyAssessmentContent(where: $where) {
-          words {
+      query: `
+        query LiteracyAssessmentContent($where: LiteracyAssessmentContentWhereUniqueInput!) {
+          literacyAssessmentContent(where: $where) {
             id
-            word
-            literacyAssessmentContentId
-          }
-          paragraphs {
-            id
-            paragraph
-            literacyAssessmentContentId
-          }
-          stories {
-            id
-            story
-            literacyAssessmentContentId
-          }
-          letters {
-            letter
-            literacyAssessmentContentId
-            id
-          }
-          multipleChoiceQuestions {
-            id
-            literacyAssessmentContentId
-            question
-            multipleChoiceQuestionAnswers {
-              answer
+            words { id word literacyAssessmentContentId }
+            paragraphs { id paragraph literacyAssessmentContentId }
+            stories { id story literacyAssessmentContentId }
+            letters { id letter literacyAssessmentContentId }
+            multipleChoiceQuestions {
               id
-              correct
+              literacyAssessmentContentId
+              question
+              multipleChoiceQuestionAnswers {
+                id
+                answer
+                correct
+              }
             }
           }
-          id
         }
-      }`,
-      variables: {
-        where: {
-          id: parseInt(id),
-        },
-      },
+      `,
+      variables: { where: { id: parseInt(id) } },
     }),
-  })
-    .then(
-      (response) => response.json() as Promise<{ data: LiteracyAssessment }>
-    )
-    .then((data) => data)
-    .catch((error) => console.log(error))
-}
+  });
 
-export default async function page({}: Props) {
-  const resp = await fetchAssessment("1")
+  if (!res.ok) throw new Error("Failed to fetch");
+  const json = await res.json();
+  return json.data.literacyAssessmentContent as LiteracyAssessmentContent;
+};
+
+export default async function LiteracyPage() {
+  let literacyAssessment: LiteracyAssessmentContent | null = null;
+  let error = false;
+
+  try {
+    literacyAssessment = await fetchAssessment("1");
+  } catch (err) {
+    console.error("Failed to load literacy assessment:", err);
+    error = true;
+  }
 
   return (
     <div className="sm:px-8 md:px-16 py-6 md:py-8 mx-auto max-w-[1920px]">
-      {resp && resp.data.literacyAssessmentContent ? (
-        <Assessment literacyAssessment={resp.data.literacyAssessmentContent} />
-      ) : (
-        <p className="text-xl p-4 text-destructive">
-          Something went wrong, please refresh the page
+      {error || !literacyAssessment ? (
+        <p className="text-xl p-8 text-destructive text-center">
+          Something went wrong. Please refresh the page or try again later.
         </p>
+      ) : (
+        <Assessment literacyAssessment={literacyAssessment} />
       )}
     </div>
-  )
+  );
 }

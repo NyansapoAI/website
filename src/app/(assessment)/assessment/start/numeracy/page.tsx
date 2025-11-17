@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react"
 import CountAndMatch from "./countAndMatch"
 import NumeracyAssessments from "./NumeracyAssessments"
@@ -49,6 +47,7 @@ const fetchNumeracyAssessmentContent = async (id: number) => {
     .then((data) => data)
     .catch((error) => console.log(error))
 }
+
 export default async function page({}: Props) {
   const resp = await fetchNumeracyAssessmentContent(1)
 
