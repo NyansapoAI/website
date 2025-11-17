@@ -31,7 +31,7 @@ export default function Story({}: Props) {
         </div>
       </div>
       <Image
-        src="/imgs/hero/background/bg3.webp"
+        src="/imgs/gallery/5.jpg"
         width={500}
         height={700}
         alt=""

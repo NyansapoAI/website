@@ -79,7 +79,7 @@ const DashboardPreview = ({ dashboard, bgColor, index }: DashboardPreviewProps) 
       case 0:
         return "https://nyansapo-teaching-dashboard.vercel.app/"
       case 1:
-        return "https://hekima-dashboard.vercel.app/"
+        return "https://hekima-dashboard.vercel.app/auth/signin"
       default:
         return "#"
     }
@@ -91,12 +91,14 @@ const DashboardPreview = ({ dashboard, bgColor, index }: DashboardPreviewProps) 
       case 0:
         return {
           title: "Nyansapo Teaching Dashboard",
-          summary: "Enhance the effectiveness of foundational literacy and numeracy programs with AI-powered assessments and real-time data insights."
+          summary:
+            "Enhance the effectiveness of foundational literacy and numeracy programs with AI-powered assessments and real-time data insights."
         }
       case 1:
         return {
           title: "Hekima Learning Dashboard",
-          summary: "Hekima Learning helps teachers identify learning gaps, group students based on their needs, and adjust instruction"
+          summary:
+            "Hekima Learning helps teachers identify learning gaps, group students based on their needs, and adjust instruction"
         }
       default:
         return {
@@ -114,20 +116,19 @@ const DashboardPreview = ({ dashboard, bgColor, index }: DashboardPreviewProps) 
       className="flex flex-col overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 w-full max-w-sm"
       style={{ backgroundColor: "white" }}
     >
-      {/* Image section - reuses the existing product image from Sanity */}
+      {/* Image section – now uses local static images */}
       <div className="relative w-full h-48 sm:h-56 md:h-64">
         <Image
-          src={dashboard.mainImage.asset.url}
-          alt={title}  // Use custom title for alt text
+          src={index === 0 ? "/imgs/gallery/4.jpg" : "/imgs/gallery/3.jpg"}
+          alt={title}
           fill
           className="object-cover"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          placeholder="blur"
-          blurDataURL={dashboard.mainImage.asset.metadata.lqip}
+          priority // optional – improves LCP for the first two cards
         />
       </div>
 
-      {/* Content section - uses custom title/summary */}
+      {/* Content section – uses custom title/summary */}
       <div
         style={{ backgroundColor: bgColor }}
         className="flex flex-col p-6 flex-grow"
@@ -135,10 +136,8 @@ const DashboardPreview = ({ dashboard, bgColor, index }: DashboardPreviewProps) 
         <h1 className="text-xl sm:text-2xl mb-4 font-semibold text-white">
           {title}
         </h1>
-        <p className="tracking-wide text-white flex-grow mb-6">
-          {summary}
-        </p>
-        {/* Start Button - clear CTA to open the dashboard */}
+        <p className="tracking-wide text-white flex-grow mb-6">{summary}</p>
+        {/* Start Button */}
         <a
           href={externalUrl}
           target="_blank"

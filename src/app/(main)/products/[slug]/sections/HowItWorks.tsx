@@ -23,7 +23,7 @@ const HOW_IT_WORKS_DATA: Step[] = [
     title: "Teachers assign assessments",
     description:
       "This is conducted during lessons or designated checkpoints. The assessments are aligned with Kenya's Competency Based Curriculum (CBC) and focus on language and mathematics activities.",
-    imageSrc: "/imgs/gallery/1.png",
+    imageSrc: "/imgs/gallery/3.jpg",
     imageAlt: "Teacher assigning assessments",
     imagePosition: "left",
     dotColor: "bg-blue-500",
@@ -33,7 +33,7 @@ const HOW_IT_WORKS_DATA: Step[] = [
     title: "Learners complete assessments",
     description:
       "With an option for immediate feedback where speech-to-text is leveraged for literacy assessments and computer vision for some numeracy assessments. The app offers hints and explanations to help learners understand mistakes made and further reinforce concepts.",
-    imageSrc: "/imgs/gallery/2.png",
+    imageSrc: "/imgs/gallery/6.jpg",
     imageAlt: "Student completing assessment",
     imagePosition: "right",
     dotColor: "bg-pink-500",
@@ -43,7 +43,7 @@ const HOW_IT_WORKS_DATA: Step[] = [
     title: "Teachers access real-time student and class data",
     description:
       "This allows them to dynamically group learners based on their learning levels aligned to the CBC curriculum, access student performance indicators, plan instruction to focus on challenging areas and assign interactive activities suited for different levels.",
-    imageSrc: "/imgs/gallery/3.png",
+    imageSrc: "/imgs/gallery/9.jpg",
     imageAlt: "Teacher analyzing student data",
     imagePosition: "left",
     dotColor: "bg-green-500",

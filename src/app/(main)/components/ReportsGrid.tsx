@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import ReportCard from "./ReportCard";
 
 const reports = [
@@ -8,8 +8,8 @@ const reports = [
     id: 1,
     title: "RCP Baseline Report",
     subtitle: "(2025)",
-    imageUrl: "/imgs/reports/baseline.png", // Cover image
-    pdfUrl: "/pdfs/RCP Baseline Report.pdf", // PDF file
+    imageUrl: "/imgs/reports/baseline.png",
+    pdfUrl: "/pdfs/RCP Baseline Report.pdf",
     index: 0,
   },
   {
@@ -20,29 +20,8 @@ const reports = [
     pdfUrl: "/pdfs/EndlineReport.pdf",
     index: 1,
   },
-  // {
-  //   id: 3,
-  //   title: "ACCOUNTABILITY TO CHILDREN AND COMMUNITIES YEARLY REPORT",
-  //   subtitle: "(2024)",
-  //   imageUrl: "/images/reports/accountability-yearly-report.jpg",
-  //   pdfUrl: "/pdfs/accountability-yearly-report.pdf",
-  // },
-  // {
-  //   id: 4,
-  //   title: "4TH AFRICAN REGIONAL CONFERENCE ON LOSS AND DAMAGE",
-  //   subtitle: "LILONGWE CALL ON ACCELERATING ACCESS TO CLIMATE FINANCE AND LOCALITY LED (2025) MALAWI",
-  //   imageUrl: "/images/reports/african-regional-conference.jpg",
-  //   pdfUrl: "/pdfs/african-regional-conference.pdf",
-  // },
-  // {
-  //   id: 5,
-  //   title: "ANOTHER REPORT TITLE",
-  //   subtitle: "(2025) COUNTRY",
-  //   imageUrl: "/images/reports/another-report.jpg",
-  //   pdfUrl: "/pdfs/another-report.pdf",
-  // },
-];
-
+  // Add more reports later → they will fill the 3rd column
+] as const;
 
 interface ReportsGridProps {
   searchQuery: string;
@@ -50,30 +29,42 @@ interface ReportsGridProps {
 
 export default function ReportsGrid({ searchQuery }: ReportsGridProps) {
   const filteredReports = useMemo(() => {
-    if (!searchQuery.trim()) {
-      return reports;
-    }
-
-    const query = searchQuery.toLowerCase().trim();
-    return reports.filter(report => 
-      report.title.toLowerCase().includes(query) ||
-      report.subtitle.toLowerCase().includes(query)
+    if (!searchQuery.trim()) return reports;
+    const q = searchQuery.toLowerCase().trim();
+    return reports.filter(
+      (r) =>
+        r.title.toLowerCase().includes(q) ||
+        r.subtitle.toLowerCase().includes(q)
     );
   }, [searchQuery]);
 
   if (filteredReports.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-gray-500 text-lg">No reports found matching "{searchQuery}"</p>
-        <p className="text-gray-400 mt-2">Try adjusting your search terms</p>
+      <div className="text-center py-16">
+        <p className="text-gray-500 text-lg">
+          No reports found matching “{searchQuery}”
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {filteredReports.map((report, index) => (
-        <ReportCard key={report.id} report={report} index={index} />
+    <div
+      className={`
+        grid gap-8
+        grid-cols-1           /* 1 on mobile */
+        sm:grid-cols-2        /* 2 on small tablets */
+        lg:grid-cols-3        /* ← 3 PER ROW on large screens */
+        auto-rows-fr
+        place-items-stretch   /* cards stretch to fill row */
+      `}
+    >
+      {filteredReports.map((report) => (
+        <ReportCard
+          key={report.id}
+          report={report}
+          index={report.index}
+        />
       ))}
     </div>
   );

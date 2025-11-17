@@ -25,7 +25,7 @@ const Goals: React.FC = () => {
     },
     {
       title: "TEACHERS",
-      image: "/imgs/goals/teachers.jpg",
+      image: "/imgs/gallery/9.jpg",
       description:
         "Assessments with 'superhuman' precision. Enabling them to deliver the right level of tutoring to each learner based on the unique needs.",
       color: "#4caf50", // Updated to requested hex color
@@ -33,7 +33,7 @@ const Goals: React.FC = () => {
     },
     {
       title: "SCHOOLS",
-      image: "/imgs/goals/school.jpg",
+      image: "/imgs/gallery/1.jpg",
       description:
         "Access to smarter teaching. Guaranteed improved learning outcomes, and real-time data for decision making.",
       color: "#5aa2ce", // Updated to requested hex color
