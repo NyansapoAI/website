@@ -1,3 +1,6 @@
+"use client";
+
+
 import React from "react"
 import { Assessment } from "./Assessment"
 import { LiteracyAssessment } from "../types"

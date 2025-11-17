@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react"
 import CountAndMatch from "./countAndMatch"
 import NumeracyAssessments from "./NumeracyAssessments"
