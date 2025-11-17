@@ -4,12 +4,14 @@ import NumeracyAssessments from "./NumeracyAssessments"
 
 type Props = {}
 
+// ADD THIS LINE (this prevents Vercel build caching issues)
 const fetchNumeracyAssessmentContent = async (id: number) => {
   return fetch("https://graphql.nyansapoai.net/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    cache: "no-store",        // ← ADD THIS
     body: JSON.stringify({
       query: `query NumeracyAssessmentContent($where: NumeracyAssessmentContentWhereUniqueInput!) {
         numeracyAssessmentContent(where: $where) {
@@ -51,13 +53,13 @@ const fetchNumeracyAssessmentContent = async (id: number) => {
 export default async function page({}: Props) {
   const resp = await fetchNumeracyAssessmentContent(1)
 
-  return resp?.data ? (
+  return resp?.data?.numeracyAssessmentContent ? (    // ← Fixed the unsafe chaining
     <div className="sm:px-8 md:px-16 py-2 mx-auto max-w-[1920px]">
-      <NumeracyAssessments data={resp?.data.numeracyAssessmentContent} />
+      <NumeracyAssessments data={resp.data.numeracyAssessmentContent} />
     </div>
   ) : (
     <p className="text-xl text-center text-destructive">
-      Something went wrong,please refresh the page
+      Something went wrong, please refresh the page
     </p>
   )
 }
